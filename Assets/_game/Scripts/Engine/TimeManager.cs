@@ -2,12 +2,26 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Sirenix.OdinInspector;
 
 namespace RomenoCompany
 {
-    public class TimeManager : Singleton<TimeManager>
+    public class TimeManager : StrictSingleton<TimeManager>
     {
-        [SerializeField] Dictionary<object, float> _times = new Dictionary<object, float>();
+        [                                                                       ShowInInspector] 
+        private Dictionary<object, float> _times = new Dictionary<object, float>();
+        
+        
+        public long CurrentDeviceTimestamp => new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+        private static readonly DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        public static long getTimeSecondsNow => (long)(DateTime.UtcNow - epochStart).TotalSeconds;
+        
+        
+        protected override void Setup()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        
         public void SetTimeScale(object owner, float timeScale)
         {
             if (_times.ContainsKey(owner)) _times[owner] = timeScale;
@@ -44,16 +58,6 @@ namespace RomenoCompany
                 return timeScale;
             }
         }
-    
-        public long CurrentDeviceTimestamp => new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
-    
-        protected override void Setup()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    
-        private static readonly DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        public static long getTimeSecondsNow => (long)(DateTime.UtcNow - epochStart).TotalSeconds;
     
         public static string TimeToString(long seconds)
         {

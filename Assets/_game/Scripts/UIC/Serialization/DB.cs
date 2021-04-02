@@ -1,6 +1,7 @@
 using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RomenoCompany
 {
@@ -21,8 +22,9 @@ namespace RomenoCompany
         // public TableLaboratory laboratory;
         // public TableQuests quests;
 
-        public TablePlayerItems items;
+        [FormerlySerializedAs("items")] public TablePlayerItems gameItems;
         public TableCompanions companions;
+        [FormerlySerializedAs("advices")] public TableLawyerAdvices lawyerAdvices;
 
         protected override void Setup()
         {

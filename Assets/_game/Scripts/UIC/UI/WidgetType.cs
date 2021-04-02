@@ -8,7 +8,9 @@
         CHAT = 3, 
         PLAYER_PROFILE = 4, 
         ADVICE = 5, 
-        ITEM = 6, 
+        GAME_ITEM = 6, 
+        RENAME_PLAYER = 7, 
+        COMPANION_UNLOCK = 8, 
         GAME_OVER_UI = 100,
         HP_OVERLAY = 101,
     }

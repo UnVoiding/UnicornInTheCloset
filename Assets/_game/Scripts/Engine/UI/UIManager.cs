@@ -9,17 +9,19 @@ using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 
 namespace RomenoCompany
 {
-    public class UIManager : Singleton<UIManager>
+    public class UIManager : StrictSingleton<UIManager>
     {
         //// DATA
-        [                                                                   SerializeField, FoldoutGroup("Data")] 
+        [                                                                   SerializeField, FoldoutGroup("Settings")] 
         private List<Widget> widgets = new List<Widget>();
-        [                                                                   SerializeField, FoldoutGroup("Data")] 
+        [                                                                   SerializeField, FoldoutGroup("Settings")] 
         private Dictionary<Composition, List<WidgetType>> compositions = new Dictionary<Composition, List<WidgetType>>();
-        [                                                                   SerializeField, FoldoutGroup("Data")]
+        [                                                                   SerializeField, FoldoutGroup("Settings")]
         public Image ftueFade = null;
-        [                                                                   SerializeField, FoldoutGroup("Data")]
+        [                                                                   SerializeField, FoldoutGroup("Settings")]
         public Transform fadeBack = null;
+        [                                                                                   FoldoutGroup("Settings")]
+        public Camera gameOverUICamera;
         
         //// RUNTIME
         [                                                                                 ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
@@ -50,7 +52,7 @@ namespace RomenoCompany
             foreach (var kv in compositions)
             {
                 compositionsRuntime[kv.Key] = new List<Widget>();
-                compositionsRuntime[kv.Key].AddRange(widgets.FindAll(s => compositions[kv.Key].Contains(s.WidgetType)));
+                compositionsRuntime[kv.Key].AddRange(widgets.FindAll(s => compositions[kv.Key].Contains(s.widgetType)));
             }
 
             if (ftueFade != null)
@@ -121,7 +123,7 @@ namespace RomenoCompany
                 int widgetsHidden = 0;
                 foreach (var w in shownWidgets)
                 {
-                    if (compositions[nextComposition].Contains(w.WidgetType))
+                    if (compositions[nextComposition].Contains(w.widgetType))
                     {
                         widgetsToHide -= 1;
                         if (widgetsHidden == widgetsToHide) StartCoroutine(ShowNext(nextComposition));
@@ -194,13 +196,23 @@ namespace RomenoCompany
         {
             foreach (var s in widgets)
             {
-                if (s.WidgetType == widgetType)
+                if (s.widgetType == widgetType)
                 {
                     return s;
                 }
             }
 
             return null;
+        }
+
+        public void LockInput()
+        {
+            
+        }
+
+        public void UnlockInput()
+        {
+            
         }
 
         public void HideFade()

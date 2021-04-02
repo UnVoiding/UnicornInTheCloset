@@ -25,7 +25,7 @@ namespace RomenoCompany
 
             initialized = true;
             
-            Debug.Log($"StrictSingleton {typeof(T).FullName} was initialized");
+            Debug.Log($"StrictSingleton {typeof(T).Name} was initialized");
         }
 
         public static void InitInstanceFromEmptyGameObject()

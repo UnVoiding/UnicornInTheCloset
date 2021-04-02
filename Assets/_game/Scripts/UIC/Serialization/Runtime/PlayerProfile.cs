@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace RomenoCompany
 {
+    [Serializable]
     public class PlayerProfile
     {
         public string name;

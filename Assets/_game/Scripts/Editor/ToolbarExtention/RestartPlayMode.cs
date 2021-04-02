@@ -10,7 +10,7 @@ namespace RomenoCompany
     {
         static RestartPlayMode()
         {
-            ToolbarExtender.RightToolbarGUI.Add(OnToolbarGUI);
+            // ToolbarExtender.RightToolbarGUI.Add(OnToolbarGUI);
         }
         
         static void OnToolbarGUI()

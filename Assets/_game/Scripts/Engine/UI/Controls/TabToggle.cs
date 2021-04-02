@@ -9,42 +9,41 @@ namespace RomenoCompany
     [RequireComponent(typeof(Toggle))]
     public class TabToggle : MonoBehaviour
     {
-        [SerializeField] TMP_Text _titleText;
-        [SerializeField] Image _notification;
+        [                                                           FoldoutGroup("References")] 
+        public Tab tab;
+        [                                           SerializeField, FoldoutGroup("References")] 
+        protected TMP_Text titleText;
+        [                                           SerializeField, FoldoutGroup("References")] 
+        protected Image notification;
 
-        public Action<bool> OnActivateTab;
+        [                                           NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public Toggle toggle;
 
-        [Header("Runtime data")]
-        // [NonSerialized, ShowInInspector] SkinsTab _tab;
-        [NonSerialized] public Toggle _toggle;
         
-        public void Init(string title, ToggleGroup toggleGroup)
+        public void Link(Tab tab, ToggleGroup toggleGroup)
         {
-            _toggle = GetComponent<Toggle>();
-            _toggle.onValueChanged.AddListener(ActivateTab);
-            _toggle.group = toggleGroup;
+            this.tab = tab;
 
-            // _tab = tab;
+            toggle.onValueChanged.AddListener(ActivateTab);
+            toggle.group = toggleGroup;
+            toggle.isOn = false;
 
-            _toggle.isOn = false;
-            _notification.gameObject.SetActive(false);
+            if (notification != null) notification.gameObject.SetActive(false);
         }
-
+        
         public void ActivateTab(bool value)
         {
-            // _tab.gameObject.SetActive(value);
-
-            OnActivateTab?.Invoke(value);
+            tab.Activate(value);
         }
 
         public void ShowNotification(bool value)
         {
-            _notification.gameObject.SetActive(value);
+            notification.gameObject.SetActive(value);
         }
         
         public void SetColor(Color color)
         {
-            _titleText.color = color;
+            titleText.color = color;
         }
     }
 }

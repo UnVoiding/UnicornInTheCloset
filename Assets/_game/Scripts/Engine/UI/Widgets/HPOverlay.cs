@@ -22,9 +22,8 @@ namespace RomenoCompany
 
     public class HPOverlay : Widget
     {
-        public override WidgetType WidgetType => WidgetType.HP_OVERLAY;
-
-        [SerializeField, ReadOnly] private List<IWorldUI> _elements = new List<IWorldUI>();
+        [SerializeField, ReadOnly] 
+        private List<IWorldUI> _elements = new List<IWorldUI>();
 
         //private Canvas rootCanvas = null;
 
@@ -89,6 +88,11 @@ namespace RomenoCompany
             {
                 Ocean.Instance.Allocate(c._prefab.gameObject, c.GetPoolSize());
             }
+        }
+
+        public override void InitializeWidget()
+        {
+            widgetType = WidgetType.HP_OVERLAY;
         }
 
         private void LateUpdate()

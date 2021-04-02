@@ -9,25 +9,27 @@ namespace RomenoCompany
     public abstract class Widget : SerializedMonoBehaviour
     {
         //// DATA
-        [FormerlySerializedAs("screenType")] [                                                               FoldoutGroup("Data")] 
-        public WidgetType widgetType;
-        [                                                               FoldoutGroup("Data")]
+        [                                                               FoldoutGroup("References")]
         public Canvas canvas;
-        [                                                               FoldoutGroup("Data")] 
+        [                                                               FoldoutGroup("References")]
         public CanvasGroup canvasGroup;
-        [                                               SerializeField, FoldoutGroup("Data")] 
+
+        [                                              HideInInspector                            ] 
+        public WidgetType widgetType;
+        
+        [                                               SerializeField, FoldoutGroup("Settings")]
         private bool useCanvasInstead = false;
-        [                                               SerializeField, FoldoutGroup("Data")] 
+        [                                               SerializeField, FoldoutGroup("Settings")]
         private bool useGameObjectInstead = false;
 
         [Header("Base Screen Tweening")]
-        [                                                               FoldoutGroup("Data")] 
+        [                                                               FoldoutGroup("Settings")] 
         public float appearSeconds = 0.3f;
-        [                                                               FoldoutGroup("Data")] 
+        [                                                               FoldoutGroup("Settings")] 
         public Ease appearEase = Ease.OutExpo;
-        [                                                               FoldoutGroup("Data")] 
+        [                                                               FoldoutGroup("Settings")] 
         public float hideSeconds = 0.3f;
-        [                                                               FoldoutGroup("Data")] 
+        [                                                               FoldoutGroup("Settings")] 
         public Ease hideEase = Ease.InExpo;
 
         //// RUNTIME 
@@ -37,8 +39,6 @@ namespace RomenoCompany
         public bool showing = false;
         [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
         public bool hidding = false;
-
-        public virtual WidgetType WidgetType => widgetType;
 
         protected void Awake()
         {
@@ -152,6 +152,11 @@ namespace RomenoCompany
                 canvasGroup.alpha = 0;
                 gameObject.SetActive(false);
             }
+        }
+
+        public virtual void Lock()
+        {
+            
         }
 
         public virtual void OnCompositionChanged()

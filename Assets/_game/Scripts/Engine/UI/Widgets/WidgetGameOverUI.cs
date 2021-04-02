@@ -38,41 +38,42 @@ namespace RomenoCompany
             rt.antiAliasing = 1;
 
             gameOverUITexture.texture = rt;
-            Runtime.Instance._gameOverUICamera.targetTexture = rt;
+            UIManager.Instance.gameOverUICamera.targetTexture = rt;
         }
 
         public override void Show(System.Action onComplete = null)
         {
             base.Show(onComplete);
-            Runtime.Instance._gameOverUICamera.gameObject.SetActive(true);
+            UIManager.Instance.gameOverUICamera.gameObject.SetActive(true);
         }
 
         public override void ShowInstant()
         {
             base.ShowInstant();
-            Runtime.Instance._gameOverUICamera.gameObject.SetActive(true);
+            UIManager.Instance.gameOverUICamera.gameObject.SetActive(true);
         }
 
         public override void Hide(Action onComplete = null)
         {
             base.Hide(onComplete);
             
-            Runtime.Instance._gameOverUICamera.gameObject.SetActive(false);
+            UIManager.Instance.gameOverUICamera.gameObject.SetActive(false);
         }
 
         public override void HideInstant()
         {
             base.HideInstant();
 
-            Runtime.Instance._gameOverUICamera.gameObject.SetActive(false);
+            UIManager.Instance.gameOverUICamera.gameObject.SetActive(false);
         }
 
         public override void OnCompositionChanged()
         {
             base.OnCompositionChanged();
-            Runtime.Instance._gameOverUICamera.fieldOfView = Eye.Instance.Camera.fieldOfView;
-            Runtime.Instance._gameOverUICamera.transform.position = Eye.Instance.Camera.transform.position;
-            Runtime.Instance._gameOverUICamera.transform.rotation = Eye.Instance.Camera.transform.rotation;
+            var camera = UIManager.Instance.gameOverUICamera;
+            camera.fieldOfView = Eye.Instance.Camera.fieldOfView;
+            camera.transform.position = Eye.Instance.Camera.transform.position;
+            camera.transform.rotation = Eye.Instance.Camera.transform.rotation;
         }
 
         // public void PlayGetTokensAnimation(Transform parent, GameObject widget, int count, int overallTokensValue, float dist = 7)

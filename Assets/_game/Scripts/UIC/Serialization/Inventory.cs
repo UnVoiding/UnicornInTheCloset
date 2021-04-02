@@ -118,18 +118,24 @@ namespace RomenoCompany
 
 	public class Inventory : StrictSingleton<Inventory>
 	{
-		public PlayerPrefsData<int> SaveVersion;
+		public PlayerPrefsData<int> saveVersion;
 		
 		public PlayerPrefsData<AudioStatus> audioStatus;
 
 		public PlayerPrefsData<PlayerProfile> playerProfile;
 		
+		public PlayerPrefsData<WorldState> worldState;
+		
 		[Button]
 		void SaveAll()
 		{
+			saveVersion.Save();
+			
 			audioStatus.Save();
 
 			playerProfile.Save();
+			
+			worldState.Save();
 		}
 
 		protected override void Setup()
@@ -137,10 +143,14 @@ namespace RomenoCompany
 			Debug.LogError("~~~~~~~~ Inventory.Awake is called");
 			
 			DontDestroyOnLoad(gameObject);
+			
+			saveVersion = new PlayerPrefsData<int>("saveVersion", 0);
 
-			playerProfile = new PlayerPrefsData<PlayerProfile>("PlayerProfile", PlayerProfile.CreateDefault());
+			playerProfile = new PlayerPrefsData<PlayerProfile>("playerProfile", PlayerProfile.CreateDefault());
 
 			audioStatus = new PlayerPrefsData<AudioStatus>("audioStatus", AudioStatus.CreateDefault());
+
+			worldState = new PlayerPrefsData<WorldState>("worldState", WorldState.CreateDefault());
 
 			Migrate();
 			
@@ -150,19 +160,19 @@ namespace RomenoCompany
 		private void Migrate()
 		{
 			var gameSaveVersion = Migration.saveVersion;
-			SaveVersion = new PlayerPrefsData<int>("SAVE_VERSION", gameSaveVersion);
-			SaveVersion.Save();
+			saveVersion = new PlayerPrefsData<int>("SAVE_VERSION", gameSaveVersion);
+			saveVersion.Save();
 
-			if (SaveVersion > gameSaveVersion) throw new UnityException($"Cannot migrate {SaveVersion.Value}->{gameSaveVersion}");
+			if (saveVersion > gameSaveVersion) throw new UnityException($"Cannot migrate {saveVersion.Value}->{gameSaveVersion}");
 
-			Debug.Log($"STARTING VERSION MIGRATION: {SaveVersion.Value}->{gameSaveVersion}");
-			while (SaveVersion.Value < gameSaveVersion)
+			Debug.Log($"STARTING VERSION MIGRATION: {saveVersion.Value}->{gameSaveVersion}");
+			while (saveVersion.Value < gameSaveVersion)
 			{
-				Migration.Step(SaveVersion);
-				SaveVersion.Value++;
-				SaveVersion.Save();
+				Migration.Step(saveVersion);
+				saveVersion.Value++;
+				saveVersion.Save();
 			}
-			Debug.Log($"SAVE VERSION IS NOW CURRENT: {SaveVersion.Value}");
+			Debug.Log($"SAVE VERSION IS NOW CURRENT: {saveVersion.Value}");
 		}
 
 		public void SkipTutorial()

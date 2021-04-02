@@ -10,15 +10,17 @@ namespace RomenoCompany
     {
         // [FoldoutGroup("Prefabs")]
         // [SerializeField] private FXPool fxPoolPrefab;
-        [FoldoutGroup("Prefabs")]
-        [SerializeField] private Ocean oceanPfb;
-        [FoldoutGroup("Prefabs")]
-        [SerializeField] private DB dbPfb;
-        [FoldoutGroup("Prefabs")]
-        [SerializeField] private Inventory inventoryPfb;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private Ocean oceanPfb;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private DB dbPfb;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private Inventory inventoryPfb;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private DialogueManager dialogueManagerPfb;
         
-        [FoldoutGroup("Runtime")]
-        [NonSerialized, ShowInInspector, ReadOnly] public bool mainSceneActivated;
+        [                       NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public bool mainSceneActivated;
 
         private void Awake()
         {
@@ -28,34 +30,22 @@ namespace RomenoCompany
         protected override void Setup()
         {
             Application.targetFrameRate = 60;
-            
+
+            SceneLoader.InitInstanceFromEmptyGameObject();
+
             SceneManager.activeSceneChanged += OnActiveSceneChanged;
             SceneManager.sceneLoaded += OnSceneLoaded;
             
             DontDestroyOnLoad(this);
         }
 
-        private IEnumerator Start()
+        private void Start()
         {
             // Inventory.Instance.lastLoginTime.Value = TimeManager.getTimeSecondsNow;
-            
-            // first scene waits for 7 frames for iOS watchdog not to kill the game
-            // why - ???
-            yield return new WaitForEndOfFrame();
-            Debug.Log("preload frame 0");
-            yield return new WaitForEndOfFrame();
-            Debug.Log("preload frame 1");
-            yield return new WaitForEndOfFrame();
-            Debug.Log("preload frame 2");
-            yield return new WaitForEndOfFrame();
-            Debug.Log("preload frame 3");
-            yield return new WaitForEndOfFrame();
-            Debug.Log("preload frame 4");
-            yield return new WaitForEndOfFrame();
-            Debug.Log("preload frame 5");
-            yield return new WaitForEndOfFrame();
+
             // Debug.unityLogger.logEnabled = false;
-            SceneLoader.Instance.GoToScene("Loading", LoadSceneMode.Single);
+            
+            SceneLoader.Instance.GoToScene("Main", LoadSceneMode.Single);
         }
 
         private void OnDestroy()
@@ -100,6 +90,7 @@ namespace RomenoCompany
         {
             DB.InitInstanceFromPrefab(dbPfb);
             Inventory.InitInstanceFromPrefab(inventoryPfb);
+            DialogueManager.InitInstanceFromPrefab(dialogueManagerPfb);
         }
     }
 }

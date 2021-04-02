@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 namespace RomenoCompany
 {
-    public class Eye : Singleton<Eye>
+    public class Eye : StrictSingleton<Eye>
     {
         [Header("Track Settings")]
         [SerializeField]

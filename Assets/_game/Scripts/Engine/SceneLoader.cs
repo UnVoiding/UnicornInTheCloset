@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace RomenoCompany
 {
-    public class SceneLoader : Singleton<SceneLoader>
+    public class SceneLoader : StrictSingleton<SceneLoader>
     {
         public Scene ActiveScene => SceneManager.GetActiveScene();
 

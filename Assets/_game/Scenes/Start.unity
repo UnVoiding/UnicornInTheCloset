@@ -257,8 +257,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   oceanPfb: {fileID: 0}
-  dbPfb: {fileID: 0}
-  inventoryPfb: {fileID: 0}
+  dbPfb: {fileID: 3227931061011510379, guid: 524766c2e5cde634e96a6220e28cc1dd, type: 3}
+  inventoryPfb: {fileID: 1222517242279985611, guid: 0cbc0e375ea429747b0f2ef46b11b14e,
+    type: 3}
+  dialogueManagerPfb: {fileID: 169687928146327958, guid: b5569d71ddb37514e89dcaf4b0c14101,
+    type: 3}
 --- !u!1 &1897866353
 GameObject:
   m_ObjectHideFlags: 0
