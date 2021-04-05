@@ -672,6 +672,7 @@ GameObject:
   - component: {fileID: 4485252473709493690}
   - component: {fileID: 2784640244587418422}
   - component: {fileID: 6520251898134833959}
+  - component: {fileID: 6678208802145008669}
   m_Layer: 5
   m_Name: ChatScreen
   m_TagString: Untagged
@@ -774,6 +775,18 @@ MonoBehaviour:
   answerPfb: {fileID: 7216989355169005934, guid: 71984a141a9de93448ae3480a212b714,
     type: 3}
   answerRoot: {fileID: 5018079353844461160}
+--- !u!225 &6678208802145008669
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5013622369684697314}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5487524653900460905
 GameObject:
   m_ObjectHideFlags: 0

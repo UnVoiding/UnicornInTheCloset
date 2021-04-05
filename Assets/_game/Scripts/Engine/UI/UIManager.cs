@@ -65,7 +65,7 @@ namespace RomenoCompany
         [Button("Debug Composition", ButtonSizes.Large)]
         public void GoToComposition(Composition nextComposition)
         {
-            FTUEUtility.Instance.HideToolTip();
+            // FTUEUtility.Instance.HideToolTip();
             ShowFade();
             
             if (transiting)
@@ -217,16 +217,14 @@ namespace RomenoCompany
 
         public void HideFade()
         {
-            if (fadeBack == null)
-                return;
+            if (fadeBack == null) return;
             fadeBack.GetComponent<CanvasGroup>().DOFade(0, 0.3f);
-			FTUEUtility.Instance.HideToolTip();
+			// FTUEUtility.Instance.HideToolTip();
         }
 
         public void ShowFade()
         {
-            if(fadeBack == null)
-                return;
+            if (fadeBack == null) return;
             fadeBack.GetComponent<CanvasGroup>().alpha = 1;
         }
     }

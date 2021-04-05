@@ -16,7 +16,7 @@ namespace RomenoCompany
         
         public void Populate()
         {
-            foreach (var adviceState in Inventory.Instance.worldState.Value.adviceStates)
+            foreach (var adviceState in Inventory.Instance.worldState.Value.unicornAdviceStates)
             {
                 AdviceSpoiler s = Instantiate(adviceControlPfb, contentRoot);
                 s.adviceState = adviceState;

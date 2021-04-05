@@ -1326,6 +1326,7 @@ GameObject:
   - component: {fileID: 7328623043766033122}
   - component: {fileID: 87264684479195531}
   - component: {fileID: 5957715229754373681}
+  - component: {fileID: 2341205176748174785}
   m_Layer: 5
   m_Name: AdviceWidget
   m_TagString: Untagged
@@ -1422,6 +1423,18 @@ MonoBehaviour:
   hideEase: 17
   adviceText: {fileID: 4377116099304712481}
   closeBtn: {fileID: 6421704340267084552}
+--- !u!225 &2341205176748174785
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985681061492743236}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6999832866968166843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,12 +1969,12 @@ PrefabInstance:
     - target: {fileID: 7526241033849384520, guid: cf33c0f1a71f37347b70d7453c7061eb,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7526241033849384520, guid: cf33c0f1a71f37347b70d7453c7061eb,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7526241033849384520, guid: cf33c0f1a71f37347b70d7453c7061eb,
         type: 3}
@@ -1976,7 +1989,7 @@ PrefabInstance:
     - target: {fileID: 7526241033849384520, guid: cf33c0f1a71f37347b70d7453c7061eb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 383.08
       objectReference: {fileID: 0}
     - target: {fileID: 7526241033849384520, guid: cf33c0f1a71f37347b70d7453c7061eb,
         type: 3}

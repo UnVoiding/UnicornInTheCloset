@@ -29,5 +29,15 @@ namespace RomenoCompany
 
             OnActivateTab?.Invoke(activate);
         }
+
+        public virtual void OnShow()
+        {
+            
+        }
+        
+        public virtual void OnHide()
+        {
+            
+        }
     }
 }

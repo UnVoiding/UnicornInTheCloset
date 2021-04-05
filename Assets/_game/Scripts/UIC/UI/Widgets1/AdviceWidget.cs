@@ -19,6 +19,8 @@ namespace RomenoCompany
         
         public override void InitializeWidget()
         {
+            base.InitializeWidget();
+            
             widgetType = WidgetType.ADVICE;
             closeBtn.onClick.AddListener(() =>
             {

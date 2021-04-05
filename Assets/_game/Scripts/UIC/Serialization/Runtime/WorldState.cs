@@ -9,18 +9,28 @@ namespace RomenoCompany
         public Dictionary<string, Variable> variables;
         public bool companionJsonsLoaded;
         public List<CompanionState> companionStates;
-        public List<AdviceState> adviceStates;
+        public List<AdviceState> unicornAdviceStates;
         public List<PlayerItemState> gameItemStates;
-        public int lastCompanion;
+        public int lastCompanion = 0;
+        public bool lawyerFinished = false;
 
         public WorldState()
         {
             variables = new Dictionary<string, Variable>();
             companionStates = new List<CompanionState>();
-            adviceStates = new List<AdviceState>();
+            unicornAdviceStates = new List<AdviceState>();
             gameItemStates = new List<PlayerItemState>();
             companionJsonsLoaded = false;
-            lastCompanion = 0;
+
+            foreach (var cd in DB.Instance.companions.items)
+            {
+                companionStates.Add(new CompanionState(cd));
+            }
+
+            foreach (var gameItemData in DB.Instance.gameItems.items)
+            {
+                gameItemStates.Add(new PlayerItemState(gameItemData));
+            }
         }
         
         public static WorldState CreateDefault()

@@ -17,6 +17,8 @@ namespace RomenoCompany
         [                                              SerializeField, FoldoutGroup("References")]
         private Inventory inventoryPfb;
         [                                              SerializeField, FoldoutGroup("References")]
+        private UIManager uiManagerPfb;
+        [                                              SerializeField, FoldoutGroup("References")]
         private DialogueManager dialogueManagerPfb;
         
         [                       NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
@@ -69,6 +71,7 @@ namespace RomenoCompany
                 case "Main":
                     mainSceneActivated = true;
                     InitSingletons();
+                    UIManager.Instance.GoToComposition(Composition.MAIN);
                     break;
             }
         }
@@ -91,6 +94,7 @@ namespace RomenoCompany
             DB.InitInstanceFromPrefab(dbPfb);
             Inventory.InitInstanceFromPrefab(inventoryPfb);
             DialogueManager.InitInstanceFromPrefab(dialogueManagerPfb);
+            UIManager.InitInstanceFromPrefab(uiManagerPfb);
         }
     }
 }

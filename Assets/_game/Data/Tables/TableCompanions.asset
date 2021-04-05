@@ -24,6 +24,8 @@ MonoBehaviour:
   items:
   - id: 0
     internalId: 1
+    enabled: 0
+    openByDefault: 0
     name: "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
     code: main
     klass: 
@@ -32,11 +34,16 @@ MonoBehaviour:
     vulnerability: 
     goal: 
     description: 
-    fullLengthImage: {fileID: 0}
-    emotions: []
+    fullHeightImage: {fileID: 21300000, guid: fa04ef787802b8849a8d041b1bc91c9a, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 1c4dcd7138a94df4a9d05277f7fa32f6, type: 3}
+    emotions:
+    - emotionName: main
+      sprite: {fileID: 21300000, guid: ac10ac053a5fc4648afe9ad613a885c9, type: 3}
     dialogueJsons: []
   - id: 1
     internalId: 2
+    enabled: 1
+    openByDefault: 1
     name: "\u0414\u0440\u0443\u0433-\u0441\u043E\u0441\u0435\u0434 \u0411\u043E\u0433\u0434\u0430\u043D"
     code: friend
     klass: "\u0421\u043E\u0447\u0443\u0432\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0439"
@@ -57,11 +64,25 @@ MonoBehaviour:
       \u043D\u0430\u0447\u0430\u0442\u044C \u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C
       \u0438 \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0442\u044C
       \u0434\u0435\u043D\u044C\u0433\u0438."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 472fdb043072b09439911c87a70d6b48, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 21dbe1d93d65e514aaa8fd4940a3c45c, type: 3}
+    emotions:
+    - emotionName: friend
+      sprite: {fileID: 21300000, guid: 8bba79cb78526a0469a661e194da39c4, type: 3}
+    - emotionName: embarrassed
+      sprite: {fileID: 21300000, guid: a8832b45867addb458b0433f06772a02, type: 3}
+    - emotionName: confused
+      sprite: {fileID: 21300000, guid: 9f8eba6fb30880f4da3a1315b1cf5ddb, type: 3}
+    - emotionName: smiling
+      sprite: {fileID: 21300000, guid: a3897de8b70b1594880fdd098ad86624, type: 3}
+    - emotionName: thinking
+      sprite: {fileID: 21300000, guid: 539d62e9b2f62d84099470df4d2d20dd, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 12540abb37012e442bd7a30a9b07951f, type: 3}
   - id: 2
     internalId: 3
+    enabled: 1
+    openByDefault: 0
     name: "\u041F\u043E\u0434\u0440\u0443\u0433\u0430 \u0434\u0435\u0442\u0441\u0442\u0432\u0430
       \u0410\u043B\u0438\u0441\u0430"
     code: ex-schoolmate
@@ -94,11 +115,23 @@ MonoBehaviour:
       \u0440\u043E\u0434\u0438\u0442\u0435\u043B\u0435\u0439. \u0425\u043E\u0447\u0435\u0442
       \u043A\u0440\u0435\u043F\u043A\u0443\u044E \u0441\u0435\u043C\u044C\u044E \u0441
       \xAB\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u043C\xBB \u043C\u0443\u0436\u0447\u0438\u043D\u043E\u0439."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 46cab50e1dea82b44bee827694de3680, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 8763393229cb61f4f9ffb02f4fff15df, type: 3}
+    emotions:
+    - emotionName: ex-schoolmate
+      sprite: {fileID: 21300000, guid: 69bd8d6cb12923148aa803413505d200, type: 3}
+    - emotionName: angry
+      sprite: {fileID: 21300000, guid: 091dba437b4df8741a1da6b48d493c25, type: 3}
+    - emotionName: disgust
+      sprite: {fileID: 21300000, guid: ddd8f0f3fa03fb643aa20159af5f3368, type: 3}
+    - emotionName: polite
+      sprite: {fileID: 21300000, guid: a24d25af9d4b78c42b7eb786aed047e6, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 52502e4daa3d3f04297849bc9ac50051, type: 3}
   - id: 3
     internalId: 4
+    enabled: 1
+    openByDefault: 0
     name: "\u041B\u0435\u0441\u0431\u0438\u044F\u043D\u043A\u0430 \u041B\u0430\u043D\u0430"
     code: lesbian
     klass: "\u0422\u0435\u0445\u043D\u0430\u0440\u044C"
@@ -120,11 +153,21 @@ MonoBehaviour:
       \u0434\u043E\u043B\u0433\u043E\u0435 \u0432\u0440\u0435\u043C\u044F. \u0413\u0440\u043E\u043C\u043A\u043E
       \u0438 \u0437\u0430\u0440\u0430\u0437\u0438\u0442\u0435\u043B\u044C\u043D\u043E
       \u0441\u043C\u0435\u0451\u0442\u0441\u044F."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 633480fb70fec05478a1e5de0aaaffe0, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: cbf0570d77850074a88ed7c6591414a3, type: 3}
+    emotions:
+    - emotionName: lesbian
+      sprite: {fileID: 21300000, guid: d2297826b24b8d64dabb699fbf9ac3ad, type: 3}
+    - emotionName: angry
+      sprite: {fileID: 21300000, guid: 055e0d12c16d0b649a79702055f44b65, type: 3}
+    - emotionName: sad
+      sprite: {fileID: 21300000, guid: e948294acea9c9a49b782ab9d4102cb4, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 81a2aced85f91a946bd4f4031ca869c1, type: 3}
   - id: 4
     internalId: 5
+    enabled: 1
+    openByDefault: 0
     name: "\u0421\u0432\u044F\u0442\u043E\u0439 \u043E\u0442\u0435\u0446 \u0421\u0435\u0440\u0433\u0438\u0439"
     code: bad-priest
     klass: "\u0421\u043B\u0443\u0436\u0438\u0442\u0435\u043B\u044C \u043A\u0443\u043B\u044C\u0442\u0430 "
@@ -139,11 +182,22 @@ MonoBehaviour:
     description: "Ra ra Rasputin Lover of the Russian queen. There was a cat that
       really was gone.\r\nRa ra Rasputin Russia's greatest love machine. It was a
       shame how he carried on.\r"
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: d757f47d6d27c6443ae9c4cb73cff392, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: ec351c2210d8c454792e1d2c61158977, type: 3}
+    emotions:
+    - emotionName: bad-priest
+      sprite: {fileID: 21300000, guid: f53d4c488a892cf44a1624c5515d82c8, type: 3}
+    - emotionName: horny
+      sprite: {fileID: 21300000, guid: 908cbb712df9f3644ae1d194cdb05beb, type: 3}
+    - emotionName: praying
+      sprite: {fileID: 21300000, guid: bd2d1834667357a4c9378b5434f5caec, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: f471d4970bb796e4599a2b3db7d715be, type: 3}
+    - {fileID: 4900000, guid: 70562294706f56140943764c281b2bf6, type: 3}
   - id: 5
     internalId: 6
+    enabled: 1
+    openByDefault: 0
     name: "\u041F\u0441\u0438\u0445\u043E\u043B\u043E\u0433"
     code: psychologist-man
     klass: "\u041B\u0435\u043A\u0430\u0440\u044C"
@@ -159,11 +213,27 @@ MonoBehaviour:
       \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u044F \u0438 \u0432 \u043D\u0435\u0451
       \u0438\u0434\u0443\u0442 \u043F\u0440\u043E\u0433\u0440\u0435\u0441\u0441\u0438\u0432\u043D\u044B\u0435
       \u043B\u044E\u0434\u0438. "
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 2aaf561cbdef7ee428488286b9dd433c, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 2c6c53ee8d94dd446a1fc8d54b081a1e, type: 3}
+    emotions:
+    - emotionName: psychologist-man
+      sprite: {fileID: 21300000, guid: 0cbd12d221f29314380fbb5be6392ef9, type: 3}
+    - emotionName: confused
+      sprite: {fileID: 21300000, guid: d374a7de706eef444ac0da2d1c9f87b0, type: 3}
+    - emotionName: distracted
+      sprite: {fileID: 21300000, guid: f9ef7ba8914534b42a9c36bd2cd1bf15, type: 3}
+    - emotionName: roll-eyes
+      sprite: {fileID: 21300000, guid: 7142a99f959a62442961a939602dfb8c, type: 3}
+    - emotionName: sympathy
+      sprite: {fileID: 21300000, guid: 2f79e0ee60681d14da0941546813e2ea, type: 3}
+    - emotionName: smiling
+      sprite: {fileID: 21300000, guid: a053481c199760a4e96f0c0f07980903, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 645c91f4b8c6c3945a7d8d6cfc5ba82a, type: 3}
   - id: 6
     internalId: 7
+    enabled: 1
+    openByDefault: 0
     name: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A \u0410\u043D\u0434\u0436\u0435\u0439"
     code: good-priest
     klass: "\u0421\u043B\u0443\u0436\u0438\u0442\u0435\u043B\u044C \u043A\u0443\u043B\u044C\u0442\u0430 "
@@ -180,11 +250,21 @@ MonoBehaviour:
       \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u044F \u0438 \u0432 \u043D\u0435\u0451
       \u0438\u0434\u0443\u0442 \u043F\u0440\u043E\u0433\u0440\u0435\u0441\u0441\u0438\u0432\u043D\u044B\u0435
       \u043B\u044E\u0434\u0438. "
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 11f91f3e716cd914a94899a518c70156, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: ee53946d2acd1864ea35f2181af59a91, type: 3}
+    emotions:
+    - emotionName: good-priest
+      sprite: {fileID: 21300000, guid: f4d6e58f3a880104fae035e4918173f0, type: 3}
+    - emotionName: praying
+      sprite: {fileID: 21300000, guid: edefca1e309cf024d98732c68d546dfb, type: 3}
+    - emotionName: sympathy
+      sprite: {fileID: 21300000, guid: cdbdd218c4d2c43459c64a3f2d416d94, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: d5bd1d35c1e00814eb8811130135a2f8, type: 3}
   - id: 7
     internalId: 8
+    enabled: 1
+    openByDefault: 0
     name: "\u041A\u043E\u0442\u044F"
     code: cat
     klass: "\u0424\u0438\u043B\u043E\u0448\u043E\u0444"
@@ -206,11 +286,25 @@ MonoBehaviour:
       \u041F\u0440\u0438\u0432\u0435\u0440\u0435\u0434\u043B\u0438\u0432 \u043A \u043B\u0430\u0448\u043A\u0430\u043C.
       \u041C\u043E\u0439\u0442\u0435 \u0440\u0443\u043A\u0438 \u043D\u0435 \u043F\u043E\u0448\u043B\u0435,
       \u0430 \u0434\u043E \u0433\u043B\u0430\u0436\u043A\u0438, \u043B\u044E\u0434\u0438!"
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 0db6b8eec46017749b816d9f36ffa3aa, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 64a5523ee0510624fa8feca16816d5a6, type: 3}
+    emotions:
+    - emotionName: cat
+      sprite: {fileID: 21300000, guid: 28d53d8a2132da44c91e5d764f43e09c, type: 3}
+    - emotionName: angry
+      sprite: {fileID: 21300000, guid: b2d92d03407d3d348bae2851e2d23890, type: 3}
+    - emotionName: happy
+      sprite: {fileID: 21300000, guid: aea734e0d6336314a90e5cc7b473ecd6, type: 3}
+    - emotionName: other-cat
+      sprite: {fileID: 21300000, guid: 440c644a9500c0246956c20c1b235c70, type: 3}
+    - emotionName: tears
+      sprite: {fileID: 21300000, guid: b4f4e020394535b4785b30bf9107c7d8, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: d85c4c9d7eb72e14a9f51271f9529ee0, type: 3}
   - id: 8
     internalId: 9
+    enabled: 1
+    openByDefault: 0
     name: David XL
     code: horny
     klass: "\u041B\u044E\u0431\u043E\u0432\u043D\u0438\u043A"
@@ -224,11 +318,21 @@ MonoBehaviour:
       \u043D\u0435 \u043F\u0438\u0441\u0430\u0442\u044C! #slim #vers #sport #bro
       #\u043D\u0435\u043C\u0430\u043D\u0435\u0440\u043D\u044B\u0439 #sexnow #onlysafe
       \u041A\u0430\u0432\u043A\u0430\u0437\u0446\u044B \u043C\u0438\u043C\u043E!! "
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 990e37a62b7896e488475754e9804f50, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 4c5f96837689f1743ba5a1510a598594, type: 3}
+    emotions:
+    - emotionName: horny
+      sprite: {fileID: 21300000, guid: cd887b85a8cd530488ec381ccbbdeded, type: 3}
+    - emotionName: horny-hot
+      sprite: {fileID: 21300000, guid: da1dbc96afab77d4da5423af3ae4c9e3, type: 3}
+    - emotionName: sad
+      sprite: {fileID: 21300000, guid: 7b3c38a5c49ab59429d48c3baee101c1, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: cba4ba00fa53d1747b52adb323441417, type: 3}
   - id: 9
     internalId: 10
+    enabled: 1
+    openByDefault: 0
     name: "\u041C\u0430\u0440\u0438\u043D\u0430 \u0410\u0437\u0443\u043B\u0438\u043D\u0430"
     code: homophobic-woman
     klass: "\u0411\u0435\u0440\u0441\u0435\u0440\u043A"
@@ -244,11 +348,23 @@ MonoBehaviour:
       \u0442\u0440\u0430\u043D\u0441\u043F\u0430\u0440\u0430\u043D\u0442 \u043D\u0430\u043F\u0440\u044F\u0433\u0430\u0435\u0442.
       \u0427\u0442\u043E-\u0442\u043E \u043E \u0437\u0430\u043F\u0440\u0435\u0442\u0435
       \u0437\u0430\u0431\u043E\u044F \u043A\u0443\u0440\u0438\u0446?"
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 309dc41aa971c914e934caf5d1ed346b, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 5635e41e049b534458d86fd90692d998, type: 3}
+    emotions:
+    - emotionName: homophobic-woman
+      sprite: {fileID: 21300000, guid: d97aa8286d0d37b4ea68b9f03abc9043, type: 3}
+    - emotionName: confused
+      sprite: {fileID: 21300000, guid: dd770a98e2fe3e245a465d425157625f, type: 3}
+    - emotionName: broken
+      sprite: {fileID: 21300000, guid: df5c857df93035842bceeba4e9d4daed, type: 3}
+    - emotionName: angry
+      sprite: {fileID: 21300000, guid: 97087bdd3795e8143b4c650ff719306a, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 1749c916ce60d6f4887685797b6bdc8f, type: 3}
   - id: 10
     internalId: 11
+    enabled: 1
+    openByDefault: 0
     name: "\u0414\u044C\u044F\u0432\u043E\u043B"
     code: devil
     klass: "\u041C\u0438\u0444\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436 "
@@ -268,11 +384,25 @@ MonoBehaviour:
       \u043A \u043B\u0435\u0441\u0443. \u0412\u043E\u0437\u0440\u0430\u0441\u0442
       \u043D\u0435\u043E\u043F\u0440\u0435\u0434\u0435\u043B\u044F\u043C: \u0433\u0434\u0435-\u0442\u043E
       \u043E\u0442 20 \u0434\u043E 55 \u043B\u0435\u0442."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 8091172f8b08f984ea6f8bca57ffacae, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 43bddafcb709cb8428939191f4270c83, type: 3}
+    emotions:
+    - emotionName: devil
+      sprite: {fileID: 21300000, guid: ca80208333cd0ba40a3f16dfe1d983c1, type: 3}
+    - emotionName: angry
+      sprite: {fileID: 21300000, guid: b03956fa8b66ef1488fe60dddab22b5d, type: 3}
+    - emotionName: fire-breath
+      sprite: {fileID: 21300000, guid: 5dcd84e375645034198a7b267a1b2afa, type: 3}
+    - emotionName: smiling
+      sprite: {fileID: 21300000, guid: ae72e41c8ca42154d8d5f6a04e019580, type: 3}
+    - emotionName: smirk
+      sprite: {fileID: 21300000, guid: fe469d993546fc5499f75d40647532d5, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 1a3469e586a8a9945899cdcf01d08ab1, type: 3}
   - id: 11
     internalId: 12
+    enabled: 1
+    openByDefault: 0
     name: "\u0410\u043A\u0442\u0438\u0432\u0438\u0441\u0442"
     code: activist-man
     klass: "\u0412\u043E\u0438\u043D \u0421\u0432\u0435\u0442\u0430 "
@@ -287,11 +417,30 @@ MonoBehaviour:
       \u041F\u043E\u043D\u044F\u0442\u043D\u043E, \u043F\u043E\u0447\u0435\u043C\u0443
       \u043E\u043D \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442
       \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044E."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 6833c07f00526f74b9bd6217145be710, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 06048fb99bcfc9042b1fff5c1e7da98f, type: 3}
+    emotions:
+    - emotionName: activist-man
+      sprite: {fileID: 21300000, guid: b4acba7f1f1b38a49a6f3283c319c128, type: 3}
+    - emotionName: irritated
+      sprite: {fileID: 21300000, guid: cb47b790806ecbc4eba595cc81ac4ef5, type: 3}
+    - emotionName: satisfied
+      sprite: {fileID: 21300000, guid: f56c8362c1014d445b3f27c235f318ea, type: 3}
+    - emotionName: scared
+      sprite: {fileID: 21300000, guid: 1291899e61766064992fb8f268b017aa, type: 3}
+    - emotionName: smart
+      sprite: {fileID: 21300000, guid: 35f04de113a811444bbd0d77871b792a, type: 3}
+    - emotionName: smirk
+      sprite: {fileID: 21300000, guid: 66d08ff325a0f1047b4c4303f0570750, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: e423ec640f1fd6449883233b563e788d, type: 3}
+    - {fileID: 4900000, guid: f499819473840ff4d91d3f6cbd6b6af5, type: 3}
+    - {fileID: 4900000, guid: b807bb233ff4e8343b18aa6335a8aa40, type: 3}
+    - {fileID: 4900000, guid: e2e499266a6b22343b3efa2ac19aae05, type: 3}
   - id: 12
     internalId: 13
+    enabled: 1
+    openByDefault: 0
     name: "\u0421\u0430\u0448\u0430"
     code: friend-gay
     klass: "\u041B\u044E\u0431\u043E\u0432\u043D\u0438\u043A"
@@ -301,11 +450,26 @@ MonoBehaviour:
     goal: "\u0423\u0437\u043D\u0430\u0435\u0448\u044C"
     description: "\u042F\u0440\u043A\u0438\u0439, \u0432\u0435\u0441\u0451\u043B\u044B\u0439.
       \u042E\u043D\u044B\u0439 \u0432\u0437\u0440\u043E\u0441\u043B\u044B\u0439."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 27518d980a9dc924a91d0682f50fc051, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 73ba59ca5bf934543a7f54d5126632c8, type: 3}
+    emotions:
+    - emotionName: friend-gay
+      sprite: {fileID: 21300000, guid: a015b60793976d64cb4241b4ef0f6d53, type: 3}
+    - emotionName: glamurous
+      sprite: {fileID: 21300000, guid: 5dfd5ba222dfc7f4ba4438ea03d51049, type: 3}
+    - emotionName: happy
+      sprite: {fileID: 21300000, guid: a1146839927079845b365e5ef9392e22, type: 3}
+    - emotionName: playfull
+      sprite: {fileID: 21300000, guid: 159d4ca6f11a4c643b962a061ee14640, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 1c042aae927f2b04090b95a9efc40702, type: 3}
+    - {fileID: 4900000, guid: cf524dd6c93202b40a3808a7b44ea562, type: 3}
+    - {fileID: 4900000, guid: c4a8c7c20bc9bac4b863b4794dfbc3f5, type: 3}
+    - {fileID: 4900000, guid: 85924bad121482b4cb0ce097a4e58827, type: 3}
   - id: 13
     internalId: 14
+    enabled: 1
+    openByDefault: 0
     name: "\u041F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u0438\u0442\u0435\u043B\u044C
       \u0432\u043B\u0430\u0441\u0442\u0438"
     code: government-agent
@@ -326,13 +490,23 @@ MonoBehaviour:
       \u043C\u0435\u043B\u044C\u043A\u0430\u043B\u043E \u0432 \u0442\u0435\u043B\u0435\u0432\u0438\u0437\u043E\u0440\u0435
       \u0438\u043B\u0438 \u0432 \u0442\u0432\u043E\u0438\u0445 \u043D\u043E\u0447\u043D\u044B\u0445
       \u043A\u043E\u0448\u043C\u0430\u0440\u0430\u0445."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: d6eae24ac22d65a4a8477d6ea0b8391d, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 844ea284399a43046a332cb25d0a818d, type: 3}
+    emotions:
+    - emotionName: government-agent
+      sprite: {fileID: 21300000, guid: 0b37b6ff6869e9140944d8230ee5ca20, type: 3}
+    - emotionName: angry
+      sprite: {fileID: 21300000, guid: 1fddf73cdd561004491a7f14811fe361, type: 3}
+    - emotionName: knifes
+      sprite: {fileID: 21300000, guid: e1066cb9a9d17fa4b8d8a06801eb08cd, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: d39e6afef08e47d4eb0523ee5001c442, type: 3}
   - id: 14
     internalId: 15
+    enabled: 1
+    openByDefault: 0
     name: "\u042E\u043D\u043E\u0435 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0435"
-    code: underaged
+    code: teenager
     klass: "10 \u043A\u043B\u0430\u0441\u0441 "
     gameItem: "\u0421\u043D\u0435\u0436\u043D\u044B\u0439 \u0431\u0443\u0440\u0430\u043D\u0447\u0438\u043A "
     skill: "\u0427\u0438\u0442\u0430\u0442\u044C \u043B\u0438\u0442\u0435\u0440\u0430\u0442\u0443\u0440\u0443
@@ -344,11 +518,19 @@ MonoBehaviour:
       \u043D\u0430\u0447\u0438\u043D\u0430\u0435\u0448\u044C \u0438\u0441\u043A\u0430\u0442\u044C
       \u0433\u043B\u0430\u0437\u0430\u043C\u0438 \u043C\u0430\u043C\u0443 \u043F\u0435\u0440\u0435\u0434\u0430\u0442\u044C
       \u043F\u0440\u043E\u043F\u0430\u0436\u0443."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: a10364ac7f36c724ca02b507062c2af1, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 88aca0c9440a02e45a52c498159886e3, type: 3}
+    emotions:
+    - emotionName: teenager
+      sprite: {fileID: 21300000, guid: e7fc18a98e8de4f49b32841a4f729068, type: 3}
+    - emotionName: crying
+      sprite: {fileID: 21300000, guid: 9caded3cf76c7634083c93643324cc74, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 0fe80db3981f3394c8508f1e4b168c36, type: 3}
   - id: 15
     internalId: 16
+    enabled: 0
+    openByDefault: 0
     name: "\u0410\u043D\u043E\u043D\u0438\u043C"
     code: hidding
     klass: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E"
@@ -359,11 +541,23 @@ MonoBehaviour:
     goal: "\u0427\u0442\u043E\u0431\u044B \u043D\u0438\u043A\u0442\u043E \u043D\u0435
       \u0442\u0440\u043E\u0433\u0430\u043B"
     description: 
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: a10364ac7f36c724ca02b507062c2af1, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 97c1f5299103f7948b7d9d96ea8ea2aa, type: 3}
+    emotions:
+    - emotionName: hidding
+      sprite: {fileID: 21300000, guid: 3584fd2c225ecee4380bb3dc76100b83, type: 3}
+    - emotionName: idle
+      sprite: {fileID: 21300000, guid: 3ce501b96714b914db86480bc70f5385, type: 3}
+    - emotionName: crying
+      sprite: {fileID: 21300000, guid: 47d968fcad827c94381d78c0bcdc1f60, type: 3}
+    - emotionName: scared
+      sprite: {fileID: 21300000, guid: 1b6cbc7662ade9f4e9b283d78a392a34, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 0fe80db3981f3394c8508f1e4b168c36, type: 3}
   - id: 16
     internalId: 17
+    enabled: 1
+    openByDefault: 0
     name: "\u0410\u043A\u0442\u0438\u0432\u0438\u0441\u0442\u043A\u0430 \u0412\u0430\u0440\u044F"
     code: activist-woman
     klass: "\u0412\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u0438\u0446\u0430"
@@ -376,11 +570,22 @@ MonoBehaviour:
       \u0432\u044B\u0433\u043B\u044F\u0434\u0435\u0442\u044C \u0443\u0441\u0442\u0430\u043B\u043E\u0439
       \u0438 \u0431\u043E\u0434\u0440\u043E\u0439, \u0442\u043E \u044D\u0442\u043E
       \u043F\u0440\u043E \u0412\u0430\u0440\u044E."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 71bc9d5e10e68ae4cbc55b47e7e10a6a, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 0832e1a401d15824f9d34988d6692eaa, type: 3}
+    emotions:
+    - emotionName: activist-woman
+      sprite: {fileID: 21300000, guid: 574eec74e8c8cbe48bb1fa6ef7c32c84, type: 3}
+    - emotionName: proud
+      sprite: {fileID: 21300000, guid: 56bcb9071b293cf41b345cd0c030a8b1, type: 3}
+    - emotionName: tired
+      sprite: {fileID: 21300000, guid: 00af2602b34e86d44ae1c898b27804ae, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 55a9288e7b130b7409a6815508ae3238, type: 3}
+    - {fileID: 4900000, guid: b71e2fe521a090e41846f01951b9a2c4, type: 3}
   - id: 17
     internalId: 18
+    enabled: 1
+    openByDefault: 0
     name: "\u0422\u0451\u0442\u044F \u041B\u044E\u0434\u0430"
     code: accepting-parent
     klass: "\u041B\u0435\u043A\u0430\u0440\u044C"
@@ -400,11 +605,21 @@ MonoBehaviour:
       \u0434\u0443\u043C\u0430\u0442\u044C \u043D\u0435 \u0442\u0432\u043E\u044F
       \u043B\u0438 \u044D\u0442\u043E \u043A\u0440\u0451\u0441\u0442\u043D\u0430\u044F
       \u043C\u0430\u043C\u0430."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 781d964505fa5444593f9e6d15d6692a, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: b2fffa48f8224a94aa01be29eddd74bc, type: 3}
+    emotions:
+    - emotionName: accepting-parent
+      sprite: {fileID: 21300000, guid: d906affa3c20af74fb7b14ca38162e28, type: 3}
+    - emotionName: sad
+      sprite: {fileID: 21300000, guid: f19e204cb95049c49b82d87275669c46, type: 3}
+    - emotionName: sympathy
+      sprite: {fileID: 21300000, guid: dbe150d617893d34fb9f2468fc3c9c12, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 98f8efc73d94af04286e27f3849356a4, type: 3}
   - id: 18
     internalId: 19
+    enabled: 1
+    openByDefault: 0
     name: "\u041F\u0441\u0438\u0445\u043E\u0442\u0435\u0440\u0430\u043F\u0435\u0432\u0442\u043A\u0430
       \u041A\u0430\u0440\u0438\u043D\u0430 "
     code: psychoterapist-woman
@@ -427,11 +642,21 @@ MonoBehaviour:
       \u043C\u043E\u0437\u0433 \u0434\u0435\u043B\u0430\u0435\u0442 \u0432\u044B\u0432\u043E\u0434,
       \u0447\u0442\u043E \u043C\u044B \u0432 \u0445\u043E\u0440\u043E\u0448\u0438\u0445
       \u0440\u0443\u043A\u0430\u0445."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 7dad889914b80564fbfe4505c5a7a636, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 01241321279800b4f8c3e2a7c812bd1d, type: 3}
+    emotions:
+    - emotionName: psychoterapist-woman
+      sprite: {fileID: 21300000, guid: 6480fa2a2d1a7d54eba183ecdf983128, type: 3}
+    - emotionName: thinking
+      sprite: {fileID: 21300000, guid: 68c6eb34398070144bb220b539b93de3, type: 3}
+    - emotionName: listening
+      sprite: {fileID: 21300000, guid: 389e7bfe048dc864da29fb30433ef528, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 0ea55115738113044b86ad45fabfc864, type: 3}
   - id: 19
     internalId: 20
+    enabled: 0
+    openByDefault: 0
     name: "\u042E\u0440\u0438\u0441\u0442 \u0418\u0432\u0430\u043D \u0414\u043C\u0438\u0442\u0440\u0438\u0435\u0432\u0438\u0447"
     code: lawyer
     klass: "\u0417\u0430\u043A\u043E\u043D\u043E\u043A\u043B\u0438\u043D\u0430\u0442\u0435\u043B\u044C"
@@ -448,11 +673,19 @@ MonoBehaviour:
       \u041A\u0430\u0436\u0434\u043E\u0435 \u0441\u043B\u043E\u0432\u043E \u043F\u043E\u0434\u043A\u0440\u0435\u043F\u043B\u0435\u043D\u043E
       \u0441\u0441\u044B\u043B\u043A\u043E\u0439 \u043D\u0430 \u043D\u043E\u0440\u043C\u0430\u0442\u0438\u0432\u043D\u043E-\u043F\u0440\u0430\u0432\u043E\u0432\u043E\u0439
       \u0430\u043A\u0442. \u0412\u044B\u0437\u044B\u0432\u0430\u0435\u0442 \u0434\u043E\u0432\u0435\u0440\u0438\u0435."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 8c102da5b5dace64291c4298580c38a9, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: e1d2f0eeb55c66d478f8a0e462ef12d2, type: 3}
+    emotions:
+    - emotionName: lawyer
+      sprite: {fileID: 21300000, guid: fe4a01549d0ce434e8ebea7a1074ea5f, type: 3}
+    - emotionName: angry
+      sprite: {fileID: 21300000, guid: d0e3b69cac4a6db47bc785374b1c629e, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 2bd8a200acadb534f869db98723bf230, type: 3}
   - id: 20
     internalId: 21
+    enabled: 1
+    openByDefault: 0
     name: "\u0422\u0440\u0430\u043D\u0441\u0433\u0435\u043D\u0434\u0435\u0440\u043A\u0430
       \u0410\u043D\u044F"
     code: transgender
@@ -471,11 +704,23 @@ MonoBehaviour:
       \u0442\u0435\u0440\u043C\u043E\u043A\u0440\u0443\u0436\u043A\u0430, \u0438\u0437
       \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0432\u043A\u0443\u0441\u043D\u043E
       \u043F\u0430\u0445\u043D\u0435\u0442 \u0448\u0438\u043F\u043E\u0432\u043D\u0438\u043A\u043E\u043C."
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 3e424845a8cc71f4090a20a75a1ef236, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: d8528307e43290544bdc49a1bdf748ac, type: 3}
+    emotions:
+    - emotionName: transgender
+      sprite: {fileID: 21300000, guid: 3c3a148c761776d4fae775a2c691e526, type: 3}
+    - emotionName: happy
+      sprite: {fileID: 21300000, guid: f53b2db6d70a1b442a83c3a3301eae21, type: 3}
+    - emotionName: sad
+      sprite: {fileID: 21300000, guid: 0baae7ea82be3ef4f8f7f540a38db89c, type: 3}
+    - emotionName: thinking
+      sprite: {fileID: 21300000, guid: 1f84aa25f65b9b54f8b4cfaa68c4cd5b, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 7d2d3ccf3345131459461df0a738a6d8, type: 3}
   - id: 21
     internalId: 22
+    enabled: 0
+    openByDefault: 0
     name: kiss26
     code: catfish
     klass: "\u0422\u0430\u043A\u0442\u0438\u043A"
@@ -484,11 +729,27 @@ MonoBehaviour:
     vulnerability: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u0430"
     goal: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u0430"
     description: 
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: a10364ac7f36c724ca02b507062c2af1, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: a03d59a98d5dab24bb3b0660ca36f74a, type: 3}
+    emotions:
+    - emotionName: catfish
+      sprite: {fileID: 21300000, guid: 9af34e5066907c74abbab0915251cfdf, type: 3}
+    - emotionName: angry
+      sprite: {fileID: 21300000, guid: d466d75c9714efc48866455977c137d8, type: 3}
+    - emotionName: peeking
+      sprite: {fileID: 21300000, guid: 5b0f94d10cb91f14f9e70228b1a922bd, type: 3}
+    - emotionName: sad
+      sprite: {fileID: 21300000, guid: 46689a8ef5b594d40a2c500619c00a01, type: 3}
+    - emotionName: scared
+      sprite: {fileID: 21300000, guid: b1b637cbc556dab4c9cee14380dc05a4, type: 3}
+    - emotionName: happy
+      sprite: {fileID: 21300000, guid: ff1facd6665e82944b5a9efb7cfc895a, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 0fe80db3981f3394c8508f1e4b168c36, type: 3}
   - id: 22
     internalId: 24
+    enabled: 1
+    openByDefault: 0
     name: "\u041F\u0430\u043F\u0430 \u0438 \u041C\u0430\u043C\u0430"
     code: parents
     klass: "\u0420\u043E\u0434\u0438\u0442\u0435\u043B\u0438"
@@ -499,11 +760,29 @@ MonoBehaviour:
     goal: "\u0427\u0442\u043E\u0431\u044B \u0432\u0441\u0451 \u0431\u044B\u043B\u043E
       \u043F\u043E-\u043D\u0430\u0448\u0435\u043C\u0443"
     description: 
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: 65fa5a0f1411a4d42b5dcdb4f0eefe87, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 266eebb6e25cc0f4ea7e357363ecdf8f, type: 3}
+    emotions:
+    - emotionName: parents
+      sprite: {fileID: 21300000, guid: c96d004d797dae84badf0e414cf5d568, type: 3}
+    - emotionName: doubt
+      sprite: {fileID: 21300000, guid: 5cbd2f53a97c589488070929375fdac6, type: 3}
+    - emotionName: angry
+      sprite: {fileID: 21300000, guid: 83d508df9df63374f8982c230844f91b, type: 3}
+    - emotionName: happy
+      sprite: {fileID: 21300000, guid: 6cf2be05dbe6a24408847247f02a6303, type: 3}
+    - emotionName: shocked
+      sprite: {fileID: 21300000, guid: 21587a2ac9190d64dbe34c320b2e15d0, type: 3}
+    - emotionName: unaccepting
+      sprite: {fileID: 21300000, guid: 8d7e3a5b96c1d6841a90796bfa0fb1d0, type: 3}
+    - emotionName: upset
+      sprite: {fileID: 21300000, guid: 41a2ff2107d08d545a340b5f438b8599, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 999a03ea86f67dc4f83019376111e309, type: 3}
   - id: 23
     internalId: 25
+    enabled: 1
+    openByDefault: 0
     name: "\u0415\u0434\u0438\u043D\u043E\u0440\u043E\u0433"
     code: Unicorn
     klass: "\u0421\u043E\u0432\u0435\u0442\u0447\u0438\u043A"
@@ -515,6 +794,10 @@ MonoBehaviour:
       \u043D\u043E \u043D\u0435 \u043D\u0430\u0432\u044F\u0437\u044B\u0432\u0430\u0442\u044C
       \u0440\u0435\u0448\u0435\u043D\u0438\u0435"
     description: 
-    fullLengthImage: {fileID: 0}
-    emotions: []
-    dialogueJsons: []
+    fullHeightImage: {fileID: 21300000, guid: b2e312fbe507db74c87388d4529d868f, type: 3}
+    mainScreenImage: {fileID: 21300000, guid: 2d92fc2392fd03044a60ca697eea1588, type: 3}
+    emotions:
+    - emotionName: unicorn
+      sprite: {fileID: 21300000, guid: 02b46964cae936a45ab4b90199dcea92, type: 3}
+    dialogueJsons:
+    - {fileID: 4900000, guid: 4e846edc66716524484ee523aa1cd61b, type: 3}

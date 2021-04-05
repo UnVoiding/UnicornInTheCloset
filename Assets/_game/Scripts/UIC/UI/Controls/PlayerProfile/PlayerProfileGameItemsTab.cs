@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace RomenoCompany
 {
-    public class PlayerProfileGameItems : Tab
+    public class PlayerProfileGameItemsTab : Tab
     {
         [                        Header("PlayerProfileGameItems"), FoldoutGroup("References")]
         public GameItemBtn gameItemPfb;

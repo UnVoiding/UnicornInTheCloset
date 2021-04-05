@@ -28,6 +28,8 @@ namespace RomenoCompany
         
         public override void InitializeWidget()
         {
+            base.InitializeWidget();
+
             widgetType = WidgetType.MAIN;
             profileBtn.onClick.AddListener(() =>
             {
@@ -35,11 +37,14 @@ namespace RomenoCompany
             });
 
             companionBtns = new List<CompanionBtn>();
-            foreach (var dbCompanion in DB.Instance.companions.items)
+            foreach (var companionState in Inventory.Instance.worldState.Value.companionStates)
             {
-                CompanionBtn btn = Instantiate(companionBtnPfb, contentRoot);
-                btn.Init(dbCompanion.emotions[0].sprite);
-                companionBtns.Add(btn);
+                if (companionState.data.enabled)
+                {
+                    CompanionBtn btn = Instantiate(companionBtnPfb, contentRoot);
+                    btn.Init(companionState);
+                    companionBtns.Add(btn);
+                }
             }
         }
 

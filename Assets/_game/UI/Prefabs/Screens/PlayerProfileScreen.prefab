@@ -636,6 +636,7 @@ GameObject:
   - component: {fileID: 4423316222800502862}
   - component: {fileID: 5780949781136918594}
   - component: {fileID: 6988848950837992188}
+  - component: {fileID: 1394876497968441476}
   m_Layer: 5
   m_Name: PlayerProfileScreen
   m_TagString: Untagged
@@ -733,6 +734,19 @@ MonoBehaviour:
   hideEase: 17
   backBtn: {fileID: 288333375338810461}
   renamePlayerBtn: {fileID: 2198333433070030558}
+  tabController: {fileID: 6089150416615430979}
+--- !u!225 &1394876497968441476
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5905666676184893965}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6308212590366292558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1574,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1808288355223771057, guid: f6deeb5c6872b2247b3bc90a22036b0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2276911705981390086, guid: f6deeb5c6872b2247b3bc90a22036b0f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1570,10 +1589,15 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2502790497425077616, guid: f6deeb5c6872b2247b3bc90a22036b0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2972876411561991805, guid: f6deeb5c6872b2247b3bc90a22036b0f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0003763659
+      value: 0.0003106323
       objectReference: {fileID: 0}
     - target: {fileID: 3354463571199063228, guid: f6deeb5c6872b2247b3bc90a22036b0f,
         type: 3}
@@ -1994,6 +2018,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 771829848495178590, guid: 309ead4af79b74a45a5f21430c048cc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1164198370754946473, guid: 309ead4af79b74a45a5f21430c048cc6,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2013,6 +2042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TabGameItems
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536998303850914207, guid: 309ead4af79b74a45a5f21430c048cc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4004987287935187752, guid: 309ead4af79b74a45a5f21430c048cc6,
         type: 3}
@@ -2523,6 +2557,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5261806023543030280, guid: bbaf59711a49a424192b6c562d534ccb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6024611079177217279, guid: bbaf59711a49a424192b6c562d534ccb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2549,6 +2588,11 @@ PrefabInstance:
       value: TabLawyers
       objectReference: {fileID: 0}
     - target: {fileID: 7584697179723545226, guid: bbaf59711a49a424192b6c562d534ccb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261385867032207561, guid: bbaf59711a49a424192b6c562d534ccb,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2794,6 +2838,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446838308186486392, guid: 254b26498252b674bb44ac6a760a4b19,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121355767507965113, guid: 254b26498252b674bb44ac6a760a4b19,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7229756076124032526, guid: 254b26498252b674bb44ac6a760a4b19,
         type: 3}

@@ -7,5 +7,10 @@ namespace RomenoCompany
     {
         public PlayerItemData itemData;
         public bool found;
+
+        public PlayerItemState(PlayerItemData playerItemData)
+        {
+            itemData = playerItemData;
+        }
     }
 }

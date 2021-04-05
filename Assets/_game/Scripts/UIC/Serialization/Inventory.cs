@@ -126,6 +126,9 @@ namespace RomenoCompany
 		
 		public PlayerPrefsData<WorldState> worldState;
 		
+		public PlayerPrefsData<CompanionState> currentCompanion;
+
+		
 		[Button]
 		void SaveAll()
 		{
@@ -136,6 +139,8 @@ namespace RomenoCompany
 			playerProfile.Save();
 			
 			worldState.Save();
+
+			currentCompanion.Save();
 		}
 
 		protected override void Setup()
@@ -151,6 +156,8 @@ namespace RomenoCompany
 			audioStatus = new PlayerPrefsData<AudioStatus>("audioStatus", AudioStatus.CreateDefault());
 
 			worldState = new PlayerPrefsData<WorldState>("worldState", WorldState.CreateDefault());
+
+			currentCompanion = new PlayerPrefsData<CompanionState>("currentCompanion", (CompanionState)null);
 
 			Migrate();
 			

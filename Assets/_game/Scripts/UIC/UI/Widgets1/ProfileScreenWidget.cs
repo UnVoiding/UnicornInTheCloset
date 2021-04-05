@@ -18,17 +18,21 @@ namespace RomenoCompany
         [                                               SerializeField, FoldoutGroup("References")] 
         private Button renamePlayerBtn;
 
+        [                                               SerializeField, FoldoutGroup("References")] 
+        private TabController tabController;
+
         //// RUNTIME 
-        [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
-        public bool qq;
+        // [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
         
         public override void InitializeWidget()
         {
+            base.InitializeWidget();
+
             widgetType = WidgetType.PLAYER_PROFILE;
             
             backBtn.onClick.AddListener(() =>
             {
-                UIManager.Instance.GoToComposition(Composition.PLAYER_PROFILE);
+                UIManager.Instance.GoToComposition(Composition.MAIN);
             });
             
             renamePlayerBtn.onClick.AddListener(() =>
@@ -38,8 +42,20 @@ namespace RomenoCompany
             });
         }
 
-        public override void Show(System.Action onComplete = null)
+        public override void Show(Action onComplete = null)
         {
+            PlayerProfileAdvicesTab t1 = (PlayerProfileAdvicesTab) tabController.tabs[0];
+            t1.Populate();
+
+            PlayerProfileGameItemsTab t2 = (PlayerProfileGameItemsTab) tabController.tabs[1];
+            t2.Populate();
+
+            if (Inventory.Instance.worldState.Value.lawyerFinished)
+            {
+                PlayerProfileLawyerTab t3 = (PlayerProfileLawyerTab) tabController.tabs[2];
+                t3.Populate();
+            }
+
             base.Show(onComplete);
         }
 

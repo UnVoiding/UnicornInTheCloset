@@ -6,17 +6,22 @@ namespace RomenoCompany
     [Serializable]
     public class CompanionState
     {
-        public int companionId;
+        public CompanionData data;
         public bool locked;
-        public int activeDialogue;
-        public int activePassageId;
-        public int currentEmotion;
+        public int activeDialogue = 0;
+        public int activePassageId = 0;
+        public int currentEmotion = 0;
         public List<Dialogue> dialogues;
 
-        public CompanionState(int companionId)
+        public CompanionState()
         {
-            companionId = companionId;
-            locked = true;
+            
+        }
+
+        public CompanionState(CompanionData data)
+        {
+            this.data = data;
+            locked = !data.openByDefault;
         }
     }
 

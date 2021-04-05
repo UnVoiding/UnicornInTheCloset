@@ -28,10 +28,12 @@ namespace RomenoCompany
         
         public override void InitializeWidget()
         {
+            base.InitializeWidget();
+
             widgetType = WidgetType.CHAT;
             backBtn.onClick.AddListener(() =>
             {
-                UIManager.Instance.GoToComposition(Composition.PLAYER_PROFILE);
+                UIManager.Instance.GoToComposition(Composition.MAIN);
             });
             
             infoBtn.onClick.AddListener(() =>

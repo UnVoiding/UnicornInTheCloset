@@ -11,7 +11,7 @@ namespace RomenoCompany
 {
 	public enum FTUEType {Default, Attack, Backdash, LabUnlock}
 
-	public class FTUEUtility : Singleton<FTUEUtility>
+	public class FTUEUtility : StrictSingleton<FTUEUtility>
 	{
 	    [Serializable]
 	    class FTUEColor

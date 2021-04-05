@@ -11,19 +11,16 @@ namespace RomenoCompany
         {
             if (!Inventory.Instance.worldState.Value.companionJsonsLoaded)
             {
-                foreach (var dbCompanion in DB.Instance.companions.items)
+                foreach (var compState in Inventory.Instance.worldState.Value.companionStates)
                 {
-                    CompanionState companionState = new CompanionState(dbCompanion.id);
-                    
-                    Inventory.Instance.worldState.Value.companionStates.Add(companionState);
-
-                    foreach (var asset in dbCompanion.dialogueJsons)
+                    foreach (var asset in compState.data.dialogueJsons)
                     {
                         TwineRoot root = JsonConvert.DeserializeObject<TwineRoot>(asset.text);
                     }
                 }
 
                 Inventory.Instance.worldState.Value.companionJsonsLoaded = true;
+                Inventory.Instance.worldState.Save();
             }
         }
     }

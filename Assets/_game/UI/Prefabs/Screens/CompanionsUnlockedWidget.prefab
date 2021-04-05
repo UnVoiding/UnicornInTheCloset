@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 7228891202801534106}
   - component: {fileID: 58642656163903475}
   - component: {fileID: 7753320781281144226}
+  - component: {fileID: 8475394947502983321}
   m_Layer: 5
   m_Name: CompanionsUnlockedWidget
   m_TagString: Untagged
@@ -648,7 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -669,6 +670,18 @@ MonoBehaviour:
     type: 3}
   contentRoot: {fileID: 1024512096675728194}
   closeBtn: {fileID: 6410922418557171056}
+--- !u!225 &8475394947502983321
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995301892498047548}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7893670087540516259
 GameObject:
   m_ObjectHideFlags: 0

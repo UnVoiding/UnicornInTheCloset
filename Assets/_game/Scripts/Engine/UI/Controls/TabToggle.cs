@@ -19,10 +19,12 @@ namespace RomenoCompany
         [                                           NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public Toggle toggle;
 
-        
+
         public void Link(Tab tab, ToggleGroup toggleGroup)
         {
             this.tab = tab;
+
+            if (toggle == null) toggle = GetComponent<Toggle>();
 
             toggle.onValueChanged.AddListener(ActivateTab);
             toggle.group = toggleGroup;
@@ -31,6 +33,16 @@ namespace RomenoCompany
             if (notification != null) notification.gameObject.SetActive(false);
         }
         
+        public virtual void OnShow()
+        {
+            
+        }
+        
+        public virtual void OnHide()
+        {
+            
+        }
+
         public void ActivateTab(bool value)
         {
             tab.Activate(value);

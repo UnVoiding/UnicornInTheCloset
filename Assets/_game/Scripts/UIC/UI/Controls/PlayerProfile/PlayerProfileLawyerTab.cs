@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace RomenoCompany
 {
-    public class PlayerProfileLawyer : Tab
+    public class PlayerProfileLawyerTab : Tab
     {
         [                           Header("PlayerProfileLawyer"), FoldoutGroup("References")]
         public AdviceSpoiler lawyerAdviceControlPfb;

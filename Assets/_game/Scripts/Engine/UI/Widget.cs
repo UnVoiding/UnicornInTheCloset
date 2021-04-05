@@ -40,15 +40,10 @@ namespace RomenoCompany
         [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
         public bool hidding = false;
 
-        protected void Awake()
+        public virtual void InitializeWidget()
         {
             if (canvas == null) canvas = GetComponent<Canvas>();
             if (canvasGroup == null) canvasGroup = GetComponent<CanvasGroup>();
-        }
-
-        public virtual void InitializeWidget()
-        {
-            
         }
 
         public virtual void Show(Action onComplete = null)
@@ -57,17 +52,22 @@ namespace RomenoCompany
             Action showing = () =>
             {
                 this.showing = true;
-                if (useGameObjectInstead) {
+                if (useGameObjectInstead) 
+                {
                     gameObject.SetActive(true);
                     shown = true;
                     onComplete?.Invoke();
                     this.showing = false;
-                } else if (useCanvasInstead) {
+                } 
+                else if (useCanvasInstead) 
+                {
                     canvas.enabled = true;
                     shown = true;
                     onComplete?.Invoke();
                     this.showing = false;
-                } else {
+                } 
+                else 
+                {
                     gameObject.SetActive(true);
                     canvasGroup.alpha = 0;
                     canvasGroup.DOFade(1, appearSeconds).SetUpdate(UpdateType.Normal, true).SetEase(appearEase).OnComplete(() =>
@@ -92,11 +92,16 @@ namespace RomenoCompany
         public virtual void ShowInstant()
         {
             shown = true;
-            if (useGameObjectInstead) {
+            if (useGameObjectInstead) 
+            {
                 gameObject.SetActive(true);
-            } else if (useCanvasInstead) {
+            } 
+            else if (useCanvasInstead) 
+            {
                 canvas.enabled = true;
-            } else {
+            } 
+            else 
+            {
                 canvasGroup.alpha = 1;
                 gameObject.SetActive(true);
             }
@@ -109,17 +114,22 @@ namespace RomenoCompany
             Action hiding = () =>
             {
                 hidding = true;
-                if (useGameObjectInstead) {
+                if (useGameObjectInstead) 
+                {
                     gameObject.SetActive(false);
                     shown = false;
                     hidding = false;
                     onComplete?.Invoke();
-                } else if (useCanvasInstead) {
+                } 
+                else if (useCanvasInstead) 
+                {
                     canvas.enabled = false;
                     shown = false;
                     hidding = false;
                     onComplete?.Invoke();
-                } else {
+                } 
+                else 
+                {
                     gameObject.SetActive(true);
                     canvasGroup.alpha = 1;
                     canvasGroup.DOFade(0, hideSeconds).SetUpdate(UpdateType.Normal, true).SetEase(hideEase).OnComplete(() =>
@@ -144,11 +154,16 @@ namespace RomenoCompany
         public virtual void HideInstant()
         {
             shown = false;
-            if (useGameObjectInstead) {
+            if (useGameObjectInstead) 
+            {
                 gameObject.SetActive(false);
-            } else if (useCanvasInstead) {
+            } 
+            else if (useCanvasInstead) 
+            {
                 canvas.enabled = false;
-            } else {
+            } 
+            else 
+            {
                 canvasGroup.alpha = 0;
                 gameObject.SetActive(false);
             }

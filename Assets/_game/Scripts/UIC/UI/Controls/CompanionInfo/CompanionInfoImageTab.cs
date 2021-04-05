@@ -12,7 +12,7 @@ namespace RomenoCompany
         
         public void Populate(CompanionData companion)
         {
-            SetImage(companion.fullLengthImage);
+            SetImage(companion.fullHeightImage);
         }
 
         public void SetImage(Sprite sprite)

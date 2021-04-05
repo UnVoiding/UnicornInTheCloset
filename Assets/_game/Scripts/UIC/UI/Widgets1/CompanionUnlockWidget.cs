@@ -23,6 +23,8 @@ namespace RomenoCompany
 
         public override void InitializeWidget()
         {
+            base.InitializeWidget();
+
             widgetType = WidgetType.COMPANION_UNLOCK;
             closeBtn.onClick.AddListener(() =>
             {

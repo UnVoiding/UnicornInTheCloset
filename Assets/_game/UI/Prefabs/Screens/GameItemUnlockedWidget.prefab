@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 5068023222265228546}
   - component: {fileID: 2510551544952757867}
   - component: {fileID: 6908388807343590434}
+  - component: {fileID: 2634722153294936460}
   m_Layer: 5
   m_Name: GameItemUnlockedWidget
   m_TagString: Untagged
@@ -460,6 +461,18 @@ MonoBehaviour:
   itemImage: {fileID: 4756441727793641275}
   youGot: {fileID: 8519750172632661605}
   closeBtn: {fileID: 8862865823854894312}
+--- !u!225 &2634722153294936460
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833308501681171364}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5516188003420798314
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,8 +953,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 340.1351, y: 0}
-  m_SizeDelta: {x: 680.2702, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &7918776327931393519
 MonoBehaviour:

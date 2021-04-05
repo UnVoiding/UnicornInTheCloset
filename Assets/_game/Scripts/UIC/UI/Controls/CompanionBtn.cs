@@ -17,14 +17,33 @@ namespace RomenoCompany
         private Image lockedState;
         [                                              SerializeField, FoldoutGroup("References")]
         private Image unlockedState;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private Button mainButton;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private CompanionState companionState;
 
 
-        public void Init(Sprite sprite)
+        public void Init(CompanionState state)
         {
-            lockedState.sprite = sprite;
-            unlockedState.sprite = sprite;
+            companionState = state;
             
-            SetState(State.Locked);
+            lockedState.sprite = state.data.mainScreenImage;
+            unlockedState.sprite = state.data.mainScreenImage;
+
+            mainButton = GetComponent<Button>();
+            mainButton.onClick.AddListener(() =>
+            {
+                UIManager.Instance.GetWidget<CompanionInfoWidget>().ShowForCompanion(companionState);
+            });
+
+            if (companionState.locked)
+            {
+                SetState(State.Locked);
+            }
+            else
+            {
+                SetState(State.Unlocked);
+            }
         }
         
         
@@ -35,10 +54,14 @@ namespace RomenoCompany
                 case State.Locked:
                     lockedState.gameObject.SetActive(true);
                     unlockedState.gameObject.SetActive(false);
+                    mainButton.targetGraphic = lockedState;
+                    mainButton.interactable = false;
                     break;
                 case State.Unlocked:
                     lockedState.gameObject.SetActive(false);
                     unlockedState.gameObject.SetActive(true);
+                    mainButton.targetGraphic = unlockedState;  
+                    mainButton.interactable = true;
                     break;
                 default:
                     Debug.LogError($"CompanionBtn: unknown state {state}");

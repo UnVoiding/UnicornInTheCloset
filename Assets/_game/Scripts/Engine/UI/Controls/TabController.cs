@@ -41,7 +41,33 @@ namespace RomenoCompany
                 tabToggles.Add(tabToggle);
             }
         }
-        
+
+        public void OnShow()
+        {
+            foreach (var t in tabs)
+            {
+                t.OnShow();
+            }
+
+            foreach (var tt in tabToggles)
+            {
+                tt.OnShow();
+            }
+        }
+
+        public void OnHide()
+        {
+            foreach (var t in tabs)
+            {
+                t.OnHide();
+            }
+
+            foreach (var tt in tabToggles)
+            {
+                tt.OnHide();
+            }
+        }
+
         public void InitPrecreatedTabs()
         {
             for (int i = 0; i < tabs.Count; i++)

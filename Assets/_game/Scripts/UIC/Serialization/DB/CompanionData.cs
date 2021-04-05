@@ -10,6 +10,8 @@ namespace RomenoCompany
     {
         public int id;
         public int internalId;
+        public bool enabled;
+        public bool openByDefault;
         public string name;
         public string code;
         public string klass;
@@ -19,7 +21,8 @@ namespace RomenoCompany
         public string goal;
         [TextArea(1, 5)] public string description;
 
-        public Sprite fullLengthImage;
+        public Sprite fullHeightImage;
+        public Sprite mainScreenImage;
         public List<CompanionEmotion> emotions;
         
         public List<TextAsset> dialogueJsons;
