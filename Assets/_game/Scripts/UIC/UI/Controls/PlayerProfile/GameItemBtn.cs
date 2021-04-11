@@ -19,11 +19,11 @@ namespace RomenoCompany
         public void Init(PlayerItemState itemState)
         {
             this.itemState = itemState;
-            image.sprite = itemState.itemData.image;
+            image.sprite = itemState.Data.image;
             showItemInfoBtn.onClick.AddListener(() =>
             {
                 var w = UIManager.Instance.GetWidget<UnlockedGameItemWidget>();
-                w.ShowForItem(this.itemState.itemData, false);
+                w.ShowForItem(this.itemState.Data, false);
             });
         }
     }

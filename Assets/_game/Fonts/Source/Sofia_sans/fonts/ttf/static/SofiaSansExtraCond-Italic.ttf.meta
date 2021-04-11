@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 80d10cd0a3f7d1c4aa7f0eaaf0c79509
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sofia Sans Extra Cond
+  fontNames:
+  - Sofia Sans Extra Cond
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 109c00ac3cac2d044935f5d783a6f4ec, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

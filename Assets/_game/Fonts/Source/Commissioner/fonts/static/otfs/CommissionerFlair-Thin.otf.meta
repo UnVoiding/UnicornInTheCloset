@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 811eca61f618b5f4d97bb645abee796f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Commissioner Flair
+  fontNames:
+  - Commissioner Flair
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 60f8bb85a1ae9c949bf96a0d7c124163, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

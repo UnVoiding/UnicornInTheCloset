@@ -5,12 +5,28 @@ namespace RomenoCompany
     [Serializable]
     public class PlayerItemState
     {
-        public PlayerItemData itemData;
+        public PlayerItemData.ItemID id;
         public bool found;
 
-        public PlayerItemState(PlayerItemData playerItemData)
+        private PlayerItemData data;
+        
+        public PlayerItemData Data
         {
-            itemData = playerItemData;
+            get
+            {
+                if (data == null)
+                {
+                    data = DB.Instance.gameItems.items.Find((d) => d.id == id);
+                }
+
+                return data;
+            }
+        }
+
+        public PlayerItemState(PlayerItemData playerData)
+        {
+            id = playerData.id;
+            data = playerData;
         }
     }
 }

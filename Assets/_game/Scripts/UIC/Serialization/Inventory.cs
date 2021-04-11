@@ -120,13 +120,13 @@ namespace RomenoCompany
 	{
 		public PlayerPrefsData<int> saveVersion;
 		
-		public PlayerPrefsData<AudioStatus> audioStatus;
+		public PlayerPrefsData<AudioState> audioStatus;
 
-		public PlayerPrefsData<PlayerProfile> playerProfile;
+		public PlayerPrefsData<PlayerState> playerState;
 		
 		public PlayerPrefsData<WorldState> worldState;
 		
-		public PlayerPrefsData<CompanionState> currentCompanion;
+		public PlayerPrefsData<CompanionData.ItemID> currentCompanion;
 
 		
 		[Button]
@@ -136,7 +136,7 @@ namespace RomenoCompany
 			
 			audioStatus.Save();
 
-			playerProfile.Save();
+			playerState.Save();
 			
 			worldState.Save();
 
@@ -151,17 +151,15 @@ namespace RomenoCompany
 			
 			saveVersion = new PlayerPrefsData<int>("saveVersion", 0);
 
-			playerProfile = new PlayerPrefsData<PlayerProfile>("playerProfile", PlayerProfile.CreateDefault());
+			audioStatus = new PlayerPrefsData<AudioState>("audioStatus", AudioState.CreateDefault());
 
-			audioStatus = new PlayerPrefsData<AudioStatus>("audioStatus", AudioStatus.CreateDefault());
+			playerState = new PlayerPrefsData<PlayerState>("playerState", PlayerState.CreateDefault());
 
 			worldState = new PlayerPrefsData<WorldState>("worldState", WorldState.CreateDefault());
 
-			currentCompanion = new PlayerPrefsData<CompanionState>("currentCompanion", (CompanionState)null);
+			currentCompanion = new PlayerPrefsData<CompanionData.ItemID>("currentCompanion", CompanionData.ItemID.NONE);
 
 			Migrate();
-			
-			Debug.Log("Inventory: Migration successful!");
 		}
 
 		private void Migrate()
@@ -180,6 +178,8 @@ namespace RomenoCompany
 				saveVersion.Save();
 			}
 			Debug.Log($"SAVE VERSION IS NOW CURRENT: {saveVersion.Value}");
+			
+			Debug.Log("Inventory: Migration successful!");
 		}
 
 		public void SkipTutorial()

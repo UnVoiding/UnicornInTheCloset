@@ -4,7 +4,7 @@ namespace RomenoCompany
 {
     public class Migration
     {
-        public static int saveVersion = 3;
+        public static int saveVersion = 0;
         
         public static void Step(int fromVersion)
         {

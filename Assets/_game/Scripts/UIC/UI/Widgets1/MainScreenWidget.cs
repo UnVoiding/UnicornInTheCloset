@@ -12,17 +12,17 @@ namespace RomenoCompany
 {
     public class MainScreenWidget : Widget
     {
-        [Header("Main Screen Widget")]
-        //// DATA
-        [                                               SerializeField, FoldoutGroup("References")] 
+        [                            Header("Main Screen Widget"), SerializeField, FoldoutGroup("References")] 
         private Button profileBtn;
-        [                                               SerializeField, FoldoutGroup("References")] 
-        private Transform contentRoot;
-        [                                               SerializeField, FoldoutGroup("References")] 
+        [                                                          SerializeField, FoldoutGroup("References")] 
+        private GridLayoutGroup contentRoot;
+        [                                                          SerializeField, FoldoutGroup("References")] 
         private CompanionBtn companionBtnPfb;
 
-        //// RUNTIME 
-        [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
+        [                              Header("Main Screen Widget"), SerializeField, FoldoutGroup("Settings")] 
+        private int btnsPerRow;
+
+        [                                                    NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
         public List<CompanionBtn> companionBtns;
         
         
@@ -36,12 +36,15 @@ namespace RomenoCompany
                 UIManager.Instance.GoToComposition(Composition.PLAYER_PROFILE);
             });
 
+            float compBtnWidth = (int)((Screen.width - btnsPerRow * contentRoot.spacing.x - contentRoot.padding.left) / btnsPerRow);
+            contentRoot.cellSize = new Vector2(compBtnWidth, compBtnWidth);
+
             companionBtns = new List<CompanionBtn>();
             foreach (var companionState in Inventory.Instance.worldState.Value.companionStates)
             {
-                if (companionState.data.enabled)
+                if (companionState.Data.enabled)
                 {
-                    CompanionBtn btn = Instantiate(companionBtnPfb, contentRoot);
+                    CompanionBtn btn = Instantiate(companionBtnPfb, contentRoot.transform);
                     btn.Init(companionState);
                     companionBtns.Add(btn);
                 }

@@ -5,7 +5,9 @@ namespace RomenoCompany
     [Serializable]
     public class AdviceState
     {
-        public AdviceData adviceData;
+        public int id;
         public bool found;
+
+        public AdviceData data;
     }
 }

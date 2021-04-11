@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 0196b047d77d8d749aa0488fc3fa9b6e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Commissioner Loud
+  fontNames:
+  - Commissioner Loud
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 608549d466af12d4d95376c39a12c82f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

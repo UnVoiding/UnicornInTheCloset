@@ -32,11 +32,27 @@ namespace RomenoCompany
         public Composition currentComposition = Composition.NONE;
         [                                                                                 ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         private List<Widget> shownWidgets;
+        [                                                                                 ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        private ChatScreenWidget chatScreenWidget;
         // FLAGS
         [                                                                  NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")]
         public bool transiting = false;
         [                                                                  NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")]
         public bool inputAllowed = true;
+
+
+        public ChatScreenWidget ChatWidget
+        {
+            get
+            {
+                if (chatScreenWidget == null)
+                {
+                    chatScreenWidget = GetWidget<ChatScreenWidget>();
+                }
+
+                return chatScreenWidget;
+            }
+        }
 
         protected override void Setup()
         {

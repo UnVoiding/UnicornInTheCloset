@@ -16,13 +16,13 @@ namespace RomenoCompany
         
         public void Populate()
         {
-            foreach (var adviceState in Inventory.Instance.worldState.Value.unicornAdviceStates)
+            foreach (var adviceState in Inventory.Instance.worldState.Value.unicornAdvicesState.unicornAdviceStates)
             {
                 AdviceSpoiler s = Instantiate(adviceControlPfb, contentRoot);
                 s.adviceState = adviceState;
                 s.Init();
-                s.SetCaption(adviceState.adviceData.caption);
-                s.SetSpoilerText(adviceState.adviceData.text);
+                s.SetCaption(adviceState.data.caption);
+                s.SetSpoilerText(adviceState.data.text);
                 advices.Add(s);
             }
         }

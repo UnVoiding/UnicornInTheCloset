@@ -22,9 +22,12 @@ namespace RomenoCompany
         // public TableLaboratory laboratory;
         // public TableQuests quests;
 
-        [FormerlySerializedAs("items")] public TablePlayerItems gameItems;
+        public TablePlayerItems gameItems;
         public TableCompanions companions;
-        [FormerlySerializedAs("advices")] public TableLawyerAdvices lawyerAdvices;
+        public TableLawyerAdvices lawyerAdvices;
+        public TableImages images;
+        public TableVideos videos;
+        public TMPExtraSettings tmpSettings;
 
         protected override void Setup()
         {

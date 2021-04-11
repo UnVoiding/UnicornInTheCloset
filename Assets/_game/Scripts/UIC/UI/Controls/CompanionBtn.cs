@@ -27,13 +27,13 @@ namespace RomenoCompany
         {
             companionState = state;
             
-            lockedState.sprite = state.data.mainScreenImage;
-            unlockedState.sprite = state.data.mainScreenImage;
+            lockedState.sprite = state.Data.mainScreenImage;
+            unlockedState.sprite = state.Data.mainScreenImage;
 
             mainButton = GetComponent<Button>();
             mainButton.onClick.AddListener(() =>
             {
-                UIManager.Instance.GetWidget<CompanionInfoWidget>().ShowForCompanion(companionState);
+                UIManager.Instance.GetWidget<CompanionInfoWidget>().ShowForCompanion(companionState, true);
             });
 
             if (companionState.locked)

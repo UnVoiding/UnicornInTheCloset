@@ -36,23 +36,26 @@ namespace RomenoCompany
             
             talkBtn.onClick.AddListener(() =>
             {
-                Inventory.Instance.currentCompanion.Value = companionState;
+                Inventory.Instance.currentCompanion.Value = companionState.id;
                 Inventory.Instance.currentCompanion.Save();
                 UIManager.Instance.GoToComposition(Composition.CHAT);
+                Hide();
             });
             
             tabController.InitPrecreatedTabs();
         }
 
-        public void ShowForCompanion(CompanionState companionState)
+        public void ShowForCompanion(CompanionState companionState, bool showTalkBtn)
         {
             this.companionState = companionState;
 
             CompanionInfoImageTab t1 = (CompanionInfoImageTab) tabController.tabs[0];
-            t1.Populate(companionState.data);
+            t1.Populate(companionState.Data);
 
             CompanionInfoInfoTab t2 = (CompanionInfoInfoTab) tabController.tabs[1];
-            t2.Populate(companionState.data);
+            t2.Populate(companionState.Data);
+
+            talkBtn.gameObject.SetActive(showTalkBtn);
 
             Show();
         }

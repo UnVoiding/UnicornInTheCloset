@@ -1,0 +1,43 @@
+fileFormatVersion: 2
+guid: 4a05643d7e391cf429cff4cda6c1415d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Commissioner Flair
+  fontNames:
+  - Commissioner Flair
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e11fd261e2559884aa3e7b07675c1515, type: 3}
+  - {fileID: 12800000, guid: 811eca61f618b5f4d97bb645abee796f, type: 3}
+  - {fileID: 12800000, guid: 876dfc814addbf84a9e2afdc459aac33, type: 3}
+  - {fileID: 12800000, guid: e10df4c3fb46b24448700ff0d0c9a8f8, type: 3}
+  - {fileID: 12800000, guid: 14b8ee74fc3dd294583fbef4fc2766db, type: 3}
+  - {fileID: 12800000, guid: 678802e4876ad7b47ab40396e6d47c23, type: 3}
+  - {fileID: 12800000, guid: 60f8bb85a1ae9c949bf96a0d7c124163, type: 3}
+  - {fileID: 12800000, guid: e8ff929570d7f7e43b80872b988c77c0, type: 3}
+  - {fileID: 12800000, guid: c7024cc5d5ad9bf4ea58be0b3fa0083e, type: 3}
+  - {fileID: 12800000, guid: 235c9897d3d66634e8e489be7cbbf18c, type: 3}
+  - {fileID: 12800000, guid: c449eba94e7eb33479057bb806e4a21f, type: 3}
+  - {fileID: 12800000, guid: 86cdbb5aac5e9ba43b90faf54cd4b0b1, type: 3}
+  - {fileID: 12800000, guid: c89eccabfc4a00f4185587b77f776f6a, type: 3}
+  - {fileID: 12800000, guid: 05e35edbed9d55240bb3bddcb399904c, type: 3}
+  - {fileID: 12800000, guid: 792b8eebb8524674a86246845c44b342, type: 3}
+  - {fileID: 12800000, guid: 493bc4fbd31dc8645be2f75df68380e1, type: 3}
+  - {fileID: 12800000, guid: 09a23e5cce665874489cf784895a5162, type: 3}
+  - {fileID: 12800000, guid: b2e16f5c8d90af5498643663b377ccc9, type: 3}
+  - {fileID: 12800000, guid: 74eee45e37e56aa43a9ee39784c8a86c, type: 3}
+  - {fileID: 12800000, guid: 5748548eff13b4b4a87176892de68dd8, type: 3}
+  - {fileID: 12800000, guid: f847a66f1614bfa45a496522c96d108d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

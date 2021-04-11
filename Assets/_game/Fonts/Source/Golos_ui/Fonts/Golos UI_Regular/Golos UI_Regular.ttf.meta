@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: dcddec4ab44916a4387c4c2269f47c60
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Golos UI
+  fontNames:
+  - Golos UI
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d5a88c66e8f5c904caf5fd6b01030f48, type: 3}
+  - {fileID: 12800000, guid: d87a8d5a4a44530458dc83249db0f1b9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

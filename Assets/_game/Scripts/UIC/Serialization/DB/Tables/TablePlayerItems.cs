@@ -14,5 +14,27 @@ namespace RomenoCompany
     public class TablePlayerItems : SerializedScriptableObject
     {
         public List<PlayerItemData> items;
+
+        public PlayerItemData GetPlayerItem(PlayerItemData.ItemID id)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].id == id) return items[i];
+            }
+
+            return null;
+        }
+        
+        public PlayerItemData GetPlayerItem(string code)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].code == code) return items[i];
+            }
+
+            return null;
+        }
+
     }
 }
+

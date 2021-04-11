@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: 94643063a69b32142acd8b21b366e5d3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sofia Sans Cond
+  fontNames:
+  - Sofia Sans Cond
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b33d5dc265746264099166d7aa6f3ec9, type: 3}
+  - {fileID: 12800000, guid: d172bae238e67fa4ba90aa770323da89, type: 3}
+  - {fileID: 12800000, guid: 62ca4b73490241343a54cc7337bc789d, type: 3}
+  - {fileID: 12800000, guid: f1c62483da6172043a866aed86b1f600, type: 3}
+  - {fileID: 12800000, guid: 02c904d45960bf645bbd5d785e866439, type: 3}
+  - {fileID: 12800000, guid: 80998dd86f342364593b7feefee1dfe3, type: 3}
+  - {fileID: 12800000, guid: 830063098451c64469ee0e076445087e, type: 3}
+  - {fileID: 12800000, guid: 2142b87aa101319459baad3baa5df9b8, type: 3}
+  - {fileID: 12800000, guid: 4483754bb1d48ae43abcdc04ccbfb389, type: 3}
+  - {fileID: 12800000, guid: 6467b44e1fded4a4095479277284f364, type: 3}
+  - {fileID: 12800000, guid: b237fb1fb4e392145b97eb2047200a53, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

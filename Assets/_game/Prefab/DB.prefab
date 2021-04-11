@@ -52,6 +52,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  items: {fileID: 11400000, guid: 9ae5289d936af51468ba3203f49cf212, type: 2}
+  gameItems: {fileID: 11400000, guid: 9ae5289d936af51468ba3203f49cf212, type: 2}
   companions: {fileID: 11400000, guid: 8903f0609d6ef2446bef79e9a4844ebf, type: 2}
-  advices: {fileID: 11400000, guid: 940c7380b129eed44bc03809cc9877f1, type: 2}
+  lawyerAdvices: {fileID: 11400000, guid: 940c7380b129eed44bc03809cc9877f1, type: 2}
+  tmpSettings: {fileID: 11400000, guid: 1f5af34ba5bb2d24eaf3624ea39bc53e, type: 2}

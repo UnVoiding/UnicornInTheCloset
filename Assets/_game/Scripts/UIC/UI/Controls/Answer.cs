@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RomenoCompany
 {
@@ -8,11 +9,32 @@ namespace RomenoCompany
     {
         [                                              SerializeField, FoldoutGroup("References")]
         public TMP_Text text;
+        [                                              SerializeField, FoldoutGroup("References")]
+        public Button btn;
 
+        [                                              SerializeField, FoldoutGroup("Runtime")]
+        public Passage passage;
 
-        public void SetText(string text)
+        private void Awake()
         {
-            this.text.text = text;
+            OnCreate();
+        }
+
+        public void OnCreate()
+        {
+            btn.onClick.AddListener(OnClick);
+        }
+
+        public void SetPassage(Passage p)
+        {
+            text.text = p.text;
+            passage = p;
+        }
+
+        public void OnClick()
+        {
+            UIManager.Instance.ChatWidget.currentPassage = passage; 
+            UIManager.Instance.ChatWidget.PresentPassage(true);
         }
     }
 }

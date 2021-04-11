@@ -16,7 +16,7 @@ namespace RomenoCompany
                 AdviceSpoiler s = Instantiate(lawyerAdviceControlPfb, contentRoot);
                 s.adviceState = new AdviceState()
                 {
-                    adviceData = adviceData,
+                    id = adviceData.id,
                     found = true
                 };
                 s.Init();

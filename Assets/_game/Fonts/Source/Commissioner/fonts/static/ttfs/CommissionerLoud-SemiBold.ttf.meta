@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: a40e2884dd474a848ae4a403e4c7a25f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Commissioner Loud
+  fontNames:
+  - Commissioner Loud
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d35a18c0e84166743aacc53f9e657e3e, type: 3}
+  - {fileID: 12800000, guid: 02dd29d1a710054478bdb41bfdf2898e, type: 3}
+  - {fileID: 12800000, guid: 945d7b44e725b714aa6061a239bae473, type: 3}
+  - {fileID: 12800000, guid: 608549d466af12d4d95376c39a12c82f, type: 3}
+  - {fileID: 12800000, guid: 0196b047d77d8d749aa0488fc3fa9b6e, type: 3}
+  - {fileID: 12800000, guid: 24a3efa76998de741b8377e9c0fc2722, type: 3}
+  - {fileID: 12800000, guid: 01cab7ab2ff7c6d47b50c45fc970e680, type: 3}
+  - {fileID: 12800000, guid: 11fa8dcc571f6b549b97af28e90b43c2, type: 3}
+  - {fileID: 12800000, guid: 230b57fdad2a96247a44c53bee09d270, type: 3}
+  - {fileID: 12800000, guid: 61995bbf62eac0f4190275f10db1068a, type: 3}
+  - {fileID: 12800000, guid: 7420c3cf057f9d3459ce3f9ef401acf4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

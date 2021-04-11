@@ -14,3 +14,4 @@ namespace RomenoCompany
         public List<CompanionData> items;
     }
 }
+
