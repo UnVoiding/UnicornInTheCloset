@@ -20,6 +20,13 @@ namespace RomenoCompany
         private UIManager uiManagerPfb;
         [                                              SerializeField, FoldoutGroup("References")]
         private DialogueManager dialogueManagerPfb;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private AudioManager audioManagerPfb;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private UICAudioManager uicAudioManagerPfb;
+        
+        [                                                   SerializeField, FoldoutGroup("Debug")] 
+        public bool skipIntroVideo = true;
         
         [                       NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public bool mainSceneActivated;
@@ -71,7 +78,18 @@ namespace RomenoCompany
                 case "Main":
                     mainSceneActivated = true;
                     InitSingletons();
-                    UIManager.Instance.GoToComposition(Composition.MAIN);
+                    if (skipIntroVideo)
+                    {
+                        UIManager.Instance.GoToComposition(Composition.MAIN);
+                    }
+                    else
+                    {
+                        var w = UIManager.Instance.GetWidget<VideoWidget>();
+                        w.ShowForVideo(DB.Instance.videos.items["start"], () =>
+                        {
+                            UIManager.Instance.GoToComposition(Composition.MAIN);
+                        });
+                    }
                     break;
             }
         }
@@ -95,6 +113,8 @@ namespace RomenoCompany
             Inventory.InitInstanceFromPrefab(inventoryPfb);
             DialogueManager.InitInstanceFromPrefab(dialogueManagerPfb);
             UIManager.InitInstanceFromPrefab(uiManagerPfb);
+            AudioManager.InitInstanceFromPrefab(audioManagerPfb);
+            UICAudioManager.InitInstanceFromPrefab(uicAudioManagerPfb);
         }
     }
 }

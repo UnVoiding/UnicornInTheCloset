@@ -11,6 +11,7 @@
         GAME_ITEM = 6, 
         RENAME_PLAYER = 7, 
         COMPANION_UNLOCK = 8, 
+        VIDEO = 9, 
         GAME_OVER_UI = 100,
         HP_OVERLAY = 101,
     }

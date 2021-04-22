@@ -5,7 +5,6 @@ using System;
 using TMPro;
 using Sirenix.OdinInspector;
 using DG.Tweening;
-using Sirenix.Utilities.Editor;
 using Button = UnityEngine.UI.Button;
 
 namespace RomenoCompany

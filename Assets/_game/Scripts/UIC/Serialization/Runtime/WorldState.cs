@@ -48,7 +48,17 @@ namespace RomenoCompany
 
             return null;
         }
-        
+
+        public PlayerItemState GetPlayerItem(string itemCode)
+        {
+            for (int i = 0; i < gameItemStates.Count; i++)
+            {
+                if (gameItemStates[i].Data.code == itemCode) return gameItemStates[i];
+            }
+
+            return null;
+        }
+
         public CompanionState GetCompanion(CompanionData.ItemID id)
         {
             for (int i = 0; i < companionStates.Count; i++)
@@ -57,49 +67,6 @@ namespace RomenoCompany
             }
 
             return null;
-        }
-
-        public bool CheckCondition(SFCondition c)
-        {
-            var v = variables.Get(c.variableName);
-            int vValue;
-            if (!int.TryParse(v.value, out vValue))
-            {
-                Debug.LogWarning($"WorldState: variable {c.variableName} is compared to int but cannot be converted to it");
-                return false;
-            }
-            
-            if (v != null)
-            {
-                switch (c.operation)
-                {
-                    case SFCondition.BoolOperation.EQUALS:
-                        return vValue == c.value;
-                        break;
-                    case SFCondition.BoolOperation.NOT_EQUALS:
-                        return vValue != c.value;
-                        break;
-                    case SFCondition.BoolOperation.LESS:
-                        return vValue < c.value;
-                        break;
-                    case SFCondition.BoolOperation.LESS_EQUALS:
-                        return vValue <= c.value;
-                        break;
-                    case SFCondition.BoolOperation.GREATER:
-                        return vValue > c.value;
-                        break;
-                    case SFCondition.BoolOperation.GREATER_EQUALS:
-                        return vValue >= c.value;
-                        break;
-                    default:
-                        Debug.LogError($"WorldState: unknown operation when checking condition {c.variableName} {c.operation} {c.value}");
-                        return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 

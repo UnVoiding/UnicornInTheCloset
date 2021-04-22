@@ -14,7 +14,14 @@ namespace RomenoCompany
 
             EnvironmentManager envManager = Resources.Load<EnvironmentManager>(EnvironmentManager.PrefabResourcePath);
 
-            envManager.GetCurrentProfile().Apply();
+            if (envManager != null)
+            {
+                envManager.GetCurrentProfile().Apply();
+            }
+            else
+            {
+                Debug.LogWarning("PlatformController: Warning: There is no EnvironmentManager prefab. Skipping.");
+            }
         }
     }    
 }

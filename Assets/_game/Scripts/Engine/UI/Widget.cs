@@ -70,12 +70,16 @@ namespace RomenoCompany
                 {
                     gameObject.SetActive(true);
                     canvasGroup.alpha = 0;
-                    canvasGroup.DOFade(1, appearSeconds).SetUpdate(UpdateType.Normal, true).SetEase(appearEase).OnComplete(() =>
-                    {
-                        shown = true;
-                        onComplete?.Invoke();
-                        this.showing = false;
-                    }).SetUpdate(UpdateType.Normal, true);
+                    canvasGroup.DOFade(1, appearSeconds)
+                        .SetUpdate(UpdateType.Normal, true)
+                        .SetEase(appearEase)
+                        .OnComplete(() =>
+                        {
+                            shown = true;
+                            onComplete?.Invoke();
+                            this.showing = false;
+                        })
+                        .SetUpdate(UpdateType.Normal, true);
                 }
                 
             };

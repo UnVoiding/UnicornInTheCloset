@@ -28,16 +28,12 @@ namespace RomenoCompany
             }
         }
 
-        public CompanionState()
-        {
-            
-        }
-
         public CompanionState(CompanionData data)
         {
             id = data.id;
             this.data = data;
             locked = !data.openByDefault;
+            dialogues = new List<SFDialogue>();
         }
     }
 }

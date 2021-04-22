@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 0
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 637531955784962736
+  lastScan: 637546162425493437
   supportSerializedTypes:
   - TypeName: System.Collections.Generic.Dictionary`2[[System.Object, mscorlib],[System.Single,
       mscorlib]], mscorlib
@@ -27,4 +27,96 @@ MonoBehaviour:
     Emit: 1
   - TypeName: System.Object, mscorlib
     IsCustom: 1
+    Emit: 1
+  - TypeName: RomenoCompany.AudioState, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.CompanionData+ItemID, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.Composition, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[RomenoCompany.Composition,
+      Assembly-CSharp],[System.Collections.Generic.List`1[[RomenoCompany.WidgetType,
+      Assembly-CSharp]], mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.Sprite,
+      UnityEngine.CoreModule]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[RomenoCompany.TMPStyle,
+      Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.Video.VideoClip,
+      UnityEngine.VideoModule]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[RomenoCompany.Composition,
+      Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+      mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[RomenoCompany.Composition,
+      Assembly-CSharp]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[System.String, mscorlib]],
+      mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Int32, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.List`1[[RomenoCompany.WidgetType, Assembly-CSharp]],
+      mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.PlayerPrefsData`1[[RomenoCompany.AudioState, Assembly-CSharp]],
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.PlayerPrefsData`1[[RomenoCompany.CompanionData+ItemID,
+      Assembly-CSharp]], Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.PlayerPrefsData`1[[System.Int32, mscorlib]], Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.PlayerPrefsData`1[[RomenoCompany.PlayerState, Assembly-CSharp]],
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.PlayerPrefsData`1[[RomenoCompany.WorldState, Assembly-CSharp]],
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.PlayerState, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Sprite, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.String, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: TMPro.TMP_FontAsset, Unity.TextMeshPro
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.TMPStyle, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Video.VideoClip, UnityEngine.VideoModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.WidgetType, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.WorldState, Assembly-CSharp
+    IsCustom: 0
     Emit: 1

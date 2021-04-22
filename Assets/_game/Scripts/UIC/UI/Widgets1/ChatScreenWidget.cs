@@ -17,6 +17,8 @@ namespace RomenoCompany
         [                                                       SerializeField, FoldoutGroup("References")] 
         private Button infoBtn;
         [                                                       SerializeField, FoldoutGroup("References")] 
+        private Image companionImage;
+        [                                                       SerializeField, FoldoutGroup("References")] 
         private Transform answerRoot;
         [                                                       SerializeField, FoldoutGroup("References")] 
         private Transform allMessageRoot;
@@ -125,7 +127,7 @@ namespace RomenoCompany
                     {
                         CreateAdviceMessage();
                         AdviceWidget aw = UIManager.Instance.GetWidget<AdviceWidget>();
-                        aw.adviceText.text = currentPassage.text;
+                        aw.adviceText.text = currentPassage.parsedText;
                     });
                     break;
                 default:
@@ -151,14 +153,16 @@ namespace RomenoCompany
         {
             ExecutePassageEffects();
             Message m = Instantiate(heroMessagePfb, allMessageRoot);
-            m.SetText(currentPassage.text);
+            m.SetText(currentPassage.parsedText);
+            UICAudioManager.Instance.PlayHeroMessageSound();
         }
 
         public void CreateCompanionTextMessage()
         {
             ExecutePassageEffects();
             Message m = Instantiate(textMessagePfb, allMessageRoot);
-            m.SetText(currentPassage.text);
+            m.SetText(currentPassage.parsedText);
+            UICAudioManager.Instance.PlayCompanionMessageSound();
         }
 
         public void CreateCompanionImageMessage()
@@ -174,13 +178,15 @@ namespace RomenoCompany
                 Message m = Instantiate(imageMessagePfb, allMessageRoot);
                 m.SetImage(s);
             }
+            UICAudioManager.Instance.PlayCompanionMessageSound();
         }
         
         public void CreateAdviceMessage()
         {
             ExecutePassageEffects();
             Message m = Instantiate(adviceMessagePfb, allMessageRoot);
-            m.SetText(currentPassage.text);
+            m.SetText(currentPassage.parsedText);
+            UICAudioManager.Instance.PlayCompanionMessageSound();
         }
 
         public void ContinueDialogue()
@@ -220,7 +226,7 @@ namespace RomenoCompany
                         {
                             currentPassage = tempNextAvailablePassages[0];
                             var adivceW = UIManager.Instance.GetWidget<AdviceWidget>();
-                            adivceW.ShowWithAdvice(currentPassage.text);
+                            adivceW.ShowWithAdvice(currentPassage.parsedText);
                             PresentPassage(true);
                         }
                         break;
@@ -243,11 +249,14 @@ namespace RomenoCompany
 
         public void BuildPastConversation()
         {
-            var path = currentCompanion.dialogues[currentCompanion.activeDialogue].path;
-            for (int i = 0; i < path.Count; i++)
+            savePath = false;
+            var dialogue = currentCompanion.dialogues[currentCompanion.activeDialogue];
+            for (int i = 0; i < dialogue.path.Count; i++)
             {
+                currentPassage = dialogue.root.Find(dialogue.path[i]);
                 PresentPassage(false);
             }
+            savePath = true;
         }
 
         public override void Hide(Action onComplete = null)

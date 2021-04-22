@@ -6,8 +6,8 @@ namespace RomenoCompany
 {
     public abstract class StrictSingleton<T> : SerializedMonoBehaviour where T : StrictSingleton<T>
     {
-        private static T instance;
-        private static bool initialized = false;
+        protected static T instance;
+        protected static bool initialized = false;
 
         // you should create instance yourself when using StrictSingleton
         // StrictSingleton is just a hollow shell of a regular Singleton

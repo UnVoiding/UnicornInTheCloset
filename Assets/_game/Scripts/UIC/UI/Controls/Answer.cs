@@ -27,7 +27,7 @@ namespace RomenoCompany
 
         public void SetPassage(Passage p)
         {
-            text.text = p.text;
+            text.text = p.parsedText;
             passage = p;
         }
 

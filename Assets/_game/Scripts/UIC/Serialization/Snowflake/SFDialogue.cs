@@ -12,7 +12,7 @@ namespace RomenoCompany
 
         public SFDialogue(TwineRoot root)
         {
-            root = root;
+            this.root = root;
             path = new List<int>();
         }
     }

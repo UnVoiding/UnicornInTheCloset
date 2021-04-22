@@ -1,10 +1,12 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace RomenoCompany
 {
     public class AudioManager : StrictSingleton<AudioManager>
     {
-        [SerializeField] string _soundBusName = "[SOUND]";
+        // [                                                   SerializeField, FoldoutGroup("Settings")] 
+        // public string _soundBusName = "[SOUND]";
 
         protected override void Setup()
         {
@@ -39,3 +41,4 @@ namespace RomenoCompany
         }
     }
 }
+

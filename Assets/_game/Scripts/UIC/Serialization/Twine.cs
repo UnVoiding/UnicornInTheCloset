@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine;
 
 namespace RomenoCompany
 {
@@ -17,6 +18,7 @@ namespace RomenoCompany
                 for (int j = 0; j < p.tags.Count; j++)
                 {
                     p.tags[j] = p.tags[j].Trim();
+                    p.ParseText();
                 }
             }
         }
@@ -84,26 +86,66 @@ namespace RomenoCompany
         public int pid;
         public string name;
         public string text;
+        public string parsedText;
         public List<PassageLink> links;
         public List<string> tags;
 
-        [NonSerialized]
         public PassageType type;
-        [NonSerialized]
-        public List<Passage> passageLinks;
-        [NonSerialized]
-        public bool parsed;
-        [NonSerialized]
         public string imageKey;
-        [NonSerialized]
-        public List<SFCondition> conditions;
-        [NonSerialized]
+        public List<ISFCondition> conditions;
         public List<SFStatement> effects;
+        public float waitTimeBeforeExec = 1.0f;
+        public float waitTimeAfterExec = 1.0f;
+        public bool parsed;
 
         [NonSerialized]
-        public float waitTimeBeforeExec = 1.0f;
-        [NonSerialized]
-        public float waitTimeAfterExec = 1.0f;
+        public List<Passage> passageLinks;
+
+        public Passage()
+        {
+            passageLinks = new List<Passage>();
+            conditions = new List<ISFCondition>();
+            effects = new List<SFStatement>();
+        }
+
+        public void ParseText()
+        {
+            int separatorPos = text.IndexOf("---");
+            if (separatorPos != -1)
+            {
+                parsedText = text.Substring(0 , separatorPos).Trim();
+            }
+            else
+            {
+                parsedText = text.Trim();
+            }
+        }
+
+        public void RegenerateLinks(TwineRoot root)
+        {
+            if (links != null)
+            {
+                foreach (var plink in links)
+                {
+                    if (!plink.broken)
+                    {
+                        var linkedPassage = root.Find(plink.pid);
+                        if (linkedPassage != null)
+                        {
+                            passageLinks.Add(linkedPassage);
+                        }
+                        else
+                        {
+                            Debug.LogError($"Passage: Failed to find passage with pid {plink.pid}");
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError($"Passage: Found broken link of passage {plink.pid}");
+                    }
+                }
+            }
+        }
 
         public int CountNextAvailablePassages()
         {
@@ -122,7 +164,7 @@ namespace RomenoCompany
             var worldState = Inventory.Instance.worldState.Value;
             for (int i = 0; i < conditions.Count; i++)
             {
-                if (!worldState.CheckCondition(conditions[i])) return false;
+                if (!conditions[i].Check()) return false;
             }
 
             return true;
@@ -145,5 +187,6 @@ namespace RomenoCompany
     public class PassageLink
     {
         public int pid;
+        public bool broken;
     }
 }
