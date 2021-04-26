@@ -9,13 +9,11 @@ using RomenoCompany;
 
 public partial class SROptions
 {
-	// [Category("Polygon")]
-	// [DisplayName("Go to Polygon")]
-	// public void GoToPolygon()
-	// {
-	// 	if (SceneLoader.Instance.ActiveScene.name.Equals("Polygon")) return;
-	// 	SceneLoader.Instance.GoToScene("Polygon");
-	// }
+	[DisplayName("Test")]
+	public void Test()
+	{
+		Debug.LogError("Test SRDebug");
+	}
  //
 	// [Category("Polygon")]
 	// [DisplayName("Go to game")]

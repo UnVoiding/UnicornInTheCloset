@@ -53,7 +53,8 @@ namespace RomenoCompany
             // Inventory.Instance.lastLoginTime.Value = TimeManager.getTimeSecondsNow;
 
             // Debug.unityLogger.logEnabled = false;
-            
+
+            SRDebug.Init();
             SceneLoader.Instance.GoToScene("Main", LoadSceneMode.Single);
         }
 
