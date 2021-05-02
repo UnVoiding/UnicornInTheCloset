@@ -334,7 +334,7 @@ namespace RomenoCompany
         private float typingTime = 0;
         public void ShowTyping(float time)
         {
-            DOTween.To(typingTime, IncTypingTime, 1.0f, typingDealy);
+            // DOTween.To(typingTime, IncTypingTime, 1.0f, typingDealy);
         }
 
         private void IncTypingTime(float t)
