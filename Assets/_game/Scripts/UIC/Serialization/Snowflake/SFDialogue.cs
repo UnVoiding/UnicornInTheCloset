@@ -6,13 +6,13 @@ namespace RomenoCompany
     [Serializable]
     public class SFDialogue
     {
+        [NonSerialized]
         public TwineRoot root;
         // list of passage ids - a path in the twine graph
         public List<int> path;
 
-        public SFDialogue(TwineRoot root)
+        public SFDialogue()
         {
-            this.root = root;
             path = new List<int>();
         }
     }

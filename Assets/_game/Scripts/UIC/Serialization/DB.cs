@@ -27,6 +27,7 @@ namespace RomenoCompany
         public TableLawyerAdvices lawyerAdvices;
         public TableImages images;
         public TableVideos videos;
+        public SharedGameData shared;
         public TMPExtraSettings tmpSettings;
 
         protected override void Setup()

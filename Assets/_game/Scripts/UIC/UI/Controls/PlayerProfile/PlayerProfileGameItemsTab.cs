@@ -20,11 +20,12 @@ namespace RomenoCompany
             {
                 GameItemBtn gi = Instantiate(gameItemPfb, contentRoot);
                 gi.Init(itemState);
+                gi.gameObject.SetActive(itemState.found);
                 gameItemBtns.Add(gi);
             }
         }
 
-        public void OnShow()
+        public override void OnShow()
         {
             foreach (var gi in gameItemBtns)
             {

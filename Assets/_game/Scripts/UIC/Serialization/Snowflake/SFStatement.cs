@@ -1,4 +1,5 @@
-﻿using Sirenix.Utilities;
+﻿using System.Collections.Generic;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace RomenoCompany
@@ -38,12 +39,21 @@ namespace RomenoCompany
         
         public override void Execute()
         {
-            Inventory.Instance.worldState.Value.variables[variableName] = new Variable()
+            var variable = Inventory.Instance.worldState.Value.GetVariable(variableName);
+            if (variable != null)
             {
-                name = variableName,
-                type = VariableType.INT,
-                value = operand
-            };
+                variable.value = operand;
+            }
+            else
+            {
+                Inventory.Instance.worldState.Value.variables.Add(new Variable()
+                {
+                    name = variableName,
+                    type = VariableType.INT,
+                    value = operand
+                });
+            }
+            
             Inventory.Instance.worldState.Save();
         }
     }
@@ -61,7 +71,7 @@ namespace RomenoCompany
         
         public override void Execute()
         {
-            var v = Inventory.Instance.worldState.Value.variables.Get(variableName);
+            var v = Inventory.Instance.worldState.Value.GetVariable(variableName);
             if (v == null)
             {
                 Debug.LogError($"ChangeVariableStatement: Variable {variableName} does not have any value by the time 'change' is found");
@@ -110,14 +120,14 @@ namespace RomenoCompany
         
         public override void Execute()
         {
-            
+            var csw = UIManager.Instance.GetWidget<ChatScreenWidget>();
+            csw.SetEmotion(emotionName);
         }
     }
     
     public class ShowAdviceSfStatement : SFStatement
     {
-        public string adviceCaption;
-        public string adviceText;
+        public int adviceId;
 
         public ShowAdviceSfStatement()
         {
@@ -126,21 +136,17 @@ namespace RomenoCompany
 
         public override void Execute()
         {
-            AdviceState adviceState = new AdviceState()
+            var adviceState = Inventory.Instance.worldState.Value.unicornAdvicesState.GetAdviceById(adviceId);
+
+            if (adviceState == null)
             {
-                id = Inventory.Instance.worldState.Value.unicornAdvicesState.lastAdvice,
-                found = true,
-                data = new AdviceData()
-                {
-                    id = Inventory.Instance.worldState.Value.unicornAdvicesState.lastAdvice,
-                    caption = adviceCaption,
-                    text = adviceText,
-                }
-            };
-            Inventory.Instance.worldState.Value.unicornAdvicesState.lastAdvice++;
-            
-            Inventory.Instance.worldState.Value.unicornAdvicesState.unicornAdviceStates.Add(adviceState);
-            Inventory.Instance.worldState.Save();
+                Debug.LogError($"ShowAdviceSfStatement: Advice with id {adviceId} is not found");
+            }
+            else
+            {
+                var aw = UIManager.Instance.GetWidget<AdviceWidget>();
+                aw.ShowWithAdvice(adviceState.data.text);
+            }
         }
     }
 
@@ -206,18 +212,25 @@ namespace RomenoCompany
     
     public class UnlockCompanionSfStatement : SFStatement
     {
-        public CompanionData.ItemID companionId;
+        public List<CompanionData.ItemID> companionIds;
 
         public UnlockCompanionSfStatement()
         {
             type = Type.UNLOCK_COMPANION;
+            companionIds = new List<CompanionData.ItemID>();
         }
 
         public override void Execute()
         {
-            var c = Inventory.Instance.worldState.Value.GetCompanion(companionId);
-            c.locked = false;
+            foreach (var cid in companionIds)
+            {
+                var c = Inventory.Instance.worldState.Value.GetCompanion(cid);
+                c.locked = false;
+            }
             Inventory.Instance.worldState.Save();
+
+            var culw = UIManager.Instance.GetWidget<CompanionUnlockWidget>();
+            culw.ShowForCompanions(companionIds);
         }
     }
 

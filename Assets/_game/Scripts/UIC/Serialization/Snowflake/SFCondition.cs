@@ -28,16 +28,20 @@ namespace RomenoCompany
 
         public bool Check()
         {
-            var v = Inventory.Instance.worldState.Value.variables.Get(variableName);
-            int vValue;
-            if (!int.TryParse(v.value, out vValue))
+            var v = Inventory.Instance.worldState.Value.GetVariable(variableName);
+            if (v == null)
             {
-                Debug.LogWarning($"WorldState: variable {variableName} is compared to int but cannot be converted to it");
                 return false;
             }
-            
-            if (v != null)
+            else
             {
+                int vValue;
+                if (!int.TryParse(v.value, out vValue))
+                {
+                    Debug.LogWarning($"WorldState: variable {variableName} is compared to int but cannot be converted to it");
+                    return false;
+                }
+
                 switch (operation)
                 {
                     case SFCondition.BoolOperation.EQUALS:
@@ -62,10 +66,6 @@ namespace RomenoCompany
                         Debug.LogError($"WorldState: unknown operation when checking condition {variableName} {operation} {value}");
                         return false;
                 }
-            }
-            else
-            {
-                return false;
             }
         }
     }

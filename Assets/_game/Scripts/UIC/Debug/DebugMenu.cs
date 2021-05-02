@@ -9,11 +9,70 @@ using RomenoCompany;
 
 public partial class SROptions
 {
-	[DisplayName("Test")]
-	public void Test()
+	[Category("Items")]
+	public void UnlockAllItems()
 	{
-		Debug.LogError("Test SRDebug");
+		var states = Inventory.Instance.worldState.Value.gameItemStates;
+		foreach (var state in states)
+		{
+			state.found = true;
+		}
+		Inventory.Instance.worldState.Save();
 	}
+
+	[Category("Companions")]
+	public void UnlockAllCompanions()
+	{
+		var states = Inventory.Instance.worldState.Value.companionStates;
+		foreach (var state in states)
+		{
+			state.locked = false;
+		}
+		Inventory.Instance.worldState.Save();
+	}
+	
+	[Category("Unicorn Advices")]
+	public void UnlockAllAdvices()
+	{
+		var advicesState = Inventory.Instance.worldState.Value.unicornAdvicesState;
+		foreach (var state in advicesState.unicornAdviceStates)
+		{
+			state.found = true;
+		}
+		Inventory.Instance.worldState.Save();
+	}
+	
+
+	[Category("General")]
+	public void UnlockLawyer()
+	{
+		Inventory.Instance.worldState.Value.lawyerFinished = true;
+		Inventory.Instance.worldState.Save();
+	}
+
+	// [Category("Unicorn Advices")]
+	// public void UnlockAllUnicornAdvices()
+	// {
+	// 	
+	// }
+	
+	// [Category("Unicorn Advices")]
+	// public void UnlockAllUnicornAdvices()
+	// {
+	// 	
+	// }
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
  //
 	// [Category("Polygon")]
 	// [DisplayName("Go to game")]

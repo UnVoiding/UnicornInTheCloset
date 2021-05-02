@@ -35,7 +35,7 @@ namespace RomenoCompany
                 UIManager.Instance.GoToComposition(Composition.PLAYER_PROFILE);
             });
 
-            float compBtnWidth = (int)((Screen.width - btnsPerRow * contentRoot.spacing.x - contentRoot.padding.left) / btnsPerRow);
+            float compBtnWidth = (int)((UIManager.Instance.canvasRectTransform.rect.width - btnsPerRow * contentRoot.spacing.x - contentRoot.padding.left) / btnsPerRow);
             contentRoot.cellSize = new Vector2(compBtnWidth, compBtnWidth);
 
             companionBtns = new List<CompanionBtn>();

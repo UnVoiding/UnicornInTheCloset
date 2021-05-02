@@ -34,6 +34,10 @@ namespace RomenoCompany
             this.data = data;
             locked = !data.openByDefault;
             dialogues = new List<SFDialogue>();
+            for (int i = 0; i < data.dialogueJsons.Count; i++)
+            {
+                dialogues.Add(new SFDialogue());
+            }
         }
     }
 }

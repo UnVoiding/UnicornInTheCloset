@@ -33,8 +33,11 @@ namespace RomenoCompany
 
         public void OnClick()
         {
-            UIManager.Instance.ChatWidget.currentPassage = passage; 
-            UIManager.Instance.ChatWidget.PresentPassage(true);
+            var cw = UIManager.Instance.ChatWidget;
+            cw.currentPassage = passage; 
+            // cw.PresentPassage(true);
+            cw.ClearCurrentAnswers();
+            cw.ContinueDialogue();
         }
     }
 }

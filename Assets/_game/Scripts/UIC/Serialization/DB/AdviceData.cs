@@ -8,7 +8,9 @@ namespace RomenoCompany
     public class AdviceData
     {
         public int id;
-        public string caption;
-        [TextArea(2, 15)] public string text;
+        [TextArea(3, 15)] public string caption;          // only for lawyer advices
+        [TextArea(3, 15)] public string text;
+        public bool showOnAdviceScreen = true;
+        public CompanionData.ItemID companionId;
     }
 }

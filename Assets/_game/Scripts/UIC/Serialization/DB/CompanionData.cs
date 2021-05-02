@@ -10,6 +10,7 @@ namespace RomenoCompany
     {
         public enum ItemID
         {
+            NONE = 0,
             MAIN = 1,
             FRIEND = 2,
             EX_SCHOOLMATE = 3,
@@ -34,7 +35,6 @@ namespace RomenoCompany
             CATFISH = 22,
             PARENTS = 24,
             UNICORN = 25,
-            NONE = 1000,
         }
 
         public ItemID id;
@@ -57,6 +57,16 @@ namespace RomenoCompany
         public List<TextAsset> dialogueJsons;
         [NonSerialized]
         public string formattedCharacteristics;
+
+        public CompanionEmotion GetEmotion(string emotionName)
+        {
+            for (int i = 0; i < emotions.Count; i++)
+            {
+                if (emotions[i].emotionName == emotionName) return emotions[i];
+            }
+
+            return null;
+        }
     }
     
     [Serializable]

@@ -15,19 +15,21 @@ namespace RomenoCompany
         protected TMP_Text titleText;
         [                                           SerializeField, FoldoutGroup("References")] 
         protected Image notification;
-
+        
+        [                                           NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public TabController controller;
         [                                           NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public Toggle toggle;
 
 
-        public void Link(Tab tab, ToggleGroup toggleGroup)
+        public void Init(Tab tab, TabController controller)
         {
             this.tab = tab;
+            this.controller = controller;
 
             if (toggle == null) toggle = GetComponent<Toggle>();
 
             toggle.onValueChanged.AddListener(ActivateTab);
-            toggle.group = toggleGroup;
             toggle.isOn = false;
 
             if (notification != null) notification.gameObject.SetActive(false);

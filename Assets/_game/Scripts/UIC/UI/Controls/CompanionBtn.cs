@@ -19,7 +19,8 @@ namespace RomenoCompany
         private Image unlockedState;
         [                                              SerializeField, FoldoutGroup("References")]
         private Button mainButton;
-        [                                              SerializeField, FoldoutGroup("References")]
+        
+        [                                       ShowInInspector, ReadOnly, FoldoutGroup("Runtime")]
         private CompanionState companionState;
 
 
@@ -30,7 +31,6 @@ namespace RomenoCompany
             lockedState.sprite = state.Data.mainScreenImage;
             unlockedState.sprite = state.Data.mainScreenImage;
 
-            mainButton = GetComponent<Button>();
             mainButton.onClick.AddListener(() =>
             {
                 UIManager.Instance.GetWidget<CompanionInfoWidget>().ShowForCompanion(companionState, true);

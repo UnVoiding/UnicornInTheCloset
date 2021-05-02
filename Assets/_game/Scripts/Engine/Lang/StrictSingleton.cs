@@ -20,10 +20,9 @@ namespace RomenoCompany
             if (initialized) return;
 
             instance = inst;
-            instance.Setup();
             instance.name = $"[{typeof(T).Name}]";
-
             initialized = true;
+            instance.Setup();
             
             Debug.Log($"StrictSingleton {typeof(T).Name} was initialized");
         }

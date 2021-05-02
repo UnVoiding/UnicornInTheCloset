@@ -67,7 +67,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 472fdb043072b09439911c87a70d6b48, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 21dbe1d93d65e514aaa8fd4940a3c45c, type: 3}
     emotions:
-    - emotionName: friend
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 8bba79cb78526a0469a661e194da39c4, type: 3}
     - emotionName: embarrassed
       sprite: {fileID: 21300000, guid: a8832b45867addb458b0433f06772a02, type: 3}
@@ -118,7 +118,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 46cab50e1dea82b44bee827694de3680, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 8763393229cb61f4f9ffb02f4fff15df, type: 3}
     emotions:
-    - emotionName: ex-schoolmate
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 69bd8d6cb12923148aa803413505d200, type: 3}
     - emotionName: angry
       sprite: {fileID: 21300000, guid: 091dba437b4df8741a1da6b48d493c25, type: 3}
@@ -156,7 +156,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 633480fb70fec05478a1e5de0aaaffe0, type: 3}
     mainScreenImage: {fileID: 21300000, guid: cbf0570d77850074a88ed7c6591414a3, type: 3}
     emotions:
-    - emotionName: lesbian
+    - emotionName: main
       sprite: {fileID: 21300000, guid: d2297826b24b8d64dabb699fbf9ac3ad, type: 3}
     - emotionName: angry
       sprite: {fileID: 21300000, guid: 055e0d12c16d0b649a79702055f44b65, type: 3}
@@ -185,7 +185,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: d757f47d6d27c6443ae9c4cb73cff392, type: 3}
     mainScreenImage: {fileID: 21300000, guid: ec351c2210d8c454792e1d2c61158977, type: 3}
     emotions:
-    - emotionName: bad-priest
+    - emotionName: main
       sprite: {fileID: 21300000, guid: f53d4c488a892cf44a1624c5515d82c8, type: 3}
     - emotionName: horny
       sprite: {fileID: 21300000, guid: 908cbb712df9f3644ae1d194cdb05beb, type: 3}
@@ -216,13 +216,13 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 2aaf561cbdef7ee428488286b9dd433c, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 2c6c53ee8d94dd446a1fc8d54b081a1e, type: 3}
     emotions:
-    - emotionName: psychologist-man
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 0cbd12d221f29314380fbb5be6392ef9, type: 3}
     - emotionName: confused
       sprite: {fileID: 21300000, guid: d374a7de706eef444ac0da2d1c9f87b0, type: 3}
     - emotionName: distracted
       sprite: {fileID: 21300000, guid: f9ef7ba8914534b42a9c36bd2cd1bf15, type: 3}
-    - emotionName: roll-eyes
+    - emotionName: rolleyes
       sprite: {fileID: 21300000, guid: 7142a99f959a62442961a939602dfb8c, type: 3}
     - emotionName: sympathy
       sprite: {fileID: 21300000, guid: 2f79e0ee60681d14da0941546813e2ea, type: 3}
@@ -253,7 +253,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 11f91f3e716cd914a94899a518c70156, type: 3}
     mainScreenImage: {fileID: 21300000, guid: ee53946d2acd1864ea35f2181af59a91, type: 3}
     emotions:
-    - emotionName: good-priest
+    - emotionName: main
       sprite: {fileID: 21300000, guid: f4d6e58f3a880104fae035e4918173f0, type: 3}
     - emotionName: praying
       sprite: {fileID: 21300000, guid: edefca1e309cf024d98732c68d546dfb, type: 3}
@@ -289,13 +289,13 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 0db6b8eec46017749b816d9f36ffa3aa, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 64a5523ee0510624fa8feca16816d5a6, type: 3}
     emotions:
-    - emotionName: cat
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 28d53d8a2132da44c91e5d764f43e09c, type: 3}
     - emotionName: angry
       sprite: {fileID: 21300000, guid: b2d92d03407d3d348bae2851e2d23890, type: 3}
     - emotionName: happy
       sprite: {fileID: 21300000, guid: aea734e0d6336314a90e5cc7b473ecd6, type: 3}
-    - emotionName: other-cat
+    - emotionName: othercat
       sprite: {fileID: 21300000, guid: 440c644a9500c0246956c20c1b235c70, type: 3}
     - emotionName: tears
       sprite: {fileID: 21300000, guid: b4f4e020394535b4785b30bf9107c7d8, type: 3}
@@ -306,7 +306,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: David XL
-    code: horny
+    code: hot
     klass: "\u041B\u044E\u0431\u043E\u0432\u043D\u0438\u043A"
     gameItem: "\u0412\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0438\u0439 \u0433\u043E\u043C\u043E\u0444\u043E\u0431 "
     skill: "\u0425\u043E\u0434\u0438\u0442\u044C \u0432 \u0437\u0430\u043B \u0432\u043E\u0441\u0435\u043C\u044C
@@ -321,9 +321,9 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 990e37a62b7896e488475754e9804f50, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 4c5f96837689f1743ba5a1510a598594, type: 3}
     emotions:
-    - emotionName: horny
+    - emotionName: main
       sprite: {fileID: 21300000, guid: cd887b85a8cd530488ec381ccbbdeded, type: 3}
-    - emotionName: horny-hot
+    - emotionName: hot
       sprite: {fileID: 21300000, guid: da1dbc96afab77d4da5423af3ae4c9e3, type: 3}
     - emotionName: sad
       sprite: {fileID: 21300000, guid: 7b3c38a5c49ab59429d48c3baee101c1, type: 3}
@@ -331,7 +331,7 @@ MonoBehaviour:
     - {fileID: 4900000, guid: cba4ba00fa53d1747b52adb323441417, type: 3}
   - id: 10
     internalId: 10
-    enabled: 0
+    enabled: 1
     openByDefault: 0
     name: "\u041C\u0430\u0440\u0438\u043D\u0430 \u0410\u0437\u0443\u043B\u0438\u043D\u0430"
     code: homophobic-woman
@@ -351,7 +351,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 309dc41aa971c914e934caf5d1ed346b, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 5635e41e049b534458d86fd90692d998, type: 3}
     emotions:
-    - emotionName: homophobic-woman
+    - emotionName: main
       sprite: {fileID: 21300000, guid: d97aa8286d0d37b4ea68b9f03abc9043, type: 3}
     - emotionName: confused
       sprite: {fileID: 21300000, guid: dd770a98e2fe3e245a465d425157625f, type: 3}
@@ -387,11 +387,11 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 8091172f8b08f984ea6f8bca57ffacae, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 43bddafcb709cb8428939191f4270c83, type: 3}
     emotions:
-    - emotionName: devil
+    - emotionName: main
       sprite: {fileID: 21300000, guid: ca80208333cd0ba40a3f16dfe1d983c1, type: 3}
     - emotionName: angry
       sprite: {fileID: 21300000, guid: b03956fa8b66ef1488fe60dddab22b5d, type: 3}
-    - emotionName: fire-breath
+    - emotionName: firebreath
       sprite: {fileID: 21300000, guid: 5dcd84e375645034198a7b267a1b2afa, type: 3}
     - emotionName: smiling
       sprite: {fileID: 21300000, guid: ae72e41c8ca42154d8d5f6a04e019580, type: 3}
@@ -420,7 +420,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 6833c07f00526f74b9bd6217145be710, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 06048fb99bcfc9042b1fff5c1e7da98f, type: 3}
     emotions:
-    - emotionName: activist-man
+    - emotionName: main
       sprite: {fileID: 21300000, guid: b4acba7f1f1b38a49a6f3283c319c128, type: 3}
     - emotionName: irritated
       sprite: {fileID: 21300000, guid: cb47b790806ecbc4eba595cc81ac4ef5, type: 3}
@@ -453,7 +453,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 27518d980a9dc924a91d0682f50fc051, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 73ba59ca5bf934543a7f54d5126632c8, type: 3}
     emotions:
-    - emotionName: friend-gay
+    - emotionName: main
       sprite: {fileID: 21300000, guid: a015b60793976d64cb4241b4ef0f6d53, type: 3}
     - emotionName: glamurous
       sprite: {fileID: 21300000, guid: 5dfd5ba222dfc7f4ba4438ea03d51049, type: 3}
@@ -493,7 +493,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: d6eae24ac22d65a4a8477d6ea0b8391d, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 844ea284399a43046a332cb25d0a818d, type: 3}
     emotions:
-    - emotionName: government-agent
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 0b37b6ff6869e9140944d8230ee5ca20, type: 3}
     - emotionName: angry
       sprite: {fileID: 21300000, guid: 1fddf73cdd561004491a7f14811fe361, type: 3}
@@ -521,7 +521,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: a10364ac7f36c724ca02b507062c2af1, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 88aca0c9440a02e45a52c498159886e3, type: 3}
     emotions:
-    - emotionName: teenager
+    - emotionName: main
       sprite: {fileID: 21300000, guid: e7fc18a98e8de4f49b32841a4f729068, type: 3}
     - emotionName: crying
       sprite: {fileID: 21300000, guid: 9caded3cf76c7634083c93643324cc74, type: 3}
@@ -544,7 +544,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: a10364ac7f36c724ca02b507062c2af1, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 97c1f5299103f7948b7d9d96ea8ea2aa, type: 3}
     emotions:
-    - emotionName: hidding
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 3584fd2c225ecee4380bb3dc76100b83, type: 3}
     - emotionName: idle
       sprite: {fileID: 21300000, guid: 3ce501b96714b914db86480bc70f5385, type: 3}
@@ -573,7 +573,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 71bc9d5e10e68ae4cbc55b47e7e10a6a, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 0832e1a401d15824f9d34988d6692eaa, type: 3}
     emotions:
-    - emotionName: activist-woman
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 574eec74e8c8cbe48bb1fa6ef7c32c84, type: 3}
     - emotionName: proud
       sprite: {fileID: 21300000, guid: 56bcb9071b293cf41b345cd0c030a8b1, type: 3}
@@ -608,7 +608,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 781d964505fa5444593f9e6d15d6692a, type: 3}
     mainScreenImage: {fileID: 21300000, guid: b2fffa48f8224a94aa01be29eddd74bc, type: 3}
     emotions:
-    - emotionName: accepting-parent
+    - emotionName: main
       sprite: {fileID: 21300000, guid: d906affa3c20af74fb7b14ca38162e28, type: 3}
     - emotionName: sad
       sprite: {fileID: 21300000, guid: f19e204cb95049c49b82d87275669c46, type: 3}
@@ -645,7 +645,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 7dad889914b80564fbfe4505c5a7a636, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 01241321279800b4f8c3e2a7c812bd1d, type: 3}
     emotions:
-    - emotionName: psychoterapist-woman
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 6480fa2a2d1a7d54eba183ecdf983128, type: 3}
     - emotionName: thinking
       sprite: {fileID: 21300000, guid: 68c6eb34398070144bb220b539b93de3, type: 3}
@@ -655,7 +655,7 @@ MonoBehaviour:
     - {fileID: 4900000, guid: 0ea55115738113044b86ad45fabfc864, type: 3}
   - id: 20
     internalId: 20
-    enabled: 0
+    enabled: 1
     openByDefault: 0
     name: "\u042E\u0440\u0438\u0441\u0442 \u0418\u0432\u0430\u043D \u0414\u043C\u0438\u0442\u0440\u0438\u0435\u0432\u0438\u0447"
     code: lawyer
@@ -676,7 +676,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 8c102da5b5dace64291c4298580c38a9, type: 3}
     mainScreenImage: {fileID: 21300000, guid: e1d2f0eeb55c66d478f8a0e462ef12d2, type: 3}
     emotions:
-    - emotionName: lawyer
+    - emotionName: main
       sprite: {fileID: 21300000, guid: fe4a01549d0ce434e8ebea7a1074ea5f, type: 3}
     - emotionName: angry
       sprite: {fileID: 21300000, guid: d0e3b69cac4a6db47bc785374b1c629e, type: 3}
@@ -707,7 +707,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 3e424845a8cc71f4090a20a75a1ef236, type: 3}
     mainScreenImage: {fileID: 21300000, guid: d8528307e43290544bdc49a1bdf748ac, type: 3}
     emotions:
-    - emotionName: transgender
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 3c3a148c761776d4fae775a2c691e526, type: 3}
     - emotionName: happy
       sprite: {fileID: 21300000, guid: f53b2db6d70a1b442a83c3a3301eae21, type: 3}
@@ -732,7 +732,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: a10364ac7f36c724ca02b507062c2af1, type: 3}
     mainScreenImage: {fileID: 21300000, guid: a03d59a98d5dab24bb3b0660ca36f74a, type: 3}
     emotions:
-    - emotionName: catfish
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 9af34e5066907c74abbab0915251cfdf, type: 3}
     - emotionName: angry
       sprite: {fileID: 21300000, guid: d466d75c9714efc48866455977c137d8, type: 3}
@@ -763,7 +763,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: 65fa5a0f1411a4d42b5dcdb4f0eefe87, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 266eebb6e25cc0f4ea7e357363ecdf8f, type: 3}
     emotions:
-    - emotionName: parents
+    - emotionName: main
       sprite: {fileID: 21300000, guid: c96d004d797dae84badf0e414cf5d568, type: 3}
     - emotionName: doubt
       sprite: {fileID: 21300000, guid: 5cbd2f53a97c589488070929375fdac6, type: 3}
@@ -797,7 +797,7 @@ MonoBehaviour:
     fullHeightImage: {fileID: 21300000, guid: b2e312fbe507db74c87388d4529d868f, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 2d92fc2392fd03044a60ca697eea1588, type: 3}
     emotions:
-    - emotionName: unicorn
+    - emotionName: main
       sprite: {fileID: 21300000, guid: 02b46964cae936a45ab4b90199dcea92, type: 3}
     dialogueJsons:
     - {fileID: 4900000, guid: 4e846edc66716524484ee523aa1cd61b, type: 3}

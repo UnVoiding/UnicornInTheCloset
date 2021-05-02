@@ -2,10 +2,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 using System.IO;
 using TMPro;
 using Sirenix.OdinInspector;
 using DG.Tweening;
+using UnityEngine.Assertions.Must;
 using Button = UnityEngine.UI.Button;
 
 namespace RomenoCompany
@@ -19,9 +21,9 @@ namespace RomenoCompany
         [                                                       SerializeField, FoldoutGroup("References")] 
         private Image companionImage;
         [                                                       SerializeField, FoldoutGroup("References")] 
-        private Transform answerRoot;
+        private RectTransform answerRoot;
         [                                                       SerializeField, FoldoutGroup("References")] 
-        private Transform allMessageRoot;
+        private RectTransform allMessageRoot;
         [                                                       SerializeField, FoldoutGroup("References")] 
         private Answer answerPfb;
         [                                                       SerializeField, FoldoutGroup("References")] 
@@ -32,23 +34,45 @@ namespace RomenoCompany
         private Message imageMessagePfb;
         [                                                       SerializeField, FoldoutGroup("References")] 
         private Message textMessagePfb;
+        [                                                       SerializeField, FoldoutGroup("References")] 
+        private TMP_Text typingText;
+        [                                                       SerializeField, FoldoutGroup("References")] 
+        private ScrollRect messagesScroll;
         
         [                           Header("Chat Screen Widget"), SerializeField, FoldoutGroup("Settings")] 
         private float typingDealy = 1.0f;
 
-        [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         public Passage currentPassage;
-        [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         public List<Passage> tempNextAvailablePassages;
-        [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         public CompanionState currentCompanion;
-        [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        public List<Answer> currentAnswers;
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        private float screenWidth;
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        private float em;
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        private Vector4 margins;
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         public bool savePath = true;
-        
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        public bool soundEnabled = true;
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        public bool executeStatements = true;
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        private bool scrollToEnd = false;
+
         
         public override void InitializeWidget()
         {
             base.InitializeWidget();
+
+            currentAnswers = new List<Answer>();
+            
+            typingText.gameObject.SetActive(false);
 
             widgetType = WidgetType.CHAT;
             backBtn.onClick.AddListener(() =>
@@ -70,6 +94,13 @@ namespace RomenoCompany
             base.Show(onComplete);
 
             currentCompanion = Inventory.Instance.worldState.Value.GetCompanion(Inventory.Instance.currentCompanion.Value);
+            
+            screenWidth = UIManager.Instance.canvasRectTransform.rect.size.x;
+            em = screenWidth / 25f;
+            margins = new Vector4(em, 0.5f * em, em, 0.5f * em);
+            typingText.fontSize = screenWidth / 33f;
+
+            SetEmotion("main");
 
             BuildPastConversation();
             
@@ -84,7 +115,7 @@ namespace RomenoCompany
             else
             {
                 currentPassage = r.startPassage; 
-                PresentPassage(false);
+                // PresentPassage(false);
                 ContinueDialogue();
             }
         }
@@ -138,36 +169,76 @@ namespace RomenoCompany
 
         public void ExecutePassageEffects()
         {
-            if (savePath)
-            {
-                currentCompanion.dialogues[currentCompanion.activeDialogue].path.Add(currentPassage.pid);
-            }
-
             for (int i = 0; i < currentPassage.effects.Count; i++)
             {
                 currentPassage.effects[i].Execute();
             }
         }
+
+        private void Update()
+        {
+            if (scrollToEnd)
+            {
+                messagesScroll.normalizedPosition = Vector2.zero;
+                scrollToEnd = false;
+            }
+        }
+
+        public void CreateMessageCommon()
+        {
+            if (executeStatements)
+            {
+                ExecutePassageEffects();
+            }
+            
+            if (savePath)
+            {
+                currentCompanion.dialogues[currentCompanion.activeDialogue].path.Add(currentPassage.pid);
+            }
+
+            scrollToEnd = true;
+        }
         
         public void CreateHeroTextMessage()
         {
-            ExecutePassageEffects();
+            CreateMessageCommon();
+
+            if (soundEnabled)
+            {
+                UICAudioManager.Instance.PlayHeroMessageSound();
+            }
+
             Message m = Instantiate(heroMessagePfb, allMessageRoot);
             m.SetText(currentPassage.parsedText);
-            UICAudioManager.Instance.PlayHeroMessageSound();
+            m.text.fontSize = em;
+            m.text.margin = margins;
+            
+            LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
         }
 
         public void CreateCompanionTextMessage()
         {
-            ExecutePassageEffects();
+            CreateMessageCommon();
+
+            if (soundEnabled)
+            {
+                UICAudioManager.Instance.PlayCompanionMessageSound();
+            }
+
             Message m = Instantiate(textMessagePfb, allMessageRoot);
             m.SetText(currentPassage.parsedText);
-            UICAudioManager.Instance.PlayCompanionMessageSound();
+            m.text.fontSize = em;
+            m.text.margin = margins;
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
         }
 
         public void CreateCompanionImageMessage()
         {
-            ExecutePassageEffects();
+            CreateMessageCommon();
+
             Sprite s = DB.Instance.images.images.Get(currentPassage.imageKey);
             if (s == null)
             {
@@ -175,22 +246,40 @@ namespace RomenoCompany
             }
             else
             {
+                if (soundEnabled)
+                {
+                    UICAudioManager.Instance.PlayCompanionMessageSound();
+                }
+
                 Message m = Instantiate(imageMessagePfb, allMessageRoot);
                 m.SetImage(s);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
             }
-            UICAudioManager.Instance.PlayCompanionMessageSound();
         }
         
         public void CreateAdviceMessage()
         {
-            ExecutePassageEffects();
+            CreateMessageCommon();
+
+            // if (soundEnabled)
+            // {
+            //     UICAudioManager.Instance.PlayCompanionMessageSound();
+            // }
+
             Message m = Instantiate(adviceMessagePfb, allMessageRoot);
             m.SetText(currentPassage.parsedText);
-            UICAudioManager.Instance.PlayCompanionMessageSound();
+            m.text.fontSize = em;
+            m.text.margin = margins; 
+            
+            LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
         }
 
         public void ContinueDialogue()
         {
+            PresentPassage(false);
+
             tempNextAvailablePassages.Clear();
             currentPassage.GetNextAvailablePassages(ref tempNextAvailablePassages);
             if (tempNextAvailablePassages.Count != 0)
@@ -207,15 +296,23 @@ namespace RomenoCompany
                         else
                         {
                             currentPassage = tempNextAvailablePassages[0];
-                            PresentPassage(true);
+                            // PresentPassage(true);
+                            Invoke("ContinueDialogue", 1.0f);
                         }
                         break;
                     case Passage.PassageType.HERO_MESSAGE:
+                        ClearCurrentAnswers();
+                        
                         for (int i = 0; i < tempNextAvailablePassages.Count; i++)
                         {
                             Answer answer = Instantiate(answerPfb, answerRoot);
                             answer.SetPassage(tempNextAvailablePassages[i]);
+                            answer.text.fontSize = em;
+                            answer.text.margin = margins; 
+                            currentAnswers.Add(answer);
                         }
+
+                        LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
                         break;
                     case Passage.PassageType.ADVICE:
                         if (tempNextAvailablePassages.Count > 1)
@@ -227,11 +324,32 @@ namespace RomenoCompany
                             currentPassage = tempNextAvailablePassages[0];
                             var adivceW = UIManager.Instance.GetWidget<AdviceWidget>();
                             adivceW.ShowWithAdvice(currentPassage.parsedText);
-                            PresentPassage(true);
+                            // PresentPassage(true);
                         }
                         break;
                 }
             }
+        }
+
+        private float typingTime = 0;
+        public void ShowTyping(float time)
+        {
+            DOTween.To(typingTime, IncTypingTime, 1.0f, typingDealy);
+        }
+
+        private void IncTypingTime(float t)
+        {
+            
+        }
+
+        public void ClearCurrentAnswers()
+        {
+            for (int i = 0; i < currentAnswers.Count; i++)
+            {
+                Destroy(currentAnswers[i].gameObject);
+            }
+                        
+            currentAnswers.Clear();
         }
 
         public void CheckAllNextAreSameType()
@@ -250,13 +368,31 @@ namespace RomenoCompany
         public void BuildPastConversation()
         {
             savePath = false;
+            soundEnabled = false;
+            executeStatements = false;
             var dialogue = currentCompanion.dialogues[currentCompanion.activeDialogue];
-            for (int i = 0; i < dialogue.path.Count; i++)
+            for (int i = 0; i < dialogue.path.Count - 1; i++)
             {
                 currentPassage = dialogue.root.Find(dialogue.path[i]);
+                
                 PresentPassage(false);
             }
             savePath = true;
+            soundEnabled = true;
+            executeStatements = true;
+        }
+
+        public void SetEmotion(string emotionName)
+        {
+            if (emotionName != "unexistent")
+            {
+                var e = currentCompanion.Data.GetEmotion(emotionName);
+                companionImage.sprite = e.sprite;
+            }
+            else
+            {
+                companionImage.sprite = null;
+            }
         }
 
         public override void Hide(Action onComplete = null)

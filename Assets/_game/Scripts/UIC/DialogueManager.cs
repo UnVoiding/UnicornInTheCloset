@@ -8,51 +8,56 @@ namespace RomenoCompany
     public class DialogueManager : StrictSingleton<DialogueManager>
     {
         private List<Passage> toParse;
+        private CompanionState currentCompanion; 
 
         protected override void Setup()
         {
             toParse = new List<Passage>();
-            if (!Inventory.Instance.worldState.Value.companionJsonsLoaded)
-            {
-                foreach (var compState in Inventory.Instance.worldState.Value.companionStates)
+            // if (!Inventory.Instance.worldState.Value.companionJsonsLoaded)
+            // {
+                for (int j = 0; j < Inventory.Instance.worldState.Value.companionStates.Count; j++)
                 {
-                    if (!compState.Data.enabled)
+                    currentCompanion = Inventory.Instance.worldState.Value.companionStates[j];
+                    
+                    if (!currentCompanion.Data.enabled)
                     {
                         continue;
                     }
                     
-                    for (int i = 0; i < compState.Data.dialogueJsons.Count; i++)
+                    for (int i = 0; i < currentCompanion.Data.dialogueJsons.Count; i++)
                     {
-                        Debug.LogError($"~~~ Parsing {compState.id.ToString()} dialogue {i}");
-                        TwineRoot root = JsonConvert.DeserializeObject<TwineRoot>(compState.Data.dialogueJsons[i].text);
+                        Debug.LogError($"~~~ Parsing {currentCompanion.id.ToString()} dialogue {i}");
+                        TwineRoot root = JsonConvert.DeserializeObject<TwineRoot>(currentCompanion.Data.dialogueJsons[i].text);
                         root.PostDeserialize();
                         ConvertToSnowflake(root);
-                        compState.dialogues.Add(new SFDialogue(root));
+                        currentCompanion.dialogues[i].root = root;
                     }
                 }
 
-                Inventory.Instance.worldState.Value.companionJsonsLoaded = true;
+                // Inventory.Instance.worldState.Value.companionJsonsLoaded = true;
+                
+                Inventory.Instance.worldState.Value.advicesLoaded = true;
                 Inventory.Instance.worldState.Save();
-            }
-            else
-            {
-                foreach (var compState in Inventory.Instance.worldState.Value.companionStates)
-                {
-                    if (!compState.Data.enabled)
-                    {
-                        continue;
-                    }
-
-                    for (int i = 0; i < compState.dialogues.Count; i++)
-                    {
-                        TwineRoot tr = compState.dialogues[i].root;
-                        for (int j = 0; j < tr.passages.Count; j++)
-                        {
-                            tr.passages[j].RegenerateLinks(tr);
-                        }
-                    }
-                }
-            }
+            // }
+            // else
+            // {
+            //     foreach (var compState in Inventory.Instance.worldState.Value.companionStates)
+            //     {
+            //         if (!compState.Data.enabled)
+            //         {
+            //             continue;
+            //         }
+            //
+            //         for (int i = 0; i < compState.dialogues.Count; i++)
+            //         {
+            //             TwineRoot tr = compState.dialogues[i].root;
+            //             for (int j = 0; j < tr.passages.Count; j++)
+            //             {
+            //                 tr.passages[j].RegenerateLinks(tr);
+            //             }
+            //         }
+            //     }
+            // }
         }
 
         protected void ConvertToSnowflake(TwineRoot root)
@@ -260,12 +265,50 @@ namespace RomenoCompany
             try
             {
                 int colon = t.IndexOf(':');
-                string emotionName = t.Substring(colon + 1);
-                var s = new ChangeImageSfStatement()
+                string fullEmotionName = t.Substring(colon + 1);
+
+                int lastHyphen = fullEmotionName.LastIndexOf('-');
+                if (lastHyphen == -1)
                 {
-                    emotionName = emotionName
-                };
-                p.effects.Add(s);
+                    Debug.LogError($"DialogueManager: failed parse, hence find emotion of a companion with fullEmotionName: {fullEmotionName}");
+                    return;
+                }
+
+                string companionCode = fullEmotionName.Substring(0, lastHyphen);
+                var companionState = Inventory.Instance.worldState.Value.GetCompanion(companionCode);
+                if (companionState != null)
+                {
+                    string emotion = fullEmotionName.Substring(lastHyphen + 1);
+                    if (emotion == "unexistent")
+                    {
+                        var s = new ChangeImageSfStatement()
+                        {
+                            emotionName = emotion
+                        };
+                        p.effects.Add(s);
+                    }
+                    else
+                    {
+                        var e = companionState.Data.GetEmotion(emotion);
+                        if (e == null)
+                        {
+                            Debug.LogError($"DialogueManager: failed to find companion for fullEmotionName: {fullEmotionName}");
+                        }
+                        else
+                        {
+                            var s = new ChangeImageSfStatement()
+                            {
+                                emotionName = emotion
+                            };
+                            p.effects.Add(s);
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.LogError($"DialogueManager: failed to find companion for fullEmotionName: {fullEmotionName}");
+                    return;
+                }
             }
             catch
             {
@@ -278,16 +321,93 @@ namespace RomenoCompany
         {
             try
             {
+                bool showOnAdviceScreen = true;
+                int adviceId = 0;
+                
+                int bracket2 = p.parsedText.IndexOf('}');
+                if (bracket2 == -1)
+                {
+                    Debug.LogError($"DialogueManager: Failed to find advice id of passage with pid {p.pid}");
+                    return;
+                }
+                
+                int adviceIdPart = p.parsedText.IndexOf("{adviceId=", 0, bracket2 + 1);
+                if (adviceIdPart == -1)
+                {
+                    Debug.LogError($"DialogueManager: Failed to find advice id of passage with pid {p.pid}");
+                    return;
+                }
+                
+                int comma = p.parsedText.IndexOf(',', 0, bracket2 + 1);
+                string adviceIdStr;
+                if (comma != -1)
+                {
+                    int showPart = p.parsedText.IndexOf("show=", comma, bracket2 - comma + 1);
+                    if (showPart == -1)
+                    {
+                        Debug.LogError($"DialogueManager: failed to parse show part in adviceId of passage with pid {p.pid}");
+                        return;
+                    }
+                    string showStr = p.parsedText.Substring(showPart + 5, bracket2 - showPart - 5);
+                    int showInt;
+                    if (!int.TryParse(showStr, out showInt))
+                    {
+                        Debug.LogError($"DialogueManager: failed to parse show part in adviceId of passage with pid {p.pid}");
+                        return;
+                    }
+                    showOnAdviceScreen = showInt != 0;
+
+                    adviceIdStr = p.parsedText.Substring(adviceIdPart + 10, comma - adviceIdPart - 10);
+                }
+                else
+                {
+                    adviceIdStr = p.parsedText.Substring(adviceIdPart + 10, bracket2 - adviceIdPart - 10);
+                }
+                 
+                if (!int.TryParse(adviceIdStr, out adviceId))
+                {
+                    Debug.LogError($"DialogueManager: failed to parse adviceId of passage with pid {p.pid} as int");
+                    return;
+                }
+                
+                string adviceText = p.parsedText.Substring(bracket2 + 1).Trim();
+
+                if (!Inventory.Instance.worldState.Value.advicesLoaded)
+                {
+                    var anotherAdvice = Inventory.Instance.worldState.Value.unicornAdvicesState.GetAdviceById(adviceId);
+                    if (anotherAdvice == null)
+                    {
+                        AdviceState adviceState = new AdviceState()
+                        {
+                            id = adviceId,
+                            found = false,
+                            data = new AdviceData()
+                            {
+                                id = adviceId,
+                                caption = p.name,
+                                text = adviceText,
+                                showOnAdviceScreen = showOnAdviceScreen,
+                                companionId = currentCompanion.id, 
+                            }
+                        };
+            
+                        Inventory.Instance.worldState.Value.unicornAdvicesState.unicornAdviceStates.Add(adviceState);
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"DialogueManager: there are 2 advices with the same id the first one's text:\n{adviceText}\n\nthe second one's text:\n{anotherAdvice.data.text}");
+                    }
+                }
+                
                 var s = new ShowAdviceSfStatement()
                 {
-                    adviceText = p.parsedText,
-                    adviceCaption = p.name
+                    adviceId = adviceId
                 };
                 p.effects.Add(s);
             }
             catch
             {
-                Debug.LogError($"DialogueManager: Failed to parse tag {tag}");
+                Debug.LogError($"DialogueManager: Failed to parse advice, passage {p.pid}");
                 throw;
             }
         }
@@ -399,12 +519,14 @@ namespace RomenoCompany
                     Debug.LogError($"DialogueManager: failed to parse companionId in unlockPerson tag: {t}");
                     return;
                 }
-            
-                var s = new UnlockCompanionSfStatement()
+
+                var unlockStatement = (UnlockCompanionSfStatement)p.GetStatement(SFStatement.Type.UNLOCK_COMPANION);
+                if (unlockStatement == null)
                 {
-                    companionId = eCompanionId
-                };
-                p.effects.Add(s);
+                    unlockStatement = new UnlockCompanionSfStatement();
+                    p.effects.Add(unlockStatement);
+                }
+                unlockStatement.companionIds.Add(eCompanionId);
             }
             catch
             {

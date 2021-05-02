@@ -33,13 +33,15 @@ namespace RomenoCompany
             {
                 var tab = Instantiate(tabPfb, tabsRoot.transform);
                 var tabToggle = Instantiate(tabTogglePfb, tabsRoot.transform);
-                tab.Link(tabToggle);
-                tabToggle.Link(tab, toggleGroup);
+                tab.Init(tabToggle, this);
+                tabToggle.Init(tab, this);
                 onTabInit(i, tab, tabToggle);
                 
                 tabs.Add(tab);
                 tabToggles.Add(tabToggle);
             }
+            
+            ActivateTab(1);
         }
 
         public void OnShow()
@@ -70,14 +72,31 @@ namespace RomenoCompany
 
         public void InitPrecreatedTabs()
         {
+            toggleGroup.allowSwitchOff = false;
+            
             for (int i = 0; i < tabs.Count; i++)
             {
                 var tab = tabs[i];
                 var tabToggle = tabToggles[i];
                 
-                tab.Link(tabToggle);
-                tabToggle.Link(tab, toggleGroup);
+                tab.Init(tabToggle, this);
+                tabToggle.Init(tab, this);
+                tab.Activate(false);
             }
+
+            for (int i = 0; i < tabs.Count; i++)
+            {
+                var tabToggle = tabToggles[i];
+
+                tabToggle.toggle.group = toggleGroup;
+            }
+
+            ActivateTab(1);
+        }
+
+        public void ActivateTab(int i)
+        {
+            tabToggles[i].toggle.isOn = true;
         }
     }
 }

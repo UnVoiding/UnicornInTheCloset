@@ -7,21 +7,20 @@ namespace RomenoCompany
     [Serializable]
     public class WorldState
     {
-        public Dictionary<string, Variable> variables;
-        public bool companionJsonsLoaded;
+        public List<Variable> variables;
         public List<CompanionState> companionStates;
         public UnicornAdvicesState unicornAdvicesState;
+        public bool advicesLoaded = false;
         public List<PlayerItemState> gameItemStates;
         public int lastCompanion = 0;
         public bool lawyerFinished = false;
 
         public WorldState()
         {
-            variables = new Dictionary<string, Variable>();
+            variables = new List<Variable>();
             companionStates = new List<CompanionState>();
             unicornAdvicesState = new UnicornAdvicesState();
             gameItemStates = new List<PlayerItemState>();
-            companionJsonsLoaded = false;
 
             foreach (var cd in DB.Instance.companions.items)
             {
@@ -37,6 +36,16 @@ namespace RomenoCompany
         public static WorldState CreateDefault()
         {
             return new WorldState();
+        }
+
+        public Variable GetVariable(string variableName)
+        {
+            for (int i = 0; i < variables.Count; i++)
+            {
+                if (variables[i].name == variableName) return variables[i];
+            }
+
+            return null;
         }
 
         public PlayerItemState GetPlayerItem(PlayerItemData.ItemID id)
@@ -68,18 +77,37 @@ namespace RomenoCompany
 
             return null;
         }
+        
+        public CompanionState GetCompanion(string companionCode)
+        {
+            for (int i = 0; i < companionStates.Count; i++)
+            {
+                if (companionStates[i].Data.code == companionCode) return companionStates[i];
+            }
+
+            return null;
+        }
+
     }
 
     [Serializable]
     public class UnicornAdvicesState
     {
         public List<AdviceState> unicornAdviceStates;
-        public int lastAdvice;
 
         public UnicornAdvicesState()
         {
             unicornAdviceStates = new List<AdviceState>(20);
-            lastAdvice = 1000;
+        }
+
+        public AdviceState GetAdviceById(int id)
+        {
+            for (int i = 0; i < unicornAdviceStates.Count; i++)
+            {
+                if (unicornAdviceStates[i].id == id) return unicornAdviceStates[i];
+            }
+
+            return null;
         }
     }
 

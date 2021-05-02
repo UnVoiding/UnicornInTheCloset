@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,11 +11,11 @@ namespace RomenoCompany
         [                                                           FoldoutGroup("References")] 
         public Button openCloseBtn;
         [                                                           FoldoutGroup("References")] 
-        public Transform openSpoiler;
+        public RectTransform openSpoiler;
         [                                                           FoldoutGroup("References")] 
-        public Transform closeSpoiler;
+        public RectTransform closeSpoiler;
         [                                                           FoldoutGroup("References")] 
-        public Transform contentRoot;
+        public LayoutElement contentRoot;
         [                                                           FoldoutGroup("References")] 
         public TMP_Text spoilerText;
         [                                                           FoldoutGroup("References")] 
@@ -22,23 +23,32 @@ namespace RomenoCompany
         
         [                                                           FoldoutGroup("Settings")] 
         public bool isOpen = false;
+        [                                                           FoldoutGroup("Settings")] 
+        public event Action onSwitchOnOff;
 
+        
         public void Init()
         {
             isOpen = false;
             openSpoiler.gameObject.SetActive(true);
             closeSpoiler.gameObject.SetActive(false);
-            contentRoot.gameObject.SetActive(false);
+            contentRoot.gameObject.SetActive(true);
+            contentRoot.ignoreLayout = true;
 
             openCloseBtn.onClick.AddListener(Switch);
         }
 
-        public void Switch()
+        public virtual void Switch()
         {
             isOpen = !isOpen;
             openSpoiler.gameObject.SetActive(!isOpen);
             closeSpoiler.gameObject.SetActive(isOpen);
-            contentRoot.gameObject.SetActive(isOpen);
+            contentRoot.ignoreLayout = !isOpen;
+            // contentRoot.gameObject.SetActive(isOpen);
+            //
+            // contentRoot.ForceUpdateRectTransforms();
+            
+            onSwitchOnOff?.Invoke();
         }
 
         public void SetCaption(string text)

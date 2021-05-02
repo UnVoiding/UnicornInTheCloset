@@ -13,21 +13,24 @@ namespace RomenoCompany
         public TabToggle tabToggle;
         [                                                           FoldoutGroup("References")] 
         public Transform contentRoot;
+        [                          NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public TabController controller;
 
         [                                               NonSerialized] 
         public Action<bool> OnActivateTab;
 
         
-        public void Link(TabToggle tabToggle)
+        public virtual void Init(TabToggle tabToggle, TabController controller)
         {
+            this.controller = controller;
             this.tabToggle = tabToggle;
         }
 
         public void Activate(bool activate)
         {
             gameObject.SetActive(activate);
-
-            OnActivateTab?.Invoke(activate);
+            
+            OnActivate(activate);
         }
 
         public virtual void OnShow()
@@ -38,6 +41,11 @@ namespace RomenoCompany
         public virtual void OnHide()
         {
             
+        }
+        
+        protected virtual void OnActivate(bool activate)
+        {
+            OnActivateTab?.Invoke(activate);
         }
     }
 }

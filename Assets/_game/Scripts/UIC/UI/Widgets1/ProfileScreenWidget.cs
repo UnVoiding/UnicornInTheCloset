@@ -40,23 +40,26 @@ namespace RomenoCompany
                 Widget renameWid = UIManager.Instance.GetWidget(WidgetType.RENAME_PLAYER);
                 renameWid.Show();
             });
-        }
+            
+            tabController.InitPrecreatedTabs();
 
-        public override void Show(Action onComplete = null)
-        {
             PlayerProfileAdvicesTab t1 = (PlayerProfileAdvicesTab) tabController.tabs[0];
             t1.Populate();
 
             PlayerProfileGameItemsTab t2 = (PlayerProfileGameItemsTab) tabController.tabs[1];
             t2.Populate();
 
-            if (Inventory.Instance.worldState.Value.lawyerFinished)
-            {
-                PlayerProfileLawyerTab t3 = (PlayerProfileLawyerTab) tabController.tabs[2];
-                t3.Populate();
-            }
+            PlayerProfileLawyerTab t3 = (PlayerProfileLawyerTab) tabController.tabs[2];
+            t3.Populate();
+        }
+
+        public override void Show(Action onComplete = null)
+        {
+            tabController.tabToggles[2].toggle.interactable = Inventory.Instance.worldState.Value.lawyerFinished; 
 
             base.Show(onComplete);
+            
+            tabController.OnShow();
         }
 
         public override void Hide(Action onComplete = null)

@@ -181,6 +181,16 @@ namespace RomenoCompany
                 }
             }
         }
+
+        public SFStatement GetStatement(SFStatement.Type type)
+        {
+            for (int i = 0; i < effects.Count; i++)
+            {
+                if (effects[i].type == type) return effects[i];
+            }
+
+            return null;
+        }
     }
 
     [Serializable]

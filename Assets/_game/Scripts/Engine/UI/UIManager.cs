@@ -11,17 +11,21 @@ namespace RomenoCompany
 {
     public class UIManager : StrictSingleton<UIManager>
     {
+        [                                                                   SerializeField, FoldoutGroup("References")]
+        public Canvas mainCanvas;
+        [                                                                   SerializeField, FoldoutGroup("References")]
+        public Image ftueFade = null;
+        [                                                                   SerializeField, FoldoutGroup("References")]
+        public Transform fadeBack = null;
+        [                                                                   SerializeField, FoldoutGroup("References")]
+        public Camera gameOverUICamera;
+
+        
         //// DATA
         [                                                                   SerializeField, FoldoutGroup("Settings")] 
         private List<Widget> widgets = new List<Widget>();
         [                                                                   SerializeField, FoldoutGroup("Settings")] 
         private Dictionary<Composition, List<WidgetType>> compositions = new Dictionary<Composition, List<WidgetType>>();
-        [                                                                   SerializeField, FoldoutGroup("Settings")]
-        public Image ftueFade = null;
-        [                                                                   SerializeField, FoldoutGroup("Settings")]
-        public Transform fadeBack = null;
-        [                                                                                   FoldoutGroup("Settings")]
-        public Camera gameOverUICamera;
         
         //// RUNTIME
         [                                                                                 ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
@@ -34,6 +38,10 @@ namespace RomenoCompany
         private List<Widget> shownWidgets;
         [                                                                                 ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         private ChatScreenWidget chatScreenWidget;
+
+        [                                                                  NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public RectTransform canvasRectTransform;
+        
         // FLAGS
         [                                                                  NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")]
         public bool transiting = false;
@@ -57,6 +65,9 @@ namespace RomenoCompany
         protected override void Setup()
         {
             Input.multiTouchEnabled = true;
+            mainCanvas.worldCamera = Camera.main;
+
+            canvasRectTransform = mainCanvas.GetComponent<RectTransform>();
             
             foreach (var w in widgets)
             {
@@ -76,6 +87,23 @@ namespace RomenoCompany
                 ftueFade.gameObject.SetActive(false);
                 ftueFade.transform.SetAsLastSibling();
             }
+        }
+
+        public void Update()
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                var w = GetWidget<CompanionInfoWidget>();
+                w.tabController.tabToggles[0].toggle.isOn = true;
+                w.tabController.tabToggles[1].toggle.isOn = true;
+            }
+            if (Input.GetKey(KeyCode.F))
+            {
+                var w = GetWidget<CompanionInfoWidget>();
+                w.tabController.tabToggles[0].toggle.isOn = false;
+                w.tabController.tabToggles[1].toggle.isOn = false;
+            }
+            
         }
 
         [Button("Debug Composition", ButtonSizes.Large)]
