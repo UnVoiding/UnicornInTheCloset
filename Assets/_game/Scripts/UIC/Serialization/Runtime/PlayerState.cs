@@ -6,7 +6,7 @@ namespace RomenoCompany
     [Serializable]
     public class PlayerState
     {
-        public string name;
+        public string name = "Roman";
 
         public static PlayerState CreateDefault()
         {

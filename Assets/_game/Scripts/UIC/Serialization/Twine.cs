@@ -18,7 +18,7 @@ namespace RomenoCompany
                 for (int j = 0; j < p.tags.Count; j++)
                 {
                     p.tags[j] = p.tags[j].Trim();
-                    p.ParseText();
+                    p.RemoveLinksFromText();
                 }
             }
         }
@@ -91,7 +91,8 @@ namespace RomenoCompany
         public List<string> tags;
 
         public PassageType type;
-        public string imageKey;
+        public string imageKey; // for t:imgp passages
+        public int adviceId; // t:f passages
         public List<ISFCondition> conditions;
         public List<SFStatement> effects;
         public float waitTimeBeforeExec = 1.0f;
@@ -101,6 +102,14 @@ namespace RomenoCompany
         [NonSerialized]
         public List<Passage> passageLinks;
 
+        public string ParsedText
+        {
+            get
+            {
+                return parsedText.Replace("<Name>", Inventory.Instance.playerState.Value.name);
+            }
+        }
+
         public Passage()
         {
             passageLinks = new List<Passage>();
@@ -108,7 +117,7 @@ namespace RomenoCompany
             effects = new List<SFStatement>();
         }
 
-        public void ParseText()
+        public void RemoveLinksFromText()
         {
             int separatorPos = text.IndexOf("---");
             if (separatorPos != -1)

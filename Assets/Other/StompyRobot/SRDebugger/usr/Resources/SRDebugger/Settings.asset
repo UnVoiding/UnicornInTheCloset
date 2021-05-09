@@ -57,9 +57,9 @@ MonoBehaviour:
   _enableBugReporter: 0
   _disabledTabs: 
   _profilerAlignment: 2
-  _optionsAlignment: 3
+  _optionsAlignment: 1
   _consoleAlignment: 0
-  _triggerPosition: 1
+  _triggerPosition: 3
   _maximumConsoleEntries: 1500
   _enableEventSystemCreation: 1
   _automaticShowCursor: 1

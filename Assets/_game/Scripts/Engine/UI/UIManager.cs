@@ -38,6 +38,8 @@ namespace RomenoCompany
         private List<Widget> shownWidgets;
         [                                                                                 ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         private ChatScreenWidget chatScreenWidget;
+        [                                                                                 ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        private FTUEWidget ftueWidget;
 
         [                                                                  NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public RectTransform canvasRectTransform;
@@ -62,6 +64,20 @@ namespace RomenoCompany
             }
         }
 
+        
+        public FTUEWidget FTUEWidget
+        {
+            get
+            {
+                if (ftueWidget == null)
+                {
+                    ftueWidget = GetWidget<FTUEWidget>();
+                }
+
+                return ftueWidget;
+            }
+        }
+        
         protected override void Setup()
         {
             Input.multiTouchEnabled = true;

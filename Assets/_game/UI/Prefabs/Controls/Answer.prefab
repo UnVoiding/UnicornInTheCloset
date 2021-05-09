@@ -173,20 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2d13deae514e01b973c1d68cb4cec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransform: {fileID: 7549951399308649766}
   text: {fileID: 550393101558895849}
   btn: {fileID: 5677260362196613855}
-  passage:
-    pid: 0
-    name: 
-    text: 
-    parsedText: 
-    links: []
-    tags: []
-    type: 0
-    imageKey: 
-    waitTimeBeforeExec: 1
-    waitTimeAfterExec: 1
-    parsed: 0
 --- !u!1 &5337597245960166241
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,5 +325,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
-  m_VerticalConstrain: 0
-  m_HorizontalConstrain: 1
+  m_VerticalConstrainToParentSize: 0
+  m_HorizontalConstrainToParentSize: 1
+  m_VerticalConstrainToCanvasSize: 0
+  m_VerticalCanvasSizeFraction: 0.5
+  m_VerticalConstrainToConstant: 0
+  m_VerticalConstant: 200

@@ -53,6 +53,11 @@ namespace RomenoCompany
         public override void Show(System.Action onComplete = null)
         {
             base.Show(onComplete);
+
+            for (int i = 0; i < companionBtns.Count; i++)
+            {
+                companionBtns[i].UpdateState();
+            }
         }
 
         public override void Hide(Action onComplete = null)

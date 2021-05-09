@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 0
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 637554902435319589
+  lastScan: 637561399582986950
   supportSerializedTypes:
   - TypeName: System.Collections.Generic.Dictionary`2[[System.Object, mscorlib],[System.Single,
       mscorlib]], mscorlib
@@ -29,6 +29,9 @@ MonoBehaviour:
     IsCustom: 1
     Emit: 1
   - TypeName: RomenoCompany.AudioState, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Boolean, mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: RomenoCompany.CompanionData+ItemID, Assembly-CSharp
@@ -79,6 +82,9 @@ MonoBehaviour:
     Emit: 1
   - TypeName: RomenoCompany.PlayerPrefsData`1[[RomenoCompany.AudioState, Assembly-CSharp]],
       Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.PlayerPrefsData`1[[System.Boolean, mscorlib]], Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: RomenoCompany.PlayerPrefsData`1[[RomenoCompany.CompanionData+ItemID,

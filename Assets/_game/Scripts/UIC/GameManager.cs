@@ -10,8 +10,8 @@ namespace RomenoCompany
     {
         // [FoldoutGroup("Prefabs")]
         // [SerializeField] private FXPool fxPoolPrefab;
-        [                                              SerializeField, FoldoutGroup("References")]
-        private Ocean oceanPfb;
+        // [                                              SerializeField, FoldoutGroup("References")]
+        // private Ocean oceanPfb;
         [                                              SerializeField, FoldoutGroup("References")]
         private DB dbPfb;
         [                                              SerializeField, FoldoutGroup("References")]
@@ -111,6 +111,7 @@ namespace RomenoCompany
         public void InitSingletons()
         {
             DB.InitInstanceFromPrefab(dbPfb);
+            Ocean.InitInstanceFromEmptyGameObject();
             Inventory.InitInstanceFromPrefab(inventoryPfb);
             DialogueManager.InitInstanceFromPrefab(dialogueManagerPfb);
             UIManager.InitInstanceFromPrefab(uiManagerPfb);

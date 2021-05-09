@@ -11,7 +11,6 @@ namespace RomenoCompany
             Locked = 0,
             Unlocked = 1,
         }
-
         
         [                                              SerializeField, FoldoutGroup("References")]
         private Image lockedState;
@@ -45,8 +44,7 @@ namespace RomenoCompany
                 SetState(State.Unlocked);
             }
         }
-        
-        
+
         public void SetState(State state)
         {
             switch (state)
@@ -67,6 +65,11 @@ namespace RomenoCompany
                     Debug.LogError($"CompanionBtn: unknown state {state}");
                     break;
             }
+        }
+
+        public void UpdateState()
+        {
+            SetState(companionState.locked ? State.Locked : State.Unlocked);
         }
     }
 }

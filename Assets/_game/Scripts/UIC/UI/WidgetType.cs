@@ -14,6 +14,7 @@
         VIDEO = 9, 
         GAME_OVER_UI = 100,
         HP_OVERLAY = 101,
+        FTUE = 102,
     }
 
     public enum Composition

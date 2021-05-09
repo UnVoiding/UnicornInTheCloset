@@ -29,9 +29,14 @@ namespace RomenoCompany
         [                                                                  FoldoutGroup("Settings")] 
         public int btnsPerRow = 3;
 
-        [                                         NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        [                         NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public List<UnlockedCompanion> unlockedCompanions;
+        [                         NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public Action onClose;
+        [                         NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public bool firstTimeShown = true;
 
+        
         public override void InitializeWidget()
         {
             base.InitializeWidget();
@@ -40,14 +45,24 @@ namespace RomenoCompany
             closeBtn.onClick.AddListener(() =>
             {
                 Hide();
+                onClose?.Invoke();
             });
             
             float compBtnWidth = (int)((mainPanel.rect.width - btnsPerRow * contentRoot.spacing.x - contentRoot.padding.left) / btnsPerRow);
             contentRoot.cellSize = new Vector2(compBtnWidth, compBtnWidth);
+
+            unlockedCompanions = new List<UnlockedCompanion>();
+
+            Ocean.Instance.CreatePool(unlockedCompanionPfb.gameObject, 10);
         }
 
         public void ShowForCompanions(List<CompanionData.ItemID> unlockedCompanionIds)
         {
+            if (firstTimeShown)
+            {
+                firstTimeShown = false;
+            }
+            
             if (unlockedCompanionIds.Count > 1)
             {
                 caption.text = pluralCaptionText;
@@ -59,13 +74,15 @@ namespace RomenoCompany
             
             foreach (var uc in this.unlockedCompanions)
             {
-                Destroy(uc.gameObject);
+                Ocean.Instance.Return(uc);
             }
             this.unlockedCompanions.Clear();
             
             foreach (var cid in unlockedCompanionIds)
             {
-                var ucEntry = Instantiate(unlockedCompanionPfb, contentRoot.transform);
+                var ucEntry = Ocean.Instance.Get(unlockedCompanionPfb);
+                // var ucEntry = Instantiate(unlockedCompanionPfb, contentRoot.transform);
+                
                 var companionState = Inventory.Instance.worldState.Value.GetCompanion(cid);
                 ucEntry.name.text = companionState.Data.name;
                 this.unlockedCompanions.Add(ucEntry);
