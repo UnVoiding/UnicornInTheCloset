@@ -42,8 +42,8 @@ namespace RomenoCompany
             var chatScreen = UIManager.Instance.ChatWidget;
             
             adviceText.text = text;
-            adviceText.fontSize = chatScreen.em;
-            adviceText.margin = chatScreen.margins;
+            adviceText.fontSize = LayoutManager.Instance.esw;
+            adviceText.margin = LayoutManager.Instance.defaultMargins;
             
             Show();
 

@@ -65,12 +65,12 @@ namespace RomenoCompany
         public List<Message> allMessages;
         [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         public List<Answer> currentAnswers;
-        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
-        private float screenWidth;
-        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
-        public float em;
-        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
-        public Vector4 margins;
+        // [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        // private float screenWidth;
+        // [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        // public float em;
+        // [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        // public Vector4 margins;
         [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         public bool savePath = true;
         [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
@@ -148,11 +148,11 @@ namespace RomenoCompany
             }
 
             currentCompanion = newCompanion;
-            
-            screenWidth = UIManager.Instance.canvasRectTransform.rect.size.x;
-            em = screenWidth / 25f;
-            margins = new Vector4(em, 0.5f * em, em, 0.5f * em);
-            typingText.fontSize = screenWidth / 33f;
+
+            // screenWidth = UIManager.Instance.canvasRectTransform.rect.size.x;
+            // em = screenWidth / 25f;
+            // margins = new Vector4(em, 0.5f * em, em, 0.5f * em);
+            typingText.fontSize = 0.75f * LayoutManager.Instance.esw;
 
             SFDialogue dialogue = currentCompanion.dialogues[currentCompanion.activeDialogue];
             var path = dialogue.path;
@@ -300,8 +300,8 @@ namespace RomenoCompany
                     Answer answer = Ocean.Instance.Get(answerPfb);
                     // Answer answer = Instantiate(answerPfb, answerRoot);
                     answer.SetPassage(currentPassage);
-                    answer.text.fontSize = em;
-                    answer.text.margin = margins; 
+                    answer.text.fontSize = LayoutManager.Instance.esw;
+                    answer.text.margin = LayoutManager.Instance.defaultMargins; 
                     currentAnswers.Add(answer);
 
                     LayoutRebuilder.ForceRebuildLayoutImmediate(answer.rectTransform);
@@ -466,8 +466,8 @@ namespace RomenoCompany
             Message m = Ocean.Instance.Get(heroMessagePfb);
             // Message m = Instantiate(heroMessagePfb, allMessageRoot);
             m.SetText(currentPassage.ParsedText);
-            m.text.fontSize = em;
-            m.text.margin = margins;
+            m.text.fontSize = LayoutManager.Instance.esw;
+            m.text.margin = LayoutManager.Instance.defaultMargins;
             allMessages.Add(m);
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
@@ -495,8 +495,8 @@ namespace RomenoCompany
             Message m = Ocean.Instance.Get(textMessagePfb);
             // Message m = Instantiate(textMessagePfb, allMessageRoot);
             m.SetText(currentPassage.ParsedText);
-            m.text.fontSize = em;
-            m.text.margin = margins;
+            m.text.fontSize = LayoutManager.Instance.esw;
+            m.text.margin = LayoutManager.Instance.defaultMargins;
             allMessages.Add(m);
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
@@ -544,8 +544,8 @@ namespace RomenoCompany
             // Message m = Instantiate(adviceMessagePfb, allMessageRoot);
 
             m.SetText(currentPassage.ParsedText);
-            m.text.fontSize = em;
-            m.text.margin = margins; 
+            m.text.fontSize = LayoutManager.Instance.esw;
+            m.text.margin = LayoutManager.Instance.defaultMargins; 
             allMessages.Add(m);
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
@@ -582,8 +582,8 @@ namespace RomenoCompany
                             // Answer answer = Instantiate(answerPfb, answerRoot);
 
                             answer.SetPassage(tempNextAvailablePassages[i]);
-                            answer.text.fontSize = em;
-                            answer.text.margin = margins; 
+                            answer.text.fontSize = LayoutManager.Instance.esw;
+                            answer.text.margin = LayoutManager.Instance.defaultMargins; 
                             currentAnswers.Add(answer);
                             LayoutRebuilder.ForceRebuildLayoutImmediate(answer.rectTransform);
                         }

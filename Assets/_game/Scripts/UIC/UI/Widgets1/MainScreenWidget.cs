@@ -58,6 +58,11 @@ namespace RomenoCompany
             {
                 companionBtns[i].UpdateState();
             }
+
+            if (Inventory.Instance.playerState.Value.nameEntered)
+            {
+                UIManager.Instance.GetWidget<RenamePlayerWidget>().ShowFirstTime();
+            }
         }
 
         public override void Hide(Action onComplete = null)

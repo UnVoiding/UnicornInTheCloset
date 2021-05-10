@@ -17,6 +17,7 @@ namespace RomenoCompany
             UNLOCK_DIALOG = 60,
             UNLOCK_COMPANION = 70,
             START_VIDEO = 80,
+            GAME_OVER = 90,
         }
 
         public Type type;
@@ -338,6 +339,36 @@ namespace RomenoCompany
             
             var videoWidget = UIManager.Instance.GetWidget<VideoWidget>();
             videoWidget.onVideoEnded = null;
+        }
+    }
+    
+    public class GameOverSfStatement : SFStatement
+    {
+        public enum GameOverResult
+        {
+            NONE = 0,
+            WIN = 1,
+            LOSE = 2,
+        }
+
+        public GameOverResult result;
+
+        public GameOverSfStatement()
+        {
+            type = Type.GAME_OVER;
+            blocking = true;
+        }
+
+        public override void Execute()
+        {
+            
+        }
+
+        public override void ExecuteBlocking()
+        {
+            finished = true;
+
+            UIManager.Instance.GetWidget<WinScreenWidget>().Show();
         }
     }
 }

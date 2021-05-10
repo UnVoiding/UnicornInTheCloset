@@ -103,6 +103,8 @@ namespace RomenoCompany
                 ftueFade.gameObject.SetActive(false);
                 ftueFade.transform.SetAsLastSibling();
             }
+            
+            LayoutManager.InitInstanceFromEmptyGameObject();
         }
 
         public void Update()

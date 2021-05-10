@@ -6741,7 +6741,8 @@
       },
       "tags": [
         "t:p",
-        "startVideo:concat_final"
+        "startVideo:concat_final",
+        "game_over:win"
       ]
     },
     {

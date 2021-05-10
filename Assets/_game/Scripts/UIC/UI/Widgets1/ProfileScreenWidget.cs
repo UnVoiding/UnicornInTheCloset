@@ -11,17 +11,16 @@ namespace RomenoCompany
 {
     public class ProfileScreenWidget : Widget
     {
-        [Header("Profile Screen Widget")]
-        //// DATA
-        [                                               SerializeField, FoldoutGroup("References")] 
+        [              Header("Profile Screen Widget"), SerializeField, FoldoutGroup("References")] 
         private Button backBtn;
         [                                               SerializeField, FoldoutGroup("References")] 
         private Button renamePlayerBtn;
-
         [                                               SerializeField, FoldoutGroup("References")] 
         private TabController tabController;
+        
+        [                Header("Profile Screen Widget"), SerializeField, FoldoutGroup("Settings")] 
+        public bool showDevelopers = false;
 
-        //// RUNTIME 
         // [                                                NonSerialized, ReadOnly, FoldoutGroup("Runtime")] 
         
         public override void InitializeWidget()
@@ -58,8 +57,14 @@ namespace RomenoCompany
             tabController.tabToggles[2].toggle.interactable = Inventory.Instance.worldState.Value.lawyerFinished; 
 
             base.Show(onComplete);
-            
+
             tabController.OnShow();
+            
+            if (showDevelopers)
+            {
+                tabController.ActivateTab(3);
+                showDevelopers = false;
+            }
         }
 
         public override void Hide(Action onComplete = null)

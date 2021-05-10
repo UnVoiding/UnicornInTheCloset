@@ -165,6 +165,10 @@ namespace RomenoCompany
                 {
                     ParseShowIfItem(t, p);
                 }
+                else if (t.StartsWith("game_over:"))
+                {
+                    ParseGameOver(t, p);
+                }
                 else if (t == "t:p" || t == "t:sp")
                 {
                     p.type = Passage.PassageType.COMPANION_MESSAGE;
@@ -648,6 +652,44 @@ namespace RomenoCompany
                     itemState = eItemState,
                 };
                 p.conditions.Add(c);
+            }
+            catch
+            {
+                Debug.LogError($"DialogueManager: Failed to parse tag {t}");
+                throw;
+            }
+        }
+        
+        
+        public void ParseGameOver(string t, Passage p)
+        {
+            // game_over:win / game_over:lose 
+            try
+            {
+                int colon1 = t.IndexOf(':');
+                string gameOverResult = t.Substring(colon1 + 1);
+
+                GameOverSfStatement.GameOverResult result = GameOverSfStatement.GameOverResult.NONE;
+
+                switch (gameOverResult)
+                {
+                    case "win":
+                        result = GameOverSfStatement.GameOverResult.WIN;
+                        break;
+                    case "lose":
+                        result = GameOverSfStatement.GameOverResult.LOSE;
+                        break;
+                    default:
+                        Debug.LogError($"DialogueManager: unknown game over result {gameOverResult}");
+                        return;
+                }
+
+                var s = new GameOverSfStatement()
+                {
+                    result = result,
+                };
+                
+                p.effects.Add(s);
             }
             catch
             {
