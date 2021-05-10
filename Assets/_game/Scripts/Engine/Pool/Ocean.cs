@@ -14,9 +14,17 @@ namespace RomenoCompany
         protected override void Setup()
         {
             ocean = new Dictionary<GameObject, List<IDroplet>>();
+            DontDestroyOnLoad(gameObject);
         }
 
-        public void Allocate(GameObject prefab, int size)
+        public List<IDroplet> CreatePool(GameObject prefab, int size = 5)
+        {
+            var pool = new List<IDroplet>(size);
+            ocean[prefab] = pool;
+            return pool;
+        }
+
+        public void PrecreateDroplets(GameObject prefab, int size)
         {
             var pool = GetPool(prefab);
 
@@ -31,27 +39,28 @@ namespace RomenoCompany
             }
         }
         
-        public IDroplet Get(GameObject prefab)
+        public T Get<T>(T prefab) where T : class, IDroplet
         {
-            var pool = GetPool(prefab);
-            var droplet = GetDroplet(pool, prefab);
+            var pfbGo = prefab.GameObject;
+            var pool = GetPool(pfbGo);
+            var droplet = GetDroplet(pool, pfbGo);
             droplet.OnGetFromPool();
-            return droplet;
+            return droplet as T;
         }
 
-        public void Return(IDroplet poolObject)
+        public void Return(IDroplet droplet)
         {
-            poolObject.OnReturnToPool();
+            droplet.OnReturnToPool();
 
-            var pool = GetPool(poolObject.Prefab);
-            pool.Add(poolObject);
+            var pool = GetPool(droplet.Prefab);
+            pool.Add(droplet);
         }
 
         private List<IDroplet> GetPool(GameObject prefab)
         {
             if (!ocean.ContainsKey(prefab))
             {
-                ocean[prefab] = new List<IDroplet>();
+                CreatePool(prefab);
             }
 
             return ocean[prefab];
@@ -60,12 +69,12 @@ namespace RomenoCompany
         private void CreateDroplet(List<IDroplet> pool, GameObject prefab)
         {
             var instance = Instantiate(prefab, transform);
-            var poolObject = instance.GetComponent<IDroplet>();
-            poolObject.Prefab = prefab;
+            var droplet = instance.GetComponent<IDroplet>();
+            droplet.Prefab = prefab;
             
-            pool.Add(poolObject);
+            pool.Add(droplet);
             
-            poolObject.OnCreate();
+            droplet.OnCreate();
         }
 
         private IDroplet GetDroplet(List<IDroplet> pool, GameObject prefab)

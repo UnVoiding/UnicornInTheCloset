@@ -11,6 +11,9 @@ namespace RomenoCompany
         order = 59)]
     public class SharedGameData : SerializedScriptableObject
     {
-        
+        public float ftueToolTipShowTime = 0.3f;
+        public float ftueToolTipHideTime = 0.2f;
+        public AnimationCurve ftueToolTipShowCurve = AnimationCurve.Linear(0, 0, 1, 1);
+        public AnimationCurve ftueToolTipHideCurve = AnimationCurve.Linear(0, 0, 1, 1);
     }
 }

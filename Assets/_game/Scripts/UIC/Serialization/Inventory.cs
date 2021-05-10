@@ -119,7 +119,9 @@ namespace RomenoCompany
 	public class Inventory : StrictSingleton<Inventory>
 	{
 		public PlayerPrefsData<int> saveVersion;
-		
+
+		public PlayerPrefsData<bool> disableWait;
+
 		public PlayerPrefsData<AudioState> audioStatus;
 
 		public PlayerPrefsData<PlayerState> playerState;
@@ -133,6 +135,8 @@ namespace RomenoCompany
 		void SaveAll()
 		{
 			saveVersion.Save();
+			
+			disableWait.Save();
 			
 			audioStatus.Save();
 
@@ -150,6 +154,8 @@ namespace RomenoCompany
 			DontDestroyOnLoad(gameObject);
 			
 			saveVersion = new PlayerPrefsData<int>("saveVersion", 0);
+			
+			disableWait = new PlayerPrefsData<bool>("disableWait", false);
 
 			audioStatus = new PlayerPrefsData<AudioState>("audioStatus", AudioState.CreateDefault());
 

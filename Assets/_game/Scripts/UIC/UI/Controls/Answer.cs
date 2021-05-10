@@ -1,33 +1,31 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace RomenoCompany
 {
-    public class Answer : MonoBehaviour
+    public class Answer : MonoBehaviour, IDroplet
     {
+        [                                              SerializeField, FoldoutGroup("References")]
+        public RectTransform rectTransform;
         [                                              SerializeField, FoldoutGroup("References")]
         public TMP_Text text;
         [                                              SerializeField, FoldoutGroup("References")]
         public Button btn;
 
-        [                                              SerializeField, FoldoutGroup("Runtime")]
+        [                          NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")]
         public Passage passage;
 
-        private void Awake()
-        {
-            OnCreate();
-        }
+        public GameObject Prefab { get; set; }
+        public GameObject GameObject => gameObject;
 
-        public void OnCreate()
-        {
-            btn.onClick.AddListener(OnClick);
-        }
-
+        private static readonly Vector3 pooledObjectsPos; 
+        
         public void SetPassage(Passage p)
         {
-            text.text = p.parsedText;
+            text.text = p.ParsedText;
             passage = p;
         }
 
@@ -35,9 +33,34 @@ namespace RomenoCompany
         {
             var cw = UIManager.Instance.ChatWidget;
             cw.currentPassage = passage; 
-            // cw.PresentPassage(true);
+            cw.PresentPassage();
             cw.ClearCurrentAnswers();
             cw.ContinueDialogue();
+        }
+        
+        public void OnCreate()
+        {
+            btn.onClick.AddListener(OnClick);
+            gameObject.SetActive(false);
+        }
+
+        public void OnGetFromPool()
+        {
+            var t = gameObject.transform;  
+            
+            // first set parent then enable
+            t.SetParent(UIManager.Instance.ChatWidget.answerRoot, false);
+            t.localPosition = Vector3.zero;
+            t.localScale = Vector3.one;
+            gameObject.SetActive(true);
+        }
+
+        public void OnReturnToPool()
+        {
+            // first disable then move
+            gameObject.SetActive(false);
+            gameObject.transform.SetParent(Ocean.Instance.transform);
+            passage = null;
         }
     }
 }

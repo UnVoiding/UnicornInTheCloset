@@ -227,7 +227,7 @@ namespace RomenoCompany
                 int colon1 = t.IndexOf(':');
                 int colon2 = t.IndexOf(':', colon1 + 1);
                 string varName = t.Substring(colon1 + 1, colon2 - colon1 - 1);
-                string varValue = t.Substring(colon2);
+                string varValue = t.Substring(colon2 + 1);
                 // int colon3 = t.IndexOf(':', colon2 + 1);
                 // string operation = t.Substring(colon2, colon3);
                 // if (operation == "+")
@@ -371,6 +371,8 @@ namespace RomenoCompany
                 }
                 
                 string adviceText = p.parsedText.Substring(bracket2 + 1).Trim();
+                p.parsedText = adviceText;
+                p.adviceId = adviceId;
 
                 if (!Inventory.Instance.worldState.Value.advicesLoaded)
                 {
@@ -567,31 +569,31 @@ namespace RomenoCompany
                 int colon3 = t.IndexOf(':', colon2 + 1);
                 string operation = t.Substring(colon2 + 1, colon3 - colon2 - 1);
                 string operand = t.Substring(colon3 + 1);
-                SFCondition.BoolOperation eOperation = SFCondition.BoolOperation.NONE;
+                SFHideIfCondition.BoolOperation eOperation = SFHideIfCondition.BoolOperation.NONE;
 
                 if (operation == "=")
                 {
-                    eOperation = SFCondition.BoolOperation.EQUALS;
+                    eOperation = SFHideIfCondition.BoolOperation.EQUALS;
                 }
                 else if (operation == "!=")
                 {
-                    eOperation = SFCondition.BoolOperation.NOT_EQUALS;
+                    eOperation = SFHideIfCondition.BoolOperation.NOT_EQUALS;
                 }
                 else if (operation == "<")
                 {
-                    eOperation = SFCondition.BoolOperation.LESS;
+                    eOperation = SFHideIfCondition.BoolOperation.LESS;
                 }
                 else if (operation == ">")
                 {
-                    eOperation = SFCondition.BoolOperation.GREATER;
+                    eOperation = SFHideIfCondition.BoolOperation.GREATER;
                 }
                 else if (operation == ">=")
                 {
-                    eOperation = SFCondition.BoolOperation.GREATER_EQUALS;
+                    eOperation = SFHideIfCondition.BoolOperation.GREATER_EQUALS;
                 }
                 else if (operation == "<=")
                 {
-                    eOperation = SFCondition.BoolOperation.LESS_EQUALS;
+                    eOperation = SFHideIfCondition.BoolOperation.LESS_EQUALS;
                 }
                 else
                 {
@@ -604,7 +606,7 @@ namespace RomenoCompany
                     Debug.LogError($"DialogueManager: failed to parse operand as int: {operand}");
                 }
 
-                var c = new SFCondition()
+                var c = new SFHideIfCondition()
                 {
                     variableName = varName,
                     operation = eOperation,

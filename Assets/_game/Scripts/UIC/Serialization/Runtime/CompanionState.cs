@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace RomenoCompany
 {
@@ -34,6 +35,7 @@ namespace RomenoCompany
             this.data = data;
             locked = !data.openByDefault;
             dialogues = new List<SFDialogue>();
+            Debug.LogError($"------------ Companion name = {data.name} data.dialogueJsons.Count = {data.dialogueJsons.Count}");
             for (int i = 0; i < data.dialogueJsons.Count; i++)
             {
                 dialogues.Add(new SFDialogue());

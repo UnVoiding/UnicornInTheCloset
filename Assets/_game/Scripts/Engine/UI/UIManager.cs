@@ -38,6 +38,8 @@ namespace RomenoCompany
         private List<Widget> shownWidgets;
         [                                                                                 ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         private ChatScreenWidget chatScreenWidget;
+        [                                                                                 ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        private FTUEWidget ftueWidget;
 
         [                                                                  NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public RectTransform canvasRectTransform;
@@ -62,6 +64,20 @@ namespace RomenoCompany
             }
         }
 
+        
+        public FTUEWidget FTUEWidget
+        {
+            get
+            {
+                if (ftueWidget == null)
+                {
+                    ftueWidget = GetWidget<FTUEWidget>();
+                }
+
+                return ftueWidget;
+            }
+        }
+        
         protected override void Setup()
         {
             Input.multiTouchEnabled = true;
@@ -91,6 +107,54 @@ namespace RomenoCompany
 
         public void Update()
         {
+            // if (Application.platform == RuntimePlatform.Android)
+            // {
+            // on Android KeyCode.Escape is Back button
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                var compInfoWidget = GetWidget<CompanionInfoWidget>();
+                if (compInfoWidget.shown || compInfoWidget.showing)
+                {
+                    compInfoWidget.Hide();
+                    return;
+                }
+
+                var gameItemWidget = GetWidget<UnlockedGameItemWidget>();
+                if (gameItemWidget.shown || gameItemWidget.showing)
+                {
+                    gameItemWidget.Hide();
+                    return;
+                }
+
+                var compUnlockWidget = GetWidget<CompanionUnlockWidget>();
+                if (compUnlockWidget.shown || compUnlockWidget.showing)
+                {
+                    compUnlockWidget.Hide();
+                    return;
+                }
+
+                var adviceWidget = GetWidget<AdviceWidget>();
+                if (adviceWidget.shown || adviceWidget.showing)
+                {
+                    adviceWidget.Hide();
+                    return;
+                }
+
+                if (ChatWidget.shown || ChatWidget.showing)
+                {
+                    GoToComposition(Composition.MAIN);
+                    return;
+                }
+                
+                var playerProfileWidget = GetWidget<ProfileScreenWidget>();
+                if (playerProfileWidget.shown || playerProfileWidget.showing)
+                {
+                    GoToComposition(Composition.MAIN);
+                    return;
+                }
+            }
+            // }
+        
             if (Input.GetKey(KeyCode.E))
             {
                 var w = GetWidget<CompanionInfoWidget>();

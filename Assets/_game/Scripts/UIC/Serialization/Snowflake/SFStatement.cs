@@ -20,8 +20,15 @@ namespace RomenoCompany
         }
 
         public Type type;
+        public bool blocking = false; // will this statement cause blocking of a game like showing a modal window
+        public bool finished = false;
 
         public virtual void Execute()
+        {
+            
+        }
+
+        public virtual void ExecuteBlocking()
         {
             
         }
@@ -120,8 +127,7 @@ namespace RomenoCompany
         
         public override void Execute()
         {
-            var csw = UIManager.Instance.GetWidget<ChatScreenWidget>();
-            csw.SetEmotion(emotionName);
+            UIManager.Instance.ChatWidget.SetEmotion(emotionName);
         }
     }
     
@@ -132,6 +138,7 @@ namespace RomenoCompany
         public ShowAdviceSfStatement()
         {
             type = Type.SHOW_ADVICE;
+            blocking = true;
         }
 
         public override void Execute()
@@ -144,9 +151,38 @@ namespace RomenoCompany
             }
             else
             {
-                var aw = UIManager.Instance.GetWidget<AdviceWidget>();
-                aw.ShowWithAdvice(adviceState.data.text);
+                adviceState.found = true;
+                Inventory.Instance.worldState.Save();
             }
+        }
+
+        public override void ExecuteBlocking()
+        {
+            finished = false;
+
+            var adviceState = Inventory.Instance.worldState.Value.unicornAdvicesState.GetAdviceById(adviceId);
+
+            if (adviceState == null)
+            {
+                finished = true;
+                
+                Debug.LogError($"ShowAdviceSfStatement: Advice with id {adviceId} is not found");
+            }
+            else
+            {
+                var aw = UIManager.Instance.GetWidget<AdviceWidget>();
+                aw.onClose = OnModalClose;
+                aw.ShowWithAdvice(adviceState.data.text);
+                UICAudioManager.Instance.PlayReceiveItemSound();
+            }
+        }
+
+        public void OnModalClose()
+        {
+            finished = true;
+            
+            var aw = UIManager.Instance.GetWidget<AdviceWidget>();
+            aw.onClose = null; 
         }
     }
 
@@ -157,12 +193,33 @@ namespace RomenoCompany
         public AddGameItemSfStatement()
         {
             type = Type.ADD_GAME_ITEM;
+            blocking = true;
         }
 
         public override void Execute()
         {
-            Inventory.Instance.worldState.Value.GetPlayerItem(itemId).found = true;
+            var itemState = Inventory.Instance.worldState.Value.GetPlayerItem(itemId);
+            itemState.found = true;
             Inventory.Instance.worldState.Save();
+        }
+
+        public override void ExecuteBlocking()
+        {
+            finished = false;
+
+            var itemState = Inventory.Instance.worldState.Value.GetPlayerItem(itemId);
+            var ugiw = UIManager.Instance.GetWidget<UnlockedGameItemWidget>();
+            ugiw.onClose = OnCloseModal;
+            ugiw.ShowForItem(itemState.Data, true);
+            UICAudioManager.Instance.PlayAdviceSound();
+        }
+
+        public void OnCloseModal()
+        {
+            finished = true;
+            
+            var ugiw = UIManager.Instance.GetWidget<UnlockedGameItemWidget>();
+            ugiw.onClose = null;
         }
     }
 
@@ -218,6 +275,7 @@ namespace RomenoCompany
         {
             type = Type.UNLOCK_COMPANION;
             companionIds = new List<CompanionData.ItemID>();
+            blocking = true;
         }
 
         public override void Execute()
@@ -228,9 +286,24 @@ namespace RomenoCompany
                 c.locked = false;
             }
             Inventory.Instance.worldState.Save();
+        }
+
+        public override void ExecuteBlocking()
+        {
+            finished = false;
 
             var culw = UIManager.Instance.GetWidget<CompanionUnlockWidget>();
+            culw.onClose = OnCloseModal;
             culw.ShowForCompanions(companionIds);
+            UICAudioManager.Instance.PlayUnlockCompanionsSound();
+        }
+
+        public void OnCloseModal()
+        {
+            finished = true;
+            
+            var culw = UIManager.Instance.GetWidget<CompanionUnlockWidget>();
+            culw.onClose = null;
         }
     }
 
@@ -241,11 +314,30 @@ namespace RomenoCompany
         public StartVideoSfStatement()
         {
             type = Type.START_VIDEO;
+            blocking = true;
         }
 
         public override void Execute()
         {
+            
+        }
+
+        public override void ExecuteBlocking()
+        {
+            finished = false;
+
             var v = DB.Instance.videos.items.Get(videoKey);
+
+            var videoWidget = UIManager.Instance.GetWidget<VideoWidget>();
+            videoWidget.onVideoEnded = OnVideoEnded;
+        }
+
+        public void OnVideoEnded()
+        {
+            finished = true;
+            
+            var videoWidget = UIManager.Instance.GetWidget<VideoWidget>();
+            videoWidget.onVideoEnded = null;
         }
     }
 }

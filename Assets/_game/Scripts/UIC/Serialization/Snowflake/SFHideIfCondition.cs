@@ -9,7 +9,7 @@ namespace RomenoCompany
     }
     
     [Serializable]
-    public class SFCondition : ISFCondition
+    public class SFHideIfCondition : ISFCondition
     {
         public enum BoolOperation
         {
@@ -31,7 +31,7 @@ namespace RomenoCompany
             var v = Inventory.Instance.worldState.Value.GetVariable(variableName);
             if (v == null)
             {
-                return false;
+                return true;
             }
             else
             {
@@ -39,32 +39,32 @@ namespace RomenoCompany
                 if (!int.TryParse(v.value, out vValue))
                 {
                     Debug.LogWarning($"WorldState: variable {variableName} is compared to int but cannot be converted to it");
-                    return false;
+                    return true;
                 }
 
                 switch (operation)
                 {
-                    case SFCondition.BoolOperation.EQUALS:
-                        return vValue == value;
+                    case SFHideIfCondition.BoolOperation.EQUALS:
+                        return !(vValue == value);
                         break;
-                    case SFCondition.BoolOperation.NOT_EQUALS:
-                        return vValue != value;
+                    case SFHideIfCondition.BoolOperation.NOT_EQUALS:
+                        return !(vValue != value);
                         break;
-                    case SFCondition.BoolOperation.LESS:
-                        return vValue < value;
+                    case SFHideIfCondition.BoolOperation.LESS:
+                        return !(vValue < value);
                         break;
-                    case SFCondition.BoolOperation.LESS_EQUALS:
-                        return vValue <= value;
+                    case SFHideIfCondition.BoolOperation.LESS_EQUALS:
+                        return !(vValue <= value);
                         break;
-                    case SFCondition.BoolOperation.GREATER:
-                        return vValue > value;
+                    case SFHideIfCondition.BoolOperation.GREATER:
+                        return !(vValue > value);
                         break;
-                    case SFCondition.BoolOperation.GREATER_EQUALS:
-                        return vValue >= value;
+                    case SFHideIfCondition.BoolOperation.GREATER_EQUALS:
+                        return !(vValue >= value);
                         break;
                     default:
                         Debug.LogError($"WorldState: unknown operation when checking condition {variableName} {operation} {value}");
-                        return false;
+                        return true;
                 }
             }
         }

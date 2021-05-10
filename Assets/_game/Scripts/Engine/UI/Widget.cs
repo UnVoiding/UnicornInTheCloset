@@ -81,7 +81,6 @@ namespace RomenoCompany
                         })
                         .SetUpdate(UpdateType.Normal, true);
                 }
-                
             };
             if (hidding)
             {
@@ -136,13 +135,17 @@ namespace RomenoCompany
                 {
                     gameObject.SetActive(true);
                     canvasGroup.alpha = 1;
-                    canvasGroup.DOFade(0, hideSeconds).SetUpdate(UpdateType.Normal, true).SetEase(hideEase).OnComplete(() =>
-                    {
-                        shown = false;
-                        hidding = false;
-                        gameObject.SetActive(false);
-                        onComplete?.Invoke();
-                    }).SetUpdate(UpdateType.Normal, true);
+                    canvasGroup.DOFade(0, hideSeconds)
+                        .SetUpdate(UpdateType.Normal, true)
+                        .SetEase(hideEase)
+                        .OnComplete(() =>
+                        {
+                            shown = false;
+                            hidding = false;
+                            gameObject.SetActive(false);
+                            onComplete?.Invoke();
+                        })
+                        .SetUpdate(UpdateType.Normal, true);
                 }
             };
             if (showing)

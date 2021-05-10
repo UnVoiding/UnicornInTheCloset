@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using RomenoCompany;
+using Sirenix.OdinInspector;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace UnityEngine.UI
 {
@@ -43,8 +46,34 @@ namespace UnityEngine.UI
         public FitMode horizontalFit { get { return m_HorizontalFit; } set { if (SetStruct(ref m_HorizontalFit, value)) SetDirty(); } }
 
         [SerializeField] protected FitMode m_VerticalFit = FitMode.Unconstrained;
-        [SerializeField] protected bool m_VerticalConstrain = false;
-        [SerializeField] protected bool m_HorizontalConstrain = false;
+        [FormerlySerializedAs("m_VerticalConstrain")] [SerializeField] protected bool m_VerticalConstrainToParentSize = false;
+        [FormerlySerializedAs("m_HorizontalConstrain")] [SerializeField] protected bool m_HorizontalConstrainToParentSize = false;
+        [SerializeField] protected bool m_VerticalConstrainToCanvasSize = false;
+        [ShowIf("m_VerticalConstrainToCanvasSize"), SerializeField] protected float m_VerticalCanvasSizeFraction = 0.5f;
+        [SerializeField] protected bool m_VerticalConstrainToConstant = false;
+        [ShowIf("m_VerticalConstrainToConstant"), SerializeField] protected float m_VerticalConstant = 200f;
+
+        private RectTransform rootCanvasRectTransform;
+        private RectTransform RootCanvasRectTransform
+        {
+            get
+            {
+                if (rootCanvasRectTransform == null)
+                {
+                    var q = GetComponentInParent<Canvas>();
+                    if (q == null)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        rootCanvasRectTransform = q.rootCanvas.GetComponent<RectTransform>();
+                    }
+                }
+
+                return rootCanvasRectTransform;
+            }
+        }
 
         /// <summary>
         /// The fit mode to use to determine the height.
@@ -115,10 +144,30 @@ namespace UnityEngine.UI
                 var p = m_Rect.parent as RectTransform;
                 if (!ReferenceEquals(p, null))
                 {
-                    if (axis == 0 && m_HorizontalConstrain)
+                    if (axis == 0 && m_HorizontalConstrainToParentSize)
+                    {
                         toBeSize = Mathf.Clamp(toBeSize, 0, p.rect.size.x);
-                    if (axis == 1 && m_VerticalConstrain)
-                        toBeSize = Mathf.Clamp(toBeSize, 0, p.rect.size.y);
+                    }
+
+                    if (axis == 1)
+                    {
+                        if (m_VerticalConstrainToParentSize)
+                        {
+                            toBeSize = Mathf.Clamp(toBeSize, 0, p.rect.size.y);
+                        }
+
+                        if (m_VerticalConstrainToCanvasSize)
+                        {
+                            float constrt = RootCanvasRectTransform.rect.size.y *
+                                            m_VerticalCanvasSizeFraction;
+                            if (m_VerticalConstrainToConstant)
+                            {
+                                constrt += m_VerticalConstant;
+                            }
+                            
+                            toBeSize = Mathf.Clamp(toBeSize, 0, constrt);
+                        }
+                    }
                 }
                 rectTransform.SetSizeWithCurrentAnchors((RectTransform.Axis)axis, toBeSize);
             }

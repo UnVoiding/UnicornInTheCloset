@@ -86,7 +86,8 @@ namespace RomenoCompany
             int poolSize = 1;
             foreach (var c in _containers)
             {
-                Ocean.Instance.Allocate(c._prefab.gameObject, c.GetPoolSize());
+                Ocean.Instance.CreatePool(c._prefab.gameObject, c.GetPoolSize());
+                Ocean.Instance.PrecreateDroplets(c._prefab.gameObject, c.GetPoolSize());
             }
         }
 
@@ -113,7 +114,7 @@ namespace RomenoCompany
             var c = _containers.Find(x => x._key == key);
             if (c != null)
             {
-                var instance = Ocean.Instance.Get(c._prefab.gameObject);
+                var instance = Ocean.Instance.Get(c._prefab);
                 var inst = instance.GameObject.GetComponent<T>();
                 _elements.Add(inst);
                 return inst;

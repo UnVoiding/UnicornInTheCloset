@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TableCompanions
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -403,7 +403,8 @@ MonoBehaviour:
     internalId: 12
     enabled: 1
     openByDefault: 0
-    name: "\u0410\u043A\u0442\u0438\u0432\u0438\u0441\u0442"
+    name: "\u041D\u0438\u043A\u0438\u0442\u0430, \u041B\u0413\u0411\u0422\u041A+
+      \u0430\u043A\u0442\u0438\u0432\u0438\u0441\u0442"
     code: activist-man
     klass: "\u0412\u043E\u0438\u043D \u0421\u0432\u0435\u0442\u0430 "
     gameItem: "\u0420\u0430\u0434\u0443\u0436\u043D\u044B\u0439 \u0444\u043B\u0430\u0433 "
@@ -719,8 +720,8 @@ MonoBehaviour:
     - {fileID: 4900000, guid: 7d2d3ccf3345131459461df0a738a6d8, type: 3}
   - id: 22
     internalId: 22
-    enabled: 0
-    openByDefault: 0
+    enabled: 1
+    openByDefault: 1
     name: kiss26
     code: catfish
     klass: "\u0422\u0430\u043A\u0442\u0438\u043A"
@@ -745,7 +746,7 @@ MonoBehaviour:
     - emotionName: happy
       sprite: {fileID: 21300000, guid: ff1facd6665e82944b5a9efb7cfc895a, type: 3}
     dialogueJsons:
-    - {fileID: 4900000, guid: 0fe80db3981f3394c8508f1e4b168c36, type: 3}
+    - {fileID: 4900000, guid: 4462d50e30d6ef0498c9bf40e76ce862, type: 3}
   - id: 24
     internalId: 24
     enabled: 1

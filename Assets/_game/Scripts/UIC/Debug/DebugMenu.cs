@@ -50,6 +50,15 @@ public partial class SROptions
 		Inventory.Instance.worldState.Save();
 	}
 
+	[Category("General")]
+	public void DisableWait()
+	{
+		Inventory.Instance.disableWait.Value = true;
+		Inventory.Instance.disableWait.Save();
+	}
+
+	
+
 	// [Category("Unicorn Advices")]
 	// public void UnlockAllUnicornAdvices()
 	// {

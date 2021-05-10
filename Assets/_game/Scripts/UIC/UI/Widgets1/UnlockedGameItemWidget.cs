@@ -22,6 +22,9 @@ namespace RomenoCompany
         [                                                                           FoldoutGroup("References")] 
         public Button closeBtn;
 
+        [                                    NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public Action onClose;
+
         
         public override void InitializeWidget()
         {
@@ -51,6 +54,11 @@ namespace RomenoCompany
 
         public override void Hide(Action onComplete = null)
         {
+            if (!hidding)
+            {
+                onClose?.Invoke();
+            }
+
             base.Hide(onComplete);
         }
     }
