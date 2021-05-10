@@ -33,7 +33,6 @@ namespace RomenoCompany
             closeBtn.onClick.AddListener(() =>
             {
                 Hide();
-                onClose?.Invoke();
             });
         }
 
@@ -91,6 +90,11 @@ namespace RomenoCompany
 
         public override void Hide(Action onComplete = null)
         {
+            if (!hidding)
+            {
+                onClose?.Invoke();
+            }
+
             base.Hide(onComplete);
         }
     }

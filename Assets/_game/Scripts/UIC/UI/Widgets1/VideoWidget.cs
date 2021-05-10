@@ -36,7 +36,6 @@ namespace RomenoCompany
             widgetType = WidgetType.VIDEO;
             closeBtn.onClick.AddListener(() =>
             {
-                videoPlayer.Stop();
                 Hide(onVideoEnded);
             });
 
@@ -121,6 +120,11 @@ namespace RomenoCompany
 
         public override void Hide(Action onComplete = null)
         {
+            if (!hidding)
+            {
+                videoPlayer.Stop();
+            }
+            
             base.Hide(onComplete);
         }
     }

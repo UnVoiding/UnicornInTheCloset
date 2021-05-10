@@ -45,7 +45,6 @@ namespace RomenoCompany
             closeBtn.onClick.AddListener(() =>
             {
                 Hide();
-                onClose?.Invoke();
             });
             
             float compBtnWidth = (int)((mainPanel.rect.width - btnsPerRow * contentRoot.spacing.x - contentRoot.padding.left) / btnsPerRow);
@@ -98,6 +97,11 @@ namespace RomenoCompany
 
         public override void Hide(Action onComplete = null)
         {
+            if (!hidding)
+            {
+                onClose?.Invoke();
+            }
+
             base.Hide(onComplete);
         }
     }
