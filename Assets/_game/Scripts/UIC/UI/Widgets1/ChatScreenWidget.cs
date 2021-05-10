@@ -146,8 +146,10 @@ namespace RomenoCompany
                 dialogueIsBuilt = false;
                 ResetScreen();
             }
-
+            
             currentCompanion = newCompanion;
+
+            currentCompanion.lastDialogueTaken = currentCompanion.activeDialogue;
 
             // screenWidth = UIManager.Instance.canvasRectTransform.rect.size.x;
             // em = screenWidth / 25f;

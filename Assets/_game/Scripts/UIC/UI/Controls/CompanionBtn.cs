@@ -1,5 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 namespace RomenoCompany
@@ -18,9 +19,13 @@ namespace RomenoCompany
         private Image unlockedState;
         [                                              SerializeField, FoldoutGroup("References")]
         private Button mainButton;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private Image notification;
         
         [                                       ShowInInspector, ReadOnly, FoldoutGroup("Runtime")]
         private CompanionState companionState;
+        [                                       ShowInInspector, ReadOnly, FoldoutGroup("Runtime")]
+        public float size;
 
 
         public void Init(CompanionState state)
@@ -35,14 +40,10 @@ namespace RomenoCompany
                 UIManager.Instance.GetWidget<CompanionInfoWidget>().ShowForCompanion(companionState, true);
             });
 
-            if (companionState.locked)
-            {
-                SetState(State.Locked);
-            }
-            else
-            {
-                SetState(State.Unlocked);
-            }
+            var r = notification.rectTransform.rect;
+            notification.rectTransform.sizeDelta = new Vector2(size / 6f, size / 6f);
+
+            UpdateState();
         }
 
         public void SetState(State state)
@@ -70,6 +71,15 @@ namespace RomenoCompany
         public void UpdateState()
         {
             SetState(companionState.locked ? State.Locked : State.Unlocked);
+
+            if (!companionState.locked)
+            {
+                notification.gameObject.SetActive(companionState.activeDialogue != companionState.lastDialogueTaken);
+            }
+            else
+            {
+                notification.gameObject.SetActive(false);
+            }
         }
     }
 }

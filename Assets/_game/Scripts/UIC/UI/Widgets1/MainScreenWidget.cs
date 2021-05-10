@@ -44,6 +44,7 @@ namespace RomenoCompany
                 if (companionState.Data.enabled)
                 {
                     CompanionBtn btn = Instantiate(companionBtnPfb, contentRoot.transform);
+                    btn.size = compBtnWidth; 
                     btn.Init(companionState);
                     companionBtns.Add(btn);
                 }

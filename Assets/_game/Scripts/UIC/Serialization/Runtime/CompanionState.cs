@@ -10,7 +10,7 @@ namespace RomenoCompany
         public CompanionData.ItemID id;
         public bool locked;
         public int activeDialogue = 0;
-        public int currentEmotion = 0;
+        public int lastDialogueTaken = -1;
         public List<SFDialogue> dialogues;
 
         //// RUNTIME
@@ -35,7 +35,6 @@ namespace RomenoCompany
             this.data = data;
             locked = !data.openByDefault;
             dialogues = new List<SFDialogue>();
-            Debug.LogError($"------------ Companion name = {data.name} data.dialogueJsons.Count = {data.dialogueJsons.Count}");
             for (int i = 0; i < data.dialogueJsons.Count; i++)
             {
                 dialogues.Add(new SFDialogue());
