@@ -47,6 +47,12 @@ namespace RomenoCompany
                 if (trimmedText.Length != 0)
                 {
                     Inventory.Instance.playerState.Value.name = trimmedText;
+                    Inventory.Instance.playerState.Value.nameEntered = true;
+                    Inventory.Instance.playerState.Save();
+                    
+                    UIManager.Instance.GetWidget<MainScreenWidget>().UpdateName();
+                    UIManager.Instance.GetWidget<ProfileScreenWidget>().UpdateName();
+
                     Hide();
                 }
             });
@@ -56,6 +62,7 @@ namespace RomenoCompany
                 Hide(() =>
                 {
                     captionText.text = "Изменить имя";
+                    cancelBtn.gameObject.SetActive(true);
                 });
             });
         }
@@ -66,21 +73,20 @@ namespace RomenoCompany
 
             var lm = LayoutManager.Instance;
 
-            captionText.fontSize = lm.esw;
-
             vertGroup.spacing = lm.esw;
             vertGroup.padding.top = (int)lm.esw;
             vertGroup.padding.bottom = (int)lm.esw;
+            vertGroup.padding.left = (int) lm.esw;
+            vertGroup.padding.right = (int) lm.esw;
+
+            captionText.fontSize = lm.esw;
 
             inputField.pointSize = lm.esw;
             inputField.textComponent.margin = lm.defaultMargins;
             (inputField.placeholder as TMP_Text).margin = lm.defaultMargins;
 
             horizGroup.spacing = lm.esw;
-            horizGroup.padding.left = (int) lm.esw;
             horizGroup.padding.top = (int) lm.esw;
-            horizGroup.padding.right = (int) lm.esw;
-            horizGroup.padding.bottom = (int) lm.esw;
 
             okBtnText.fontSize = lm.esw;
             okBtnText.margin = lm.defaultMargins;
@@ -92,6 +98,7 @@ namespace RomenoCompany
         public void ShowFirstTime()
         {
             captionText.text = "Назовите своего персонажа";
+            cancelBtn.gameObject.SetActive(false);
             
             Show();
         }

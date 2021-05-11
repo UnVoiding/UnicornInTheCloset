@@ -5,6 +5,7 @@ using System;
 using TMPro;
 using Sirenix.OdinInspector;
 using DG.Tweening;
+using Sirenix.OdinInspector.Editor.Drawers;
 using Button = UnityEngine.UI.Button;
 
 namespace RomenoCompany
@@ -13,6 +14,8 @@ namespace RomenoCompany
     {
         [                            Header("Main Screen Widget"), SerializeField, FoldoutGroup("References")] 
         private Button profileBtn;
+        [                                                          SerializeField, FoldoutGroup("References")] 
+        private TMP_Text playerNameText;
         [                                                          SerializeField, FoldoutGroup("References")] 
         private GridLayoutGroup contentRoot;
         [                                                          SerializeField, FoldoutGroup("References")] 
@@ -53,16 +56,42 @@ namespace RomenoCompany
 
         public override void Show(System.Action onComplete = null)
         {
+            OnShow();
+
             base.Show(onComplete);
+        }
 
-            for (int i = 0; i < companionBtns.Count; i++)
+        public override void ShowInstant()
+        {
+            OnShow();
+
+            base.ShowInstant();
+        }
+
+        public void OnShow()
+        {
+            if (!shown && !showing)
             {
-                companionBtns[i].UpdateState();
-            }
+                for (int i = 0; i < companionBtns.Count; i++)
+                {
+                    companionBtns[i].UpdateState();
+                }
 
+                if (!Inventory.Instance.playerState.Value.nameEntered)
+                {
+                    Debug.LogError("88888888888 Showing RenamePlayerWidget");
+                    UIManager.Instance.GetWidget<RenamePlayerWidget>().ShowFirstTime();
+                }
+
+                UpdateName();
+            }
+        }
+
+        public void UpdateName()
+        {
             if (Inventory.Instance.playerState.Value.nameEntered)
             {
-                UIManager.Instance.GetWidget<RenamePlayerWidget>().ShowFirstTime();
+                playerNameText.text = Inventory.Instance.playerState.Value.name;
             }
         }
 

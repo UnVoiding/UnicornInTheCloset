@@ -42,6 +42,7 @@ namespace RomenoCompany
         public bool enabled;
         public bool openByDefault;
         public string name;
+        public string shortName;
         public string code;
         public string klass;
         public string gameItem;

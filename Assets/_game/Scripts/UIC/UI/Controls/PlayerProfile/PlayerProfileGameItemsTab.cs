@@ -7,15 +7,23 @@ namespace RomenoCompany
 {
     public class PlayerProfileGameItemsTab : Tab
     {
-        [                        Header("PlayerProfileGameItems"), FoldoutGroup("References")]
+        [                                 Header("Player Profile Game Items Tab"), FoldoutGroup("References")]
         public GameItemBtn gameItemPfb;
 
-        [                                                             FoldoutGroup("Runtime")]
+        [                   Header("Player Profile Game Items Tab"), SerializeField, FoldoutGroup("Settings")] 
+        private int btnsPerRow = 3;
+
+        [                                                                             FoldoutGroup("Runtime")]
         public List<GameItemBtn> gameItemBtns;
 
         
         public void Populate()
         {
+            var cr = contentRoot.GetComponent<GridLayoutGroup>();
+            
+            float compBtnWidth = (int)((UIManager.Instance.canvasRectTransform.rect.width - btnsPerRow * cr.spacing.x - cr.padding.left) / btnsPerRow);
+            cr.cellSize = new Vector2(compBtnWidth, compBtnWidth);
+
             foreach (var itemState in Inventory.Instance.worldState.Value.gameItemStates)
             {
                 GameItemBtn gi = Instantiate(gameItemPfb, contentRoot);

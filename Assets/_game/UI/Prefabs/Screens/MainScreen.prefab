@@ -215,6 +215,7 @@ MonoBehaviour:
   hideSeconds: 0.3
   hideEase: 17
   profileBtn: {fileID: 5516878515461462064}
+  playerNameText: {fileID: 8291278744633669403}
   contentRoot: {fileID: 7163701710159889963}
   companionBtnPfb: {fileID: 3690751863582144337, guid: 71a11eab63e25f24290ac0b3e7a73718,
     type: 3}

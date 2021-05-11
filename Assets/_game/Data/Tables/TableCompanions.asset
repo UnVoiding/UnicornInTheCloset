@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TableCompanions
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -27,6 +27,7 @@ MonoBehaviour:
     enabled: 0
     openByDefault: 0
     name: "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0433\u0435\u0440\u043E\u0439"
+    shortName: 
     code: main
     klass: 
     gameItem: 
@@ -45,6 +46,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 1
     name: "\u0414\u0440\u0443\u0433-\u0441\u043E\u0441\u0435\u0434 \u0411\u043E\u0433\u0434\u0430\u043D"
+    shortName: "\u0411\u043E\u0433\u0434\u0430\u043D"
     code: friend
     klass: "\u0421\u043E\u0447\u0443\u0432\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0439"
     gameItem: "\u041A\u0430\u043C\u0435\u043D\u044C \u0441 \u0434\u0443\u0448\u0438 "
@@ -85,6 +87,7 @@ MonoBehaviour:
     openByDefault: 0
     name: "\u041F\u043E\u0434\u0440\u0443\u0433\u0430 \u0434\u0435\u0442\u0441\u0442\u0432\u0430
       \u0410\u043B\u0438\u0441\u0430"
+    shortName: "\u0410\u043B\u0438\u0441\u0430"
     code: ex-schoolmate
     klass: "\u041E\u0447\u0430\u0440\u043E\u0432\u043D\u0438\u0446\u0430"
     gameItem: "\u041F\u043E\u0434\u0440\u0435\u0437\u0430\u043D\u043D\u044B\u0435
@@ -133,6 +136,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u041B\u0435\u0441\u0431\u0438\u044F\u043D\u043A\u0430 \u041B\u0430\u043D\u0430"
+    shortName: "\u041B\u0430\u043D\u0430"
     code: lesbian
     klass: "\u0422\u0435\u0445\u043D\u0430\u0440\u044C"
     gameItem: "\u0428\u043B\u0435\u043C +5 \u0437\u0430\u0449\u0438\u0442\u044B \u043E\u0442
@@ -169,6 +173,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u0421\u0432\u044F\u0442\u043E\u0439 \u043E\u0442\u0435\u0446 \u0421\u0435\u0440\u0433\u0438\u0439"
+    shortName: "\u0421\u0432\u044F\u0442\u043E\u0439 \u043E\u0442\u0435\u0446"
     code: bad-priest
     klass: "\u0421\u043B\u0443\u0436\u0438\u0442\u0435\u043B\u044C \u043A\u0443\u043B\u044C\u0442\u0430 "
     gameItem: "\u0420\u0430\u0437\u0431\u0438\u0442\u044B\u0435 \u0441\u043A\u0440\u0438\u0436\u0430\u043B\u0438 "
@@ -199,6 +204,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u041F\u0441\u0438\u0445\u043E\u043B\u043E\u0433"
+    shortName: "\u041F\u0441\u0438\u0445\u043E\u043B\u043E\u0433"
     code: psychologist-man
     klass: "\u041B\u0435\u043A\u0430\u0440\u044C"
     gameItem: "\u041F\u044F\u0442\u043D\u043E \u0420\u043E\u0440\u0448\u0430\u0445\u0430"
@@ -235,6 +241,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A \u0410\u043D\u0434\u0436\u0435\u0439"
+    shortName: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A"
     code: good-priest
     klass: "\u0421\u043B\u0443\u0436\u0438\u0442\u0435\u043B\u044C \u043A\u0443\u043B\u044C\u0442\u0430 "
     gameItem: "\u0421\u0435\u0440\u0434\u0446\u0435 \u0432 \u0442\u0435\u0440\u043D\u043E\u0432\u043E\u043C
@@ -266,6 +273,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u041A\u043E\u0442\u044F"
+    shortName: "\u041A\u043E\u0442\u044F"
     code: cat
     klass: "\u0424\u0438\u043B\u043E\u0448\u043E\u0444"
     gameItem: "\u0411\u044E\u0448\u0442 \u0414\u0430\u0440\u0432\u0438\u043D\u0430 "
@@ -306,6 +314,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: David XL
+    shortName: David XL
     code: hot
     klass: "\u041B\u044E\u0431\u043E\u0432\u043D\u0438\u043A"
     gameItem: "\u0412\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0438\u0439 \u0433\u043E\u043C\u043E\u0444\u043E\u0431 "
@@ -334,6 +343,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u041C\u0430\u0440\u0438\u043D\u0430 \u0410\u0437\u0443\u043B\u0438\u043D\u0430"
+    shortName: "\u041C\u0430\u0440\u0438\u043D\u0430 \u0410\u0437\u0443\u043B\u0438\u043D\u0430"
     code: homophobic-woman
     klass: "\u0411\u0435\u0440\u0441\u0435\u0440\u043A"
     gameItem: "\u0422\u0440\u0430\u043D\u0441\u043F\u0430\u0440\u0430\u043D\u0442"
@@ -366,6 +376,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u0414\u044C\u044F\u0432\u043E\u043B"
+    shortName: "\u0414\u044C\u044F\u0432\u043E\u043B"
     code: devil
     klass: "\u041C\u0438\u0444\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436 "
     gameItem: "\u0418\u0433\u0440\u0430 \u0442\u0435\u043D\u0435\u0439 "
@@ -403,8 +414,9 @@ MonoBehaviour:
     internalId: 12
     enabled: 1
     openByDefault: 0
-    name: "\u041D\u0438\u043A\u0438\u0442\u0430, \u041B\u0413\u0411\u0422\u041A+
-      \u0430\u043A\u0442\u0438\u0432\u0438\u0441\u0442"
+    name: "\u041B\u0413\u0411\u0422\u041A+ \u0430\u043A\u0442\u0438\u0432\u0438\u0441\u0442
+      \u041D\u0438\u043A\u0438\u0442\u0430"
+    shortName: "\u041D\u0438\u043A\u0438\u0442\u0430"
     code: activist-man
     klass: "\u0412\u043E\u0438\u043D \u0421\u0432\u0435\u0442\u0430 "
     gameItem: "\u0420\u0430\u0434\u0443\u0436\u043D\u044B\u0439 \u0444\u043B\u0430\u0433 "
@@ -443,6 +455,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u0421\u0430\u0448\u0430"
+    shortName: "\u0421\u0430\u0448\u0430"
     code: friend-gay
     klass: "\u041B\u044E\u0431\u043E\u0432\u043D\u0438\u043A"
     gameItem: "\u0411\u043B\u0435\u0441\u043A \u0434\u043B\u044F \u0433\u0443\u0431 "
@@ -472,6 +485,8 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u041F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u0438\u0442\u0435\u043B\u044C
+      \u0432\u043B\u0430\u0441\u0442\u0438"
+    shortName: "\u041F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u0438\u0442\u0435\u043B\u044C
       \u0432\u043B\u0430\u0441\u0442\u0438"
     code: government-agent
     klass: "\u0412\u043B\u0430\u0441\u0442\u043E\u043B\u044E\u0431\u0435\u0446"
@@ -507,6 +522,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u042E\u043D\u043E\u0435 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0435"
+    shortName: "\u042E\u043D\u043E\u0435 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0435"
     code: teenager
     klass: "10 \u043A\u043B\u0430\u0441\u0441 "
     gameItem: "\u0421\u043D\u0435\u0436\u043D\u044B\u0439 \u0431\u0443\u0440\u0430\u043D\u0447\u0438\u043A "
@@ -533,6 +549,7 @@ MonoBehaviour:
     enabled: 0
     openByDefault: 0
     name: "\u0410\u043D\u043E\u043D\u0438\u043C"
+    shortName: "\u0410\u043D\u043E\u043D\u0438\u043C"
     code: hidding
     klass: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E"
     gameItem: "\u0411\u0435\u043D\u0433\u0430\u043B\u044C\u0441\u043A\u0438\u0439
@@ -560,6 +577,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u0410\u043A\u0442\u0438\u0432\u0438\u0441\u0442\u043A\u0430 \u0412\u0430\u0440\u044F"
+    shortName: "\u0412\u0430\u0440\u044F"
     code: activist-woman
     klass: "\u0412\u043E\u0438\u0442\u0435\u043B\u044C\u043D\u0438\u0446\u0430"
     gameItem: "\u042D\u043B\u0438\u043A\u0441\u0438\u0440 \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u044F "
@@ -588,6 +606,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u0422\u0451\u0442\u044F \u041B\u044E\u0434\u0430"
+    shortName: "\u0422\u0451\u0442\u044F \u041B\u044E\u0434\u0430"
     code: accepting-parent
     klass: "\u041B\u0435\u043A\u0430\u0440\u044C"
     gameItem: "\u041A\u043B\u0443\u0431\u043E\u043A \u0441\u0432\u044F\u0437\u0443\u044E\u0449\u0438\u0445
@@ -623,6 +642,7 @@ MonoBehaviour:
     openByDefault: 0
     name: "\u041F\u0441\u0438\u0445\u043E\u0442\u0435\u0440\u0430\u043F\u0435\u0432\u0442\u043A\u0430
       \u041A\u0430\u0440\u0438\u043D\u0430 "
+    shortName: "\u041F\u0441\u0438\u0445\u043E\u0442\u0435\u0440\u0430\u043F\u0435\u0432\u0442\u043A\u0430"
     code: psychoterapist-woman
     klass: "\u041B\u0435\u043A\u0430\u0440\u044C"
     gameItem: "\u0421\u0442\u0430\u0442\u0443\u044D\u0442\u043A\u0430 \u0411\u0443\u0434\u0434\u044B
@@ -659,6 +679,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u042E\u0440\u0438\u0441\u0442 \u0418\u0432\u0430\u043D \u0414\u043C\u0438\u0442\u0440\u0438\u0435\u0432\u0438\u0447"
+    shortName: "\u042E\u0440\u0438\u0441\u0442"
     code: lawyer
     klass: "\u0417\u0430\u043A\u043E\u043D\u043E\u043A\u043B\u0438\u043D\u0430\u0442\u0435\u043B\u044C"
     gameItem: "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439
@@ -689,6 +710,7 @@ MonoBehaviour:
     openByDefault: 0
     name: "\u0422\u0440\u0430\u043D\u0441\u0433\u0435\u043D\u0434\u0435\u0440\u043A\u0430
       \u0410\u043D\u044F"
+    shortName: "\u0410\u043D\u044F"
     code: transgender
     klass: "\u041C\u0443\u0437\u044B\u043A\u0430\u043D\u0442\u043A\u0430"
     gameItem: "\u0422\u0438\u0445\u0430\u044F \u0441\u043A\u0440\u0438\u043F\u043A\u0430"
@@ -723,6 +745,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 1
     name: kiss26
+    shortName: kiss26
     code: catfish
     klass: "\u0422\u0430\u043A\u0442\u0438\u043A"
     gameItem: "\u041A\u0443\u0431\u0438\u043A \u0420\u0443\u0431\u0438\u043A\u0430 "
@@ -752,6 +775,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u041F\u0430\u043F\u0430 \u0438 \u041C\u0430\u043C\u0430"
+    shortName: "\u0420\u043E\u0434\u0438\u0442\u0435\u043B\u0438"
     code: parents
     klass: "\u0420\u043E\u0434\u0438\u0442\u0435\u043B\u0438"
     gameItem: ' '
@@ -785,6 +809,7 @@ MonoBehaviour:
     enabled: 1
     openByDefault: 0
     name: "\u0415\u0434\u0438\u043D\u043E\u0440\u043E\u0433"
+    shortName: "\u0415\u0434\u0438\u043D\u043E\u0440\u043E\u0433"
     code: Unicorn
     klass: "\u0421\u043E\u0432\u0435\u0442\u0447\u0438\u043A"
     gameItem: 

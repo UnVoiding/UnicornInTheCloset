@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabToggle: {fileID: 0}
   contentRoot: {fileID: 93558279525738579}
-  controller: {fileID: 0}
   gameItemPfb: {fileID: 8584631440978204436, guid: fea054da0c3a59443b42f6fffd43deb3,
     type: 3}
+  btnsPerRow: 3
   gameItemBtns: []
 --- !u!1001 &7392971324632564212
 PrefabInstance:

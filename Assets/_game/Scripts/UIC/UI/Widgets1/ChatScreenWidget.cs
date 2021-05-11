@@ -27,12 +27,15 @@ namespace RomenoCompany
         }
 
         #region Fields
+        
         [                         Header("Chat Screen Widget"), SerializeField, FoldoutGroup("References")] 
         private Button backBtn;
         [                                                       SerializeField, FoldoutGroup("References")] 
         private Button infoBtn;
         [                                                       SerializeField, FoldoutGroup("References")] 
         private Image companionImage;
+        [                                                       SerializeField, FoldoutGroup("References")] 
+        private TMP_Text companionNameText;
         [                                                       SerializeField, FoldoutGroup("References")] 
         public RectTransform answerRoot;
         [                                                       SerializeField, FoldoutGroup("References")] 
@@ -146,15 +149,20 @@ namespace RomenoCompany
                 dialogueIsBuilt = false;
                 ResetScreen();
             }
+
+            var lm = LayoutManager.Instance;
             
             currentCompanion = newCompanion;
+
+            companionNameText.text = currentCompanion.Data.name;
+            companionNameText.fontSize = 1.25f * lm.esw;
 
             currentCompanion.lastDialogueTaken = currentCompanion.activeDialogue;
 
             // screenWidth = UIManager.Instance.canvasRectTransform.rect.size.x;
             // em = screenWidth / 25f;
             // margins = new Vector4(em, 0.5f * em, em, 0.5f * em);
-            typingText.fontSize = 0.75f * LayoutManager.Instance.esw;
+            typingText.fontSize = 0.75f * lm.esw;
 
             SFDialogue dialogue = currentCompanion.dialogues[currentCompanion.activeDialogue];
             var path = dialogue.path;
@@ -628,49 +636,43 @@ namespace RomenoCompany
             time = 0;
             currentPassage = tempNextAvailablePassages[0];
             typingText.gameObject.SetActive(true);
-            typingText.text = "Персонаж продолжает.";
+            string continues = "";
+            if (currentCompanion.Data.id == CompanionData.ItemID.PARENTS)
+            {
+                continues = "продолжают";
+            }
+            else
+            {
+                continues = "продолжает";
+            }
+            typingText.text = $"{currentCompanion.Data.shortName} {continues}.";
         }
 
         public void HandleTypingAnimation()
         {
             int dotCount = (int) (time / typingAnimationSpeed) % 3;
+            string continues = "";
+            if (currentCompanion.Data.id == CompanionData.ItemID.PARENTS)
+            {
+                continues = "продолжают";
+            }
+            else
+            {
+                continues = "продолжает";
+            }
+            
             if (dotCount == 0)
             {
-                typingText.text = "Персонаж продолжает.";
+                typingText.text = $"{currentCompanion.Data.shortName} {continues}.";
             }
             else if (dotCount == 1)
             {
-                typingText.text = "Персонаж продолжает..";
+                typingText.text = $"{currentCompanion.Data.shortName} {continues}..";
             }
             else if (dotCount == 2)
             {
-                typingText.text = "Персонаж продолжает...";
+                typingText.text = $"{currentCompanion.Data.shortName} {continues}...";
             }
-
-            // typingText.gameObject.SetActive(true);
-            // DOTween
-            //     .To(() => typingTime, (t) => typingTime = t, 1.0f, typingDealy)
-            //     .OnUpdate(() =>
-            //     {
-                    // float timePassed = typingTime * typingDealy;
-                    // int dotCount = (int) (timePassed / typingAnimationSpeed) % 3;
-                    // if (dotCount == 0)
-                    // {
-                    //     typingText.text = "Персонаж продолжает.";
-                    // }
-                    // else if (dotCount == 1)
-                    // {
-                    //     typingText.text = "Персонаж продолжает..";
-                    // }
-                    // else if (dotCount == 2)
-                    // {
-                    //     typingText.text = "Персонаж продолжает...";
-                    // }
-                // })
-                // .OnComplete(() =>
-                // {
-                //     typingText.gameObject.SetActive(false);
-                // });
         }
 
         public void ClearCurrentAnswers()

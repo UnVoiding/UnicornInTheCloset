@@ -16,6 +16,8 @@ namespace RomenoCompany
         [                                               SerializeField, FoldoutGroup("References")] 
         private Button renamePlayerBtn;
         [                                               SerializeField, FoldoutGroup("References")] 
+        private TMP_Text playerNameText;
+        [                                               SerializeField, FoldoutGroup("References")] 
         private TabController tabController;
         
         [                Header("Profile Screen Widget"), SerializeField, FoldoutGroup("Settings")] 
@@ -65,6 +67,11 @@ namespace RomenoCompany
                 tabController.ActivateTab(3);
                 showDevelopers = false;
             }
+        }
+        
+        public void UpdateName()
+        {
+            playerNameText.text = Inventory.Instance.playerState.Value.name;
         }
 
         public override void Hide(Action onComplete = null)
