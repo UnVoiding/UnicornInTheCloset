@@ -156,7 +156,6 @@ namespace RomenoCompany
             
             currentCompanion = newCompanion;
 
-            companionNameText.text = currentCompanion.Data.name;
             companionNameText.fontSize = 1.25f * lm.esw;
 
             currentCompanion.lastDialogueTaken = currentCompanion.activeDialogue;
@@ -178,7 +177,8 @@ namespace RomenoCompany
                 time = 0;
                 timeToWait = 0;
 
-                SetEmotion("main");
+                SetEmotion(currentCompanion, "main");
+                SetCompanionName(currentCompanion.Data.name);
 
                 BuildPastConversation();
                 
@@ -219,6 +219,18 @@ namespace RomenoCompany
                 else
                 {
                     currentPassage = dialogue.root.startPassage;
+                    SFStatement e = currentPassage.GetStatement(SFStatement.Type.CHANGE_IMAGE);
+                    if (e != null)
+                    {
+                        e.Execute();
+                    }
+                    
+                    e = currentPassage.GetStatement(SFStatement.Type.SET_COMPANION_NAME);
+                    if (e != null)
+                    {
+                        e.Execute();
+                    }
+
                     StartDialogue(); //blocking
                 }
             }
@@ -722,11 +734,11 @@ namespace RomenoCompany
         }
 
         private static readonly Color transparentColor = new Color(0, 0, 0, 0);
-        public void SetEmotion(string emotionName)
+        public void SetEmotion(CompanionState companion, string emotionName)
         {
             if (emotionName != "unexistent")
             {
-                var e = currentCompanion.Data.GetEmotion(emotionName);
+                var e = companion.Data.GetEmotion(emotionName);
                 companionImage.sprite = e.sprite;
                 companionImage.color = Color.white;
             }
@@ -735,6 +747,11 @@ namespace RomenoCompany
                 companionImage.sprite = null;
                 companionImage.color = transparentColor;
             }
+        }
+
+        public void SetCompanionName(string name)
+        {
+            companionNameText.text = name;
         }
 
         public override void Hide(Action onComplete = null)

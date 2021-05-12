@@ -149,7 +149,7 @@ namespace RomenoCompany
 
 		protected override void Setup()
 		{
-			Debug.LogError("~~~~~~~~ Inventory.Awake is called");
+			Debug.LogWarning("~~~~~~~~ Inventory.Awake is called");
 			
 			DontDestroyOnLoad(gameObject);
 			

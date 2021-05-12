@@ -567,8 +567,8 @@
       "name": "— Хмпф... Будем потише...",
       "pid": "28",
       "position": {
-        "x": "1375",
-        "y": "700"
+        "x": "1925",
+        "y": "825"
       },
       "tags": [
         "t:p",
@@ -636,7 +636,8 @@
       },
       "tags": [
         "t:p",
-        "setReaction:homophobic-woman-main"
+        "setReaction:homophobic-woman-main",
+        "hide:meetingChosen:=:0"
       ]
     },
     {

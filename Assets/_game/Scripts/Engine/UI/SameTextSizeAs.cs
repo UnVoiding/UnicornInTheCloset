@@ -13,12 +13,12 @@ namespace RomenoCompany
 
         public void Start()
         {
-            Debug.LogError("SameTextSizeAs: Start called");
+            Debug.LogWarning("SameTextSizeAs: Start called");
         }
 
         private void OnEnable()
         {
-            Debug.LogError("SameTextSizeAs: OnEnable called");
+            Debug.LogWarning("SameTextSizeAs: OnEnable called");
             thisText = GetComponent<TMP_Text>();
 
             TMPro_EventManager.TEXT_CHANGED_EVENT.Add(UpdateFontSize);
@@ -26,20 +26,20 @@ namespace RomenoCompany
 
         private void OnDisable()
         {
-            Debug.LogError("SameTextSizeAs: OnDisable called");
+            Debug.LogWarning("SameTextSizeAs: OnDisable called");
             TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(UpdateFontSize);
         }
 
         public void OnDestroy()
         {
-            Debug.LogError("SameTextSizeAs: OnDestroy called");
+            Debug.LogWarning("SameTextSizeAs: OnDestroy called");
         }
 
         public void UpdateFontSize(UnityEngine.Object obj)
         {
             if (sameAsText != null && obj == sameAsText)
             {
-                Debug.LogError("SameTextSizeAs: UpdateFontSize called");
+                Debug.LogWarning("SameTextSizeAs: UpdateFontSize called");
 
                 thisText.fontSize = sameAsText.fontSize;
                 thisText.ForceMeshUpdate();

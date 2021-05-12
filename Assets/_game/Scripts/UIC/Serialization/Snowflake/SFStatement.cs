@@ -18,6 +18,7 @@ namespace RomenoCompany
             UNLOCK_COMPANION = 70,
             START_VIDEO = 80,
             GAME_OVER = 90,
+            SET_COMPANION_NAME = 100,
         }
 
         public Type type;
@@ -120,6 +121,7 @@ namespace RomenoCompany
     public class ChangeImageSfStatement : SFStatement
     {
         public string emotionName;
+        public CompanionData.ItemID companionId;
         
         public ChangeImageSfStatement()
         {
@@ -128,7 +130,40 @@ namespace RomenoCompany
         
         public override void Execute()
         {
-            UIManager.Instance.ChatWidget.SetEmotion(emotionName);
+            CompanionState companion = Inventory.Instance.worldState.Value.GetCompanion(companionId);
+            if (companion == null)
+            {
+                Debug.LogError($"ChangeImageSfStatement: failed to get companion with id {companionId}");
+                
+            }
+            else
+            {
+                UIManager.Instance.ChatWidget.SetEmotion(companion, emotionName);
+            }
+        }
+    }
+    
+    public class SetCompanionNameSfStatement : SFStatement
+    {
+        public CompanionData.ItemID companionId;
+
+        public SetCompanionNameSfStatement()
+        {
+            type = Type.SET_COMPANION_NAME;
+            blocking = false;
+        }
+
+        public override void Execute()
+        {
+            CompanionState companion = Inventory.Instance.worldState.Value.GetCompanion(companionId);
+            if (companion == null)
+            {
+                Debug.LogError($"SetCompanionNameSfStatement: failed to get companion with id {companionId}");
+            }
+            else
+            {
+                UIManager.Instance.ChatWidget.SetCompanionName(companion.Data.name);
+            }
         }
     }
     
@@ -330,6 +365,8 @@ namespace RomenoCompany
             var v = DB.Instance.videos.items.Get(videoKey);
 
             var videoWidget = UIManager.Instance.GetWidget<VideoWidget>();
+            videoWidget.ShowForVideo(v);
+            
             videoWidget.onVideoEnded = OnVideoEnded;
         }
 
