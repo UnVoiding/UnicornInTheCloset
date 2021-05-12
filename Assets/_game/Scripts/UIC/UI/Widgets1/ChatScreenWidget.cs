@@ -98,6 +98,8 @@ namespace RomenoCompany
         private SFStatement currentStatement = null;
         [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         private int currentStatementIndex = 0;
+        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
+        private int currentDialog;
 
         #endregion
         
@@ -144,7 +146,7 @@ namespace RomenoCompany
             currentStatementIndex = -1;
 
             var newCompanion = Inventory.Instance.worldState.Value.GetCompanion(Inventory.Instance.currentCompanion.Value);
-            if (currentCompanion == null || newCompanion.Data.id != currentCompanion.Data.id)
+            if (currentCompanion == null || newCompanion.Data.id != currentCompanion.Data.id || currentCompanion.lastDialogueTaken != currentCompanion.activeDialogue)
             {
                 dialogueIsBuilt = false;
                 ResetScreen();
@@ -158,6 +160,7 @@ namespace RomenoCompany
             companionNameText.fontSize = 1.25f * lm.esw;
 
             currentCompanion.lastDialogueTaken = currentCompanion.activeDialogue;
+            currentDialog = currentCompanion.activeDialogue;
 
             // screenWidth = UIManager.Instance.canvasRectTransform.rect.size.x;
             // em = screenWidth / 25f;
@@ -457,7 +460,7 @@ namespace RomenoCompany
             
             if (savePath)
             {
-                currentCompanion.dialogues[currentCompanion.activeDialogue].path.Add(currentPassage.pid);
+                currentCompanion.dialogues[currentDialog].path.Add(currentPassage.pid);
                 Inventory.Instance.worldState.Save();
             }
 
@@ -704,7 +707,7 @@ namespace RomenoCompany
             savePath = false;
             soundEnabled = false;
             executeStatements = false;
-            var dialogue = currentCompanion.dialogues[currentCompanion.activeDialogue];
+            var dialogue = currentCompanion.dialogues[currentDialog];
             for (int i = 0; i < dialogue.path.Count - 1; i++)
             {
                 currentPassage = dialogue.root.Find(dialogue.path[i]);

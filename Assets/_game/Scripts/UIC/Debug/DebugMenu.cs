@@ -29,6 +29,8 @@ public partial class SROptions
 			state.locked = false;
 		}
 		Inventory.Instance.worldState.Save();
+
+		UIManager.Instance.GetWidget<MainScreenWidget>().UpdateCompanionBtns();
 	}
 	
 	[Category("Unicorn Advices")]
