@@ -637,7 +637,7 @@
       "tags": [
         "t:p",
         "setReaction:homophobic-woman-main",
-        "hide:meetingChosen:=:0"
+        "hide:meetingChosen:=:1"
       ]
     },
     {
@@ -1033,7 +1033,7 @@
       "tags": [
         "t:p",
         "set:consent:1",
-        "hide:meetingChosen:=:1"
+        "hide:meetingChosen:=:0"
       ]
     },
     {
@@ -1070,7 +1070,7 @@
         "t:p",
         "set:consent:1",
         "setReaction:homophobic-woman-angry",
-        "hide:meetingChosen:=:1"
+        "hide:meetingChosen:=:0"
       ]
     },
     {
