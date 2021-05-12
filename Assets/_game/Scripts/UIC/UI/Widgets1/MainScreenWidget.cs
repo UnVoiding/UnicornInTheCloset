@@ -76,7 +76,7 @@ namespace RomenoCompany
 
                 if (!Inventory.Instance.playerState.Value.nameEntered)
                 {
-                    Debug.LogError("88888888888 Showing RenamePlayerWidget");
+                    Debug.LogWarning("~~~ Showing RenamePlayerWidget");
                     UIManager.Instance.GetWidget<RenamePlayerWidget>().ShowFirstTime();
                 }
 

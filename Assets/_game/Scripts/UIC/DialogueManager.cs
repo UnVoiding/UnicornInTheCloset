@@ -26,7 +26,7 @@ namespace RomenoCompany
                     
                     for (int i = 0; i < currentCompanion.Data.dialogueJsons.Count; i++)
                     {
-                        Debug.LogError($"~~~ Parsing {currentCompanion.id.ToString()} dialogue {i}");
+                        Debug.Log($"~~~ Parsing {currentCompanion.id.ToString()} dialogue {i}");
                         TwineRoot root = JsonConvert.DeserializeObject<TwineRoot>(currentCompanion.Data.dialogueJsons[i].text);
                         root.PostDeserialize();
                         ConvertToSnowflake(root);
@@ -186,6 +186,10 @@ namespace RomenoCompany
                 {
                     ParseDelay(t, p);
                 }
+                else if (t.StartsWith("setCompanionName:"))
+                {
+                    ParseSetCompanionName(t, p);
+                }
                 else if (t == "finishBlock")
                 {
                     
@@ -287,7 +291,8 @@ namespace RomenoCompany
                     {
                         var s = new ChangeImageSfStatement()
                         {
-                            emotionName = emotion
+                            emotionName = emotion,
+                            companionId = companionState.Data.id
                         };
                         p.effects.Add(s);
                     }
@@ -302,7 +307,8 @@ namespace RomenoCompany
                         {
                             var s = new ChangeImageSfStatement()
                             {
-                                emotionName = emotion
+                                emotionName = emotion,
+                                companionId = companionState.Data.id
                             };
                             p.effects.Add(s);
                         }
@@ -439,6 +445,35 @@ namespace RomenoCompany
                 Debug.LogError($"DialogueManager: Failed to parse tag {t}");
                 throw;
             }
+        }
+
+        public void ParseSetCompanionName(string t, Passage p)
+        {
+            try
+            {
+                int colon = t.IndexOf(':');
+                string compCodeStr = t.Substring(colon + 1);
+                
+                var companionState = Inventory.Instance.worldState.Value.GetCompanion(compCodeStr);
+                if (companionState != null)
+                {
+                    var s = new SetCompanionNameSfStatement()
+                    {
+                        companionId = companionState.Data.id 
+                    };
+                    p.effects.Add(s);
+                }
+                else
+                {
+                    Debug.LogError($"DialogueManager: failed to find companion for companion code {compCodeStr}");
+                    return;
+                }
+            }
+            catch
+            {
+                Debug.LogError($"DialogueManager: Failed to parse tag {t}");
+                throw;
+            }            
         }
 
         public void ParseAddGameItem(string t, Passage p)
