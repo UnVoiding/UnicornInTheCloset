@@ -72,10 +72,7 @@ namespace RomenoCompany
         {
             if (!shown && !showing)
             {
-                for (int i = 0; i < companionBtns.Count; i++)
-                {
-                    companionBtns[i].UpdateState();
-                }
+                UpdateCompanionBtns();
 
                 if (!Inventory.Instance.playerState.Value.nameEntered)
                 {
@@ -84,6 +81,14 @@ namespace RomenoCompany
                 }
 
                 UpdateName();
+            }
+        }
+
+        public void UpdateCompanionBtns()
+        {
+            for (int i = 0; i < companionBtns.Count; i++)
+            {
+                companionBtns[i].UpdateState();
             }
         }
 
