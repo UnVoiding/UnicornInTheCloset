@@ -27,6 +27,8 @@ namespace RomenoCompany
             companionMessageSound.LoadAudioData();
             heroMessageSound.LoadAudioData();
             adviceSound.LoadAudioData();
+            
+            DontDestroyOnLoad(gameObject);
         }
 
         public void PlayUnlockCompanionsSound()

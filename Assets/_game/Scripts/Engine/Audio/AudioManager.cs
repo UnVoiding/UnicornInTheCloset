@@ -18,6 +18,8 @@ namespace RomenoCompany
             };
             ToggleMuteMusic(audioStatus.Value.isMusicMuted);
             ToggleMuteSound(audioStatus.Value.isSoundMuted);
+            
+            DontDestroyOnLoad(gameObject);
         }
 
         public void ToggleMuteMusic(bool mute)
