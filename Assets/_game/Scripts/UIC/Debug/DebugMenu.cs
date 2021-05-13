@@ -21,6 +21,61 @@ public partial class SROptions
 	}
 
 	[Category("Companions")]
+	public void ResetCompanion()
+	{
+		var comp = Inventory.Instance.worldState.Value.GetCompanion(Companion);
+		for (int i = comp.activeDialogue; i >= activeDialogue; i--)
+		{
+			comp.dialogues[i].path.Clear();
+		}
+		comp.activeDialogue = activeDialogue;
+		comp.lastDialogueTaken = activeDialogue - 1;
+	}
+
+	private CompanionData.ItemID companion;
+	[Category("Companions")]
+	public CompanionData.ItemID Companion
+	{
+		get
+		{
+			return companion;
+		}
+		set
+		{
+			companion = value;
+			UpdateActiveDialogue();
+		}
+	}
+
+	private int activeDialogue;
+	[Category("Companions")]
+	public int ActiveDialogue
+	{
+		get
+		{
+			return activeDialogue;
+		}
+		set
+		{
+			activeDialogue = value;
+		}
+	}
+
+	private void UpdateActiveDialogue()
+	{
+		if (companion != CompanionData.ItemID.NONE)
+		{
+			var cs = Inventory.Instance.worldState.Value.GetCompanion(companion);
+			activeDialogue = cs.activeDialogue;
+		}
+		else
+		{
+			activeDialogue = 0;
+		}
+
+		OnPropertyChanged("ActiveDialogue");
+	}
+
 	public void UnlockAllCompanions()
 	{
 		var states = Inventory.Instance.worldState.Value.companionStates;
@@ -32,7 +87,7 @@ public partial class SROptions
 
 		UIManager.Instance.GetWidget<MainScreenWidget>().UpdateCompanionBtns();
 	}
-	
+
 	[Category("Unicorn Advices")]
 	public void UnlockAllAdvices()
 	{
@@ -44,6 +99,11 @@ public partial class SROptions
 		Inventory.Instance.worldState.Save();
 	}
 	
+	[Category("General")]
+	public void RestartGame()
+	{
+		GameManager.Instance.RestartGame();
+	}
 
 	[Category("General")]
 	public void UnlockLawyer()
@@ -56,6 +116,13 @@ public partial class SROptions
 	public void DisableWait()
 	{
 		Inventory.Instance.disableWait.Value = true;
+		Inventory.Instance.disableWait.Save();
+	}
+
+	[Category("General")]
+	public void EnableWait()
+	{
+		Inventory.Instance.disableWait.Value = false;
 		Inventory.Instance.disableWait.Save();
 	}
 

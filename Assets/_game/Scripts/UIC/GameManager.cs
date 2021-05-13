@@ -55,7 +55,6 @@ namespace RomenoCompany
             // Debug.unityLogger.logEnabled = false;
 
             SRDebug.Init();
-            SceneLoader.Instance.GoToScene("Main", LoadSceneMode.Single);
         }
 
         private void OnDestroy()
@@ -102,6 +101,7 @@ namespace RomenoCompany
             switch (scene.name)
             {
                 case "Start":
+                    SceneLoader.Instance.GoToScene("Main", LoadSceneMode.Single);
                     break;
                 case "Main":
                     break;
@@ -117,6 +117,23 @@ namespace RomenoCompany
             UIManager.InitInstanceFromPrefab(uiManagerPfb);
             AudioManager.InitInstanceFromPrefab(audioManagerPfb);
             UICAudioManager.InitInstanceFromPrefab(uicAudioManagerPfb);
+        }
+
+        public void RestartGame()
+        {
+            PlayerPrefs.DeleteAll();
+            
+            DestroyPersistentObjects();
+
+            mainSceneActivated = false;
+            SceneLoader.Instance.GoToScene("Start", LoadSceneMode.Single);
+        }
+        
+        public void DestroyPersistentObjects()
+        {
+            Destroy(Inventory.Instance.gameObject);
+            Destroy(DialogueManager.Instance.gameObject);
+            Destroy(UIManager.Instance.gameObject);
         }
     }
 }
