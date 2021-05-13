@@ -76,6 +76,7 @@ public partial class SROptions
 		OnPropertyChanged("ActiveDialogue");
 	}
 
+	[Category("Companions")]
 	public void UnlockAllCompanions()
 	{
 		var states = Inventory.Instance.worldState.Value.companionStates;
