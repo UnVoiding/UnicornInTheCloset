@@ -23,13 +23,16 @@ public partial class SROptions
 	[Category("Companions")]
 	public void ResetCompanion()
 	{
-		var comp = Inventory.Instance.worldState.Value.GetCompanion(Companion);
-		for (int i = comp.activeDialogue; i >= activeDialogue; i--)
+		if (Companion != CompanionData.ItemID.NONE)
 		{
-			comp.dialogues[i].path.Clear();
+			var comp = Inventory.Instance.worldState.Value.GetCompanion(Companion);
+			for (int i = comp.activeDialogue; i >= activeDialogue; i--)
+			{
+				comp.dialogues[i].path.Clear();
+			}
+			comp.activeDialogue = activeDialogue;
+			comp.lastDialogueTaken = activeDialogue - 1;
 		}
-		comp.activeDialogue = activeDialogue;
-		comp.lastDialogueTaken = activeDialogue - 1;
 	}
 
 	private CompanionData.ItemID companion;

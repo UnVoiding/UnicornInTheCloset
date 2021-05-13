@@ -51,6 +51,8 @@ namespace RomenoCompany
         public string goal;
         [TextArea(1, 5)] public string description;
 
+        public Message textMessagePfb;
+        public Message imageMessagePfb;
         public Sprite fullHeightImage;
         public Sprite mainScreenImage;
         public List<CompanionEmotion> emotions;

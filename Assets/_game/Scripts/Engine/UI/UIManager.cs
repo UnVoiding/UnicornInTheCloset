@@ -134,6 +134,13 @@ namespace RomenoCompany
                     compUnlockWidget.Hide();
                     return;
                 }
+                
+                var renameWidget = GetWidget<RenamePlayerWidget>();
+                if ((renameWidget.shown || renameWidget.showing) && Inventory.Instance.playerState.Value.nameEntered)
+                {
+                    renameWidget.Hide();
+                    return;
+                }
 
                 var adviceWidget = GetWidget<AdviceWidget>();
                 if (adviceWidget.shown || adviceWidget.showing)

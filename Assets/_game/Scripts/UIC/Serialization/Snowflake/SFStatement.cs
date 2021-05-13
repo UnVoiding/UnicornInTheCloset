@@ -138,7 +138,7 @@ namespace RomenoCompany
             }
             else
             {
-                UIManager.Instance.ChatWidget.SetEmotion(companion, emotionName);
+                UIManager.Instance.ChatWidget.SetEmotionAndName(companion, emotionName);
             }
         }
     }

@@ -177,8 +177,7 @@ namespace RomenoCompany
                 time = 0;
                 timeToWait = 0;
 
-                SetEmotion(currentCompanion, "main");
-                SetCompanionName(currentCompanion.Data.name);
+                SetEmotionAndName(currentCompanion, "main");
 
                 BuildPastConversation();
                 
@@ -247,8 +246,8 @@ namespace RomenoCompany
         {
             var ocean = Ocean.Instance;
             ocean.CreatePool(heroMessagePfb.gameObject, 50);
-            ocean.CreatePool(textMessagePfb.gameObject, 100);
-            ocean.CreatePool(imageMessagePfb.gameObject, 10);
+            // ocean.CreatePool(textMessagePfb.gameObject, 100);
+            // ocean.CreatePool(imageMessagePfb.gameObject, 10);
             ocean.CreatePool(adviceMessagePfb.gameObject, 5);
             ocean.CreatePool(answerPfb.gameObject, 10);
 
@@ -266,33 +265,33 @@ namespace RomenoCompany
 
             yield return null;
 
-            ocean.PrecreateDroplets(textMessagePfb.gameObject, 5);
-
-            yield return null;
-
-            ocean.PrecreateDroplets(textMessagePfb.gameObject, 20);
-
-            yield return null;
-
-            ocean.PrecreateDroplets(textMessagePfb.gameObject, 35);
-
-            yield return null;
-
-            ocean.PrecreateDroplets(textMessagePfb.gameObject, 50);
-
-            yield return null;
-
-            ocean.PrecreateDroplets(textMessagePfb.gameObject, 50);
-
-            yield return null;
-
-            ocean.PrecreateDroplets(imageMessagePfb.gameObject, 5);
-
-            yield return null;
-
-            ocean.PrecreateDroplets(imageMessagePfb.gameObject, 5);
-
-            yield return null;
+            // ocean.PrecreateDroplets(textMessagePfb.gameObject, 5);
+            //
+            // yield return null;
+            //
+            // ocean.PrecreateDroplets(textMessagePfb.gameObject, 20);
+            //
+            // yield return null;
+            //
+            // ocean.PrecreateDroplets(textMessagePfb.gameObject, 35);
+            //
+            // yield return null;
+            //
+            // ocean.PrecreateDroplets(textMessagePfb.gameObject, 50);
+            //
+            // yield return null;
+            //
+            // ocean.PrecreateDroplets(textMessagePfb.gameObject, 50);
+            //
+            // yield return null;
+            //
+            // ocean.PrecreateDroplets(imageMessagePfb.gameObject, 5);
+            //
+            // yield return null;
+            //
+            // ocean.PrecreateDroplets(imageMessagePfb.gameObject, 5);
+            //
+            // yield return null;
 
             ocean.PrecreateDroplets(adviceMessagePfb.gameObject, 4);
 
@@ -517,7 +516,13 @@ namespace RomenoCompany
                 UICAudioManager.Instance.PlayCompanionMessageSound();
             }
 
-            Message m = Ocean.Instance.Get(textMessagePfb);
+            var textMsgPfb = currentCompanion.Data.textMessagePfb;
+            if (textMsgPfb == null)
+            {
+                textMsgPfb = textMessagePfb;
+            }
+
+            Message m = Ocean.Instance.Get(textMsgPfb);
             // Message m = Instantiate(textMessagePfb, allMessageRoot);
             m.SetText(currentPassage.ParsedText);
             m.text.fontSize = LayoutManager.Instance.esw;
@@ -543,8 +548,14 @@ namespace RomenoCompany
                 {
                     UICAudioManager.Instance.PlayCompanionMessageSound();
                 }
+                
+                var imgMsgPfb = currentCompanion.Data.imageMessagePfb;
+                if (imgMsgPfb == null)
+                {
+                    imgMsgPfb = imageMessagePfb;
+                }
 
-                Message m = Ocean.Instance.Get(imageMessagePfb);
+                Message m = Ocean.Instance.Get(imgMsgPfb);
                 // Message m = Instantiate(imageMessagePfb, allMessageRoot);
 
                 m.SetImage(s);
@@ -747,6 +758,12 @@ namespace RomenoCompany
                 companionImage.sprite = null;
                 companionImage.color = transparentColor;
             }
+        }
+
+        public void SetEmotionAndName(CompanionState companion, string emotionName)
+        {
+            SetCompanionName(companion.Data.name);
+            SetEmotion(companion, emotionName);
         }
 
         public void SetCompanionName(string name)

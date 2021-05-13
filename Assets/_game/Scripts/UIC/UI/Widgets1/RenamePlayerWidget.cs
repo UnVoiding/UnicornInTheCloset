@@ -53,17 +53,13 @@ namespace RomenoCompany
                     UIManager.Instance.GetWidget<MainScreenWidget>().UpdateName();
                     UIManager.Instance.GetWidget<ProfileScreenWidget>().UpdateName();
 
-                    Hide();
+                    Hide(ShowCancel);
                 }
             });
             
             cancelBtn.onClick.AddListener(() =>
             {
-                Hide(() =>
-                {
-                    captionText.text = "Изменить имя";
-                    cancelBtn.gameObject.SetActive(true);
-                });
+                Hide(ShowCancel);
             });
         }
 
@@ -103,9 +99,10 @@ namespace RomenoCompany
             Show();
         }
 
-        public override void Hide(Action onComplete = null)
+        private void ShowCancel()
         {
-            base.Hide(onComplete);
+            captionText.text = "Изменить имя";
+            cancelBtn.gameObject.SetActive(true);
         }
-    }
+   }
 }
