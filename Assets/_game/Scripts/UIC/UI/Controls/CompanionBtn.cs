@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
@@ -22,10 +23,30 @@ namespace RomenoCompany
         [                                              SerializeField, FoldoutGroup("References")]
         private Image notification;
         
+        [                                              SerializeField, FoldoutGroup("Settings")]
+        public float notifSize = 0.25f;
+        [                                              SerializeField, FoldoutGroup("Settings")]
+        public Vector2 notifOffset = Vector2.zero;
+        [            Header("Notification Animation"), SerializeField, FoldoutGroup("Settings")]
+        public Vector3 notifAnimDirection = new Vector3(1, 1, 0);
+        [                                              SerializeField, FoldoutGroup("Settings")]
+        public float notifAnimDuration = 1.5f;
+        [                                              SerializeField, FoldoutGroup("Settings")]
+        public int notifAnimVibrato = 1;
+        [                                              SerializeField, FoldoutGroup("Settings")]
+        public float notifAnimElasticity = 0.5f;
+        [                                              SerializeField, FoldoutGroup("Settings")]
+        public Color notifAnimToColor = Color.red;
+        [                                              SerializeField, FoldoutGroup("Settings")]
+        public float notifAnimPause = 0.5f;
+
+        
         [                                       ShowInInspector, ReadOnly, FoldoutGroup("Runtime")]
         private CompanionState companionState;
         [                                       ShowInInspector, ReadOnly, FoldoutGroup("Runtime")]
         public float size;
+        [                                       ShowInInspector, ReadOnly, FoldoutGroup("Runtime")]
+        public Sequence notifSeq = null;
 
 
         public void Init(CompanionState state)
@@ -40,10 +61,45 @@ namespace RomenoCompany
                 UIManager.Instance.GetWidget<CompanionInfoWidget>().ShowForCompanion(companionState, true);
             });
 
-            var r = notification.rectTransform.rect;
-            notification.rectTransform.sizeDelta = new Vector2(size / 6f, size / 6f);
+            ResizeAndReposition();
 
+            RestartNotifAnim();
+            
             UpdateState();
+        }
+
+        [FoldoutGroup("Settings"), Button]
+        public void ResizeAndReposition()
+        {
+            var r = notification.rectTransform.rect;
+            notification.rectTransform.anchoredPosition = new Vector3(-size * notifSize * notifOffset.x, -size * notifSize * notifOffset.y, 0);
+            notification.rectTransform.sizeDelta = new Vector2(size * notifSize, size * notifSize);
+        }
+
+        [FoldoutGroup("Settings"), Button]
+        public void RestartNotifAnim()
+        {
+            if (notifSeq != null)
+            {
+                Stop();
+            }
+            notifSeq = DOTween.Sequence();
+            
+            notifSeq
+                .Append(notification.rectTransform
+                .DOPunchScale(notifAnimDirection, notifAnimDuration, notifAnimVibrato, notifAnimElasticity))
+                .Insert(0, notification.DOColor(notifAnimToColor, notifAnimDuration))
+                .AppendInterval(notifAnimPause)
+                .SetLoops(-1);
+        }
+
+        [FoldoutGroup("Settings"), Button]
+        public void Stop()
+        {
+            notifSeq.Kill(true);
+
+            notification.rectTransform.localScale = Vector3.one;
+            notification.color = Color.white;
         }
 
         public void SetState(State state)
@@ -74,11 +130,17 @@ namespace RomenoCompany
 
             if (!companionState.locked)
             {
-                notification.gameObject.SetActive(companionState.activeDialogue != companionState.lastDialogueTaken);
+                bool needNotif = companionState.activeDialogue != companionState.lastDialogueTaken;
+                notification.gameObject.SetActive(needNotif);
+                // if (needNotif)
+                // {
+                //     notifSeq.Restart();
+                // }
             }
             else
             {
                 notification.gameObject.SetActive(false);
+                // notifSeq.Pause();
             }
         }
     }
