@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5288576161425573502}
   - component: {fileID: 8723684680459185554}
   - component: {fileID: 8584631440978204436}
+  - component: {fileID: 7693433762524503300}
   m_Layer: 5
   m_Name: GameItemBtn
   m_TagString: Untagged
@@ -69,7 +70,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: cb50d885330c4844a9e83ed0fb1b8841, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -134,6 +135,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showItemInfoBtn: {fileID: 8723684680459185554}
   image: {fileID: 7673113067309461829}
+--- !u!114 &7693433762524503300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577196563664308167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &5675039959647300407
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

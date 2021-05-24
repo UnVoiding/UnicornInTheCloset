@@ -48,7 +48,7 @@ namespace RomenoCompany
             });
             
             float compBtnWidth = (int)((mainPanel.rect.width - btnsPerRow * contentRoot.spacing.x - contentRoot.padding.left) / btnsPerRow);
-            contentRoot.cellSize = new Vector2(compBtnWidth, compBtnWidth);
+            contentRoot.cellSize = new Vector2(compBtnWidth, 2 * compBtnWidth);
 
             unlockedCompanions = new List<UnlockedCompanion>();
 
@@ -76,6 +76,9 @@ namespace RomenoCompany
                 Ocean.Instance.Return(uc);
             }
             this.unlockedCompanions.Clear();
+
+            float esw = LayoutManager.Instance.esw;
+            var margin = LayoutManager.Instance.defaultMargins;
             
             foreach (var cid in unlockedCompanionIds)
             {
@@ -84,10 +87,20 @@ namespace RomenoCompany
                 
                 var companionState = Inventory.Instance.worldState.Value.GetCompanion(cid);
                 ucEntry.name.text = companionState.Data.name;
+                ucEntry.name.fontSize = esw;
+                ucEntry.name.margin = Vector4.zero;
+                
+                ucEntry.image.sprite = companionState.Data.mainScreenImage;
                 this.unlockedCompanions.Add(ucEntry);
             }
             
             Show();
+
+            RectTransform rt = contentRoot.transform as RectTransform;
+            
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
         }
 
         public override void Show(System.Action onComplete = null)

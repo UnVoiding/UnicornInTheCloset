@@ -67,28 +67,29 @@ namespace RomenoCompany
         {
             base.Show(onComplete);
 
-            var lm = LayoutManager.Instance;
+            float esw = LayoutManager.Instance.esw;
+            Vector4 defaultMargins = LayoutManager.Instance.defaultMargins;
 
-            vertGroup.spacing = lm.esw;
-            vertGroup.padding.top = (int)lm.esw;
-            vertGroup.padding.bottom = (int)lm.esw;
-            vertGroup.padding.left = (int) lm.esw;
-            vertGroup.padding.right = (int) lm.esw;
+            vertGroup.spacing = esw;
+            vertGroup.padding.top = (int)esw;
+            vertGroup.padding.bottom = (int)esw;
+            vertGroup.padding.left = (int)esw;
+            vertGroup.padding.right = (int)esw;
 
-            captionText.fontSize = lm.esw;
+            captionText.fontSize = esw;
 
-            inputField.pointSize = lm.esw;
-            inputField.textComponent.margin = lm.defaultMargins;
-            (inputField.placeholder as TMP_Text).margin = lm.defaultMargins;
+            inputField.pointSize = esw;
+            inputField.textComponent.margin = defaultMargins;
+            (inputField.placeholder as TMP_Text).margin = defaultMargins;
 
-            horizGroup.spacing = lm.esw;
-            horizGroup.padding.top = (int) lm.esw;
+            horizGroup.spacing = esw;
+            horizGroup.padding.top = (int)esw;
 
-            okBtnText.fontSize = lm.esw;
-            okBtnText.margin = lm.defaultMargins;
+            okBtnText.fontSize = esw;
+            okBtnText.margin = defaultMargins;
             
-            cancelBtnText.fontSize = lm.esw;
-            cancelBtnText.margin = lm.defaultMargins;
+            cancelBtnText.fontSize = esw;
+            cancelBtnText.margin = defaultMargins;
         }
 
         public void ShowFirstTime()

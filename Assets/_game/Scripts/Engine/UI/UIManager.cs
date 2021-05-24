@@ -84,7 +84,9 @@ namespace RomenoCompany
             mainCanvas.worldCamera = Camera.main;
 
             canvasRectTransform = mainCanvas.GetComponent<RectTransform>();
-            
+
+            LayoutManager.InitInstanceFromEmptyGameObject();
+
             foreach (var w in widgets)
             {
                 w.InitializeWidget();
@@ -103,8 +105,6 @@ namespace RomenoCompany
                 ftueFade.gameObject.SetActive(false);
                 ftueFade.transform.SetAsLastSibling();
             }
-            
-            LayoutManager.InitInstanceFromEmptyGameObject();
         }
 
         public void Update()

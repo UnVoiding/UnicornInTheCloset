@@ -17,6 +17,12 @@ namespace RomenoCompany
         [                                                                  FoldoutGroup("References")] 
         public Button closeBtn;
         [                                                                  FoldoutGroup("References")] 
+        public TMP_Text unicornAdviceText;
+        [                                                                  FoldoutGroup("References")] 
+        public TMP_Text closeBtnText;
+        [                                                                  FoldoutGroup("References")] 
+        public RectTransform mainPanel;
+        [                                                                  FoldoutGroup("References")] 
         public RectTransform scrollRectTransform;
         [                                                                  FoldoutGroup("References")] 
         public RectTransform viewportRectTransform;
@@ -40,14 +46,28 @@ namespace RomenoCompany
         public void ShowWithAdvice(string text)
         {
             var chatScreen = UIManager.Instance.ChatWidget;
+
+            float esw = LayoutManager.Instance.esw;
+            var defaultMargin = LayoutManager.Instance.defaultMargins;
             
             adviceText.text = text;
-            adviceText.fontSize = LayoutManager.Instance.esw;
-            adviceText.margin = LayoutManager.Instance.defaultMargins;
+            adviceText.fontSize = esw;
+            adviceText.margin = defaultMargin;
+
+            closeBtnText.fontSize = esw;
+            closeBtnText.margin = defaultMargin;
+            
+            unicornAdviceText.fontSize = 1.333f * esw;
             
             Show();
 
-            layoutRebuild = true;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
+            // LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
+
+            // layoutRebuild = true;
             
             // StartCoroutine(LayoutRebuild());
         }
@@ -65,12 +85,12 @@ namespace RomenoCompany
 
         private void Update()
         {
-            if (layoutRebuild)
-            {
-                LayoutRebuilder.ForceRebuildLayoutImmediate(viewportRectTransform);
-                LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRectTransform);
-                layoutRebuild = false;
-            }
+            // if (layoutRebuild)
+            // {
+            //     LayoutRebuilder.ForceRebuildLayoutImmediate(viewportRectTransform);
+            //     LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRectTransform);
+            //     layoutRebuild = false;
+            // }
             
             // if (Input.GetKey(KeyCode.A))
             // {

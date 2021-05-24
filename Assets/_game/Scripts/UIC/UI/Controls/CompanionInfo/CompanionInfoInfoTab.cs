@@ -23,6 +23,15 @@ namespace RomenoCompany
             }
             characteristics.text = companion.formattedCharacteristics;
             description.text = companion.description;
+
+            float esw = LayoutManager.Instance.esw;
+            var margin = LayoutManager.Instance.defaultMargins;
+            
+            characteristics.fontSize = esw;
+            characteristics.margin = margin;
+            
+            description.fontSize = esw;
+            description.margin = margin;
         }
     }
 }

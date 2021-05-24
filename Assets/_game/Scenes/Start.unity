@@ -243,6 +243,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3636753933310199524, guid: 96d0b3c877f302a4ebf9c771730065ae,
         type: 3}
+      propertyPath: testGavnecoPfb
+      value: 
+      objectReference: {fileID: 8996976673396843840, guid: e270af134c305994695a564ed9e384c4,
+        type: 3}
+    - target: {fileID: 3636753933310199524, guid: 96d0b3c877f302a4ebf9c771730065ae,
+        type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3636753933310199524, guid: 96d0b3c877f302a4ebf9c771730065ae,

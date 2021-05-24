@@ -330,6 +330,7 @@ namespace RomenoCompany
 
                     LayoutRebuilder.ForceRebuildLayoutImmediate(answer.rectTransform);
                     LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
                     break;
                 case Passage.PassageType.COMPANION_MESSAGE:
                 case Passage.PassageType.COMPANION_IMAGE:
@@ -496,6 +497,7 @@ namespace RomenoCompany
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
             LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
 
             StartCoroutine(FixScroll());
         }
@@ -531,6 +533,7 @@ namespace RomenoCompany
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
             LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
         }
 
         public void CreateCompanionImageMessage()
@@ -564,6 +567,7 @@ namespace RomenoCompany
 
                 LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
                 LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
             }
         }
         
@@ -585,6 +589,7 @@ namespace RomenoCompany
             allMessages.Add(m);
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
             LayoutRebuilder.ForceRebuildLayoutImmediate(allMessageRoot);
         }
 
@@ -625,6 +630,7 @@ namespace RomenoCompany
                         }
 
                         LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
+                        LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
                         break;
                     case Passage.PassageType.ADVICE:
                         if (tempNextAvailablePassages.Count > 1)
@@ -657,7 +663,7 @@ namespace RomenoCompany
             }
             else
             {
-                timeToWait = tempNextAvailablePassages[0].waitTimeBeforeExec + currentPassage.waitTimeAfterExec;
+                timeToWait = currentPassage.WaitTimeAfterExec;
             }
             time = 0;
             currentPassage = tempNextAvailablePassages[0];

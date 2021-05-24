@@ -16,6 +16,9 @@ MonoBehaviour:
   contentRoot: {fileID: 4827794312215390469}
   lawyerAdviceControlPfb: {fileID: 7266592717718546493, guid: 4a8839cedd0bd954e8d86c038ccfce4b,
     type: 3}
+  frameUpdateOffset: 2
+  advices: []
+  contentRootRectTransform: {fileID: 0}
 --- !u!114 &3360168753739439790
 MonoBehaviour:
   m_ObjectHideFlags: 0

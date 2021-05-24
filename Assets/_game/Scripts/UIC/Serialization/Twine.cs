@@ -95,8 +95,8 @@ namespace RomenoCompany
         public int adviceId; // t:f passages
         public List<ISFCondition> conditions;
         public List<SFStatement> effects;
-        public float waitTimeBeforeExec = 1.0f;
         public float waitTimeAfterExec = 1.0f;
+        public bool customWaitTime = false;
         public bool parsed;
 
         [NonSerialized]
@@ -115,6 +115,34 @@ namespace RomenoCompany
             passageLinks = new List<Passage>();
             conditions = new List<ISFCondition>();
             effects = new List<SFStatement>();
+        }
+
+        public float WaitTimeAfterExec
+        {
+            get
+            {
+                if (customWaitTime)
+                {
+                    return waitTimeAfterExec;
+                }
+
+                if (type == PassageType.COMPANION_IMAGE)
+                {
+                    return waitTimeAfterExec = DB.Instance.sharedGameData.snowflakeImageMessageWaitTime;
+                }
+                else if (type == PassageType.COMPANION_MESSAGE)
+                {
+                    return Mathf.Max(DB.Instance.sharedGameData.snowflakeMinAfterPassageWaitTime,  parsedText.Length * DB.Instance.sharedGameData.snowflakeTimeToReadCompanionSymbol);
+                }
+                else if (type == PassageType.HERO_MESSAGE)
+                {
+                    return Mathf.Max(DB.Instance.sharedGameData.snowflakeMinAfterPassageWaitTime,  parsedText.Length * DB.Instance.sharedGameData.snowflakeTimeToReadHeroSymbol); 
+                }
+                else
+                {
+                    return DB.Instance.sharedGameData.snowflakeDefaultWaitTimeAfterPassage;
+                }
+            }
         }
 
         public void RemoveLinksFromText()
