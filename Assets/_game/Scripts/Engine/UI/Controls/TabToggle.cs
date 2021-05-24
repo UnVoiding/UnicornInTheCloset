@@ -12,7 +12,7 @@ namespace RomenoCompany
         [                                                           FoldoutGroup("References")] 
         public Tab tab;
         [                                           SerializeField, FoldoutGroup("References")] 
-        protected TMP_Text titleText;
+        public TMP_Text titleText;
         [                                           SerializeField, FoldoutGroup("References")] 
         protected Image notification;
         

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,19 +8,33 @@ namespace RomenoCompany
 {
     public class PlayerProfileLawyerTab : Tab
     {
-        [                           Header("PlayerProfileLawyer"), FoldoutGroup("References")]
+        [                           Header("PlayerProfileLawyerTab"), FoldoutGroup("References")]
         public AdviceSpoiler lawyerAdviceControlPfb;
+
+        [                             Header("PlayerProfileLawyerTab"), FoldoutGroup("Settings")]
+        public int frameUpdateOffset = 0;
         
-        [                              Header("PlayerProfileAdvicesTab"), FoldoutGroup("Runtime")]
+        [                              Header("PlayerProfileLawyerTab"), FoldoutGroup("Runtime")]
         public List<AdviceSpoiler> advices;
-        [                                                                 FoldoutGroup("Runtime")]
+        [                                                                FoldoutGroup("Runtime")]
         public RectTransform contentRootRectTransform;
+        [                                                                FoldoutGroup("Runtime")]
+        private int forceUpdateFrame = -1;
 
         public override void Init(TabToggle tabToggle, TabController controller)
         {
             base.Init(tabToggle, controller);
 
             contentRootRectTransform = contentRoot.GetComponent<RectTransform>();
+        }
+        
+        private void Update()
+        {
+            if (Time.frameCount == forceUpdateFrame)
+            {
+                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                forceUpdateFrame = -1;
+            }
         }
         
         public void Populate()
@@ -54,6 +69,21 @@ namespace RomenoCompany
         protected override void OnActivate(bool activate)
         {
             base.OnActivate(activate);
+
+            if (activate)
+            {
+                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+
+                // StartCoroutine(ForceRebuildEndOfFrame());
+                // forceUpdateFrame = Time.frameCount + frameUpdateOffset;
+            }
+        }
+        
+        private IEnumerator ForceRebuildEndOfFrame()
+        {
+            yield return new WaitForEndOfFrame();
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
         }

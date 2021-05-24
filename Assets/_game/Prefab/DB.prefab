@@ -57,4 +57,5 @@ MonoBehaviour:
   lawyerAdvices: {fileID: 11400000, guid: 940c7380b129eed44bc03809cc9877f1, type: 2}
   images: {fileID: 11400000, guid: c8c0f83e230b70e41bd947cfd90626a2, type: 2}
   videos: {fileID: 11400000, guid: d1286eaa4e3ccde48af24f1e664a3b65, type: 2}
+  sharedGameData: {fileID: 11400000, guid: 319a066ffa2160b4d9150282b941c21f, type: 2}
   tmpSettings: {fileID: 11400000, guid: 1f5af34ba5bb2d24eaf3624ea39bc53e, type: 2}

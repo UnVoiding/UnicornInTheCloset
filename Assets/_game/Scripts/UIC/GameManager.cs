@@ -34,6 +34,7 @@ namespace RomenoCompany
 
         private void Awake()
         {
+            Debug.Log($"~~~~~~~~~~~ GM Awake is called at {Time.frameCount}");
             InitInstance(this);
         }
 
@@ -51,6 +52,7 @@ namespace RomenoCompany
 
         private void Start()
         {
+            Debug.Log($"~~~~~~~~~~~ GM Start is called at {Time.frameCount}");
             // Inventory.Instance.lastLoginTime.Value = TimeManager.getTimeSecondsNow;
 
             // Debug.unityLogger.logEnabled = false;

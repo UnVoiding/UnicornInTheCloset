@@ -438,7 +438,8 @@ namespace RomenoCompany
                     return;
                 }
 
-                p.waitTimeBeforeExec = fDelay / 1000f;
+                p.waitTimeAfterExec = fDelay / 1000f;
+                p.customWaitTime = true;
             }
             catch
             {

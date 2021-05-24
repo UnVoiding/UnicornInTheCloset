@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &7169309971802914575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732536979512282874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569e5335b2064b318ae255e7d700fb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabToggle: {fileID: 0}
+  contentRoot: {fileID: 5948604896040263029}
+  captionText: {fileID: 5057542253376388142}
+  mainText: {fileID: 5395227752891307669}
 --- !u!114 &2706108543934698099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -115,8 +131,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -248,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -286,8 +302,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -556,6 +572,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7420722842488673668, guid: a3a3f4de5170a314994fe75a889ee2e4,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7482025454764960167, guid: a3a3f4de5170a314994fe75a889ee2e4,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -583,7 +604,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1372254080045679395, guid: a3a3f4de5170a314994fe75a889ee2e4, type: 3}
+    - {fileID: 2968291399695656833, guid: a3a3f4de5170a314994fe75a889ee2e4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a3a3f4de5170a314994fe75a889ee2e4, type: 3}
+--- !u!1 &8732536979512282874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5505925684726987304, guid: a3a3f4de5170a314994fe75a889ee2e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3844048921983923410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3295686364702775563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1793681049120026073, guid: a3a3f4de5170a314994fe75a889ee2e4,

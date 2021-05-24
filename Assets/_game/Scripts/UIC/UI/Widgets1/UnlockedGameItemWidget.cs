@@ -12,6 +12,8 @@ namespace RomenoCompany
     public class UnlockedGameItemWidget : Widget
     {
         [                                         Header("UnlockedGameItemWidget"), FoldoutGroup("References")] 
+        public RectTransform mainPanel;
+        [                                                                           FoldoutGroup("References")] 
         public TMP_Text itemName;
         [                                                                           FoldoutGroup("References")] 
         public TMP_Text itemDescription;
@@ -21,6 +23,8 @@ namespace RomenoCompany
         public TMP_Text youGot;
         [                                                                           FoldoutGroup("References")] 
         public Button closeBtn;
+        [                                                                           FoldoutGroup("References")] 
+        public TMP_Text closeBtnText;
 
         [                                    NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public Action onClose;
@@ -44,7 +48,20 @@ namespace RomenoCompany
             itemImage.sprite = item.image;
             youGot.gameObject.SetActive(showYouGot);
             
+            float esw = LayoutManager.Instance.esw;
+            var defaultMargins = LayoutManager.Instance.defaultMargins;
+
+            itemDescription.fontSize = esw;
+            itemDescription.margin = new Vector4(defaultMargins.x, defaultMargins.y, defaultMargins.z, defaultMargins.w + 20);
+
+            closeBtnText.fontSize = esw;
+            closeBtnText.margin = defaultMargins;
+            
             Show();
+            
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
         }
 
         public override void Show(System.Action onComplete = null)

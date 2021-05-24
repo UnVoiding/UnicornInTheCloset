@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -11,11 +11,16 @@ namespace RomenoCompany
         [                           Header("PlayerProfileAdvicesTab"), FoldoutGroup("References")]
         public AdviceSpoiler adviceControlPfb;
 
+        [                             Header("PlayerProfileAdvicesTab"), FoldoutGroup("Settings")]
+        public int frameUpdateOffset = 0;
+
         [                              Header("PlayerProfileAdvicesTab"), FoldoutGroup("Runtime")]
         public List<AdviceSpoiler> advices;
         [                                                                 FoldoutGroup("Runtime")]
         public RectTransform contentRootRectTransform;
-
+        [                                                                 FoldoutGroup("Runtime")]
+        private int forceUpdateFrame = -1;
+        
         public override void Init(TabToggle tabToggle, TabController controller)
         {
             base.Init(tabToggle, controller);
@@ -62,9 +67,33 @@ namespace RomenoCompany
             }
         }
 
+        private void Update()
+        {
+            if (Time.frameCount == forceUpdateFrame)
+            {
+                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                forceUpdateFrame = -1;
+            }
+        }
+
         protected override void OnActivate(bool activate)
         {
             base.OnActivate(activate);
+
+            if (advices.Count > 0 && activate)
+            {
+                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+
+                // StartCoroutine(ForceRebuildEndOfFrame());
+                // forceUpdateFrame = Time.frameCount + frameUpdateOffset;
+            }
+        }
+
+        private IEnumerator ForceRebuildEndOfFrame()
+        {
+            yield return new WaitForEndOfFrame();
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
         }

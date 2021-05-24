@@ -46,6 +46,7 @@ namespace RomenoCompany
             if (canvasGroup == null) canvasGroup = GetComponent<CanvasGroup>();
         }
 
+        [Button]
         public virtual void Show(Action onComplete = null)
         {
             if (this.showing) return;

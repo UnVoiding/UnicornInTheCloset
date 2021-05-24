@@ -35,6 +35,9 @@ namespace RomenoCompany
             contentRoot.gameObject.SetActive(true);
             contentRoot.ignoreLayout = true;
 
+            spoilerText.fontSize = LayoutManager.Instance.esw;
+            captionText.fontSize = LayoutManager.Instance.esw;
+
             openCloseBtn.onClick.AddListener(Switch);
         }
 

@@ -2,6 +2,7 @@
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RomenoCompany
 {
@@ -9,6 +10,8 @@ namespace RomenoCompany
     {
         [                                       FoldoutGroup("References")]
         public TMP_Text name;
+        [                                       FoldoutGroup("References")]
+        public Image image;
         
         [              NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")]
         public Transform parent;

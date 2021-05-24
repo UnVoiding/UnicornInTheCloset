@@ -134,7 +134,6 @@ namespace RomenoCompany
             if (companion == null)
             {
                 Debug.LogError($"ChangeImageSfStatement: failed to get companion with id {companionId}");
-                
             }
             else
             {
