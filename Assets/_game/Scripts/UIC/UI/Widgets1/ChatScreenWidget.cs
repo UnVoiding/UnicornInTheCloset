@@ -492,7 +492,6 @@ namespace RomenoCompany
             // Message m = Instantiate(heroMessagePfb, allMessageRoot);
             m.SetText(currentPassage.ParsedText);
             m.text.fontSize = LayoutManager.Instance.esw;
-            m.text.margin = LayoutManager.Instance.defaultMargins;
             allMessages.Add(m);
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
@@ -528,7 +527,6 @@ namespace RomenoCompany
             // Message m = Instantiate(textMessagePfb, allMessageRoot);
             m.SetText(currentPassage.ParsedText);
             m.text.fontSize = LayoutManager.Instance.esw;
-            m.text.margin = LayoutManager.Instance.defaultMargins;
             allMessages.Add(m);
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);

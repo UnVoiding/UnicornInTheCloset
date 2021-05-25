@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 167781050262533342}
   - component: {fileID: 7143538440069958897}
   m_Layer: 5
-  m_Name: TextMessageBadPriest
+  m_Name: TextMessageTransgender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,12 +181,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'fsdfsdfs dfsdfsdfsdfsdfsdf fsdfsd fsdfsdfsdfsdfsdfsdf fsdfsdfsdfsdfsdfs
+  m_text: fsdfsdfs dfsdfsdfsdfsdfsdf fsdfsd fsdfsdfsdfsdfsdfsdf fsdfsdfsdfsdfsdfs
     dfsdfsdf fsdf sdfsdfsdfsdfs dfsdfsdf fsdfsdfsdf sdfsdfsdfsdfsdf fsdfsdfsdfsdfsdfs
     dfsdfsdf fsdfsdfsdfsdfsdfsdfsdfsdf fsdfsdfsdfsdfs dfsdfsdfsdf fsdfsdfsdfsdfsdf
     sdfsdfsdf fsdfsdfsdfs dfsdfsdfsdfsdf fsdfsdfsdfsdfsdfsdfsdfsdf fsdfsdfsdfsdfsdfsdfsdfsdf
     fsdfs dfsdfsdfsdfsdfsdfsdf fsdfsdfsdfsdfsdfsdfsdfsdf fsdfsdfsdfsdfsdfsdfsdfsdf
-    fsdfsdfs dfsdfsdfsdfsdfsdf fsdfsdf sdfsdfsdfsdfsdfsdf '
+    fsdfsdfs dfsdfsdfsdfsdfsdf fsdfsdf sdfsdfsdfsdfsdfsdf sdffdf
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 00b2461c241931842a0e14e6db088025, type: 2}
   m_sharedMaterial: {fileID: -662523354734108066, guid: 00b2461c241931842a0e14e6db088025,
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 100.0069, y: 44.2, z: 62.455734, w: 69.8}
+  m_margin: {x: 100.0069, y: 66.65911, z: 87.40422, w: 69.8}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e34c75d0887186f49a2a42bc754f588b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65441b4dd8baae24eb2d32b4e6809123, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
