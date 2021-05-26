@@ -154,7 +154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3b9b8ae0d21040541969fb13e8255f0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ab2bfdf19487d349adf997c39c032e5, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 1840954919988550519}
   - component: {fileID: 8045487619845827119}
   m_Layer: 5
-  m_Name: ImageMessageFriend
+  m_Name: ImageMessageLawyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 100
     m_Right: 83
-    m_Top: 85
-    m_Bottom: 65
+    m_Top: 48
+    m_Bottom: 70
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1

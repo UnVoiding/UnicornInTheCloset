@@ -154,7 +154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3b9b8ae0d21040541969fb13e8255f0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65441b4dd8baae24eb2d32b4e6809123, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 1840954919988550519}
   - component: {fileID: 8045487619845827119}
   m_Layer: 5
-  m_Name: ImageMessageFriend
+  m_Name: ImageMessageTransgender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
