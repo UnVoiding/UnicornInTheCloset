@@ -112,7 +112,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
-  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
@@ -189,8 +189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 89.14, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 720, y: 0}
+  m_SizeDelta: {x: 1440, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3772103446565369129
 CanvasRenderer:
@@ -219,9 +219,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'asdasdasdasd
-
-    asdasdasdasdsd'
+  m_text: "asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+    asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+    asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+    asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+    asdasdasdasd asdasdasdasd \nasdasdasdasdsd"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 00b2461c241931842a0e14e6db088025, type: 2}
   m_sharedMaterial: {fileID: -662523354734108066, guid: 00b2461c241931842a0e14e6db088025,
@@ -285,7 +287,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10, y: 5, z: 0, w: 5}
+  m_margin: {x: 65.9, y: 52.1, z: 110.1, w: 56.7}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -316,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c03f74aa3f4308a7c858a2bb8a6af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
+  m_HorizontalFit: 0
   m_VerticalFit: 2
   m_VerticalConstrainToParentSize: 0
   m_HorizontalConstrainToParentSize: 1

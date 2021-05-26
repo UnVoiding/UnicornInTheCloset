@@ -471,7 +471,7 @@ MonoBehaviour:
     type: 3}
   imageMessagePfb: {fileID: 8045487619845827119, guid: 79ca6e47ecac3ca4b97df0fd8362d890,
     type: 3}
-  textMessagePfb: {fileID: 167781050262533342, guid: 166bf01f80027a34493339aa2ba53752,
+  textMessagePfb: {fileID: 167781050262533342, guid: efab10cef9d5ec94aafc13a89449714e,
     type: 3}
   typingText: {fileID: 3356376296132532849}
   messagesScroll: {fileID: 5339729031724543054}

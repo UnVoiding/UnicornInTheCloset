@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 167781050262533342}
   - component: {fileID: 7143538440069958897}
   m_Layer: 5
-  m_Name: TextMessageBadPriest
+  m_Name: TextMessageHot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 100.0069, y: 44.2, z: 62.455734, w: 69.8}
+  m_margin: {x: 97.51654, y: 44.2, z: 57.47142, w: 69.8}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e34c75d0887186f49a2a42bc754f588b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed9b0b4a7ef529b46b5d4273fc944ab5, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
