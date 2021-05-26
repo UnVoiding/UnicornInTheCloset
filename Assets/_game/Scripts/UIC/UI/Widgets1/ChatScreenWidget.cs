@@ -583,7 +583,7 @@ namespace RomenoCompany
 
             m.SetText(currentPassage.ParsedText);
             m.text.fontSize = LayoutManager.Instance.esw;
-            m.text.margin = LayoutManager.Instance.defaultMargins; 
+            // m.text.margin = LayoutManager.Instance.defaultMargins; 
             allMessages.Add(m);
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(m.rectTransform);
