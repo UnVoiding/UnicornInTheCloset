@@ -14,7 +14,6 @@ namespace RomenoCompany
         [                                              SerializeField, FoldoutGroup("References")]
         public Image image;
 
-
         public GameObject Prefab { get; set; }
         public GameObject GameObject => gameObject;
 
@@ -29,6 +28,11 @@ namespace RomenoCompany
         public void SetImage(Sprite sprite)
         {
             image.sprite = sprite;
+            var f = image.GetComponent<AspectRatioFitter>();
+            if (f != null)
+            {
+                f.aspectRatio = (float)image.sprite.texture.width / (float)image.sprite.texture.height;
+            }
         }
 
         public void OnCreate()

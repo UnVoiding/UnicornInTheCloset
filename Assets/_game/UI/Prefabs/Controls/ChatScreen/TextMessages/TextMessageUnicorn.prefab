@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 97.272766, y: 80.33233, z: 70.98778, w: 61.597702}
+  m_margin: {x: 94.217896, y: 43.632393, z: 84.17473, w: 55.90341}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb751d68fad117441ab88dd6f47684ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68784b6780f626c40879e4108ac967ef, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

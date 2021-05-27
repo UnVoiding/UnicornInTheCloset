@@ -126,7 +126,8 @@ MonoBehaviour:
       \xAB\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u043C\xBB \u043C\u0443\u0436\u0447\u0438\u043D\u043E\u0439."
     textMessagePfb: {fileID: 167781050262533342, guid: 3f7d98c26125ac34caab693dd6430b2e,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: ec9b084c63d0369488613734815eb56d,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 46cab50e1dea82b44bee827694de3680, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 8763393229cb61f4f9ffb02f4fff15df, type: 3}
     emotions:
@@ -168,7 +169,8 @@ MonoBehaviour:
       \u0441\u043C\u0435\u0451\u0442\u0441\u044F."
     textMessagePfb: {fileID: 167781050262533342, guid: 64143ab9c7a00914e9c224c082d06e9f,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 5eb4cbf80925a7d47b21b49a6dca14c8,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 633480fb70fec05478a1e5de0aaaffe0, type: 3}
     mainScreenImage: {fileID: 21300000, guid: cbf0570d77850074a88ed7c6591414a3, type: 3}
     emotions:
@@ -201,7 +203,8 @@ MonoBehaviour:
       a shame how he carried on.\r"
     textMessagePfb: {fileID: 167781050262533342, guid: 9de4c2f580a4563439673e3af62c1029,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 4474acbbebce1ab45aaac6bf8b6847a5,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: d757f47d6d27c6443ae9c4cb73cff392, type: 3}
     mainScreenImage: {fileID: 21300000, guid: ec351c2210d8c454792e1d2c61158977, type: 3}
     emotions:
@@ -236,7 +239,8 @@ MonoBehaviour:
       \u043B\u044E\u0434\u0438. "
     textMessagePfb: {fileID: 167781050262533342, guid: cf5c55d637204404dabb035829760902,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 25d27533758e95b4782d6a7d3d2fe0bc,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 2aaf561cbdef7ee428488286b9dd433c, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 2c6c53ee8d94dd446a1fc8d54b081a1e, type: 3}
     emotions:
@@ -277,7 +281,8 @@ MonoBehaviour:
       \u043B\u044E\u0434\u0438. "
     textMessagePfb: {fileID: 167781050262533342, guid: 75a45c38bd6792e4faf6bb1fba9112bd,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 658a5876cf9cb49458dca247f4935e79,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 11f91f3e716cd914a94899a518c70156, type: 3}
     mainScreenImage: {fileID: 21300000, guid: ee53946d2acd1864ea35f2181af59a91, type: 3}
     emotions:
@@ -317,7 +322,8 @@ MonoBehaviour:
       \u0430 \u0434\u043E \u0433\u043B\u0430\u0436\u043A\u0438, \u043B\u044E\u0434\u0438!"
     textMessagePfb: {fileID: 167781050262533342, guid: 2114c44c908e2404b96b7e00b5f74b16,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 90d35ca771011194c89864890644e79d,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 0db6b8eec46017749b816d9f36ffa3aa, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 64a5523ee0510624fa8feca16816d5a6, type: 3}
     emotions:
@@ -353,7 +359,8 @@ MonoBehaviour:
       \u041A\u0430\u0432\u043A\u0430\u0437\u0446\u044B \u043C\u0438\u043C\u043E!! "
     textMessagePfb: {fileID: 167781050262533342, guid: 20f8abdd985067a44b9d2b6c37ff5ec1,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 88d3645af21bbea448b2766f0d7eff8b,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 990e37a62b7896e488475754e9804f50, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 466c04b493271674589e3fe27869601e, type: 3}
     emotions:
@@ -387,7 +394,8 @@ MonoBehaviour:
       \u0437\u0430\u0431\u043E\u044F \u043A\u0443\u0440\u0438\u0446?"
     textMessagePfb: {fileID: 167781050262533342, guid: 0c9d56535e4e6074eaa64b802f3e27ea,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 157bf4a5d682da545b7ec48361bf6a30,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 309dc41aa971c914e934caf5d1ed346b, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 5635e41e049b534458d86fd90692d998, type: 3}
     emotions:
@@ -427,7 +435,8 @@ MonoBehaviour:
       \u043E\u0442 20 \u0434\u043E 55 \u043B\u0435\u0442."
     textMessagePfb: {fileID: 167781050262533342, guid: f00a7a6ed749cb34c8e52a2c077802bc,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: f436f9676ff171c4eb7b55d310ca86ec,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 8091172f8b08f984ea6f8bca57ffacae, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 43bddafcb709cb8428939191f4270c83, type: 3}
     emotions:
@@ -465,7 +474,8 @@ MonoBehaviour:
       \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044E."
     textMessagePfb: {fileID: 167781050262533342, guid: 1918581eb4420a34d8a6b51f94c3894f,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: ae2e9ce37f56e634bae51316670343d5,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 6833c07f00526f74b9bd6217145be710, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 06048fb99bcfc9042b1fff5c1e7da98f, type: 3}
     emotions:
@@ -502,7 +512,8 @@ MonoBehaviour:
       \u042E\u043D\u044B\u0439 \u0432\u0437\u0440\u043E\u0441\u043B\u044B\u0439."
     textMessagePfb: {fileID: 167781050262533342, guid: 2903b94095bb37649a9d5f317f94ddad,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 16be3c48ebd3df14c85bd1a690a7e237,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 27518d980a9dc924a91d0682f50fc051, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 73ba59ca5bf934543a7f54d5126632c8, type: 3}
     emotions:
@@ -547,7 +558,8 @@ MonoBehaviour:
       \u043A\u043E\u0448\u043C\u0430\u0440\u0430\u0445."
     textMessagePfb: {fileID: 167781050262533342, guid: 8f45d3e272484b54aba9daed75cb727b,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 34b4a25fa5fc9d04fa0c236af8d57e57,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: d6eae24ac22d65a4a8477d6ea0b8391d, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 844ea284399a43046a332cb25d0a818d, type: 3}
     emotions:
@@ -579,7 +591,8 @@ MonoBehaviour:
       \u043F\u0440\u043E\u043F\u0430\u0436\u0443."
     textMessagePfb: {fileID: 167781050262533342, guid: e461ee4f51d50a444938dd3deaf78a74,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 47c5dff4d72f8734c86408db4911203e,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: a10364ac7f36c724ca02b507062c2af1, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 88aca0c9440a02e45a52c498159886e3, type: 3}
     emotions:
@@ -638,7 +651,8 @@ MonoBehaviour:
       \u043F\u0440\u043E \u0412\u0430\u0440\u044E."
     textMessagePfb: {fileID: 167781050262533342, guid: 80f0c6c020c25e347b7a0579e5ae1151,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: e1c5438a6f38a8d4eb2d9429c4034d15,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 71bc9d5e10e68ae4cbc55b47e7e10a6a, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 0832e1a401d15824f9d34988d6692eaa, type: 3}
     emotions:
@@ -677,7 +691,8 @@ MonoBehaviour:
       \u043C\u0430\u043C\u0430."
     textMessagePfb: {fileID: 167781050262533342, guid: 5560585661988a94799ff5f9b602ce14,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: 91eb4dd22f180be40abb512769b6cdfd,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 781d964505fa5444593f9e6d15d6692a, type: 3}
     mainScreenImage: {fileID: 21300000, guid: b2fffa48f8224a94aa01be29eddd74bc, type: 3}
     emotions:
@@ -718,7 +733,8 @@ MonoBehaviour:
       \u0440\u0443\u043A\u0430\u0445."
     textMessagePfb: {fileID: 167781050262533342, guid: 7522e610a15c6184ca38572ca4d798d0,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: c1bf9b2417391c34f9c5e99f98cea7a7,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 7dad889914b80564fbfe4505c5a7a636, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 01241321279800b4f8c3e2a7c812bd1d, type: 3}
     emotions:
@@ -753,7 +769,8 @@ MonoBehaviour:
       \u0430\u043A\u0442. \u0412\u044B\u0437\u044B\u0432\u0430\u0435\u0442 \u0434\u043E\u0432\u0435\u0440\u0438\u0435."
     textMessagePfb: {fileID: 167781050262533342, guid: 02d1273ea26c43c45b3fbdf2ca9c1447,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: ce2866c31ca5bd14999826297f36f028,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 8c102da5b5dace64291c4298580c38a9, type: 3}
     mainScreenImage: {fileID: 21300000, guid: e1d2f0eeb55c66d478f8a0e462ef12d2, type: 3}
     emotions:
@@ -788,7 +805,8 @@ MonoBehaviour:
       \u043F\u0430\u0445\u043D\u0435\u0442 \u0448\u0438\u043F\u043E\u0432\u043D\u0438\u043A\u043E\u043C."
     textMessagePfb: {fileID: 167781050262533342, guid: fbaddaf6e5e1e26479dcbb46ee5027d5,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: a81c2e9219bbb514895237bb255ea40a,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 3e424845a8cc71f4090a20a75a1ef236, type: 3}
     mainScreenImage: {fileID: 21300000, guid: d8528307e43290544bdc49a1bdf748ac, type: 3}
     emotions:
@@ -851,7 +869,8 @@ MonoBehaviour:
     description: 
     textMessagePfb: {fileID: 167781050262533342, guid: 8783b0525fb2a7d42a2d2ed178f8f0ad,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: d416d04a1def53e4ab7b195860a15984,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: 65fa5a0f1411a4d42b5dcdb4f0eefe87, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 266eebb6e25cc0f4ea7e357363ecdf8f, type: 3}
     emotions:
@@ -889,7 +908,8 @@ MonoBehaviour:
     description: 
     textMessagePfb: {fileID: 167781050262533342, guid: 26e14f28d706ee746adc89710f512ae6,
       type: 3}
-    imageMessagePfb: {fileID: 0}
+    imageMessagePfb: {fileID: 8045487619845827119, guid: b1bda064544596d4fae7b30434cb7fa0,
+      type: 3}
     fullHeightImage: {fileID: 21300000, guid: b2e312fbe507db74c87388d4529d868f, type: 3}
     mainScreenImage: {fileID: 21300000, guid: 2d92fc2392fd03044a60ca697eea1588, type: 3}
     emotions:
