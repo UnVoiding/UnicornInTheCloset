@@ -17,11 +17,11 @@
       "name": "Юрист начало",
       "pid": "1",
       "position": {
-        "x": "25",
+        "x": "29",
         "y": "850"
       },
       "tags": [
-        "t:sp"
+        "t:sh"
       ]
     },
     {
@@ -1488,6 +1488,6 @@
   "name": "Юрист",
   "startnode": "1",
   "creator": "Twine",
-  "creator-version": "2.3.13",
+  "creator-version": "2.3.14",
   "ifid": "E0A75EA8-296F-49C9-B368-83DB11D79B6B"
 }
