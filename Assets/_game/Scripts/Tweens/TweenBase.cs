@@ -6,7 +6,7 @@ using System;
 using UnityEditor;
 #endif
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
     public enum EasingMethod
     {

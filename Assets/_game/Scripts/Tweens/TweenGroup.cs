@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEditor;
 #endif
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
     public class TweenGroup : TweenGroupAbstract
 {

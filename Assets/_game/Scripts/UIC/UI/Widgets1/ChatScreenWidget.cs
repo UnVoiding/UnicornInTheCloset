@@ -321,12 +321,15 @@ namespace RomenoCompany
                     ClearCurrentAnswers();
                     
                     state = State.WAITING_FOR_ANSWER;
-                    Answer answer = Ocean.Instance.Get(answerPfb);
-                    // Answer answer = Instantiate(answerPfb, answerRoot);
-                    answer.SetPassage(currentPassage);
-                    answer.text.fontSize = LayoutManager.Instance.esw;
-                    answer.text.margin = LayoutManager.Instance.defaultMargins; 
-                    currentAnswers.Add(answer);
+
+                    Answer answer = CreateAnswer(currentPassage);
+                    
+                    // Answer answer = Ocean.Instance.Get(answerPfb);
+                    // // Answer answer = Instantiate(answerPfb, answerRoot);
+                    // answer.SetPassage(currentPassage);
+                    // answer.text.fontSize = LayoutManager.Instance.esw;
+                    // answer.text.margin = LayoutManager.Instance.defaultMargins; 
+                    // currentAnswers.Add(answer);
 
                     LayoutRebuilder.ForceRebuildLayoutImmediate(answer.rectTransform);
                     LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
@@ -617,13 +620,7 @@ namespace RomenoCompany
                         state = State.WAITING_FOR_ANSWER;
                         for (int i = 0; i < tempNextAvailablePassages.Count; i++)
                         {
-                            Answer answer = Ocean.Instance.Get(answerPfb);
-                            // Answer answer = Instantiate(answerPfb, answerRoot);
-
-                            answer.SetPassage(tempNextAvailablePassages[i]);
-                            answer.text.fontSize = LayoutManager.Instance.esw;
-                            answer.text.margin = LayoutManager.Instance.defaultMargins; 
-                            currentAnswers.Add(answer);
+                            Answer answer = CreateAnswer(tempNextAvailablePassages[i]);
                             LayoutRebuilder.ForceRebuildLayoutImmediate(answer.rectTransform);
                         }
 
@@ -650,6 +647,29 @@ namespace RomenoCompany
             {
                 state = State.DIALOGUE_FINISHED;
             }
+        }
+
+        private Answer CreateAnswer(Passage p)
+        {
+            Answer answer = Ocean.Instance.Get(answerPfb);
+            // Answer answer = Instantiate(answerPfb, answerRoot);
+
+            answer.SetPassage(p);
+            answer.text.fontSize = LayoutManager.Instance.esw;
+            answer.text.margin = LayoutManager.Instance.defaultMargins; 
+            currentAnswers.Add(answer);
+            
+            var ftueState = Inventory.Instance.ftueState.Value;
+            if (!ftueState.GetFTUE(FTUEType.CHAT_SCREEN_CHOOSE_ANSWER)
+                && ftueState.needShowChatScreenChooseAnswerFtue)
+            {
+                UIManager.Instance.FTUEWidget.Show(() =>
+                {
+                    UIManager.Instance.FTUEWidget.PresentFTUE(answer.gameObject, FTUEType.CHAT_SCREEN_CHOOSE_ANSWER);
+                });
+            }
+
+            return answer;
         }
 
         public void PrepareNewPassagePresent()

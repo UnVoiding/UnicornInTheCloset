@@ -88,6 +88,11 @@ namespace RomenoCompany
             return null;
         }
 
+        public void UnlockLawyer()
+        {
+            Inventory.Instance.worldState.Value.lawyerFinished = true;
+            Inventory.Instance.worldState.Save();
+        }
     }
 
     [Serializable]

@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
     [CustomEditor(typeof(TweenColor))]
     public class TweenColorEditor : TweenBaseEditor 

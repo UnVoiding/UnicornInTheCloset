@@ -39,6 +39,18 @@ namespace RomenoCompany
                 Inventory.Instance.currentCompanion.Value = companionState.id;
                 Inventory.Instance.currentCompanion.Save();
                 UIManager.Instance.GoToComposition(Composition.CHAT);
+
+                var ftueState = Inventory.Instance.ftueState.Value;
+                if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION2)
+                    && ftueState.needShowCompanionSelection)
+                {
+                    UIManager.Instance.FTUEWidget.WithdrawFTUE(talkBtn.gameObject, FTUEType.COMPANION_SELECTION2);
+                    Inventory.Instance.ftueState.Value.SetFTUE(FTUEType.COMPANION_SELECTION2, true);
+                    Inventory.Instance.ftueState.Save();
+                    
+                    UIManager.Instance.FTUEWidget.Hide();
+                }
+                
                 Hide();
             });
             
@@ -57,7 +69,15 @@ namespace RomenoCompany
 
             talkBtn.gameObject.SetActive(showTalkBtn);
 
-            Show();
+            Show(() =>
+            {
+                var ftueState = Inventory.Instance.ftueState.Value;
+                if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION_INFO_TAB) 
+                    && ftueState.needShowCompanionSelection)
+                {
+                    UIManager.Instance.FTUEWidget.PresentFTUE(tabController.tabToggles[1].gameObject, FTUEType.COMPANION_SELECTION_INFO_TAB);
+                }
+            });
         }
 
         public override void Show(System.Action onComplete = null)

@@ -130,6 +130,8 @@ namespace RomenoCompany
 		
 		public PlayerPrefsData<CompanionData.ItemID> currentCompanion;
 
+		public PlayerPrefsData<FTUEState> ftueState;
+
 		
 		[Button]
 		void SaveAll()
@@ -145,6 +147,8 @@ namespace RomenoCompany
 			worldState.Save();
 
 			currentCompanion.Save();
+			
+			ftueState.Save();
 		}
 
 		protected override void Setup()
@@ -164,6 +168,8 @@ namespace RomenoCompany
 			worldState = new PlayerPrefsData<WorldState>("worldState", WorldState.CreateDefault());
 
 			currentCompanion = new PlayerPrefsData<CompanionData.ItemID>("currentCompanion", CompanionData.ItemID.NONE);
+
+			ftueState = new PlayerPrefsData<FTUEState>("ftueState", FTUEState.CreateDefault());
 
 			Migrate();
 		}
@@ -190,7 +196,7 @@ namespace RomenoCompany
 
 		public void SkipTutorial()
 		{
-			
+			ftueState.Value.SetAllPassed();
 		}
 	}
 }

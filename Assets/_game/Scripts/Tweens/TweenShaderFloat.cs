@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
 	public class TweenShaderFloat : TweenShader
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
     public static class Easing
     {

@@ -18,7 +18,7 @@ namespace RomenoCompany
         [                                               SerializeField, FoldoutGroup("References")] 
         private TMP_Text playerNameText;
         [                                               SerializeField, FoldoutGroup("References")] 
-        private TabController tabController;
+        public TabController tabController;
         
         [                Header("Profile Screen Widget"), SerializeField, FoldoutGroup("Settings")] 
         public bool showDevelopers = false;
@@ -97,6 +97,34 @@ namespace RomenoCompany
             }
 
             UpdateName();
+            
+            var ftueState = Inventory.Instance.ftueState.Value;
+            
+            if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS) && 
+                ftueState.needShowProfileItemsFtue)
+            {
+                UIManager.Instance.FTUEWidget.Show(() =>
+                {
+                    UIManager.Instance.FTUEWidget.PresentFTUE(tabController.tabToggles[1].gameObject, FTUEType.PROFILE_SCREEN_ITEMS);
+                });
+            }
+            else if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ADVICES) &&
+                     ftueState.needShowProfileUnicornAdvicesFtue)
+            {
+                UIManager.Instance.FTUEWidget.Show(() =>
+                {
+                    UIManager.Instance.FTUEWidget.PresentFTUE(tabController.tabToggles[0].gameObject, FTUEType.PROFILE_SCREEN_ADVICES);
+                });
+            }
+            else if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_LAWYER_ADVICES) &&
+                     ftueState.needShowProfileLawyerAdvicesFtue)
+            {
+                UIManager.Instance.FTUEWidget.Show(() =>
+                {
+                    UIManager.Instance.FTUEWidget.PresentFTUE(tabController.tabToggles[2].gameObject,
+                        FTUEType.PROFILE_SCREEN_LAWYER_ADVICES);
+                });
+            }
         }
 
         public void UpdateName()

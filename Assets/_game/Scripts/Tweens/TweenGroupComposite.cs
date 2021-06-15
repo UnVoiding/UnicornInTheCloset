@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
     public class TweenGroupComposite : TweenGroupAbstract
     {

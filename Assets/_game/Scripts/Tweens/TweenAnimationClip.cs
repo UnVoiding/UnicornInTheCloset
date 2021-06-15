@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
     public class TweenAnimationClip : TweenGroupAbstract
 {

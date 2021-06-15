@@ -53,13 +53,31 @@ namespace RomenoCompany
                     UIManager.Instance.GetWidget<MainScreenWidget>().UpdateName();
                     UIManager.Instance.GetWidget<ProfileScreenWidget>().UpdateName();
 
-                    Hide(ShowCancel);
+                    if (!cancelBtn.gameObject.activeInHierarchy)
+                    {
+                        var ftueState = Inventory.Instance.ftueState.Value;
+
+                        ftueState.needShowCompanionSelection = true;
+                        Inventory.Instance.ftueState.Save();
+
+                        if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION1)
+                            && ftueState.needShowCompanionSelection)
+                        {
+                            UIManager.Instance.GetWidget<MainScreenWidget>().EnableScroll(false);
+                            UIManager.Instance.FTUEWidget.Show(() =>
+                            {
+                                UIManager.Instance.GetWidget<MainScreenWidget>().ShowSelectCompanionFtue();
+                            });
+                        }
+                    }
+
+                    Hide(ActivateCancel);
                 }
             });
             
             cancelBtn.onClick.AddListener(() =>
             {
-                Hide(ShowCancel);
+                Hide(ActivateCancel);
             });
         }
 
@@ -100,7 +118,7 @@ namespace RomenoCompany
             Show();
         }
 
-        private void ShowCancel()
+        private void ActivateCancel()
         {
             captionText.text = "Изменить имя";
             cancelBtn.gameObject.SetActive(true);

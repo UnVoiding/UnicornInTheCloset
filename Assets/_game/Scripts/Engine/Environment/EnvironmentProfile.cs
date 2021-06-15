@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 
 namespace RomenoCompany
 {
-    [CreateAssetMenu(fileName = "EnvironmentProfile", menuName = "TSG/Game/EnvironmentProfile", order = 60)]
+    [CreateAssetMenu(fileName = "EnvironmentProfile", menuName = "UIC/Game/EnvironmentProfile", order = 60)]
     public class EnvironmentProfile : ScriptableObject
     {
         [FoldoutGroup("General")]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
 	[CustomEditor(typeof(TweenGroup))]
 public class TweenGroupEditor : UnityEditor.Editor
@@ -88,7 +88,7 @@ public class TweenGroupEditor : UnityEditor.Editor
 			EditorGUILayout.BeginHorizontal();
 			GUILayout.FlexibleSpace();
 			
-			string name = entry.tween != null ? entry.tween.GetType().ToString().Replace("TSG.Tweens.", "") : "Unknown";
+			string name = entry.tween != null ? entry.tween.GetType().ToString().Replace("RomenoCompany.", "") : "Unknown";
 			
 			EditorGUILayout.LabelField(name, GUILayout.Width(100));
 			entry.tween = EditorGUILayout.ObjectField(entry.tween, typeof(TweenBase), true, GUILayout.Width(150)) as TweenBase;

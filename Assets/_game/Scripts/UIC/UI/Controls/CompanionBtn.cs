@@ -59,6 +59,16 @@ namespace RomenoCompany
             mainButton.onClick.AddListener(() =>
             {
                 UIManager.Instance.GetWidget<CompanionInfoWidget>().ShowForCompanion(companionState, true);
+                
+                var ftueState = Inventory.Instance.ftueState.Value;
+                if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION1)
+                    && ftueState.needShowCompanionSelection)
+                {
+                    UIManager.Instance.GetWidget<MainScreenWidget>().EnableScroll(true);
+                    UIManager.Instance.FTUEWidget.WithdrawFTUE(gameObject, FTUEType.COMPANION_SELECTION1);
+                    ftueState.SetFTUE(FTUEType.COMPANION_SELECTION1, true);
+                    Inventory.Instance.ftueState.Save();
+                }
             });
 
             ResizeAndReposition();

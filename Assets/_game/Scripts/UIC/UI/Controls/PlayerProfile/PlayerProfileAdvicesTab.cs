@@ -89,6 +89,23 @@ namespace RomenoCompany
                 // StartCoroutine(ForceRebuildEndOfFrame());
                 // forceUpdateFrame = Time.frameCount + frameUpdateOffset;
             }
+
+            var ftueState = Inventory.Instance.ftueState.Value;
+            if (ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEM_INFO)
+                && !ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ADVICES)
+                && ftueState.needShowProfileUnicornAdvicesFtue)
+            {
+                UIManager.Instance.FTUEWidget.WithdrawFTUE(tabToggle.gameObject, FTUEType.PROFILE_SCREEN_ADVICES);
+                ftueState.SetFTUE(FTUEType.PROFILE_SCREEN_ADVICES, true);
+                Inventory.Instance.ftueState.Save();
+            }
+
+            // if (Inventory.Instance.ftueState.Value.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS))
+            // {
+            //     UIManager.Instance.FTUEWidget.HideFTUE(tabToggle.gameObject, FTUEType.PROFILE_SCREEN_ADVICES);
+            //     Inventory.Instance.ftueState.Value.SetFTUE(FTUEType.PROFILE_SCREEN_ADVICES, true);
+            //     Inventory.Instance.ftueState.Save();
+            // }
         }
 
         private IEnumerator ForceRebuildEndOfFrame()

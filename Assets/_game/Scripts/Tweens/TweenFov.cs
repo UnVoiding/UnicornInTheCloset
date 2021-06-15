@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
     public class TweenFov : TweenBase
     {

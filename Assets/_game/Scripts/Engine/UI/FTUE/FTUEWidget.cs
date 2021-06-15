@@ -14,11 +14,15 @@ namespace RomenoCompany
 	{
 		[                      Title("Finger"), SerializeField, FoldoutGroup("References")]
 		private Transform _tapRoot = null;
+		[								        SerializeField, FoldoutGroup("References")]
+		private RectTransform _circlesRT = null;
+		[								        SerializeField, FoldoutGroup("References")]
+		private RectTransform _fingerRT = null;
 		[                                       SerializeField, FoldoutGroup("References")]
 		private CanvasGroup _tapGroup = null;
-		[FormerlySerializedAs("_blackout")] [                                       SerializeField, FoldoutGroup("References")]
+		[                                       SerializeField, FoldoutGroup("References")]
 		private CanvasGroup _overlayCanvasGroup = null;
-		[FormerlySerializedAs("_blackoutImage")] [                                       SerializeField, FoldoutGroup("References")]
+		[                                       SerializeField, FoldoutGroup("References")]
 		private Image _overlayImage = null;
 		[                                       SerializeField, FoldoutGroup("References")]
 		private RectTransform _toolTipBeakRoot = null;
@@ -28,13 +32,12 @@ namespace RomenoCompany
 		private CanvasGroup _toolTipGroup = null;
 		[                                       SerializeField, FoldoutGroup("References")]
 		private TextMeshProUGUI _toolTipText = null;
-
 		
 		[                                       SerializeField, FoldoutGroup("Settings")]
 		private int _sortingOrder = 2;
-		[FormerlySerializedAs("_defaultColor")] [                                       SerializeField, FoldoutGroup("Settings")]
+		[                                       SerializeField, FoldoutGroup("Settings")]
 		Color _defaultOverlayColor = new Color(0.0f, 0.0f, 0.0f, 0.392f);
-		[FormerlySerializedAs("_fTUEColors")] [                                       SerializeField, FoldoutGroup("Settings")]
+		[                                       SerializeField, FoldoutGroup("Settings")]
 		private FTUETemplate[] ftueTemplates = null;
 		[                                       SerializeField, FoldoutGroup("Settings")]
 		public Quaternion _fingerRotation = Quaternion.identity;
@@ -42,7 +45,6 @@ namespace RomenoCompany
 	    private Vector3 _flipRightFingerRotation = new Vector3(180.0f, 180.0f, 120.0f);
 		[                                       SerializeField, FoldoutGroup("Settings")]
 	    private Vector3 _flipLeftFingerRotation = Vector3.zero;
-
 	    
 	    [                                       NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")]
 	    private Tweener _toolTipFadeTweener = null;
@@ -149,7 +151,7 @@ namespace RomenoCompany
 		        });
 	    }
 
-	    public void BeginHighlight(GameObject highlightedGo, FTUETemplate.FTUEType fTUEType = FTUETemplate.FTUEType.Default)
+	    public void BeginHighlight(GameObject highlightedGo, FTUEType fTUEType = FTUEType.DEFAULT)
 	    {
 	        if (_overlayTweener != null) _overlayTweener.Kill();
 
@@ -168,11 +170,52 @@ namespace RomenoCompany
 	        graphicRaycaster.ignoreReversedGraphics = true;
 	    }
 
-	    public void ShowFTUE(GameObject highlightedGo, FTUETemplate.FTUEType ftueType)
+	    public void PresentFTUE(GameObject highlightedGo, FTUEType ftueType)
 	    {
-		    // FTUETemplate ftueTemplate = Array.Find(ftueTemplates, fc => fc.fTUEType == ftueType);
-		    // if (ftueTemplate.highlightGo) BeginHighlight(highlightedGo, ftueType);
-		    // if (ftueTemplate.showTooltip) ShowToolTip(ftueTemplate.tooltipText);
+		    FTUETemplate ftueTemplate = Array.Find(ftueTemplates, fc => fc.fTUEType == ftueType);
+		    if (ftueTemplate == null)
+		    {
+			    Debug.LogError($"FTUEWidget: ftueType {ftueType} not found");
+			    return;
+		    }
+
+		    BeginHighlight(highlightedGo, ftueType);
+		    
+		    if (ftueTemplate.showTap)
+		    {
+			    _fingerRT.localPosition = ftueTemplate.fingerOffset;
+			    _circlesRT.localScale = ftueTemplate.circlesScale;
+			    ShowTap(highlightedGo.transform, ftueTemplate.tapOffset);
+		    }
+		    else
+		    {
+			    HideTap();
+		    }
+
+		    if (ftueTemplate.showTooltip)
+		    {
+			    ShowToolTip(ftueTemplate.tooltipText, highlightedGo.transform, ftueTemplate.tooltipOffset);
+		    }
+		    else
+		    {
+			    HideTooltip();
+		    }
+	    }
+
+	    public void WithdrawFTUE(GameObject highlightedGo, FTUEType ftueType)
+	    {
+		    FTUETemplate ftueTemplate = Array.Find(ftueTemplates, fc => fc.fTUEType == ftueType);
+
+		    if (ftueTemplate == null)
+		    {
+			    Debug.LogError($"FTUEWidget: ftueType {ftueType} not found");
+			    return;
+		    }
+		    
+		    EndHighlight(highlightedGo);
+		    
+		    if (ftueTemplate.showTap) HideTap();
+		    if (ftueTemplate.showTooltip) HideTooltip();
 	    }
 
 	    public void EndHighlight(GameObject highlightedGo)
@@ -226,36 +269,47 @@ namespace RomenoCompany
 	        }
 	    }
 	    
-	    public void ShowToolTip(String text, Vector2 screenPoint, Vector2 offset)
+	    public void ShowToolTip(String text, Transform highlighted, Vector2 offset)
 	    {
 		    _toolTipRoot.gameObject.SetActive(true);
+
+		    Vector2 highlightedPos = RectTransformUtility.WorldToScreenPoint(_canvas.worldCamera, highlighted.position);
 
 		    if (_toolTipFadeTweener != null) _toolTipFadeTweener.Kill();
 		    _toolTipFadeTweener = _toolTipGroup
 			    .DOFade(1, DB.Instance.sharedGameData.ftueToolTipShowTime)
 			    .SetUpdate(UpdateType.Normal, true);
+		    
 		    if (_toolTipScaleTweener != null) _toolTipScaleTweener.Kill();
 		    _toolTipScaleTweener = _toolTipRoot
 			    .DOScale(1, DB.Instance.sharedGameData.ftueToolTipShowTime)
 			    .SetUpdate(UpdateType.Normal, true)
 			    .SetEase(DB.Instance.sharedGameData.ftueToolTipShowCurve);
 
-		    RectTransformUtility.ScreenPointToLocalPointInRectangle(transform as RectTransform, screenPoint, _canvas.worldCamera, out screenPoint);
+		    RectTransformUtility.ScreenPointToLocalPointInRectangle(transform as RectTransform, highlightedPos, _canvas.worldCamera, out highlightedPos);
 
-		    float posPerc = ((screenPoint + offset).x / (transform as RectTransform).rect.width);
-		    if (posPerc > 0.2f && posPerc < 0.8f)
-		    {
-			    (_toolTipRoot as RectTransform).pivot = new Vector2(0.5f, (_toolTipRoot as RectTransform).pivot.y);
-		    }
-		    else
-		    {
-			    (_toolTipRoot as RectTransform).pivot = new Vector2(((screenPoint + offset).x / (transform as RectTransform).rect.width) * 0.6f + 0.2f, (_toolTipRoot as RectTransform).pivot.y);
-		    }
+		    // float posPerc = ((screenPoint + offset).x / (transform as RectTransform).rect.width);
+		    // if (posPerc > 0.2f && posPerc < 0.8f)
+		    // {
+			   //  (_toolTipRoot as RectTransform).pivot = new Vector2(0.5f, (_toolTipRoot as RectTransform).pivot.y);
+		    // }
+		    // else
+		    // {
+			   //  (_toolTipRoot as RectTransform).pivot = new Vector2(((screenPoint + offset).x / (transform as RectTransform).rect.width) * 0.6f + 0.2f, (_toolTipRoot as RectTransform).pivot.y);
+		    // }
 
-		    _toolTipBeakRoot.localPosition = new Vector2(0, _toolTipBeakRoot.localPosition.y);
-		    _toolTipRoot.localPosition = screenPoint + offset;
+		    // _toolTipBeakRoot.localPosition = new Vector2(0, _toolTipBeakRoot.localPosition.y);
+		    _toolTipRoot.localPosition = highlightedPos + offset;
 		    _toolTipRoot.rotation = _fingerRotation;
 		    _toolTipText.text = text;
+	    }
+
+	    public void HideTooltip()
+	    {
+		    _toolTipRoot.gameObject.SetActive(false);
+		    
+		    if (_toolTipFadeTweener != null) _toolTipFadeTweener.Kill();
+		    if (_toolTipScaleTweener != null) _toolTipScaleTweener.Kill();
 	    }
 
 		// public void ShowToolTip(String text, Transform tranform, Vector2 offset)

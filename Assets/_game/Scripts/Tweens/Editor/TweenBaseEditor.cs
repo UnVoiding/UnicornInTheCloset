@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
     [CustomEditor(typeof(TweenBase), true)]
 public class TweenBaseEditor : UnityEditor.Editor

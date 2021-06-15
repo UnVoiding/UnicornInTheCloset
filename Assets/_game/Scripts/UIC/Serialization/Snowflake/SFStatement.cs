@@ -188,6 +188,17 @@ namespace RomenoCompany
             {
                 adviceState.found = true;
                 Inventory.Instance.worldState.Save();
+                
+                Inventory.Instance.ftueState.Value.needShowProfileUnicornAdvicesFtue = true;
+                Inventory.Instance.ftueState.Save();
+
+                if (UIManager.Instance.ChatWidget.currentCompanion.id == CompanionData.ItemID.LAWYER)
+                {
+                    Inventory.Instance.worldState.Value.UnlockLawyer();
+                    
+                    Inventory.Instance.ftueState.Value.needShowProfileLawyerAdvicesFtue = true;
+                    Inventory.Instance.ftueState.Save();
+                }
             }
         }
 
@@ -236,6 +247,9 @@ namespace RomenoCompany
             var itemState = Inventory.Instance.worldState.Value.GetPlayerItem(itemId);
             itemState.found = true;
             Inventory.Instance.worldState.Save();
+
+            Inventory.Instance.ftueState.Value.needShowProfileItemsFtue = true;
+            Inventory.Instance.ftueState.Save();
         }
 
         public override void ExecuteBlocking()
@@ -321,6 +335,9 @@ namespace RomenoCompany
                 c.locked = false;
             }
             Inventory.Instance.worldState.Save();
+            
+            Inventory.Instance.ftueState.Value.needShowUnlockedCompanionsFtue = true;
+            Inventory.Instance.ftueState.Save();
         }
 
         public override void ExecuteBlocking()

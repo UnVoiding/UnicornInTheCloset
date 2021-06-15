@@ -36,6 +36,17 @@ namespace RomenoCompany
             cw.PresentPassage();
             cw.ClearCurrentAnswers();
             cw.ContinueDialogue();
+
+            var ftueState = Inventory.Instance.ftueState.Value;
+            if (!ftueState.GetFTUE(FTUEType.CHAT_SCREEN_CHOOSE_ANSWER)
+                && ftueState.needShowChatScreenChooseAnswerFtue)
+            {
+                UIManager.Instance.FTUEWidget.WithdrawFTUE(gameObject, FTUEType.CHAT_SCREEN_CHOOSE_ANSWER);
+                ftueState.SetFTUE(FTUEType.CHAT_SCREEN_CHOOSE_ANSWER, true);
+                Inventory.Instance.ftueState.Save();
+                
+                UIManager.Instance.FTUEWidget.Hide();
+            }
         }
         
         public void OnCreate()

@@ -33,6 +33,24 @@ namespace RomenoCompany
             description.fontSize = esw;
             description.margin = margin;
         }
+
+        protected override void OnActivate(bool activate)
+        {
+            base.OnActivate(activate);
+
+            var ftueState = Inventory.Instance.ftueState.Value;
+            if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION_INFO_TAB)
+                && ftueState.needShowCompanionSelection)
+            {
+                UIManager.Instance.FTUEWidget.WithdrawFTUE(tabToggle.gameObject, FTUEType.COMPANION_SELECTION_INFO_TAB);
+                ftueState.SetFTUE(FTUEType.COMPANION_SELECTION_INFO_TAB, true);
+                Inventory.Instance.ftueState.Save();
+            
+                UIManager.Instance.FTUEWidget.PresentFTUE(
+                    UIManager.Instance.GetWidget<CompanionInfoWidget>().talkBtn.gameObject,
+                    FTUEType.COMPANION_SELECTION2);
+            }
+        }
     }
 }
 

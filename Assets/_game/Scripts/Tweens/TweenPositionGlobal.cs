@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.Events;
 using System;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
     public class TweenPositionGlobal : TweenBase 
     {

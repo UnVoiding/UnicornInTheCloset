@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace TSG.Tweens
+namespace RomenoCompany
 {
 	public class TweenSpriteAnimation : TweenBase
 	{

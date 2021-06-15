@@ -8,7 +8,7 @@ namespace RomenoCompany
 {
     public class EnvironmentWindow : EditorWindow
     {
-        [MenuItem("TSG/Environment Editor")]
+        [MenuItem("UIC/Environment Editor")]
         static void StartWindow()
         {
             var w = EditorWindow.GetWindow(typeof(EnvironmentWindow));
@@ -36,7 +36,7 @@ namespace RomenoCompany
             var definesSource = Resources.Load<TextAsset>("Editor/DEFINES");
             if (definesSource == null)
             {
-                string str = "TSG_SKIP_UI_ANIMATIONS, TSG_DEBUG_MENU ";
+                string str = "";
                 using (FileStream fs = new FileStream("Assets/Resources/Editor/DEFINES.TXT", FileMode.Create)){
                     using (StreamWriter writer = new StreamWriter(fs)){
                         writer.Write(str);
