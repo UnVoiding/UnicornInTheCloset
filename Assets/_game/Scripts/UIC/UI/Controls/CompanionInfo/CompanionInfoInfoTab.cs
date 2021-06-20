@@ -1,13 +1,14 @@
 ﻿using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RomenoCompany
 {
     public class CompanionInfoInfoTab : Tab
     {
-        [                           Header("CompanionInfoInfoTab"), FoldoutGroup("References")] 
-        public TMP_Text name;
+        [FormerlySerializedAs("name")] [                           Header("CompanionInfoInfoTab"), FoldoutGroup("References")] 
+        public TMP_Text nameText;
         [                                                           FoldoutGroup("References")] 
         public TMP_Text characteristics;
         [                                                           FoldoutGroup("References")] 
@@ -16,7 +17,7 @@ namespace RomenoCompany
         
         public void Populate(CompanionData companion)
         {
-            name.text = companion.name;
+            nameText.text = companion.name;
             if (companion.formattedCharacteristics == null)
             {
                 companion.formattedCharacteristics = $"<b>Класс:</b> {companion.klass}\n<b>Предмет:</b> {companion.gameItem}\n<b>Особенный навык:</b> {companion.skill}\n<b>Уязвимость:</b> {companion.vulnerability}\n<b>Цель:</b> {companion.goal}";
@@ -38,17 +39,22 @@ namespace RomenoCompany
         {
             base.OnActivate(activate);
 
-            var ftueState = Inventory.Instance.ftueState.Value;
-            if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION_INFO_TAB)
-                && ftueState.needShowCompanionSelection)
+            var w = UIManager.Instance.GetWidget<CompanionInfoWidget>();
+
+            if (activate && w.shown)
             {
-                UIManager.Instance.FTUEWidget.WithdrawFTUE(tabToggle.gameObject, FTUEType.COMPANION_SELECTION_INFO_TAB);
-                ftueState.SetFTUE(FTUEType.COMPANION_SELECTION_INFO_TAB, true);
-                Inventory.Instance.ftueState.Save();
+                var ftueState = Inventory.Instance.ftueState.Value;
+                if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION_INFO_TAB)
+                    && ftueState.needShowCompanionSelection)
+                {
+                    UIManager.Instance.FTUEWidget.WithdrawFTUE();
+                    ftueState.SetFTUE(FTUEType.COMPANION_SELECTION_INFO_TAB, true);
+                    Inventory.Instance.ftueState.Save();
             
-                UIManager.Instance.FTUEWidget.PresentFTUE(
-                    UIManager.Instance.GetWidget<CompanionInfoWidget>().talkBtn.gameObject,
-                    FTUEType.COMPANION_SELECTION2);
+                    UIManager.Instance.FTUEWidget.PresentFTUE(
+                        UIManager.Instance.GetWidget<CompanionInfoWidget>().talkBtn.gameObject,
+                        FTUEType.COMPANION_SELECTION2);
+                }
             }
         }
     }

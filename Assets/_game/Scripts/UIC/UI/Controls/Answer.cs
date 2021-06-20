@@ -41,7 +41,7 @@ namespace RomenoCompany
             if (!ftueState.GetFTUE(FTUEType.CHAT_SCREEN_CHOOSE_ANSWER)
                 && ftueState.needShowChatScreenChooseAnswerFtue)
             {
-                UIManager.Instance.FTUEWidget.WithdrawFTUE(gameObject, FTUEType.CHAT_SCREEN_CHOOSE_ANSWER);
+                UIManager.Instance.FTUEWidget.WithdrawFTUE();
                 ftueState.SetFTUE(FTUEType.CHAT_SCREEN_CHOOSE_ANSWER, true);
                 Inventory.Instance.ftueState.Save();
                 

@@ -2,10 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 using TMPro;
 using Sirenix.OdinInspector;
-using DG.Tweening;
-using Sirenix.OdinInspector.Editor.Drawers;
 using Button = UnityEngine.UI.Button;
 
 namespace RomenoCompany
@@ -39,6 +38,8 @@ namespace RomenoCompany
             widgetType = WidgetType.MAIN;
             profileBtn.onClick.AddListener(() =>
             {
+                if (!UIManager.Instance.inputAllowed) return;
+
                 UIManager.Instance.GoToComposition(Composition.PLAYER_PROFILE);
 
                 if (!Inventory.Instance.ftueState.Value.GetFTUE(FTUEType.PROFILE_SCREEN) 
@@ -46,12 +47,7 @@ namespace RomenoCompany
                         || Inventory.Instance.ftueState.Value.needShowProfileLawyerAdvicesFtue
                         || Inventory.Instance.ftueState.Value.needShowProfileUnicornAdvicesFtue))
                 {
-                    UIManager.Instance.FTUEWidget.WithdrawFTUE(profileBtn.gameObject, FTUEType.PROFILE_SCREEN);
-                    
-                    // UIManager.Instance.FTUEWidget.HideTap();
-                    // UIManager.Instance.FTUEWidget.EndHighlight(profileBtn.gameObject);
-                    // UIManager.Instance.FTUEWidget.HideTooltip();
-                    // UIManager.Instance.FTUEWidget.Hide();
+                    UIManager.Instance.FTUEWidget.WithdrawFTUE();
                 }
             });
 
@@ -71,7 +67,7 @@ namespace RomenoCompany
             }
         }
 
-        public override void Show(System.Action onComplete = null)
+        public override void Show(Action onComplete = null)
         {
             OnShow();
 
@@ -94,18 +90,21 @@ namespace RomenoCompany
                 var ftueState = Inventory.Instance.ftueState.Value;
                 var ftueWidget = UIManager.Instance.FTUEWidget;
                 
-                if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN) 
-                    && (ftueState.needShowProfileItemsFtue 
-                        || ftueState.needShowProfileLawyerAdvicesFtue
-                        || ftueState.needShowProfileUnicornAdvicesFtue))
+                if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ADVICES) && ftueState.needShowProfileItemsFtue
+                   || !ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_LAWYER_ADVICES) && ftueState.needShowProfileLawyerAdvicesFtue
+                   || !ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS) && ftueState.needShowProfileUnicornAdvicesFtue)
                 {
                     ftueWidget.Show(ShowProfileScreenBtnFtue);
                 }
 
+                if (!UIManager.Instance.inputAllowed) return;
+
                 if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION1) 
                     && ftueState.needShowCompanionSelection)
                 {
-                    ftueWidget.Show(ShowSelectCompanionFtue);
+                    UIManager.Instance.inputAllowed = false;
+                    
+                    UIManager.Instance.StartCoroutine(ShowCompanionSelectionFTUE());
                 }
 
                 if (!Inventory.Instance.playerState.Value.nameEntered)
@@ -118,20 +117,30 @@ namespace RomenoCompany
             }
         }
 
+        private IEnumerator ShowCompanionSelectionFTUE()
+        {
+            yield return null;
+            
+            UIManager.Instance.FTUEWidget.Show(ShowSelectCompanionFtue);
+            UIManager.Instance.inputAllowed = true;
+        }
+
         public void ShowProfileScreenBtnFtue()
         {
             UIManager.Instance.FTUEWidget.PresentFTUE(profileBtn.gameObject, FTUEType.PROFILE_SCREEN);
-                        
-            // UIManager.Instance.FTUEWidget.ShowFTUE(profileBtn.gameObject, FTUEType.PROFILE_SCREEN);
-            // UIManager.Instance.FTUEWidget.BeginHighlight(profileBtn.gameObject);
-            // UIManager.Instance.FTUEWidget.ShowTap(profileBtn.transform);
-            // UIManager.Instance.FTUEWidget.ShowToolTip("test gavneco", new Vector2(500, 500), Vector2.zero);
         }
 
         public void ShowSelectCompanionFtue()
         {
+            EnableScroll(false);
             UIManager.Instance.FTUEWidget.PresentFTUE(companionBtns[0].gameObject, FTUEType.COMPANION_SELECTION1);
         }
+
+        // public void ShowSelectUnlockedCompanion()
+        // {
+        //     EnableScroll(false);
+        //     UIManager.Instance.FTUEWidget.PresentFTUE(companionBtns[0].gameObject, FTUEType.COMPANION_SELECTION1);
+        // }
 
         public void UpdateCompanionBtns()
         {

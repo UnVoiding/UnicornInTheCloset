@@ -86,9 +86,9 @@ namespace RomenoCompany
                 // var ucEntry = Instantiate(unlockedCompanionPfb, contentRoot.transform);
                 
                 var companionState = Inventory.Instance.worldState.Value.GetCompanion(cid);
-                ucEntry.name.text = companionState.Data.name;
-                ucEntry.name.fontSize = esw;
-                ucEntry.name.margin = Vector4.zero;
+                ucEntry.nameText.text = companionState.Data.name;
+                ucEntry.nameText.fontSize = esw;
+                ucEntry.nameText.margin = Vector4.zero;
                 
                 ucEntry.image.sprite = companionState.Data.mainScreenImage;
                 this.unlockedCompanions.Add(ucEntry);

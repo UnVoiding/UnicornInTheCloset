@@ -16,12 +16,10 @@ namespace RomenoCompany
         [SerializeField] private RawImage gameOverUITexture;
 
         [Header("Animation settings")]
-        [SerializeField] private float fxTokenSpawnDurationOffset = 0.015f;
-        [SerializeField] private float fxCoinSpawnDurationOffset = 0.015f;
+        // [SerializeField] private float fxTokenSpawnDurationOffset = 0.015f;
+        // [SerializeField] private float fxCoinSpawnDurationOffset = 0.015f;
 
         private Vector3 pathStartPosition;
-        
-        private Canvas rootCanvas = null;
         
         public override void InitializeWidget()
         {

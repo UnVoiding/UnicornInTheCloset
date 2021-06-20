@@ -42,7 +42,6 @@ namespace RomenoCompany
             });
         }
 
-        private bool layoutRebuild = false;
         public void ShowWithAdvice(string text)
         {
             var chatScreen = UIManager.Instance.ChatWidget;
@@ -76,11 +75,11 @@ namespace RomenoCompany
         {
             yield return null;
 
-            layoutRebuild = true;
+            // layoutRebuild = true;
             
             yield return new WaitForSeconds(0.2f);
 
-            layoutRebuild = true;
+            // layoutRebuild = true;
         }
 
         private void Update()

@@ -58,6 +58,8 @@ namespace RomenoCompany
 
             mainButton.onClick.AddListener(() =>
             {
+                if (!UIManager.Instance.inputAllowed) return;
+                
                 UIManager.Instance.GetWidget<CompanionInfoWidget>().ShowForCompanion(companionState, true);
                 
                 var ftueState = Inventory.Instance.ftueState.Value;
@@ -65,7 +67,7 @@ namespace RomenoCompany
                     && ftueState.needShowCompanionSelection)
                 {
                     UIManager.Instance.GetWidget<MainScreenWidget>().EnableScroll(true);
-                    UIManager.Instance.FTUEWidget.WithdrawFTUE(gameObject, FTUEType.COMPANION_SELECTION1);
+                    UIManager.Instance.FTUEWidget.WithdrawFTUE();
                     ftueState.SetFTUE(FTUEType.COMPANION_SELECTION1, true);
                     Inventory.Instance.ftueState.Save();
                 }

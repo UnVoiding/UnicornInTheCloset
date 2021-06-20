@@ -113,10 +113,12 @@ namespace RomenoCompany
             public int count;
         }
 
-        bool found = false;
+#pragma warning disable 414
+        bool found = false; 
         [Space(10)]
         [Header("Search")]
         [SerializeField] [OnValueChanged("Search")] FXType searchField = FXType.None;
+#pragma warning restore 414
         void Search(FXType value)
         {
             found = false;

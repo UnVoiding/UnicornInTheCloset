@@ -83,7 +83,7 @@ namespace RomenoCompany
                 if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_LAWYER_ADVICES)
                     && ftueState.needShowProfileLawyerAdvicesFtue)
                 {
-                    UIManager.Instance.FTUEWidget.WithdrawFTUE(tabToggle.gameObject, FTUEType.PROFILE_SCREEN_LAWYER_ADVICES);
+                    UIManager.Instance.FTUEWidget.WithdrawFTUE();
                     Inventory.Instance.ftueState.Value.SetFTUE(FTUEType.PROFILE_SCREEN_LAWYER_ADVICES, true);
                     Inventory.Instance.ftueState.Save();
                 }

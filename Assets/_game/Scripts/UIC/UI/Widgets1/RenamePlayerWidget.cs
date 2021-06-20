@@ -43,6 +43,8 @@ namespace RomenoCompany
             widgetType = WidgetType.RENAME_PLAYER;
             okBtn.onClick.AddListener(() =>
             {
+                if (!UIManager.Instance.inputAllowed) return;
+
                 string trimmedText = inputField.text.Trim();
                 if (trimmedText.Length != 0)
                 {
@@ -63,7 +65,6 @@ namespace RomenoCompany
                         if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION1)
                             && ftueState.needShowCompanionSelection)
                         {
-                            UIManager.Instance.GetWidget<MainScreenWidget>().EnableScroll(false);
                             UIManager.Instance.FTUEWidget.Show(() =>
                             {
                                 UIManager.Instance.GetWidget<MainScreenWidget>().ShowSelectCompanionFtue();
@@ -77,6 +78,8 @@ namespace RomenoCompany
             
             cancelBtn.onClick.AddListener(() =>
             {
+                if (!UIManager.Instance.inputAllowed) return;
+
                 Hide(ActivateCancel);
             });
         }

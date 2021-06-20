@@ -44,24 +44,18 @@ namespace RomenoCompany
 
                 switch (operation)
                 {
-                    case SFHideIfCondition.BoolOperation.EQUALS:
+                    case BoolOperation.EQUALS:
                         return !(vValue == value);
-                        break;
-                    case SFHideIfCondition.BoolOperation.NOT_EQUALS:
+                    case BoolOperation.NOT_EQUALS:
                         return !(vValue != value);
-                        break;
-                    case SFHideIfCondition.BoolOperation.LESS:
+                    case BoolOperation.LESS:
                         return !(vValue < value);
-                        break;
-                    case SFHideIfCondition.BoolOperation.LESS_EQUALS:
+                    case BoolOperation.LESS_EQUALS:
                         return !(vValue <= value);
-                        break;
-                    case SFHideIfCondition.BoolOperation.GREATER:
+                    case BoolOperation.GREATER:
                         return !(vValue > value);
-                        break;
-                    case SFHideIfCondition.BoolOperation.GREATER_EQUALS:
+                    case BoolOperation.GREATER_EQUALS:
                         return !(vValue >= value);
-                        break;
                     default:
                         Debug.LogError($"WorldState: unknown operation when checking condition {variableName} {operation} {value}");
                         return true;

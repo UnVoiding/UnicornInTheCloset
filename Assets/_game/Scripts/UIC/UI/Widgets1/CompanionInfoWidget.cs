@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using System;
-using TMPro;
 using Sirenix.OdinInspector;
-using DG.Tweening;
 using Button = UnityEngine.UI.Button;
 
 namespace RomenoCompany
@@ -44,7 +40,7 @@ namespace RomenoCompany
                 if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION2)
                     && ftueState.needShowCompanionSelection)
                 {
-                    UIManager.Instance.FTUEWidget.WithdrawFTUE(talkBtn.gameObject, FTUEType.COMPANION_SELECTION2);
+                    UIManager.Instance.FTUEWidget.WithdrawFTUE();
                     Inventory.Instance.ftueState.Value.SetFTUE(FTUEType.COMPANION_SELECTION2, true);
                     Inventory.Instance.ftueState.Save();
                     
@@ -75,7 +71,14 @@ namespace RomenoCompany
                 if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION_INFO_TAB) 
                     && ftueState.needShowCompanionSelection)
                 {
+                    UIManager.Instance.FTUEWidget.Show();
                     UIManager.Instance.FTUEWidget.PresentFTUE(tabController.tabToggles[1].gameObject, FTUEType.COMPANION_SELECTION_INFO_TAB);
+                }
+                else if (!ftueState.GetFTUE(FTUEType.COMPANION_SELECTION2)
+                         && ftueState.needShowCompanionSelection)
+                {
+                    UIManager.Instance.FTUEWidget.Show();
+                    UIManager.Instance.FTUEWidget.PresentFTUE(talkBtn.gameObject, FTUEType.COMPANION_SELECTION2);
                 }
             });
         }

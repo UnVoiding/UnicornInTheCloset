@@ -13,6 +13,7 @@
         COMPANION_UNLOCK = 8, 
         VIDEO = 9,
         WIN = 10,
+        GREETINGS = 11,
         GAME_OVER_UI = 100,
         HP_OVERLAY = 101,
         FTUE = 102,

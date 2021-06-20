@@ -28,6 +28,8 @@ namespace RomenoCompany
 
         [                                    NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public Action onClose;
+        [                                    NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public bool shownAsItemInfo;
 
         
         public override void InitializeWidget()
@@ -38,11 +40,25 @@ namespace RomenoCompany
             closeBtn.onClick.AddListener(() =>
             {
                 Hide();
+
+                if (shownAsItemInfo)
+                {
+                    var ftueState = Inventory.Instance.ftueState.Value;
+                    if (ftueState.needShowProfileUnicornAdvicesFtue)
+                    {
+                        UIManager.Instance.FTUEWidget.Show();
+                        UIManager.Instance.FTUEWidget.PresentFTUE(
+                            UIManager.Instance.GetWidget<ProfileScreenWidget>().tabController.tabToggles[0].gameObject, 
+                            FTUEType.PROFILE_SCREEN_ADVICES);
+                    }
+                }
             });
         }
 
         public void ShowForItem(PlayerItemData item, bool showYouGot)
         {
+            shownAsItemInfo = !showYouGot;
+            
             itemName.text = item.name;
             itemDescription.text = item.description;
             itemImage.sprite = item.image;

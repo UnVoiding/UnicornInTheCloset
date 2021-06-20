@@ -2,14 +2,15 @@
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace RomenoCompany
 {
     public class UnlockedCompanion : MonoBehaviour, IDroplet
     {
-        [                                       FoldoutGroup("References")]
-        public TMP_Text name;
+        [FormerlySerializedAs("name")] [                                       FoldoutGroup("References")]
+        public TMP_Text nameText;
         [                                       FoldoutGroup("References")]
         public Image image;
         

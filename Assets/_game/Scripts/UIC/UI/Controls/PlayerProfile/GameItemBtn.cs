@@ -29,20 +29,10 @@ namespace RomenoCompany
                 if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEM_INFO)
                     && ftueState.needShowProfileItemsFtue)
                 {
-                    UIManager.Instance.FTUEWidget.WithdrawFTUE(gameObject, FTUEType.PROFILE_SCREEN_ITEM_INFO);
+                    UIManager.Instance.FTUEWidget.WithdrawFTUE();
                     ftueState.SetFTUE(FTUEType.PROFILE_SCREEN_ITEM_INFO, true);
                     Inventory.Instance.ftueState.Save();
-
-                    if (ftueState.needShowProfileUnicornAdvicesFtue)
-                    {
-                        UIManager.Instance.FTUEWidget.PresentFTUE(
-                            UIManager.Instance.GetWidget<ProfileScreenWidget>().tabController.tabToggles[0].gameObject, 
-                            FTUEType.PROFILE_SCREEN_ADVICES);
-                    }
-                    else
-                    {
-                        UIManager.Instance.FTUEWidget.Hide();
-                    }
+                    UIManager.Instance.FTUEWidget.Hide();
                 }
             });
         }

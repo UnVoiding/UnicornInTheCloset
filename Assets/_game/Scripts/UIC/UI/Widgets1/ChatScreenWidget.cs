@@ -83,8 +83,6 @@ namespace RomenoCompany
         [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         private bool scrollToEnd = false;
         [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
-        private bool wait = false;
-        [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         private bool dialogueIsBuilt = false;
         [                                 NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         private bool firstTimeShown = true;
@@ -168,7 +166,6 @@ namespace RomenoCompany
 
             SFDialogue dialogue = currentCompanion.dialogues[currentCompanion.activeDialogue];
             var path = dialogue.path;
-            Passage startPassage = null;
 
             // we either talked to some companion, went back and entered another companion screen
             // or this is the first time we enter companion screen    

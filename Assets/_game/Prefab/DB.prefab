@@ -59,3 +59,4 @@ MonoBehaviour:
   videos: {fileID: 11400000, guid: d1286eaa4e3ccde48af24f1e664a3b65, type: 2}
   sharedGameData: {fileID: 11400000, guid: 319a066ffa2160b4d9150282b941c21f, type: 2}
   tmpSettings: {fileID: 11400000, guid: 1f5af34ba5bb2d24eaf3624ea39bc53e, type: 2}
+  ftueSettings: {fileID: 11400000, guid: b54ea3223359816498f11ba464cd3b0c, type: 2}

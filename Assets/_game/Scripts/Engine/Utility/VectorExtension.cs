@@ -9,10 +9,7 @@ namespace RomenoCompany
     {
         public static Vector3 InvertedX(this Vector3 value)
         {
-            value.x = -value.x;
-            value.y = value.y;
-            value.z = value.z;
-            return value;
+            return new Vector3(-value.x, value.y, value.z);
         }
     }    
 }

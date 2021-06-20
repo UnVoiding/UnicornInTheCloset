@@ -95,7 +95,7 @@ namespace RomenoCompany
                 && !ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ADVICES)
                 && ftueState.needShowProfileUnicornAdvicesFtue)
             {
-                UIManager.Instance.FTUEWidget.WithdrawFTUE(tabToggle.gameObject, FTUEType.PROFILE_SCREEN_ADVICES);
+                UIManager.Instance.FTUEWidget.WithdrawFTUE();
                 ftueState.SetFTUE(FTUEType.PROFILE_SCREEN_ADVICES, true);
                 Inventory.Instance.ftueState.Save();
             }

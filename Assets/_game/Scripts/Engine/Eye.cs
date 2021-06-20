@@ -58,6 +58,8 @@ namespace RomenoCompany
         {
             currentFocusTweener = null;
             TimeManager.Instance.SetTimeScale(this, 1); // first gameobject in scene
+
+            SceneManager.sceneLoaded += OnLevelWasLoadedCallback;
         }
 
         void OnEnable()
@@ -70,7 +72,7 @@ namespace RomenoCompany
             SceneManager.sceneUnloaded -= SceneUnloaded;
         }
 
-        private void OnLevelWasLoaded(int level)
+        private void OnLevelWasLoadedCallback(Scene scene, LoadSceneMode mode)
         {
             transform.position = eyePosition;
             transform.rotation = eyeRotation;

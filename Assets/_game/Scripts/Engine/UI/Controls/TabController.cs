@@ -91,7 +91,7 @@ namespace RomenoCompany
                 tabToggle.toggle.group = toggleGroup;
             }
 
-            ActivateTab(1);
+            ActivateTab(0);
         }
 
         public void ActivateTab(int i)

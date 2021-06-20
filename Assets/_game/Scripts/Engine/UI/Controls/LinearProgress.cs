@@ -24,13 +24,11 @@ namespace RomenoCompany
         [SerializeField] public float _stateCrossFadeTime = 0.15f;
         
         [Header("Filling state")]
-        [SerializeField] GameObject _fillingStateRoot = null;
         [SerializeField] Image _fillingProgress = null;
         [SerializeField] TMP_Text _fillingPercentageText = null;
         [SerializeField] ParticleSystem _fillingFillFx = null;
 
         [Header("Filled state")]
-        [SerializeField] GameObject _filledStateRoot = null;
         [SerializeField] Image _filledProgress = null;
         [SerializeField] TMP_Text _filledPercentageText = null;
         [SerializeField] ParticleSystem _filledCompletionFx = null;

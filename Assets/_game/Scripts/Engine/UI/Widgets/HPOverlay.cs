@@ -83,7 +83,6 @@ namespace RomenoCompany
 
         public void Init()
         {
-            int poolSize = 1;
             foreach (var c in _containers)
             {
                 Ocean.Instance.CreatePool(c._prefab.gameObject, c.GetPoolSize());

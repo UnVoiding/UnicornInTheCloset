@@ -49,7 +49,7 @@ namespace RomenoCompany
             if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS)
                 && ftueState.needShowProfileItemsFtue)
             {
-                UIManager.Instance.FTUEWidget.WithdrawFTUE(tabToggle.gameObject, FTUEType.PROFILE_SCREEN_ITEMS);
+                UIManager.Instance.FTUEWidget.WithdrawFTUE();
                 ftueState.SetFTUE(FTUEType.PROFILE_SCREEN_ITEMS, true);
                 Inventory.Instance.ftueState.Save();
 

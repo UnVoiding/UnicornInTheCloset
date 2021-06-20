@@ -26,7 +26,7 @@ namespace RomenoCompany
         public bool needShowProfileUnicornAdvicesFtue = false; 
         public bool needShowProfileItemsFtue = false; 
         public bool needShowProfileLawyerAdvicesFtue = false; 
-        public bool needShowUnlockedCompanionsFtue = false; 
+        public bool needShowUnlockedCompanionsFtue = false; // UNUSED
         public bool needShowChatScreenChooseAnswerFtue = true; 
 
         public FTUEState()
