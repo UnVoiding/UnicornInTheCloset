@@ -80,32 +80,29 @@ namespace RomenoCompany
         {
             base.OnActivate(activate);
 
-            if (advices.Count > 0 && activate)
+            if (activate)
             {
-                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
-                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
-                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                if (advices.Count > 0)
+                {
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                }
 
-                // StartCoroutine(ForceRebuildEndOfFrame());
-                // forceUpdateFrame = Time.frameCount + frameUpdateOffset;
+                if (UIManager.Instance.GetWidget<ProfileScreenWidget>().shown)
+                {
+                    var ftueState = Inventory.Instance.ftueState.Value;
+                    if (ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS)
+                        && ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEM_INFO)
+                        && !ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ADVICES)
+                        && ftueState.needShowProfileUnicornAdvicesFtue)
+                    {
+                        UIManager.Instance.FTUEWidget.WithdrawFTUE();
+                        ftueState.SetFTUE(FTUEType.PROFILE_SCREEN_ADVICES, true);
+                        Inventory.Instance.ftueState.Save();
+                    }
+                }
             }
-
-            var ftueState = Inventory.Instance.ftueState.Value;
-            if (ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEM_INFO)
-                && !ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ADVICES)
-                && ftueState.needShowProfileUnicornAdvicesFtue)
-            {
-                UIManager.Instance.FTUEWidget.WithdrawFTUE();
-                ftueState.SetFTUE(FTUEType.PROFILE_SCREEN_ADVICES, true);
-                Inventory.Instance.ftueState.Save();
-            }
-
-            // if (Inventory.Instance.ftueState.Value.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS))
-            // {
-            //     UIManager.Instance.FTUEWidget.HideFTUE(tabToggle.gameObject, FTUEType.PROFILE_SCREEN_ADVICES);
-            //     Inventory.Instance.ftueState.Value.SetFTUE(FTUEType.PROFILE_SCREEN_ADVICES, true);
-            //     Inventory.Instance.ftueState.Save();
-            // }
         }
 
         private IEnumerator ForceRebuildEndOfFrame()

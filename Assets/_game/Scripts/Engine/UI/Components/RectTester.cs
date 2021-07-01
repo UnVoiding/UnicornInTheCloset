@@ -12,6 +12,13 @@ namespace RomenoCompany
         // private bool firstTime = true;
         // private RectTransform rt;
         // private string[] cornerNames = {"Bottom Left", "Top Left", "Top Right", "Bottom Right"};
+        
+        private void Update()
+        {
+            var rt = transform as RectTransform;
+            Debug.LogError($"{rt.rect.size}");
+        }
+        
         //
         // private void Update()
         // {

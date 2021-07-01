@@ -17,9 +17,8 @@ namespace RomenoCompany
         protected override void Setup()
         {
             screenWidth = UIManager.Instance.canvasRectTransform.rect.size.x;
-            esw = screenWidth / 25f;
+            esw = screenWidth / 22f;
             defaultMargins = new Vector4(esw, 0.5f * esw, esw, 0.5f * esw);
         }
-
     }
 }

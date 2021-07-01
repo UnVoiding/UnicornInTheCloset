@@ -14,8 +14,6 @@ namespace RomenoCompany
         [                            Header("Main Screen Widget"), SerializeField, FoldoutGroup("References")] 
         private Button profileBtn;
         [                                                          SerializeField, FoldoutGroup("References")] 
-        private Button testFTUE;
-        [                                                          SerializeField, FoldoutGroup("References")] 
         private TMP_Text playerNameText;
         [                                                          SerializeField, FoldoutGroup("References")] 
         private ScrollRect scroll;
@@ -90,11 +88,14 @@ namespace RomenoCompany
                 var ftueState = Inventory.Instance.ftueState.Value;
                 var ftueWidget = UIManager.Instance.FTUEWidget;
                 
-                if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ADVICES) && ftueState.needShowProfileItemsFtue
-                   || !ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_LAWYER_ADVICES) && ftueState.needShowProfileLawyerAdvicesFtue
+                if ((!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ADVICES) && ftueState.needShowProfileItemsFtue)
                    || !ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS) && ftueState.needShowProfileUnicornAdvicesFtue)
                 {
                     ftueWidget.Show(ShowProfileScreenBtnFtue);
+                }
+                else if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_LAWYER_ADVICES) && ftueState.needShowProfileLawyerAdvicesFtue)
+                {
+                    ftueWidget.Show(ShowProfileScreenBtnAfterLawyerFtue);
                 }
 
                 if (!UIManager.Instance.inputAllowed) return;
@@ -128,6 +129,11 @@ namespace RomenoCompany
         public void ShowProfileScreenBtnFtue()
         {
             UIManager.Instance.FTUEWidget.PresentFTUE(profileBtn.gameObject, FTUEType.PROFILE_SCREEN);
+        }
+
+        public void ShowProfileScreenBtnAfterLawyerFtue()
+        {
+            UIManager.Instance.FTUEWidget.PresentFTUE(profileBtn.gameObject, FTUEType.PROFILE_SCREEN_FOR_LAWYER_ADVICES);
         }
 
         public void ShowSelectCompanionFtue()

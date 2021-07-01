@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System;
 using Sirenix.OdinInspector;
+using UnityEngine.Events;
+using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 
 namespace RomenoCompany
@@ -51,6 +53,22 @@ namespace RomenoCompany
             });
             
             tabController.InitPrecreatedTabs();
+
+            for (int i = 0; i < tabController.tabToggles.Count; i++)
+            {
+                tabController.tabToggles[i].toggle.onValueChanged.AddListener(OnTabToggled(tabController.tabToggles[i].toggle)); 
+            }
+            
+            tabController.tabToggles[0].toggle.targetGraphic.color = new Color(1, 1, 1, 0);
+        }
+
+        private UnityAction<bool> OnTabToggled(Toggle toggle)
+        {
+            return (toggled) =>
+            {
+                // toggle.targetGraphic.gameObject.SetActive(!toggled);
+                toggle.targetGraphic.color = new Color(1, 1, 1, toggled ? 0 : 1);
+            };
         }
 
         public void ShowForCompanion(CompanionState companionState, bool showTalkBtn)

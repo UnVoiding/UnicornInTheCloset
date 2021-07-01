@@ -57,10 +57,18 @@ namespace RomenoCompany
             {
                 ShowFinger(); 
             }
+            else
+            {
+                HideFinger();
+            }
 
             if (settings.showCircles)
             {
                 ShowCircles();
+            }
+            else
+            {
+                HideCircles();
             }
         }
 
@@ -104,6 +112,8 @@ namespace RomenoCompany
         {
             if (_fingerCoroutine != null) StopCoroutine(_fingerCoroutine);
             if (_fingerTweener != null) _fingerTweener.Kill();
+            EndFingerBounce();
+            
             _fingerTweener = _hintGroup
                 .DOFade(0, 0.2f)
                 .OnComplete(() => 

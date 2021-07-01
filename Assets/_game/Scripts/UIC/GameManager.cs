@@ -84,17 +84,26 @@ namespace RomenoCompany
                     InitSingletons();
                     if (skipIntroVideo)
                     {
-                        UIManager.Instance.GoToComposition(Composition.MAIN);
+                        OnAfterVideo();
                     }
                     else
                     {
                         var w = UIManager.Instance.GetWidget<VideoWidget>();
-                        w.ShowForVideo(DB.Instance.videos.items["start"], () =>
-                        {
-                            UIManager.Instance.GoToComposition(Composition.MAIN);
-                        });
+                        w.ShowForVideo(DB.Instance.videos.items["start"], OnAfterVideo);
                     }
                     break;
+            }
+        }
+
+        private void OnAfterVideo()
+        {
+            if (Inventory.instance.firstLaunch)
+            {
+                UIManager.Instance.GoToComposition(Composition.GREETINGS);
+            }
+            else
+            {
+                UIManager.Instance.GoToComposition(Composition.MAIN);
             }
         }
         

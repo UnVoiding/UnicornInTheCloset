@@ -12,7 +12,6 @@ namespace RomenoCompany
 {
     public class WinScreenWidget : Widget
     {
-        #region Fields
         [                         Header("Win Screen Widget"), SerializeField, FoldoutGroup("References")] 
         private Button developersBtn;
         [                                                       SerializeField, FoldoutGroup("References")] 
@@ -33,9 +32,6 @@ namespace RomenoCompany
         // public float em;
         // [                                        NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         // public Vector4 margins;
-
-        
-        #endregion
         
         public override void InitializeWidget()
         {
@@ -44,8 +40,8 @@ namespace RomenoCompany
             widgetType = WidgetType.WIN;
             developersBtn.onClick.AddListener(() =>
             {
-                UIManager.Instance.GoToComposition(Composition.PLAYER_PROFILE);
                 UIManager.Instance.GetWidget<ProfileScreenWidget>().showDevelopers = true;
+                UIManager.Instance.GoToComposition(Composition.PLAYER_PROFILE);
             });
         }
 
@@ -56,17 +52,18 @@ namespace RomenoCompany
             var lm = LayoutManager.Instance;
             
             captionText.fontSize = 3 * lm.esw;
-            congratsText.margin = lm.defaultMargins;
 
-            congratsText.fontSize = lm.esw;
-            congratsText.margin = lm.defaultMargins;
+            congratsText.fontSize = 1.75f * lm.esw;
             
             developersBtnText.fontSize = lm.esw;
-            developersBtnText.margin = lm.defaultMargins;
 
             vertGroup.spacing = lm.esw;
             vertGroup.padding.top = (int)lm.esw;
             vertGroup.padding.bottom = (int)lm.esw;
+            vertGroup.padding.left = (int)lm.defaultMargins.x;
+            vertGroup.padding.right = (int)lm.defaultMargins.z;
+            
+            LayoutRebuilder.ForceRebuildLayoutImmediate(vertGroup.transform as RectTransform);
         }
 
         public override void Hide(Action onComplete = null)

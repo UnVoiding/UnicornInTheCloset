@@ -13,8 +13,8 @@ namespace RomenoCompany
 {
 	public static class ToolbarCallback
 	{
-		static Type m_toolbarType = typeof(Editor).Assembly.GetType("UnityEditor.Toolbar");
-		static Type m_guiViewType = typeof(Editor).Assembly.GetType("UnityEditor.GUIView");
+		static Type m_toolbarType = typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.Toolbar");
+		static Type m_guiViewType = typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GUIView");
 		static PropertyInfo m_viewVisualTree = m_guiViewType.GetProperty("visualTree",
 			BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 		static FieldInfo m_imguiContainerOnGui = typeof(IMGUIContainer).GetField("m_OnGUIHandler",

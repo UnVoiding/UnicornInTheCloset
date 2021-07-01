@@ -663,6 +663,7 @@ namespace RomenoCompany
                 UIManager.Instance.FTUEWidget.Show(() =>
                 {
                     UIManager.Instance.FTUEWidget.PresentFTUE(answer.gameObject, FTUEType.CHAT_SCREEN_CHOOSE_ANSWER);
+                    answer.text.SetAllDirty();
                 });
             }
 

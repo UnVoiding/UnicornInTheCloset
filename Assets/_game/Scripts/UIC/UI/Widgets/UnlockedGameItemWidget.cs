@@ -44,7 +44,8 @@ namespace RomenoCompany
                 if (shownAsItemInfo)
                 {
                     var ftueState = Inventory.Instance.ftueState.Value;
-                    if (ftueState.needShowProfileUnicornAdvicesFtue)
+                    if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ADVICES) &&
+                        ftueState.needShowProfileUnicornAdvicesFtue)
                     {
                         UIManager.Instance.FTUEWidget.Show();
                         UIManager.Instance.FTUEWidget.PresentFTUE(

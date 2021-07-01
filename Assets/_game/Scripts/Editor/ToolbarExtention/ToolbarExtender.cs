@@ -17,7 +17,7 @@ namespace RomenoCompany
 
 		static ToolbarExtender()
 		{
-			Type toolbarType = typeof(Editor).Assembly.GetType("UnityEditor.Toolbar");
+			Type toolbarType = typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.Toolbar");
 			FieldInfo toolIcons = toolbarType.GetField("s_ShownToolIcons",
 				BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
 			var array = ( Array ) toolIcons.GetValue( null );

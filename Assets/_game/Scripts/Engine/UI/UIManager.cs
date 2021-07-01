@@ -14,8 +14,6 @@ namespace RomenoCompany
         [                                                                   SerializeField, FoldoutGroup("References")]
         public Canvas mainCanvas;
         [                                                                   SerializeField, FoldoutGroup("References")]
-        public Image ftueFade = null;
-        [                                                                   SerializeField, FoldoutGroup("References")]
         public Transform fadeBack = null;
         [                                                                   SerializeField, FoldoutGroup("References")]
         public Camera gameOverUICamera;
@@ -98,12 +96,6 @@ namespace RomenoCompany
             {
                 compositionsRuntime[kv.Key] = new List<Widget>();
                 compositionsRuntime[kv.Key].AddRange(widgets.FindAll(s => compositions[kv.Key].Contains(s.widgetType)));
-            }
-
-            if (ftueFade != null)
-            {
-                ftueFade.gameObject.SetActive(false);
-                ftueFade.transform.SetAsLastSibling();
             }
         }
 

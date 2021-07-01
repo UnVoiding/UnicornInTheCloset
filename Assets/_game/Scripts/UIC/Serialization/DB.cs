@@ -28,7 +28,6 @@ namespace RomenoCompany
         public TableImages images;
         public TableVideos videos;
         public SharedGameData sharedGameData;
-        public TMPExtraSettings tmpSettings;
         public FTUESettings ftueSettings;
 
         protected override void Setup()

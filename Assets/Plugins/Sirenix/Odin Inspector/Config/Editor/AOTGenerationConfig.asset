@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 0
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 637561399582986950
+  lastScan: 637607099835736098
   supportSerializedTypes:
   - TypeName: System.Collections.Generic.Dictionary`2[[System.Object, mscorlib],[System.Single,
       mscorlib]], mscorlib
@@ -61,6 +61,12 @@ MonoBehaviour:
       Assembly-CSharp]], mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: System.Single, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: RomenoCompany.FTUEState, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: System.Collections.Generic.GenericEqualityComparer`1[[System.String,
       mscorlib]], mscorlib
     IsCustom: 0
@@ -91,6 +97,10 @@ MonoBehaviour:
       Assembly-CSharp]], Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: RomenoCompany.PlayerPrefsData`1[[RomenoCompany.FTUEState, Assembly-CSharp]],
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: RomenoCompany.PlayerPrefsData`1[[System.Int32, mscorlib]], Assembly-CSharp
     IsCustom: 0
     Emit: 1
@@ -115,6 +125,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: RomenoCompany.TMPStyle, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Vector4, UnityEngine.CoreModule
     IsCustom: 0
     Emit: 1
   - TypeName: UnityEngine.Video.VideoClip, UnityEngine.VideoModule

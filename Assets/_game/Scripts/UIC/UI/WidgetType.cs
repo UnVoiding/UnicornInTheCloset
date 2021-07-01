@@ -25,5 +25,6 @@
         MAIN = 1, 
         CHAT = 2, 
         PLAYER_PROFILE = 3, 
+        GREETINGS = 4, 
     }
 }

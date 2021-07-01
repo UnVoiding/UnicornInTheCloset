@@ -122,6 +122,8 @@ namespace RomenoCompany
 
 		public PlayerPrefsData<bool> disableWait;
 
+		public PlayerPrefsData<bool> firstLaunch;
+
 		public PlayerPrefsData<AudioState> audioStatus;
 
 		public PlayerPrefsData<PlayerState> playerState;
@@ -139,6 +141,8 @@ namespace RomenoCompany
 			saveVersion.Save();
 			
 			disableWait.Save();
+
+			firstLaunch.Save();
 			
 			audioStatus.Save();
 
@@ -160,6 +164,8 @@ namespace RomenoCompany
 			saveVersion = new PlayerPrefsData<int>("saveVersion", 0);
 			
 			disableWait = new PlayerPrefsData<bool>("disableWait", false);
+			
+			firstLaunch = new PlayerPrefsData<bool>("firstLaunch", true);
 
 			audioStatus = new PlayerPrefsData<AudioState>("audioStatus", AudioState.CreateDefault());
 

@@ -84,7 +84,7 @@ namespace RomenoCompany
         {
             Debug.Log($"~~~~~~~~~~~ Profile Screen Show is called at {Time.frameCount}");
 
-            tabController.tabToggles[2].toggle.interactable = Inventory.Instance.worldState.Value.lawyerFinished; 
+            tabController.ShowTab(2, Inventory.Instance.worldState.Value.lawyerFinished); 
 
             base.Show(onComplete);
 
@@ -100,8 +100,9 @@ namespace RomenoCompany
             
             var ftueState = Inventory.Instance.ftueState.Value;
             
-            if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS) && 
-                ftueState.needShowProfileItemsFtue)
+            if ((!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS)
+                ||!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEM_INFO)) 
+                && ftueState.needShowProfileItemsFtue)
             {
                 UIManager.Instance.FTUEWidget.Show(() =>
                 {

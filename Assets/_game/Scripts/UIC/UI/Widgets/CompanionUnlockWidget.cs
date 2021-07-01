@@ -79,6 +79,8 @@ namespace RomenoCompany
 
             float esw = LayoutManager.Instance.esw;
             var margin = LayoutManager.Instance.defaultMargins;
+
+            float maxHeight = 375;
             
             foreach (var cid in unlockedCompanionIds)
             {
@@ -91,7 +93,7 @@ namespace RomenoCompany
                 ucEntry.nameText.margin = Vector4.zero;
                 
                 ucEntry.image.sprite = companionState.Data.mainScreenImage;
-                this.unlockedCompanions.Add(ucEntry);
+                unlockedCompanions.Add(ucEntry);
             }
             
             Show();
@@ -100,6 +102,20 @@ namespace RomenoCompany
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
             LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+
+            foreach (var ucEntry in unlockedCompanions)
+            {
+                float height = (ucEntry.transform as RectTransform).rect.size.y;
+                Debug.Log($"ucEntry y: {height}");
+                if (maxHeight < height)
+                {
+                    maxHeight = height;
+                }
+            }
+
+            contentRoot.cellSize = new Vector2(contentRoot.cellSize.x, maxHeight);
+
             LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
         }
 

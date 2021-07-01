@@ -31,7 +31,7 @@ namespace RomenoCompany
 
     public class PopupInspector : EditorWindow
     {
-        private Editor _editor = null;
+        private UnityEditor.Editor _editor = null;
         private Vector2 _scroll = Vector2.zero;
         public static void Inspect(Object target)
         {

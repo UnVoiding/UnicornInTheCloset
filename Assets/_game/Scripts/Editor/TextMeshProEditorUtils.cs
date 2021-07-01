@@ -19,7 +19,7 @@ namespace RomenoCompany
             w.Show();
         }
      
-        // бросил так и не дописал
+        // TODO: finish
         void OnGUI()
         {
             EditorGUILayout.Space();

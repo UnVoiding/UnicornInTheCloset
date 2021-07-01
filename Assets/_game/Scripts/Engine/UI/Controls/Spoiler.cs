@@ -17,6 +17,10 @@ namespace RomenoCompany
         [                                                           FoldoutGroup("References")] 
         public LayoutElement contentRoot;
         [                                                           FoldoutGroup("References")] 
+        public Image toggleImage;
+        [                                                           FoldoutGroup("References")] 
+        public Image contentImage;
+        [                                                           FoldoutGroup("References")] 
         public TMP_Text spoilerText;
         [                                                           FoldoutGroup("References")] 
         public TMP_Text captionText;
@@ -24,10 +28,14 @@ namespace RomenoCompany
         [                                                           FoldoutGroup("Settings")] 
         public bool isOpen = false;
         [                                                           FoldoutGroup("Settings")] 
+        public Color openedColor = Color.white;
+        [                                                           FoldoutGroup("Settings")] 
+        public Color closedColor = Color.white;
+        [                                                           FoldoutGroup("Settings")] 
         public event Action onSwitchOnOff;
 
         
-        public void Init()
+        public virtual void Init()
         {
             isOpen = false;
             openSpoiler.gameObject.SetActive(true);
@@ -36,9 +44,14 @@ namespace RomenoCompany
             contentRoot.ignoreLayout = true;
 
             spoilerText.fontSize = LayoutManager.Instance.esw;
+            spoilerText.margin = LayoutManager.Instance.defaultMargins;
+
             captionText.fontSize = LayoutManager.Instance.esw;
+            captionText.margin = LayoutManager.Instance.defaultMargins;
 
             openCloseBtn.onClick.AddListener(Switch);
+            
+            UpdateColor();
         }
 
         public virtual void Switch()
@@ -50,8 +63,16 @@ namespace RomenoCompany
             // contentRoot.gameObject.SetActive(isOpen);
             //
             // contentRoot.ForceUpdateRectTransforms();
+
+            UpdateColor();
             
             onSwitchOnOff?.Invoke();
+        }
+
+        private void UpdateColor()
+        {
+            toggleImage.color = isOpen ? openedColor : closedColor;
+            contentImage.color = isOpen ? openedColor : closedColor;
         }
 
         public void SetCaption(string text)

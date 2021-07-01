@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6886792, g: 0.1786668, b: 0.1786668, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -916,9 +916,13 @@ MonoBehaviour:
   openSpoiler: {fileID: 2521411422511804427}
   closeSpoiler: {fileID: 3813779757926479286}
   contentRoot: {fileID: 8000214073039905623}
+  toggleImage: {fileID: 6502872213491049626}
+  contentImage: {fileID: 8169652080021391740}
   spoilerText: {fileID: 8381158978582566140}
   captionText: {fileID: 2660267577951008032}
   isOpen: 0
+  openedColor: {r: 1, g: 1, b: 1, a: 1}
+  closedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &7863376643990834577
 MonoBehaviour:
   m_ObjectHideFlags: 0

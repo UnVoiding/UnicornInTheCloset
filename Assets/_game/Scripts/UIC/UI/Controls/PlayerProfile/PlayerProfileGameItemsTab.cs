@@ -44,17 +44,22 @@ namespace RomenoCompany
         protected override void OnActivate(bool activate)
         {
             base.OnActivate(activate);
-            
-            var ftueState = Inventory.Instance.ftueState.Value;
-            if (!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS)
-                && ftueState.needShowProfileItemsFtue)
-            {
-                UIManager.Instance.FTUEWidget.WithdrawFTUE();
-                ftueState.SetFTUE(FTUEType.PROFILE_SCREEN_ITEMS, true);
-                Inventory.Instance.ftueState.Save();
 
-                UIManager.Instance.FTUEWidget.PresentFTUE(gameItemBtns[0].gameObject, FTUEType.PROFILE_SCREEN_ITEM_INFO);
-            }        }
+            if (activate)
+            {
+                var ftueState = Inventory.Instance.ftueState.Value;
+                if ((!ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS)
+                    || !ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEM_INFO))
+                    && ftueState.needShowProfileItemsFtue)
+                {
+                    UIManager.Instance.FTUEWidget.WithdrawFTUE();
+                    ftueState.SetFTUE(FTUEType.PROFILE_SCREEN_ITEMS, true);
+                    Inventory.Instance.ftueState.Save();
+
+                    UIManager.Instance.FTUEWidget.PresentFTUE(gameItemBtns[0].gameObject, FTUEType.PROFILE_SCREEN_ITEM_INFO);
+                }        
+            }
+        }
     }
 }
 

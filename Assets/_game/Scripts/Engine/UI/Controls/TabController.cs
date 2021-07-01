@@ -94,6 +94,11 @@ namespace RomenoCompany
             ActivateTab(0);
         }
 
+        public void ShowTab(int i, bool show)
+        {
+            tabToggles[i].gameObject.SetActive(show);
+        }
+
         public void ActivateTab(int i)
         {
             tabToggles[i].toggle.isOn = true;
