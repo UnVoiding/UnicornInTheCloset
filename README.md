@@ -1,2 +1,3 @@
-# UnicornInTheCloset11
-yy
+# UnicornInTheCloset
+
+A visual novel LGBTQ+ oriented Unity game for mobile
