@@ -69,9 +69,9 @@ namespace RomenoCompany
         {
             base.OnCompositionChanged();
             var camera = UIManager.Instance.gameOverUICamera;
-            camera.fieldOfView = Eye.Instance.Camera.fieldOfView;
-            camera.transform.position = Eye.Instance.Camera.transform.position;
-            camera.transform.rotation = Eye.Instance.Camera.transform.rotation;
+            // camera.fieldOfView = Eye.Instance.Camera.fieldOfView;
+            // camera.transform.position = Eye.Instance.Camera.transform.position;
+            // camera.transform.rotation = Eye.Instance.Camera.transform.rotation;
         }
 
         // public void PlayGetTokensAnimation(Transform parent, GameObject widget, int count, int overallTokensValue, float dist = 7)

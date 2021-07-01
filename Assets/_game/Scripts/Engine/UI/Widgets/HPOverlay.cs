@@ -102,10 +102,10 @@ namespace RomenoCompany
                 RootCanvas = GetComponentInParent<Canvas>();
             }
 
-            foreach (var item in _elements)
-            {
-                item.Process(Eye.Instance.Camera, this);
-            }
+            // foreach (var item in _elements)
+            // {
+            //     item.Process(Eye.Instance.Camera, this);
+            // }
         }
 
         public T Add<T>(WorldUIKey key) where T : HPOverlayBaseObject

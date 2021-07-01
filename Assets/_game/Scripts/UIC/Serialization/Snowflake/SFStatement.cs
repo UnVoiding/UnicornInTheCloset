@@ -189,8 +189,8 @@ namespace RomenoCompany
                 adviceState.found = true;
                 Inventory.Instance.worldState.Save();
                 
-                Inventory.Instance.ftueState.Value.needShowProfileUnicornAdvicesFtue = true;
-                Inventory.Instance.ftueState.Save();
+                // Inventory.Instance.ftueState.Value.needShowProfileUnicornAdvicesFtue = true;
+                // Inventory.Instance.ftueState.Save();
 
                 if (UIManager.Instance.ChatWidget.currentCompanion.id == CompanionData.ItemID.LAWYER)
                 {
@@ -219,7 +219,7 @@ namespace RomenoCompany
                 var aw = UIManager.Instance.GetWidget<AdviceWidget>();
                 aw.onClose = OnModalClose;
                 aw.ShowWithAdvice(adviceState.data.text);
-                UICAudioManager.Instance.PlayReceiveItemSound();
+                UICAudioManager.Instance.PlayAdviceSound();
             }
         }
 
@@ -247,7 +247,9 @@ namespace RomenoCompany
             var itemState = Inventory.Instance.worldState.Value.GetPlayerItem(itemId);
             itemState.found = true;
             Inventory.Instance.worldState.Save();
-
+            
+            Inventory.Instance.ftueState.Value.needShowProfileUnicornAdvicesFtue = true;
+            
             Inventory.Instance.ftueState.Value.needShowProfileItemsFtue = true;
             Inventory.Instance.ftueState.Save();
         }
@@ -260,7 +262,7 @@ namespace RomenoCompany
             var ugiw = UIManager.Instance.GetWidget<UnlockedGameItemWidget>();
             ugiw.onClose = OnCloseModal;
             ugiw.ShowForItem(itemState.Data, true);
-            UICAudioManager.Instance.PlayAdviceSound();
+            UICAudioManager.Instance.PlayReceiveItemSound();
         }
 
         public void OnCloseModal()
