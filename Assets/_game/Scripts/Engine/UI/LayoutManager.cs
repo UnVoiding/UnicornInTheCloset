@@ -12,7 +12,7 @@ namespace RomenoCompany
         [                                     NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
         public float esw;
         [                                     NonSerialized, ReadOnly, ShowInInspector, FoldoutGroup("Runtime")] 
-        public Vector4 defaultMargins;
+        public Vector4 defaultMargins; // left, top, right, bottom
 
         protected override void Setup()
         {

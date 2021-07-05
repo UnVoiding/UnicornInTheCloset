@@ -23,25 +23,6 @@ namespace RomenoCompany
         [                Header("Profile Screen Widget"), SerializeField, FoldoutGroup("Settings")] 
         public bool showDevelopers = false;
 
-        private void Awake()
-        {
-            Debug.Log($"~~~~~~~~~~~ Profile Screen Awake is called at {Time.frameCount}");
-        }
-
-        private void Start()
-        {
-            Debug.Log($"~~~~~~~~~~~ Profile Screen Start is called at {Time.frameCount}");
-        }
-
-        private bool firstUpdate = true;
-        private void Update()
-        {
-            if (firstUpdate)
-            {
-                Debug.Log($"~~~~~~~~~~~ Profile Screen first Update is called at {Time.frameCount}");
-                firstUpdate = false;
-            }
-        }
         
         public override void InitializeWidget()
         {
@@ -78,12 +59,12 @@ namespace RomenoCompany
 
             PlayerProfileLawyerTab t3 = (PlayerProfileLawyerTab) tabController.tabs[2];
             t3.Populate();
+            
+            tabController.ActivateTab(0);
         }
 
         public override void Show(Action onComplete = null)
         {
-            Debug.Log($"~~~~~~~~~~~ Profile Screen Show is called at {Time.frameCount}");
-
             tabController.ShowTab(2, Inventory.Instance.worldState.Value.lawyerFinished); 
 
             base.Show(onComplete);

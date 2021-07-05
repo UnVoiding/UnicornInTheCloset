@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2105529219900726321}
   - component: {fileID: 3315717104950104306}
   - component: {fileID: 7450727648071653208}
+  - component: {fileID: 4756651241597164498}
   m_Layer: 5
   m_Name: GreetingsText
   m_TagString: Untagged
@@ -34,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.12356251}
   m_AnchorMax: {x: 1, y: 0.8952032}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0.00024414062}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3315717104950104306
@@ -129,11 +130,11 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: 18
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -164,6 +165,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4756651241597164498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667924001570719654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958da37a395a41ab9b5bb336cbe98e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  style: main
 --- !u!1 &1520343767201541581
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,8 +360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 27.9}
-  m_SizeDelta: {x: 0, y: -55.735764}
+  m_AnchoredPosition: {x: 0, y: 16.2}
+  m_SizeDelta: {x: 0, y: -32.418198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6554878341861508771
 CanvasRenderer:
@@ -412,7 +426,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -440,7 +454,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -3.6926267, y: 0, z: 0, w: 0}
+  m_margin: {x: 9.798159, y: 0, z: 19.346924, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -482,7 +496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.12356251}
-  m_AnchoredPosition: {x: 0, y: 0.000022888}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.000030517578, y: -129.99982}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &778068982850473842
@@ -567,7 +581,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   text: {fileID: 2568178078603888768}
-  clickedTextOffset: 30
+  clickedTextOffset: 20
 --- !u!1 &6793330119313493714
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ namespace RomenoCompany
         [                                                                 FoldoutGroup("Runtime")]
         private int forceUpdateFrame = -1;
         
+        
         public override void Init(TabToggle tabToggle, TabController controller)
         {
             base.Init(tabToggle, controller);
@@ -65,6 +66,8 @@ namespace RomenoCompany
             {
                 a.gameObject.SetActive(a.adviceState.found);
             }
+
+            OnActivate(tabToggle.toggle.isOn);
         }
 
         private void Update()
@@ -82,14 +85,18 @@ namespace RomenoCompany
 
             if (activate)
             {
-                if (advices.Count > 0)
+                var w = UIManager.Instance.GetWidget<ProfileScreenWidget>();
+                if (w.shown || w.showing)
                 {
-                    LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
-                    LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
-                    LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                    if (advices.Count > 0)
+                    {
+                        LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                        LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                        LayoutRebuilder.ForceRebuildLayoutImmediate(contentRootRectTransform);
+                    }
                 }
-
-                if (UIManager.Instance.GetWidget<ProfileScreenWidget>().shown)
+                
+                if (w.shown)
                 {
                     var ftueState = Inventory.Instance.ftueState.Value;
                     if (ftueState.GetFTUE(FTUEType.PROFILE_SCREEN_ITEMS)

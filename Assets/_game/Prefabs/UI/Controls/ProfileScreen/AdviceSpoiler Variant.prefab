@@ -347,6 +347,16 @@ PrefabInstance:
       propertyPath: m_VerticalAlignment
       value: 4096
       objectReference: {fileID: 0}
+    - target: {fileID: 2660267577951008032, guid: f97dcb661ee4363418ead796db10a8cf,
+        type: 3}
+      propertyPath: m_wordWrappingRatios
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660267577951008032, guid: f97dcb661ee4363418ead796db10a8cf,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3208408013928631875, guid: f97dcb661ee4363418ead796db10a8cf,
         type: 3}
       propertyPath: m_IsActive
@@ -755,6 +765,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381158978582566140, guid: f97dcb661ee4363418ead796db10a8cf,
+        type: 3}
+      propertyPath: m_wordWrappingRatios
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381158978582566140, guid: f97dcb661ee4363418ead796db10a8cf,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8381158978582566140, guid: f97dcb661ee4363418ead796db10a8cf,
         type: 3}

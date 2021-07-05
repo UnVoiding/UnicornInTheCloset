@@ -33,12 +33,23 @@ namespace RomenoCompany
         [                                                       SerializeField, FoldoutGroup("References")] 
         private TMP_Text okBtnSingleText;
         
+        [                                                       SerializeField, FoldoutGroup("Runtime")] 
+        private Vector4 okBtnMargin;
+        [                                                       SerializeField, FoldoutGroup("Runtime")] 
+        private Vector4 okBtnSingleMargin;
+        [                                                       SerializeField, FoldoutGroup("Runtime")] 
+        private Vector4 cancelBtnMargin;
+        
         // [                            Header("Rename Player Widget"), SerializeField, FoldoutGroup("Settings")] 
         // private float typingAnimationSpeed = 0.33f;
         
         public override void InitializeWidget()
         {
             base.InitializeWidget();
+
+            okBtnMargin = okBtnText.margin;
+            okBtnSingleMargin = okBtnSingleText.margin;
+            cancelBtnMargin = cancelBtnText.margin;
 
             widgetType = WidgetType.RENAME_PLAYER;
             okBtnSingle.onClick.AddListener(OnOk);
@@ -125,16 +136,16 @@ namespace RomenoCompany
             (inputField.placeholder as TMP_Text).margin = defaultMargins;
             
             horizGroup.spacing = esw;
-            horizGroup.padding.top = (int)esw;
+            // horizGroup.padding.top = (int)esw;
             
             okBtnText.fontSize = esw;
-            okBtnText.margin = defaultMargins;
+            okBtnText.margin = okBtnMargin + defaultMargins;
 
             okBtnSingleText.fontSize = esw;
-            okBtnSingleText.margin = defaultMargins;
+            okBtnSingleText.margin = okBtnSingleMargin + defaultMargins;
 
             cancelBtnText.fontSize = esw;
-            cancelBtnText.margin = defaultMargins;
+            cancelBtnText.margin = cancelBtnMargin + defaultMargins;
         }
 
         public void ShowFirstTime()

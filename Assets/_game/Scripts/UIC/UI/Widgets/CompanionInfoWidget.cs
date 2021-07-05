@@ -60,6 +60,8 @@ namespace RomenoCompany
             }
             
             tabController.tabToggles[0].toggle.targetGraphic.color = new Color(1, 1, 1, 0);
+            
+            tabController.ActivateTab(0);
         }
 
         private UnityAction<bool> OnTabToggled(Toggle toggle)

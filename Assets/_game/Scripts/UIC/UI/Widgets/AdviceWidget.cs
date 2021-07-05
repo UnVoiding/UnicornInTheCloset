@@ -19,6 +19,8 @@ namespace RomenoCompany
         [                                                                  FoldoutGroup("References")] 
         public TMP_Text unicornAdviceText;
         [                                                                  FoldoutGroup("References")] 
+        public VerticalLayoutGroup innerVG;
+        [                                                                  FoldoutGroup("References")] 
         public TMP_Text closeBtnText;
         [                                                                  FoldoutGroup("References")] 
         public RectTransform mainPanel;
@@ -29,11 +31,15 @@ namespace RomenoCompany
 
         [                             NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public Action onClose;
+        [                             NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public Vector4 closeBtnMargin;
 
         
         public override void InitializeWidget()
         {
             base.InitializeWidget();
+
+            closeBtnMargin = closeBtnText.margin;
             
             widgetType = WidgetType.ADVICE;
             closeBtn.onClick.AddListener(() =>
@@ -48,13 +54,15 @@ namespace RomenoCompany
 
             float esw = LayoutManager.Instance.esw;
             var defaultMargin = LayoutManager.Instance.defaultMargins;
+
+            innerVG.padding.left = (int)defaultMargin.x;
+            innerVG.padding.right = (int)defaultMargin.z;
             
             adviceText.text = text;
             adviceText.fontSize = esw;
-            adviceText.margin = defaultMargin;
 
             closeBtnText.fontSize = esw;
-            closeBtnText.margin = defaultMargin;
+            closeBtnText.margin = closeBtnMargin + defaultMargin;
             
             unicornAdviceText.fontSize = 1.333f * esw;
             
@@ -64,7 +72,7 @@ namespace RomenoCompany
             LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
             LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
             LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
-            // LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
 
             // layoutRebuild = true;
             

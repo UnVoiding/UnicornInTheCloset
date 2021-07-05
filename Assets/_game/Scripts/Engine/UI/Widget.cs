@@ -111,6 +111,7 @@ namespace RomenoCompany
             }
         }
         
+        [Button]
         public virtual void Hide(Action onComplete = null)
         {
             if (hidding) return;

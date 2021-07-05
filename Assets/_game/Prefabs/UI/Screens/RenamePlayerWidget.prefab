@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 35c58616b2129a9488040c9c999277fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1027fa15302aa6644916db68560f4b60, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -125,10 +125,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 35c58616b2129a9488040c9c999277fc,
+    m_HighlightedSprite: {fileID: 21300000, guid: 1027fa15302aa6644916db68560f4b60,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 517ece45c8b9a9b4eb0049be34c13512, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 35c58616b2129a9488040c9c999277fc, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 3d31e49a59c46954b975c30059feecf7, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 1027fa15302aa6644916db68560f4b60, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -142,7 +142,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   text: {fileID: 2883139440003050541}
-  clickedTextOffset: 17
+  clickedTextOffset: 30
 --- !u!1 &2101255247012348720
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 972c905e2611f2848957ff275fc44f8a, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -846,7 +846,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 18
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 11.268494, y: 0, z: 20.659729, w: 35.68531}
+  m_margin: {x: 11.268494, y: 0, z: 20.659729, w: 32.923084}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -963,7 +963,7 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 0
-    m_Bottom: 10
+    m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: -25
   m_ChildForceExpandWidth: 1
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 18
@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 11.268494, y: 0, z: 20.659729, w: 35.68531}
+  m_margin: {x: 11.268494, y: 0, z: 20.659729, w: 29.11959}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 18
@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 16.904541, y: 0, z: 15.024902, w: 31.929543}
+  m_margin: {x: 16.904541, y: 0, z: 15.505051, w: 32.183018}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1361,6 +1361,9 @@ MonoBehaviour:
   inputField: {fileID: 6779989943540958237}
   okBtnSingle: {fileID: 2047666619669942262}
   okBtnSingleText: {fileID: 7352117426309136926}
+  okBtnMargin: {x: 0, y: 0, z: 0, w: 0}
+  okBtnSingleMargin: {x: 0, y: 0, z: 0, w: 0}
+  cancelBtnMargin: {x: 0, y: 0, z: 0, w: 0}
 --- !u!223 &1021973816223072516
 Canvas:
   m_ObjectHideFlags: 0
@@ -1761,7 +1764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6bf8e06f10d67bf449628b841212c039, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56deb3dfb77b81c44998aeb589310827, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1819,10 +1822,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6bf8e06f10d67bf449628b841212c039,
+    m_HighlightedSprite: {fileID: 21300000, guid: 56deb3dfb77b81c44998aeb589310827,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 5d0fb6f6244c6c54b95deacbe45f4453, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6bf8e06f10d67bf449628b841212c039, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 369d85e4e19ce3149be4505d82faf33c, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 56deb3dfb77b81c44998aeb589310827, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1836,7 +1839,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   text: {fileID: 7352117426309136926}
-  clickedTextOffset: 10
+  clickedTextOffset: 20
 --- !u!1 &8605745921063079926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,7 +1907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8db604bb51459f047b4b87d243ad3f54, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 535f3da7259e5fe48985687b6819db72, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1962,10 +1965,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 8db604bb51459f047b4b87d243ad3f54,
+    m_HighlightedSprite: {fileID: 21300000, guid: 535f3da7259e5fe48985687b6819db72,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: bc693ffaddf7769458ce5b6ce7d6798c, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 8db604bb51459f047b4b87d243ad3f54, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: e21e0676c637f3d41b4ca23d6d5c2f46, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 535f3da7259e5fe48985687b6819db72, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1979,4 +1982,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   text: {fileID: 1768501615564779907}
-  clickedTextOffset: 17
+  clickedTextOffset: 30

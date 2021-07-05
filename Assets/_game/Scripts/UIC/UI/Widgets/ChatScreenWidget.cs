@@ -653,7 +653,6 @@ namespace RomenoCompany
 
             answer.SetPassage(p);
             answer.text.fontSize = LayoutManager.Instance.esw;
-            answer.text.margin = LayoutManager.Instance.defaultMargins; 
             currentAnswers.Add(answer);
             
             var ftueState = Inventory.Instance.ftueState.Value;

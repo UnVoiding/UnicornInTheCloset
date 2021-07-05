@@ -12,7 +12,7 @@ namespace RomenoCompany
     public class UnlockedGameItemWidget : Widget
     {
         [                                         Header("UnlockedGameItemWidget"), FoldoutGroup("References")] 
-        public RectTransform mainPanel;
+        public VerticalLayoutGroup mainPanel;
         [                                                                           FoldoutGroup("References")] 
         public TMP_Text itemName;
         [                                                                           FoldoutGroup("References")] 
@@ -30,11 +30,15 @@ namespace RomenoCompany
         public Action onClose;
         [                                    NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
         public bool shownAsItemInfo;
+        [                                    NonSerialized, ShowInInspector, ReadOnly, FoldoutGroup("Runtime")] 
+        public Vector4 closeBtnMargin;
 
         
         public override void InitializeWidget()
         {
             base.InitializeWidget();
+
+            closeBtnMargin = closeBtnText.margin;
 
             widgetType = WidgetType.GAME_ITEM;
             closeBtn.onClick.AddListener(() =>
@@ -72,13 +76,17 @@ namespace RomenoCompany
             itemDescription.margin = new Vector4(defaultMargins.x, defaultMargins.y, defaultMargins.z, defaultMargins.w + 20);
 
             closeBtnText.fontSize = esw;
-            closeBtnText.margin = defaultMargins;
+            closeBtnText.margin = closeBtnMargin + defaultMargins;
+
+            mainPanel.padding.left = (int)defaultMargins.x;
+            mainPanel.padding.right = (int)defaultMargins.z;
             
             Show();
-            
-            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel);
+
+            var rt = mainPanel.transform as RectTransform;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
         }
 
         public override void Show(System.Action onComplete = null)
