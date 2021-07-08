@@ -45,6 +45,8 @@ namespace RomenoCompany
                 ftueState.SetFTUE(FTUEType.CHAT_SCREEN_CHOOSE_ANSWER, true);
                 Inventory.Instance.ftueState.Save();
                 
+                UIManager.Instance.ChatWidget.answersScroll.vertical = true;
+                
                 UIManager.Instance.FTUEWidget.Hide();
             }
         }
@@ -60,7 +62,7 @@ namespace RomenoCompany
             var t = gameObject.transform;  
             
             // first set parent then enable
-            t.SetParent(UIManager.Instance.ChatWidget.answerRoot, false);
+            t.SetParent(UIManager.Instance.ChatWidget.answerRoot.transform, false);
             t.localPosition = Vector3.zero;
             t.localScale = Vector3.one;
             gameObject.SetActive(true);

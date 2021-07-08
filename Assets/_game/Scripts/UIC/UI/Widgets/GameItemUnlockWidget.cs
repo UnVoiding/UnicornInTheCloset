@@ -9,7 +9,7 @@ using Button = UnityEngine.UI.Button;
 
 namespace RomenoCompany
 {
-    public class UnlockedGameItemWidget : Widget
+    public class GameItemUnlockWidget : Widget
     {
         [                                         Header("UnlockedGameItemWidget"), FoldoutGroup("References")] 
         public VerticalLayoutGroup mainPanel;
@@ -53,7 +53,7 @@ namespace RomenoCompany
                     {
                         UIManager.Instance.FTUEWidget.Show();
                         UIManager.Instance.FTUEWidget.PresentFTUE(
-                            UIManager.Instance.GetWidget<ProfileScreenWidget>().tabController.tabToggles[0].gameObject, 
+                            UIManager.Instance.GetWidget<PlayerProfileScreenWidget>().tabController.tabToggles[0].gameObject, 
                             FTUEType.PROFILE_SCREEN_ADVICES);
                     }
                 }

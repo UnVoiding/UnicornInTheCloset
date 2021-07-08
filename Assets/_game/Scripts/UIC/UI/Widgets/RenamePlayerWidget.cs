@@ -93,7 +93,7 @@ namespace RomenoCompany
                 Inventory.Instance.playerState.Save();
                 
                 UIManager.Instance.GetWidget<MainScreenWidget>().UpdateName();
-                UIManager.Instance.GetWidget<ProfileScreenWidget>().UpdateName();
+                UIManager.Instance.GetWidget<PlayerProfileScreenWidget>().UpdateName();
         
                 if (okBtnSingle.gameObject.activeInHierarchy)
                 {
@@ -135,7 +135,7 @@ namespace RomenoCompany
             inputField.textComponent.margin = defaultMargins;
             (inputField.placeholder as TMP_Text).margin = defaultMargins;
             
-            horizGroup.spacing = esw;
+            // horizGroup.spacing = esw;
             // horizGroup.padding.top = (int)esw;
             
             okBtnText.fontSize = esw;

@@ -259,7 +259,7 @@ namespace RomenoCompany
             finished = false;
 
             var itemState = Inventory.Instance.worldState.Value.GetPlayerItem(itemId);
-            var ugiw = UIManager.Instance.GetWidget<UnlockedGameItemWidget>();
+            var ugiw = UIManager.Instance.GetWidget<GameItemUnlockWidget>();
             ugiw.onClose = OnCloseModal;
             ugiw.ShowForItem(itemState.Data, true);
             UICAudioManager.Instance.PlayReceiveItemSound();
@@ -269,7 +269,7 @@ namespace RomenoCompany
         {
             finished = true;
             
-            var ugiw = UIManager.Instance.GetWidget<UnlockedGameItemWidget>();
+            var ugiw = UIManager.Instance.GetWidget<GameItemUnlockWidget>();
             ugiw.onClose = null;
         }
     }

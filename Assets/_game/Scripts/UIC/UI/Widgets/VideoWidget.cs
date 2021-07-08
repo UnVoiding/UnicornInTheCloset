@@ -36,6 +36,8 @@ namespace RomenoCompany
             widgetType = WidgetType.VIDEO;
             closeBtn.onClick.AddListener(() =>
             {
+                videoPlayer.Stop();
+                ClearOutRenderTexture(renderTexture);
                 Hide(onVideoEnded);
             });
 
@@ -47,6 +49,8 @@ namespace RomenoCompany
 
         public void ShowForVideo(VideoClip videoClip, Action onVideoEnded = null)
         {
+            ClearOutRenderTexture(renderTexture);
+            
             this.onVideoEnded = onVideoEnded;
             this.videoClip = videoClip;
             requestedToPlay = false;
@@ -60,6 +64,14 @@ namespace RomenoCompany
             
             videoImage.texture = renderTexture;
             videoPlayer.targetTexture = renderTexture;
+        }
+        
+        public void ClearOutRenderTexture(RenderTexture renderTexture)
+        {
+            RenderTexture rt = RenderTexture.active;
+            RenderTexture.active = renderTexture;
+            GL.Clear(true, true, Color.clear);
+            RenderTexture.active = rt;
         }
 
         public void WidgetShown()
@@ -81,26 +93,26 @@ namespace RomenoCompany
             // }
         }
         
-        private void Update()
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Debug.LogWarning("~~~~ Space");
-                videoPlayer.Play();
-            }
-            // if (shown && requestedToPlay && videoPlayer.isPrepared)
-            // {
-            //     videoPlayer.Play();
-            //
-            //     // if (imageTweener != null) imageTweener.Kill();
-            //     // imageTweener = image.DOFade(0, 0.3f);
-            //
-            //     // if (videoImageTweener != null) videoImageTweener.Kill();
-            //     // videoImageTweener = videoImage.DOFade(1, 0.3f);
-            //     
-            //     requestedToPlay = false;
-            // }
-        }
+        // private void Update()
+        // {
+        //     if (Input.GetKey(KeyCode.Space))
+        //     {
+        //         Debug.LogWarning("~~~~ Space");
+        //         videoPlayer.Play();
+        //     }
+        //     // if (shown && requestedToPlay && videoPlayer.isPrepared)
+        //     // {
+        //     //     videoPlayer.Play();
+        //     //
+        //     //     // if (imageTweener != null) imageTweener.Kill();
+        //     //     // imageTweener = image.DOFade(0, 0.3f);
+        //     //
+        //     //     // if (videoImageTweener != null) videoImageTweener.Kill();
+        //     //     // videoImageTweener = videoImage.DOFade(1, 0.3f);
+        //     //     
+        //     //     requestedToPlay = false;
+        //     // }
+        // }
 
         public void VideoPrepared(VideoPlayer p)
         {
@@ -110,6 +122,8 @@ namespace RomenoCompany
 
         public void VideoEndReached(VideoPlayer p)
         {
+            videoPlayer.Stop();
+            ClearOutRenderTexture(renderTexture);
             Hide(onVideoEnded);
         }
 

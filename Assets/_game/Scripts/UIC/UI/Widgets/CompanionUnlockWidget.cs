@@ -16,7 +16,7 @@ namespace RomenoCompany
         [                                                                  FoldoutGroup("References")] 
         public GridLayoutGroup contentRoot;
         [                                                                  FoldoutGroup("References")] 
-        public RectTransform mainPanel;
+        public VerticalLayoutGroup mainPanel;
         [                                                                  FoldoutGroup("References")] 
         public TMP_Text caption;
         [                                                                  FoldoutGroup("References")] 
@@ -46,8 +46,19 @@ namespace RomenoCompany
             {
                 Hide();
             });
-            
-            float compBtnWidth = (int)((mainPanel.rect.width - btnsPerRow * contentRoot.spacing.x - contentRoot.padding.left) / btnsPerRow);
+
+            var lm = LayoutManager.Instance;
+            mainPanel.padding.left = (int)lm.defaultMargins.x;
+            mainPanel.padding.right = (int)lm.defaultMargins.z;
+
+            caption.fontSize = 1.15f * lm.esw;
+
+            var rt = mainPanel.transform as RectTransform;
+            float compBtnWidth = (int)((rt.rect.width 
+                                        - (btnsPerRow - 1) * contentRoot.spacing.x 
+                                        - contentRoot.padding.left - contentRoot.padding.right
+                                        - mainPanel.padding.left - mainPanel.padding.right
+                                        -5) / btnsPerRow);
             contentRoot.cellSize = new Vector2(compBtnWidth, 2 * compBtnWidth);
 
             unlockedCompanions = new List<UnlockedCompanion>();

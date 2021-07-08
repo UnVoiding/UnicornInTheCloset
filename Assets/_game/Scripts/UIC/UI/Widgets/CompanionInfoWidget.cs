@@ -14,7 +14,9 @@ namespace RomenoCompany
         [                                               FoldoutGroup("References")] 
         public Button closeBtn;
         [                                               FoldoutGroup("References")] 
-        public Button talkBtn;
+        public Button closeSingleBtn;
+        [                                               FoldoutGroup("References")] 
+        public RCButton talkBtn;
         [                                               FoldoutGroup("References")] 
         public TabController tabController;
 
@@ -28,6 +30,10 @@ namespace RomenoCompany
 
             widgetType = WidgetType.COMPANION_INFO;
             closeBtn.onClick.AddListener(() =>
+            {
+                Hide();
+            });
+            closeSingleBtn.onClick.AddListener(() =>
             {
                 Hide();
             });
@@ -84,6 +90,8 @@ namespace RomenoCompany
             t2.Populate(companionState.Data);
 
             talkBtn.gameObject.SetActive(showTalkBtn);
+            closeBtn.gameObject.SetActive(showTalkBtn);
+            closeSingleBtn.gameObject.SetActive(!showTalkBtn);
 
             Show(() =>
             {
@@ -99,6 +107,7 @@ namespace RomenoCompany
                 {
                     UIManager.Instance.FTUEWidget.Show();
                     UIManager.Instance.FTUEWidget.PresentFTUE(talkBtn.gameObject, FTUEType.COMPANION_SELECTION2);
+                    talkBtn.text.SetAllDirty();
                 }
             });
         }

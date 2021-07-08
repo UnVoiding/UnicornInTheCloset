@@ -22,7 +22,7 @@ namespace RomenoCompany
             image.sprite = itemState.Data.image;
             showItemInfoBtn.onClick.AddListener(() =>
             {
-                var w = UIManager.Instance.GetWidget<UnlockedGameItemWidget>();
+                var w = UIManager.Instance.GetWidget<GameItemUnlockWidget>();
                 w.ShowForItem(this.itemState.Data, false);
                 
                 var ftueState = Inventory.Instance.ftueState.Value;

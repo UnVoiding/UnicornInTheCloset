@@ -85,7 +85,7 @@ namespace RomenoCompany
 
             if (activate)
             {
-                var w = UIManager.Instance.GetWidget<ProfileScreenWidget>();
+                var w = UIManager.Instance.GetWidget<PlayerProfileScreenWidget>();
                 if (w.shown || w.showing)
                 {
                     if (advices.Count > 0)

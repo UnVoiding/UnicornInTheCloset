@@ -37,7 +37,7 @@ namespace RomenoCompany
         [                                                       SerializeField, FoldoutGroup("References")] 
         private TMP_Text companionNameText;
         [                                                       SerializeField, FoldoutGroup("References")] 
-        public RectTransform answerRoot;
+        public VerticalLayoutGroup answerRoot;
         [                                                       SerializeField, FoldoutGroup("References")] 
         public RectTransform allMessageRoot;
         [                                                       SerializeField, FoldoutGroup("References")] 
@@ -53,7 +53,11 @@ namespace RomenoCompany
         [                                                       SerializeField, FoldoutGroup("References")] 
         private TMP_Text typingText;
         [                                                       SerializeField, FoldoutGroup("References")] 
-        private ScrollRect messagesScroll;
+        public ScrollRect messagesScroll;
+        [                                                       SerializeField, FoldoutGroup("References")] 
+        public ScrollRect answersScroll;
+        [                                                       SerializeField, FoldoutGroup("References")]
+        public Image arrowDown;
         
         [                            Header("Chat Screen Widget"), SerializeField, FoldoutGroup("Settings")] 
         private float typingAnimationSpeed = 0.33f;
@@ -108,6 +112,8 @@ namespace RomenoCompany
             currentAnswers = new List<Answer>();
             
             typingText.gameObject.SetActive(false);
+            arrowDown.color = Color.white;
+            HideDownArrowHint();
 
             widgetType = WidgetType.CHAT;
             backBtn.onClick.AddListener(() =>
@@ -120,6 +126,14 @@ namespace RomenoCompany
                 CompanionInfoWidget c = UIManager.Instance.GetWidget<CompanionInfoWidget>();
                 c.ShowForCompanion(currentCompanion, false);
             });
+            
+            answersScroll.onValueChanged.AddListener((scrollPos) =>
+            {
+                if (arrowDown.gameObject.activeInHierarchy && scrollPos.y < 0.1f)
+                {
+                    HideDownArrowHint(true);
+                }
+            });
 
             tempNextAvailablePassages = new List<Passage>(5);
 
@@ -129,6 +143,8 @@ namespace RomenoCompany
         public override void Show(Action onComplete = null)
         {
             base.Show(onComplete);
+            
+            answersScroll.vertical = true;
 
             if (firstTimeShown)
             {
@@ -329,8 +345,8 @@ namespace RomenoCompany
                     // currentAnswers.Add(answer);
 
                     LayoutRebuilder.ForceRebuildLayoutImmediate(answer.rectTransform);
-                    LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
-                    LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot.transform as RectTransform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot.transform as RectTransform);
                     break;
                 case Passage.PassageType.COMPANION_MESSAGE:
                 case Passage.PassageType.COMPANION_IMAGE:
@@ -615,14 +631,33 @@ namespace RomenoCompany
                         ClearCurrentAnswers();
 
                         state = State.WAITING_FOR_ANSWER;
+                        float overallAnswerHeight = answerRoot.padding.top;
+                        bool exceedsContainer = false;
+
+                        // Debug.LogError($"AnswerZone height = {(answersScroll.transform as RectTransform).rect.size.y}");
                         for (int i = 0; i < tempNextAvailablePassages.Count; i++)
                         {
                             Answer answer = CreateAnswer(tempNextAvailablePassages[i]);
+                            LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot.transform as RectTransform);
                             LayoutRebuilder.ForceRebuildLayoutImmediate(answer.rectTransform);
+                            
+                            overallAnswerHeight += (currentAnswers[i].transform as RectTransform).rect.size.y + answerRoot.spacing;
+                            // Debug.LogError($"Answer size.y = {(currentAnswers[i].transform as RectTransform).rect.size.y}");
+                            if (exceedsContainer)
+                            {
+                                ShowDownArrowHint();
+                            }
+                            
+                            // Debug.LogError($"Overall height = {overallAnswerHeight}");
+                            if (overallAnswerHeight > (answersScroll.transform as RectTransform).rect.size.y)
+                            {
+                                // next time the answer is added it will trigger the condition to show the down arrow 
+                                exceedsContainer = true;
+                            }
                         }
 
-                        LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
-                        LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot);
+                        LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot.transform as RectTransform);
+                        LayoutRebuilder.ForceRebuildLayoutImmediate(answerRoot.transform as RectTransform);
                         break;
                     case Passage.PassageType.ADVICE:
                         if (tempNextAvailablePassages.Count > 1)
@@ -646,6 +681,40 @@ namespace RomenoCompany
             }
         }
 
+        private Tween arrowTween;
+        public float arrowPunchDistance = 1.0f;
+        public float arrowPunchMoveDuration = 1.0f;
+        public int arrowPunchVibrato = 10;
+        public float arrowPunchElasticity = 1.0f;
+        [Button]
+        public void ShowDownArrowHint()
+        {
+            arrowDown.color = Color.white;
+            arrowDown.gameObject.SetActive(true);
+            if (arrowTween != null) arrowTween.Kill();
+            arrowTween = arrowDown.transform
+                .DOPunchPosition(arrowPunchDistance * Vector3.down, arrowPunchMoveDuration, arrowPunchVibrato, arrowPunchElasticity)
+                .SetLoops(-1);
+        }
+        
+        [Button]
+        public void HideDownArrowHint(bool fadeOut = false)
+        {
+            if (fadeOut)
+            {
+                arrowDown.DOFade(0.0f, 1.0f).OnComplete(() =>
+                {
+                    arrowDown.gameObject.SetActive(false);
+                    arrowTween.Kill();
+                });
+            }
+            else
+            {
+                arrowDown.gameObject.SetActive(false);
+                arrowTween.Kill();
+            }
+        }
+
         private Answer CreateAnswer(Passage p)
         {
             Answer answer = Ocean.Instance.Get(answerPfb);
@@ -659,14 +728,31 @@ namespace RomenoCompany
             if (!ftueState.GetFTUE(FTUEType.CHAT_SCREEN_CHOOSE_ANSWER)
                 && ftueState.needShowChatScreenChooseAnswerFtue)
             {
-                UIManager.Instance.FTUEWidget.Show(() =>
+                var compInfo = UIManager.Instance.GetWidget<CompanionInfoWidget>();
+                if (compInfo.shown || compInfo.showing)
                 {
-                    UIManager.Instance.FTUEWidget.PresentFTUE(answer.gameObject, FTUEType.CHAT_SCREEN_CHOOSE_ANSWER);
-                    answer.text.SetAllDirty();
-                });
+                    compInfo.Hide(() =>
+                    {
+                        ShowAnswerFTUE(answer);
+                    });
+                }
+                else
+                {
+                    ShowAnswerFTUE(answer);
+                }
             }
 
             return answer;
+        }
+
+        private void ShowAnswerFTUE(Answer answer)
+        {
+            UIManager.Instance.FTUEWidget.Show(() =>
+            {
+                UIManager.Instance.FTUEWidget.PresentFTUE(answer.gameObject, FTUEType.CHAT_SCREEN_CHOOSE_ANSWER);
+                answer.text.SetAllDirty();
+                answersScroll.vertical = false;
+            });
         }
 
         public void PrepareNewPassagePresent()
@@ -731,6 +817,7 @@ namespace RomenoCompany
             }
                         
             currentAnswers.Clear();
+            HideDownArrowHint();
         }
 
         public void CheckAllNextAreSameType()

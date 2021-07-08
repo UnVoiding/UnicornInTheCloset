@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 
 namespace RomenoCompany
 {
-    public class ProfileScreenWidget : Widget
+    public class PlayerProfileScreenWidget : Widget
     {
         [              Header("Profile Screen Widget"), SerializeField, FoldoutGroup("References")] 
         private Button backBtn;

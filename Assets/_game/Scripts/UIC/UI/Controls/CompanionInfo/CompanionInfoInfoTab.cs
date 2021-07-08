@@ -50,10 +50,12 @@ namespace RomenoCompany
                     UIManager.Instance.FTUEWidget.WithdrawFTUE();
                     ftueState.SetFTUE(FTUEType.COMPANION_SELECTION_INFO_TAB, true);
                     Inventory.Instance.ftueState.Save();
-            
+
+                    var infoWidget = UIManager.Instance.GetWidget<CompanionInfoWidget>();
                     UIManager.Instance.FTUEWidget.PresentFTUE(
-                        UIManager.Instance.GetWidget<CompanionInfoWidget>().talkBtn.gameObject,
+                        infoWidget.talkBtn.gameObject,
                         FTUEType.COMPANION_SELECTION2);
+                    infoWidget.talkBtn.text.SetAllDirty();
                 }
             }
         }

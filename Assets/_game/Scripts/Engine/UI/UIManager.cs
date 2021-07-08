@@ -113,7 +113,7 @@ namespace RomenoCompany
                     return;
                 }
 
-                var gameItemWidget = GetWidget<UnlockedGameItemWidget>();
+                var gameItemWidget = GetWidget<GameItemUnlockWidget>();
                 if (gameItemWidget.shown || gameItemWidget.showing)
                 {
                     gameItemWidget.Hide();
@@ -147,7 +147,7 @@ namespace RomenoCompany
                     return;
                 }
                 
-                var playerProfileWidget = GetWidget<ProfileScreenWidget>();
+                var playerProfileWidget = GetWidget<PlayerProfileScreenWidget>();
                 if (playerProfileWidget.shown || playerProfileWidget.showing)
                 {
                     GoToComposition(Composition.MAIN);
