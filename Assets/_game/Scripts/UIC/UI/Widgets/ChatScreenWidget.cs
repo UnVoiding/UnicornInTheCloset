@@ -135,7 +135,7 @@ namespace RomenoCompany
                 }
             });
 
-            tempNextAvailablePassages = new List<Passage>(5);
+            tempNextAvailablePassages = new List<Passage>(8);
 
             allMessages = new List<Message>();
         }
@@ -624,7 +624,7 @@ namespace RomenoCompany
                         }
                         else
                         {
-                            PrepareNewPassagePresent();
+                            PrepareNewPassagePresent(tempNextAvailablePassages[0]);
                         }
                         break;
                     case Passage.PassageType.HERO_MESSAGE:
@@ -666,7 +666,7 @@ namespace RomenoCompany
                         }
                         else
                         {
-                            PrepareNewPassagePresent();
+                            PrepareNewPassagePresent(tempNextAvailablePassages[0]);
                             // currentPassage = tempNextAvailablePassages[0];
                             // var adivceW = UIManager.Instance.GetWidget<AdviceWidget>();
                             // adivceW.ShowWithAdvice(currentPassage.parsedText);
@@ -755,7 +755,7 @@ namespace RomenoCompany
             });
         }
 
-        public void PrepareNewPassagePresent()
+        public void PrepareNewPassagePresent(Passage which)
         {
             state = State.WAITING_TO_PRESENT_PASSAGE;
             if (Inventory.Instance.disableWait.Value)
@@ -767,7 +767,7 @@ namespace RomenoCompany
                 timeToWait = currentPassage.WaitTimeAfterExec;
             }
             time = 0;
-            currentPassage = tempNextAvailablePassages[0];
+            currentPassage = which;
             typingText.gameObject.SetActive(true);
             string continues = "";
             if (currentCompanion.Data.id == CompanionData.ItemID.PARENTS)

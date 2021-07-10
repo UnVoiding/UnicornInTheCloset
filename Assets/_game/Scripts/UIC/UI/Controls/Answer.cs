@@ -32,10 +32,10 @@ namespace RomenoCompany
         public void OnClick()
         {
             var cw = UIManager.Instance.ChatWidget;
-            cw.currentPassage = passage; 
-            cw.PresentPassage();
+            cw.currentPassage = passage;
+
+            cw.state = ChatScreenWidget.State.PRESENT_PASSAGE_BASE;
             cw.ClearCurrentAnswers();
-            cw.ContinueDialogue();
 
             var ftueState = Inventory.Instance.ftueState.Value;
             if (!ftueState.GetFTUE(FTUEType.CHAT_SCREEN_CHOOSE_ANSWER)

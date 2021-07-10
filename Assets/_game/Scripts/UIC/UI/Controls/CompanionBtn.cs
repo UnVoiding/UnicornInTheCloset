@@ -22,6 +22,10 @@ namespace RomenoCompany
         private Button mainButton;
         [                                              SerializeField, FoldoutGroup("References")]
         private Image notification;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private Sprite newDialogueNotification;
+        [                                              SerializeField, FoldoutGroup("References")]
+        private Sprite notFinishedDialogueNotification;
         
         [                                              SerializeField, FoldoutGroup("Settings")]
         public float notifSize = 0.25f;
@@ -93,7 +97,7 @@ namespace RomenoCompany
         {
             if (notifSeq != null)
             {
-                Stop();
+                StopNotifAnim();
             }
             notifSeq = DOTween.Sequence();
             
@@ -106,7 +110,7 @@ namespace RomenoCompany
         }
 
         [FoldoutGroup("Settings"), Button]
-        public void Stop()
+        public void StopNotifAnim()
         {
             notifSeq.Kill(true);
 
@@ -143,7 +147,21 @@ namespace RomenoCompany
             if (!companionState.locked)
             {
                 bool needNotif = companionState.activeDialogue != companionState.lastDialogueTaken;
-                notification.gameObject.SetActive(needNotif);
+                if (needNotif)
+                {
+                    notification.sprite = newDialogueNotification;
+                    notification.gameObject.SetActive(true);
+                }
+                else if (!companionState.ActiveDialogue.IsFinished())
+                {
+                    notification.sprite = notFinishedDialogueNotification;
+                    notification.gameObject.SetActive(true);
+                }
+                else
+                {
+                    notification.gameObject.SetActive(false);
+                }
+                    
                 // if (needNotif)
                 // {
                 //     notifSeq.Restart();

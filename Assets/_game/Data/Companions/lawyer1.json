@@ -1,4 +1,4 @@
-{
+﻿{
   "passages": [
     {
       "text": "— Что-то я нервничаю, как на приём к врачу иду.\n---\n[[— Добрый день.]]\n[[— Добрый день. Меня к вам Варя направила.]]",
@@ -17,7 +17,7 @@
       "name": "Юрист начало",
       "pid": "1",
       "position": {
-        "x": "29",
+        "x": "25",
         "y": "850"
       },
       "tags": [
@@ -1354,7 +1354,8 @@
       },
       "tags": [
         "t:p",
-        "set:lawyerFinished:1"
+        "set:lawyerFinished:1",
+        "hide:psyWomanFinished:=:1"
       ]
     },
     {
@@ -1421,7 +1422,7 @@
         "unlockDialog:13",
         "unlockPerson:18",
         "unlockDialog:17",
-        "hide:psyWomanFinished:=:1"
+        "hide:psyWomanFinished:=:0"
       ]
     },
     {
@@ -1481,7 +1482,7 @@
       },
       "tags": [
         "t:h",
-        "hide:psyWomanFinished:=:0"
+        "hide:psyWomanFinished:=:1"
       ]
     }
   ],

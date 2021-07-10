@@ -40,5 +40,13 @@ namespace RomenoCompany
                 dialogues.Add(new SFDialogue());
             }
         }
+
+        public SFDialogue ActiveDialogue
+        {
+            get
+            {
+                return dialogues[activeDialogue];
+            }
+        }
     }
 }

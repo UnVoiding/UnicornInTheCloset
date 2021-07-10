@@ -139,7 +139,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a34b867f3e54f344392a38963daf8602, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c533b2968ed1bf429678b7c9a75eb36, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -432,6 +432,10 @@ MonoBehaviour:
   unlockedState: {fileID: 3999219758085897298}
   mainButton: {fileID: 6864066352440701504}
   notification: {fileID: 4720646633846354834}
+  newDialogueNotification: {fileID: 21300000, guid: 6c533b2968ed1bf429678b7c9a75eb36,
+    type: 3}
+  notFinishedDialogueNotification: {fileID: 21300000, guid: 604aaf85a8ea67249bee6109727f8fe9,
+    type: 3}
   notifSize: 0.25
   notifOffset: {x: 0.3, y: 0.3}
   notifAnimDirection: {x: 0.3, y: 0.3, z: 0}
