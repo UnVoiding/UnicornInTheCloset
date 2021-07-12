@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TableCompanions
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -211,7 +211,7 @@ MonoBehaviour:
     emotions:
     - emotionName: main
       sprite: {fileID: 21300000, guid: f53d4c488a892cf44a1624c5515d82c8, type: 3}
-    - emotionName: horny
+    - emotionName: smirk
       sprite: {fileID: 21300000, guid: 908cbb712df9f3644ae1d194cdb05beb, type: 3}
     - emotionName: praying
       sprite: {fileID: 21300000, guid: bd2d1834667357a4c9378b5434f5caec, type: 3}

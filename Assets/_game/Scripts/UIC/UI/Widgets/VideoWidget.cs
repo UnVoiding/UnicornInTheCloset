@@ -36,9 +36,7 @@ namespace RomenoCompany
             widgetType = WidgetType.VIDEO;
             closeBtn.onClick.AddListener(() =>
             {
-                videoPlayer.Stop();
-                ClearOutRenderTexture(renderTexture);
-                Hide(onVideoEnded);
+                StopVideo();
             });
 
             // no unsubscription yet
@@ -64,6 +62,13 @@ namespace RomenoCompany
             
             videoImage.texture = renderTexture;
             videoPlayer.targetTexture = renderTexture;
+        }
+
+        public void StopVideo()
+        {
+            videoPlayer.Stop();
+            ClearOutRenderTexture(renderTexture);
+            Hide(onVideoEnded);
         }
         
         public void ClearOutRenderTexture(RenderTexture renderTexture)

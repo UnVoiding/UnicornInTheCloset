@@ -134,4 +134,71 @@ public partial class SROptions
 	{
 		Inventory.Instance.SkipTutorial();
 	}
+	
+	[Category("General")]
+	public void ShowVideo()
+	{
+		var videoClip = DB.Instance.videos.items.Get(videoNames[videoName]);
+		var videoWidget = UIManager.Instance.GetWidget<VideoWidget>();
+		videoWidget.StopVideo();
+		UIManager.Instance.Wait(1.5f, () =>
+		{
+			videoWidget.ShowForVideo(videoClip);
+		});
+	}
+
+	static SROptions()
+	{
+		videoNames = new Dictionary<VideoId, string>();
+		videoNames[VideoId.church]			= "church";
+		videoNames[VideoId.club]			= "club";
+		videoNames[VideoId.concat_final]	= "concat_final";
+		videoNames[VideoId.friendship]		= "friendship";
+		videoNames[VideoId.government]		= "government";
+		videoNames[VideoId.hot_home]		= "hot_home";
+		videoNames[VideoId.love]			= "love";
+		videoNames[VideoId.mother_calling2]	= "mother_calling2";
+		videoNames[VideoId.mother_calling3]	= "mother_calling3";
+		videoNames[VideoId.priest_home]		= "priest_home";
+		videoNames[VideoId.rally]			= "rally";
+		videoNames[VideoId.start]			= "start";
+		videoNames[VideoId.teenager1]		= "teenager1";
+		videoNames[VideoId.teenager2]		= "teenager2";
+		videoNames[VideoId.training]		= "training";
+
+	}
+
+	public enum VideoId
+	{
+		church,
+		club,
+		concat_final,
+		friendship,
+		government,
+		hot_home,
+		love,
+		mother_calling2,
+		mother_calling3,
+		priest_home,
+		rally,
+		start,
+		teenager1,
+		teenager2,
+		training
+	}
+	
+	private static Dictionary<VideoId, string> videoNames;
+	private VideoId videoName;
+	[Category("General")]
+	public VideoId VideoName
+	{
+		get
+		{
+			return videoName;
+		}
+		set
+		{
+			videoName = value;
+		}
+	}
 }

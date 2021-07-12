@@ -1190,7 +1190,7 @@
       "tags": [
         "t:h",
         "showThing:homophobe-inside",
-        "set:horny-item:1"
+        "set:hot-item:1"
       ]
     },
     {
@@ -1694,7 +1694,7 @@
       ]
     },
     {
-      "text": "nudes.jpg---\n[[— Ммм... Неплохо. Как быстро можешь приехать?]]",
+      "text": "banana.jpg---\n[[— Ммм... Неплохо. Как быстро можешь приехать?]]",
       "links": [
         {
           "name": "— Ммм... Неплохо. Как быстро можешь приехать?",
@@ -1901,13 +1901,13 @@
       },
       "tags": [
         "t:p",
-        "startVideo:horny_home"
+        "startVideo:hot_home"
       ]
     }
   ],
   "name": "Озабоченный Short",
   "startnode": "1",
   "creator": "Twine",
-  "creator-version": "2.3.13",
+  "creator-version": "2.3.14",
   "ifid": "6EAFD6ED-7F6A-4FB5-85EE-EDA1EAD0F227"
 }
