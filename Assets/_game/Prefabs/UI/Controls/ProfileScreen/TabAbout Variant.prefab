@@ -160,7 +160,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: 18
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -270,29 +270,145 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<b>\u041A\u043E\u043C\u0430\u043D\u0434\u0430</b>\n\u0420\u043E\u043C\u0430\u043D
-    Romeno \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\u0421\u0435\u0440\u0433\u0435\u0439
+    \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\u0421\u0435\u0440\u0433\u0435\u0439
     \u041A\u0430\u0441\u043F\u0435\u0440\u043E\u0432\u0438\u0447\nMananiko Amarilla
     Kobakhidze\n\u041A\u0430\u0441\u0430\u0442\u043A\u0438\u043D \u0412\u043B\u0430\u0434\u0438\u0441\u043B\u0430\u0432\n\n<b>\u0418\u0434\u0435\u044F
-    \u0438 \u043C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442</b>\n\u041A\u0430\u0441\u043F\u0435\u0440\u043E\u0432\u0438\u0447
-    \u0421\u0435\u0440\u0433\u0435\u0439\n\u0420\u043E\u043C\u0430\u043D Romeno \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\n<b>\u041F\u0440\u0438
-    \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0435</b>\nPrague Civil Society
-    Centre\nCommunity Centre \u0434\u043B\u044F \u041B\u0413\u0411\u0422\u041A+ \u043B\u044E\u0434\u0435\u0439
-    \u0438 \u0438\u0445 \u0431\u043B\u0438\u0437\u043A\u0438\u0445 (communitycentre.by)\n\n<b>\u0421\u0446\u0435\u043D\u0430\u0440\u0438\u0439</b>\n\u0421\u0435\u0440\u0433\u0435\u0439
+    \u0438 \u043C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442</b>\n\u0421\u0435\u0440\u0433\u0435\u0439
     \u041A\u0430\u0441\u043F\u0435\u0440\u043E\u0432\u0438\u0447\n\u0420\u043E\u043C\u0430\u043D
-    Romeno \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\n<b>\u0412\u0438\u0437\u0443\u0430\u043B\u044C\u043D\u043E\u0435
+    \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\n<b>\u041F\u0440\u0438 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0435</b>\nPrague
+    Civil Society Centre\nCommunity Centre \u0434\u043B\u044F \u041B\u0413\u0411\u0422\u041A+
+    \u043B\u044E\u0434\u0435\u0439 \u0438 \u0438\u0445 \u0431\u043B\u0438\u0437\u043A\u0438\u0445
+    (communitycentre.by)\n\n<b>\u0421\u0446\u0435\u043D\u0430\u0440\u0438\u0439</b>\n\u0421\u0435\u0440\u0433\u0435\u0439
+    \u041A\u0430\u0441\u043F\u0435\u0440\u043E\u0432\u0438\u0447\n\u0420\u043E\u043C\u0430\u043D
+    \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\n<b>\u0412\u0438\u0437\u0443\u0430\u043B\u044C\u043D\u043E\u0435
     \u043E\u0444\u043E\u0440\u043C\u043B\u0435\u043D\u0438\u0435</b>\nMananiko Amarilla
     Kobakhidze\n\u0421\u0435\u0440\u0433\u0435\u0439 \u041A\u0430\u0441\u043F\u0435\u0440\u043E\u0432\u0438\u0447\n\u0420\u043E\u043C\u0430\u043D
-    Romeno \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\n<b>\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435</b>\n\u0420\u043E\u043C\u0430\u043D
-    Romeno \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\u0421\u0435\u0440\u0433\u0435\u0439
-    \u041A\u0430\u0441\u043F\u0435\u0440\u043E\u0432\u0438\u0447\n\n<b>\u0417\u0432\u0443\u043A\u043E\u0432\u043E\u0435
+    \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\n<b>\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435</b>\n\u0420\u043E\u043C\u0430\u043D
+    \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\n<b>\u041F\u0435\u0440\u0432\u0430\u044F
+    \u0440\u0430\u0431\u043E\u0447\u0430\u044F \u0432\u0435\u0440\u0441\u0438\u044F
+    \u0438\u0433\u0440\u044B</b>\n\u041A\u0430\u0441\u0430\u0442\u043A\u0438\u043D
+    \u0412\u043B\u0430\u0434\u0438\u0441\u043B\u0430\u0432\n\n<b>\u0417\u0432\u0443\u043A\u043E\u0432\u043E\u0435
     \u043E\u0444\u043E\u0440\u043C\u043B\u0435\u043D\u0438\u0435</b>\n\u0420\u043E\u043C\u0430\u043D
-    Romeno \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\u0421\u0435\u0440\u0433\u0435\u0439
+    \u0422\u0440\u043E\u0448\u043A\u0438\u043D\n\u0421\u0435\u0440\u0433\u0435\u0439
     \u041A\u0430\u0441\u043F\u0435\u0440\u043E\u0432\u0438\u0447\n\n<b>\u0422\u0435\u0441\u0442\u0435\u0440\u044B</b>\n\u041F\u0441\u0442\u044B\u0433\u0430
     \u0418\u0433\u043E\u0440\u044C\n\u041F\u0430\u043D\u0438\u0441\u043E\u0432\u0430
     \u041E\u043B\u044C\u0433\u0430\nMaks Smail\n\u0418\u0432\u0430\u043D\u043E\u0432
-    \u0416\u0435\u043D\u044F\n\u0428\u0435\u0439\u043D \u0410\u043D\u0434\u0440\u0435\u0439\n\n<b>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u043D\u044B\u0435
-    \u0437\u0432\u0443\u043A\u0438 \u0438 \u043C\u0443\u0437\u044B\u043A\u0430</b>\n\n<b>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u043D\u044B\u0435
-    \u0444\u043E\u0442\u043E</b>"
+    \u0416\u0435\u043D\u044F\n\u0428\u0435\u0439\u043D \u0410\u043D\u0434\u0440\u0435\u0439\n\u0420\u0443\u0441\u043B\u0430\u043D
+    Revision \u0420\u044B\u0431\u0430\u043A\n\n<b>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u043D\u044B\u0435
+    \u0437\u0432\u0443\u043A\u0438 \u0438 \u043C\u0443\u0437\u044B\u043A\u0430</b>\n-
+    Cordless phone ring.wav, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 cbakos, Creative Commons Attribution License,
+    https://freesound.org/people/cbakos/sounds/50646/\r\n- Matt's Emotional Ambient
+    Synthscape, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440  Mattc90, Creative Commons Attribution License,
+    https://freesound.org/people/Mattc90/sounds/336858/\r\n- Rain and Thunder Atmo
+    01, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 parademics, Creative Commons Attribution License,
+    https://freesound.org/people/parademics/sounds/204340/\r\n- Knocking door and
+    open door.wav, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    rivernile7, Creative Commons Attribution License, https://freesound.org/people/rivernile7/sounds/249573/\r\n-
+    Eclipse [Part 2], \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 Erokia, Creative Commons Attribution License,
+    https://freesound.org/people/Erokia/sounds/414245/\r\n- Wind Chimes, A.wav, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E,
+    \u0430\u0432\u0442\u043E\u0440 InspectorJ, Creative Commons Attribution License,
+    https://freesound.org/people/InspectorJ/sounds/353194/\r\n- Thailand Bangkok
+    traffic light morning motorcycles from 2nd floor window heavy echo tight street3.flac,
+    \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439, \u0430\u0432\u0442\u043E\u0440
+    kyles, Creative Commons 0 Universal, https://freesound.org/people/kyles/sounds/452418/\r\n-
+    Stairs & hallway ambience - theatre \"School of dramatic art\", Moscow Jul 16,
+    OMNI mics.wav, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    gladkiy, Creative Commons 0 Universal, https://freesound.org/people/gladkiy/sounds/350350/\r\n-
+    Dreadful prayer 2, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    BrainClaim, Creative Commons 0 Universal, https://freesound.org/people/BrainClaim/sounds/267632/\r\n-
+    Dreadful prayer 1, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    BrainClaim, Creative Commons 0 Universal, https://freesound.org/people/BrainClaim/sounds/267633/\r\n-
+    The Dark Rite, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    BrainClaim, Creative Commons 0 Universal, https://freesound.org/people/BrainClaim/sounds/274124/\r\n-
+    Sexy, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 Benjamin Tissot (also known as Bensound), \u043C\u0443\u0437\u044B\u043A\u0430
+    \u0441 \u0441\u0430\u0439\u0442\u0430 bensound.com, https://www.bensound.com/royalty-free-music/track/sexy\r\n-
+    more Jazz guitar.wav, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 Sub-d, Creative Commons 0 Universal, https://freesound.org/people/Sub-d/sounds/49658/\r\n-
+    Dusk Loop, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    DDmyzik, Creative Commons Attribution NonCommercial License, https://freesound.org/people/DDmyzik/sounds/469420/\r\n-
+    Dramatic Tension.wav, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 AaronGNP, Creative Commons Attribution License,
+    https://freesound.org/people/AaronGNP/sounds/54615/\r\n- Sad heaven piano #3,
+    \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    PSOVOD, Creative Commons Attribution License, https://freesound.org/people/PSOVOD/sounds/415186/\r\n-
+    ESE - WHOOSH - EPIC - Arrested.wav, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 EpicSoundEffects, Creative Commons 0 Universal,
+    https://freesound.org/people/EpicSoundEffects/sounds/475881/\r\n- Police siren.mp3,
+    \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0442\u0432\u043E\u0440
+    MultiMax2121, Creative Commons 0 Universal, https://freesound.org/people/MultiMax2121/sounds/156869/\r\n-
+    D_Man_Stop.wav, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 Grubzyy, Creative Commons 0 Universal, https://freesound.org/people/Grubzyy/sounds/422724/\r\n-
+    Yeah!!! Techno loop, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    frankum, Creative Commons Attribution License, https://freesound.org/people/frankum/sounds/380823/\r\n-
+    2 5 8 3 3 8 5 4 - Composition 4.mp3, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 HermanSchmidt, Creative Commons Attribution License,
+    https://freesound.org/people/HermanSchmidt/sounds/254750/\r\n- 2 5 8 3 - Composition
+    2.mp3, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 HermanSchmidt, Creative Commons Attribution License,
+    https://freesound.org/people/HermanSchmidt/sounds/254752/\r\n- Historical Museum
+    lounge area ambience.wav, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0442\u043E\u0440 Halfofthesky, Creative Commons Attribution NonCommercial
+    License, https://freesound.org/people/Halfofthesky/sounds/455872/\r\n- Footsteps_Hallway.wav,
+    \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439, \u0430\u0432\u0442\u043E\u0440
+    georgisound, Creative Commons 0 Universal, https://freesound.org/people/georgisound/sounds/368834/\r\n-
+    15 seconds of \"blah blah blah\", \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 unfa, Creative Commons Attribution License, https://freesound.org/people/unfa/sounds/165539/\r\n-
+    Times of Unrest 1R57c, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    Setuniman, Creative Commons Attribution NonCommercial License, https://freesound.org/people/Setuniman/sounds/470116/\r\n-
+    Light Metal Door_Closing and Locking.mp3, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E,
+    \u0430\u0432\u0442\u043E\u0440 imagery2, Creative Commons 0 Universal, https://freesound.org/people/imagery2/sounds/455956/\r\n-
+    Nylon string Guitar with steel string bass.mp3, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E,
+    \u0430\u0432\u0442\u043E\u0440 4barrelcarb, Creative Commons 0 Universal, https://freesound.org/people/4barrelcarb/sounds/362832/\r\n-
+    Mystical Wind Chimes Transition FX, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E,
+    \u0430\u0432\u0442\u043E\u0440 djlprojects, Creative Commons 0 Universal, https://freesound.org/people/djlprojects/sounds/419594/\r\n-
+    horse.wav, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    stomachache, \u0421reative Commons 0 Universal, https://freesound.org/people/stomachache/sounds/53261/\r\n-
+    Plop Sound, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    BlueSiren, \u0421reative Commons 0 Universal, https://freesound.org/people/BlueSiren/sounds/414383/\r\n-
+    recepci\xF3n_mensaje_agua_almalaut.wav, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E,
+    \u0430\u0432\u0442\u043E\u0440 almalaut, \u0421reative Commons 0 Universal, https://freesound.org/people/almalaut/sounds/380017/\r\n-
+    Applause 2.aif, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    lchapman1980, \u0421reative Commons 0 Universal, https://freesound.org/people/lchapman1980/sounds/439895/\r\n-
+    keys on door and open.wav, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 sKydran, \u0421reative Commons 0 Universal, https://freesound.org/people/sKydran/sounds/131438/\n\n<b>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u043D\u044B\u0435
+    \u0432\u0438\u0437\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B</b>\n-
+    Rainbow, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    Benson Kua, Creative Commons Attribution-ShareAlike 2.0 Generic, https://www.flickr.com/photos/bensonkua/4988338912/\r\n-
+    Solidarity with Serbian LGBT Demo, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E,
+    \u0430\u0432\u0442\u043E\u0440 Loz Pycock, Creative Commons Attribution-ShareAlike
+    2.0 Generic, https://www.flickr.com/photos/blahflowers/3953373281/\r\n- Manifestaci\xF3n
+    por la diversidad sexual, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    Javier Ignacio Acu\xF1a Ditzel, Creative Commons Attribution 2.0 Generic https://www.flickr.com/photos/santoposmoderno/5870721315/\r\n-
+    Lenin Street, Minsk, \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439,
+    \u0430\u0432\u0442\u043E\u0440 Andrew Milligan sumo, Creative Commons Attribution
+    2.0 Generic https://www.flickr.com/photos/andrewmilligansumo/28636583948\r\n-
+    03.WestboroBaptistChurch.SupremeCourt.WDC.28April2015, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E,
+    \u0430\u0432\u0442\u043E\u0440  Elvert Barnes, Creative Commons Attribution-ShareAlike
+    2.0 Generic https://www.flickr.com/photos/perspective/17304003492\r\n- This is
+    my left hand, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    Lindsay Evans, Creative Commons Attribution-ShareAlike 2.0 Generic, https://www.flickr.com/photos/lindsayevans/2145180801/\r\n-
+    IMG_4904, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    \u0424\u043E\u0442\u043E\u0431\u0430\u043D\u043A Moscow-Live.ru, Creative Commons
+    Attribution-NonCommercial-ShareAlike 2.0 Generic https://www.flickr.com/photos/moscow-live/23066031711/\r\n-
+    A cell, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    Geoff Stearns, Creative Commons Attribution 2.0 Generic, https://www.flickr.com/photos/tensafefrogs/2240079403/\r\n-
+    \u0420\u0443\u043A\u0430, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    I am R., Creative Commons Attribution 2.0 Generic https://www.flickr.com/photos/isfullofcrap/9193225902/
+    \r\n- Old Office, \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    Luke Jones, Creative Commons Attribution 2.0 Generic https://www.flickr.com/photos/befuddledsenses/2111937600
+    \r\n- \u0418\u043A\u043E\u043D\u043A\u0430 \u0440\u043E\u0434\u0438\u0442\u0435\u043B\u0435\u0439,
+    \u0431\u0435\u0437 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439, \u0430\u0432\u0442\u043E\u0440
+    freepik, Flaticon License, https://www.flaticon.com/free-icon/parents_437501
+    \r\n- \u041D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0438\u0441\u043A\u043E\u043D\u043A\u0438,
+    \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u043E, \u0430\u0432\u0442\u043E\u0440
+    pixelmeetup, Flaticon License, https://www.flaticon.com/authors/pixelmeetup \r\n\r\n\u0414\u0440\u0443\u0433\u043E\u0435\r\n-
+    \u0428\u0440\u0438\u0444\u0442 Zinco Black Condensed https://fontzone.net/font-details/zinco-blackcondensed\r\n-
+    \u0428\u0440\u0438\u0444\u0442 Sofia Sans, Open Font License https://fontesk.com/sofia-sans-typeface/ "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 00b2461c241931842a0e14e6db088025, type: 2}
   m_sharedMaterial: {fileID: -662523354734108066, guid: 00b2461c241931842a0e14e6db088025,
@@ -331,7 +447,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: 18
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
