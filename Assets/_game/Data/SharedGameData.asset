@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  snowflakeTimeToReadCompanionSymbol: 0.033
+  snowflakeTimeToReadCompanionSymbol: 0.0435
   snowflakeTimeToReadHeroSymbol: 0.015
   snowflakeMinAfterPassageWaitTime: 1.5
   snowflakeImageMessageWaitTime: 2

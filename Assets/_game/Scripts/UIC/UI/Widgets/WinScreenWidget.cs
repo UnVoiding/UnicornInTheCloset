@@ -40,6 +40,7 @@ namespace RomenoCompany
             widgetType = WidgetType.WIN;
             developersBtn.onClick.AddListener(() =>
             {
+                Hide();
                 UIManager.Instance.GetWidget<PlayerProfileScreenWidget>().showDevelopers = true;
                 UIManager.Instance.GoToComposition(Composition.PLAYER_PROFILE);
             });

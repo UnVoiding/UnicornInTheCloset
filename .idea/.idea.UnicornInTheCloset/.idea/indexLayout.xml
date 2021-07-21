@@ -3,10 +3,14 @@
   <component name="ContentModelUserStore">
     <attachedFolders />
     <explicitIncludes>
+      <Path>Library/PackageCache/com.unity.addressables@1.18.11</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.6</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.4</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.2.3</Path>
+      <Path>Library/PackageCache/com.unity.localization@1.0.0-pre.10</Path>
+      <Path>Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0</Path>
+      <Path>Library/PackageCache/com.unity.scriptablebuildpipeline@1.19.1</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.24</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@2.1.4</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.2.18</Path>
